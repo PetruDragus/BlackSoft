@@ -1,0 +1,265 @@
+.ht-100v {
+    height: 100vh;
+}
+
+.bg-br-primary {
+    background-color: #1D2939;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+@media (min-width: 480px) {
+    .wd-xs-350 {
+        width: 350px;
+    }
+}
+
+.wd-300 {
+    width: 300px;
+}
+
+@media (min-width: 480px) {
+    .pd-xs-40 {
+        padding: 40px;
+    }
+}
+
+.pd-25 {
+    padding: 25px;
+}
+
+.shadow-base {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.21);
+}
+
+.rounded {
+    border-radius: 3px !important;
+}
+
+.bg-white {
+    background-color: #fff !important;
+}
+
+.tx-28 {
+    font-size: 28px;
+}
+
+.tx-center {
+    text-align: center;
+}
+
+.tx-inverse {
+    color: #343a40;
+}
+
+.tx-center {
+    text-align: center;
+}
+
+.mg-b-60 {
+    margin-bottom: 60px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.has-icon-left .form-control {
+    padding-right: 1.5rem;
+    padding-left: -webkit-calc(2.75rem + 2px);
+    padding-left: -moz-calc(2.75rem + 2px);
+    padding-left: calc(2.75rem + 2px);
+}
+.position-relative .form-control {
+    padding-right: -webkit-calc(2.75rem + 2px);
+    padding-right: -moz-calc(2.75rem + 2px);
+    padding-right: calc(2.75rem + 2px);
+}
+.has-icon-left .form-control {
+    padding-left: 2.5rem;
+}
+form .form-control {
+    color: #3b4781;
+    border: 1px solid #cacfe7;
+}
+.round {
+    border-radius: 1.5rem !important;
+}
+
+html body a {
+    color: #6967ce;
+}
+
+a {
+    color: #5654c8;
+    background-color: transparent;
+}
+
+.form-control {
+    font-size: 1rem;
+    line-height: 1.25;
+    display: block;
+    width: 100%;
+    height: -webkit-calc(2.75rem + 2px);
+    height: -moz-calc(2.75rem + 2px);
+    height: calc(2.75rem + 2px);
+    padding: .75rem 1.5rem;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -o-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    color: #4e5154;
+    border: 1px solid #babfc7;
+    border-radius: .25rem;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+.form-control {
+    padding-right: 1.5rem;
+    padding-left: -webkit-calc(2.75rem + 2px);
+    padding-left: -moz-calc(2.75rem + 2px);
+    padding-left: calc(2.75rem + 2px);
+}
+
+form .form-group {
+    margin-bottom: 0;
+    font-size: 14px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px;
+}
+
+.has-icon-left .form-control-position {
+    right: auto;
+    left: 3px;
+}
+
+.form-control-position {
+    line-height: 3.2rem;
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 0;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+}
+
+.m-b-0 {
+    margin-bottom: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+i {
+    padding: 10px;
+    left: 0;
+    position: absolute;
+    color: #6967ce;
+}
+
+.position-relative {
+    position: relative!important;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.tx-12 {
+    font-size: 12px;
+}
+
+.tx-info {
+    color: #fbb040;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #fbb040 !important;
+    border-color: #fbb040 !important;
+}
+
+.title {
+    font-family: "Fira Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #868ba1;
+    margin-top: 10px;
+}
+
+.login-wrapper {
+    padding: 50px !important;
+}
+
+.btn-bg-gradient-x-purple-blue.btn-glow {
+    -webkit-box-shadow: 0 0 12px 0 #fbb040;
+    box-shadow: 0 0 12px 0 #fbb040;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled), summary {
+    cursor: pointer;
+}
+.btn-bg-gradient-x-purple-blue {
+    transition: .5s;
+    background: #fbb040;
+}
+
+button {
+    background-color: #fbb040 !important;
+    color: #fff !important;
+}
+
+.btn-bg-gradient-x-purple-blue, .btn-bg-gradient-x-purple-red {
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    color: #fff;
+    border: none;
+    -webkit-background-size: 200% auto;
+}
+
+.mg-t-10 {
+    margin-top: 10px;
+}
+
+.tx-center {
+    text-align: center;
+}
+
+a {
+    transition: all 0.2s ease-in-out;
+    font-size: 12px;
+}
+
+.mg-t-60 {
+    margin-top: 60px;
+}

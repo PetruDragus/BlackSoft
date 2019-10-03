@@ -1,0 +1,347 @@
+<template>
+    <div class="m-t-35">
+        <div class="col-md-12 toggled">
+            <div class="row">
+                <div id="subheader_pg" class="subHeader__block">
+                    <div class="float-left" style="display:flex;">
+                        <div class="subheader__page__title">
+                            <h6>Customers</h6>
+                        </div>
+
+                        <span class="subheader__separator kt-subheader__separator--v"></span>
+
+                        <div class="subheader__desc__count">
+                            <span>2 Total</span>
+                        </div>
+                    </div>
+                    <div class="float-right">
+                        <div style="display: flex;">
+                            <a href="/customers/create" class="btn btn-label-brand btn-bold">
+                                Add Customer
+                            </a>
+
+                            <div class="dropdown">
+                                <a id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn export-btn">
+                                    <i class="fas fa-file-download"></i>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <div class="nav__section nav__section--first">
+                                        <span class="nav__section-text">Choose an option</span>
+                                    </div>
+
+                                    <a class="dropdown-item" >
+                                        <i class="fas fa-print"></i>
+                                        <span class="nav__link-text">Print</span>
+                                    </a>
+                                    <a class="dropdown-item" href="/export/customers/exportExcel">
+                                        <i class="far fa-file-excel"></i>
+                                        <span class="nav__link-text">Excel</span>
+                                    </a>
+                                    <a class="dropdown-item"  href="/export/customers/exportCSV">
+                                        <i class="fas fa-file-csv"></i>
+                                        <span class="nav__link-text">CSV</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-light alert-elevate" role="alert">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation"></i>
+            </div>
+            <div class="alert-text">
+                DataTables fully supports colspan and rowspan in the table's header, assigning the required order listeners to the TH element suitable for that column.
+            </div>
+        </div>
+
+        <div class="accordion" id="customers--accordion">
+            <div class="card">
+                <div class="card-body">
+                    <a class="d-lg-flex justify-content-between collapsed" data-toggle="collapse" href="#Customer1" role="button" aria-expanded="false" aria-controls="Customer1">
+                        <div class="media mb-3 mb-lg-0">
+                            <img src="https://mannatthemes.com/metrica/light/assets/images/users/user-1.jpg" class="mr-3 thumb-md align-self-center rounded-circle" alt="...">
+                            <div class="media-body align-self-center">
+                                <h5 class="mt-0 mb-1">Donald Gardner</h5>
+                                <p class="text-muted mb-0">
+                                    <i class="fas fa-map-marker-alt mr-2 text-info"></i>
+                                    Seattle, Washington
+                                </p>
+                            </div>
+                            <!--end media body-->
+                        </div>
+                        <!--end media-->
+                        <p class="text-muted mb-2 mb-lg-0 align-self-center">
+                            <i class="far fa-envelope mr-2 text-info font-14">
+
+                            </i>
+                            Ernest@Webster.com
+                        </p>
+                        <p class="text-muted mb-2 mb-lg-0 align-self-center">
+                            <i class="fas fa-phone mr-2 text-info font-14">
+
+                            </i>+1 234 567 890</p>
+                        <p class="text-muted mb-2 mb-lg-0 align-self-center">
+                            <i class="fas fa-calendar mr-2 text-info font-14"></i>04 June 2019</p>
+                    </a>
+                </div>
+
+                <div class="collapse show" id="Customer1" data-parent="#customers--accordion">
+                    <div class="card card-body mb-0">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mb-0 table-centered table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Order Date</th>
+                                            <th>Payment</th>
+                                            <th>Order Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>#124781</td>
+                                            <td>25/11/2018</td>
+                                            <td>$321</td>
+                                            <td>
+                                                <span class="badge badge-soft-success">Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown d-inline-block float-right">
+                                                    <a class="nav-link dropdown-toggle arrow-none" id="dLabel1" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v font-20 text-muted"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel1">
+                                                        <a class="dropdown-item" href="#">Creat Project</a>
+                                                        <a class="dropdown-item" href="#">Open Project</a>
+                                                        <a class="dropdown-item" href="#">Tasks Details</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#542136</td>
+                                            <td>19/11/2018</td>
+                                            <td>$227</td>
+                                            <td>
+                                                <span class="badge badge-soft-success">Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown d-inline-block float-right">
+                                                    <a class="nav-link dropdown-toggle arrow-none" id="dLabel5" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v font-20 text-muted"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel5">
+                                                        <a class="dropdown-item" href="#">Creat Project</a>
+                                                        <a class="dropdown-item" href="#">Open Project</a>
+                                                        <a class="dropdown-item" href="#">Tasks Details</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#234578</td>
+                                            <td>11/10/2018</td>
+                                            <td>$442</td>
+                                            <td>
+                                                <span class="badge badge-soft-danger">Cancelled</span>
+                                            </td>
+                                            <td>
+                                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" v-bind:href="'/customers/'+row.id">
+                                                                <i class="far fa-eye"></i>
+                                                                <span class="nav__link-text">View</span>
+                                                            </a>
+                                                            <a class="dropdown-item" v-bind:href="'/customers/'+row.id+'/edit'">
+                                                                <i class="far fa-edit"></i>
+                                                                <span class="nav__link-text">Edit</span>
+                                                            </a>
+                                                            <a class="dropdown-item">
+                                                                <i class="far fa-trash-alt"></i>
+                                                                <span class="nav__link-text">Delete</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                    <!--end /table-->
+                                </div>
+                                <!--end /tableresponsive-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="dv">
+            <div class="dv-header">
+                <div class="dv-header-title">
+                    {{ title }}
+                </div>
+                <div class="dv-header-columns">
+                    <span class="dv-header-pre">Search: </span>
+                    <select class="dv-header-select" v-model="query.search_column">
+                        <option v-for="column in columns" :value="column">{{column}}</option>
+                    </select>
+                </div>
+                <div class="dv-header-operators">
+                    <select class="dv-header-select" v-model="query.search_operator">
+                        <option v-for="(value, key) in operators" :value="key">{{value}}</option>
+                    </select>
+                </div>
+                <div class="dv-header-search">
+                    <input type="text" class="dv-header-input"
+                           placeholder="Search"
+                           v-model="query.search_input"
+                           @keyup.enter="fetchIndexData()">
+                </div>
+                <div class="dv-header-submit">
+                    <button class="dv-header-btn"@click="fetchIndexData()">Filter</button>
+                </div>
+            </div>
+            <div class="dv-body table-responsive">
+                <table class="dv-table table">
+                    <thead>
+                    <tr>
+                        <th v-for="column in columns" @click="toggleOrder(column)">
+                            <span>{{ column }}</span>
+                            <span class="dv-table-column" v-if="column === query.column">
+                            <span v-if="query.direction === 'desc'">&darr;</span>
+                            <span v-else>&uarr;</span>
+                        </span>
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="row in model.data">
+                        <td v-for="(value, key) in row">{{value}}</td>
+                        <td>
+                        <span class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                            <div class="dropdown">
+                                <a class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                            </div>
+                        </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="dv-footer">
+                <div class="dv-footer-item">
+                    <span class="small">Displaying {{model.from}} - {{model.to}} of {{model.total}} rows</span>
+                </div>
+                <div class="dv-footer-item">
+                    <div class="dv-footer-sub">
+                        <button class="dv-footer-btn btn btn-default btn-sm" @click="prev()">&laquo; Prev</button>
+                        <button class="dv-footer-btn btn btn-default btn-sm" @click="next()">Next &raquo;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import Vue from 'vue'
+    import axios from 'axios'
+    //similar to vue-resource
+    export default {
+        data() {
+            return {
+                model: {},
+                columns: {},
+                source: '/api/customers',
+                title: 'Customers',
+                query: {
+                    page: 1,
+                    column: 'id',
+                    direction: 'desc',
+                    per_page: 20,
+                    search_column: 'id',
+                    search_operator: 'not_equal',
+                    search_input: ''
+                },
+                operators: {
+                    equal: '=',
+                    not_equal: '<>',
+                    less_than: '<',
+                    greater_than: '>',
+                    less_than_or_equal_to: '<=',
+                    greater_than_or_equal_to: '>=',
+                    in: 'IN',
+                    like: 'LIKE'
+                }
+            }
+        },
+        created() {
+            this.fetchIndexData()
+        },
+        methods: {
+            next() {
+                if(this.model.next_page_url) {
+                    this.query.page++
+                    this.fetchIndexData()
+                }
+            },
+            prev() {
+                if(this.model.prev_page_url) {
+                    this.query.page--
+                    this.fetchIndexData()
+                }
+            },
+            toggleOrder(column) {
+                if(column === this.query.column) {
+                    // only change direction
+                    if(this.query.direction === 'desc') {
+                        this.query.direction = 'asc'
+                    } else {
+                        this.query.direction = 'desc'
+                    }
+                } else {
+                    this.query.column = column
+                    this.query.direction = 'asc'
+                }
+                this.fetchIndexData()
+            },
+            fetchIndexData() {
+                var vm = this;
+
+                const url = 'http://127.0.0.1:8000/api/customers?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+
+                axios.get(url)
+                    .then(function(response) {
+                        Vue.set(vm.$data, 'model', response.data.model)
+                        Vue.set(vm.$data, 'columns', response.data.columns)
+                    })
+                    .catch(function(response) {
+                        console.log(response)
+                    })
+            }
+        }
+    }
+</script>
