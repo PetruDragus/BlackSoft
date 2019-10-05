@@ -34,3 +34,6 @@ Route::get('vehicles', 'VehicleController@getData');
 Route::get('payments', 'PaymentController@getData');
 Route::get('opportunities', 'OpportunityController@getData');
 Route::get('products', 'ProductController@search');
+
+Route::apiResources(['v1/bookings' => 'API\BookingController']);
+Route::apiResources(['v1/drivers' => 'API\DriverController']);

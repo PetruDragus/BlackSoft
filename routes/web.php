@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/api/book', 'BookingController@ApiBooking');
+Route::post('/api/booking/generatePrice/{id}', 'BookingController@generatePrice');
 
 Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
     // Export to excel

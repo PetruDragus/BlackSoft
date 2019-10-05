@@ -2020,3 +2020,63 @@ div#send--invoice--modal {
     }
   }
 }
+
+.booking-modal {
+  .modal-header {
+    background-color: #32323a !important;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 0;
+
+    h5 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  .booking-modal-list {
+    h5 {
+      font-size: 14px;
+    }
+  }
+
+  .list-b-item {
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid #d6d6d6;
+
+    label {
+      font-weight: 500;
+    }
+  }
+
+  .change-driver-form {
+    margin-top: 15px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 6px 15px;
+    display: inline-block;
+    position: relative;
+    text-shadow: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  button.btn-primary {
+    background: #3aa3e3;
+    color: #fff;
+    box-shadow: 0 1px #1d8acd;
+  }
+}
+
+.width-40 {
+  width: 40% !important;
+}

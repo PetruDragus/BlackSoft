@@ -14,6 +14,15 @@ window.Vue = require('vue');
 
 import 'fullcalendar/dist/fullcalendar.css';
 
+import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: "AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus",
+        libraries: "places" // necessary for places input
+    }
+});
+
 import { Form, HasError, AlertError } from 'vform'
 window.form = Form;
 Vue.component(HasError.name, HasError)
@@ -22,6 +31,17 @@ Vue.component(AlertError.name, AlertError)
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
+
+import swal from 'sweetalert2'
+window.swal = swal;
+
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+window.toast = toast;
 
 import FullCalendar from 'vue-full-calendar'; //Import Full-calendar
 Vue.use(FullCalendar);
@@ -68,6 +88,7 @@ import Users from './components/views/users/index';
 import Drivers from './components/views/drivers/index';
 import Payments from './components/views/payments/index';
 import Chart from './components/ChartComponent';
+import GMAP from './components/GoogleMap';
 
 import Test from './components/ExampleComponent';
 
@@ -100,7 +121,8 @@ const app = new Vue({
         Drivers,
         Payments,
         Chart,
-        Test
+        Test,
+        GMAP
     }
 }).$mount('#app');
 // Now the app has started!

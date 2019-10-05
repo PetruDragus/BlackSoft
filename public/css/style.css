@@ -1896,3 +1896,59 @@ div#send--invoice--modal .modal-footer .btn-primary {
   }
 }
 
+.booking-modal .modal-header {
+  background-color: #32323a !important;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 0;
+}
+
+.booking-modal .modal-header h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.booking-modal .booking-modal-list h5 {
+  font-size: 14px;
+}
+
+.booking-modal .list-b-item {
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.booking-modal .list-b-item label {
+  font-weight: 500;
+}
+
+.booking-modal .change-driver-form {
+  margin-top: 15px;
+}
+
+.booking-modal .btn {
+  border: none;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 6px 15px;
+  display: inline-block;
+  position: relative;
+  text-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.booking-modal button.btn-primary {
+  background: #3aa3e3;
+  color: #fff;
+  box-shadow: 0 1px #1d8acd;
+}
+
+.width-40 {
+  width: 40% !important;
+}
+

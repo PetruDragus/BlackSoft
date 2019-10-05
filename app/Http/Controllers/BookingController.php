@@ -27,7 +27,7 @@ class BookingController extends Controller
 
     public function getData()
     {
-        $model = Booking::searchPaginateAndOrder();
+        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->searchPaginateAndOrder();
         $columns = Booking::$columns;
 
         return response()
@@ -72,6 +72,34 @@ class BookingController extends Controller
         return view('pages.bookings.create', compact('driver', 'vehicle'));
     }
 
+    public function generatePrice(Request $request, $id)
+    {
+        $booking = Booking::find($id);
+
+
+        $origin = urlencode($booking->pickup_address);
+        $destination = urlencode($booking->drop_address);
+        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+        $distance = json_decode($api);
+
+        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+
+        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
+
+        $elements_hours = $distance->rows[0]->elements;
+
+        $duration = $elements_hours[0]->duration->text;
+
+        $google = $meters - 10;
+        $booking->price = $google + $booking->vehicle->price;
+
+        $booking->update(['price' => $booking->price]);
+
+        return redirect()
+            ->route('bookings.index')
+            ->with('success', 'Booking created successfully.');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -96,34 +124,40 @@ class BookingController extends Controller
         $booking->special_request = $request->get('special_request');
         $booking->additional_info = $request->get('additional_info');
         $booking->flight_number   = $request->get('flight_number');
+        $booking->price           = $request->get('price');
 
-        $origin = urlencode($booking->pickup_address);
-        $destination = urlencode($booking->drop_address);
-        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-        $distance = json_decode($api);
+//        $origin = urlencode($booking->pickup_address);
+//        $destination = urlencode($booking->drop_address);
+//        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+//        $distance = json_decode($api);
+//
+//        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+//
+//        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
+//
+//        $elements_hours = $distance->rows[0]->elements;
+//
+//        $duration = $elements_hours[0]->duration->text;
+//
+//        if($meters < 10) {
+//            $booking->price = $booking->vehicle->price;
+//        } else {
+//            $google = $meters - 10;
+//            $booking->price = $google + $booking->vehicle->price;
+//        }
 
-        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-
-        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-
-        $elements_hours = $distance->rows[0]->elements;
-
-        $duration = $elements_hours[0]->duration->text;
-
-        if($meters < 10) {
-            $booking->price = $booking->vehicle->price;
+        if (Customer::where('email', $request->get('email'))->exists()) {
+            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
         } else {
-            $google = $meters - 10;
-            $booking->price = $google + $booking->vehicle->price;
+            $customer = new Customer();
+            $customer->name = $request->get('name');
+            $customer->email = $request->get('email');
+            $customer->phone = $request->get('phone');
+            $customer->save();
         }
 
         $booking->save();
-
-        $customer = new Customer();
-        $customer->name            = $request->get('name');
-        $customer->email           = $request->get('email');
-        $customer->phone           = $request->get('phone');
-        $customer->save();
 
         return redirect()
             ->route('bookings.index')

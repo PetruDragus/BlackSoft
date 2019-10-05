@@ -111,7 +111,15 @@
                                     <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.bags }}</span>
                                 </span>
                             </td>
-                            <td class="td-price">€ {{ row.price | formatMoney}}</td>
+
+                            <td class="td-price" v-if="row.price > '0'">€ {{ row.price | formatMoney}}</td>
+                            <td class="td-price" v-else="row.price == '0'">
+                                <a @click="generatePrice(row.id)">
+                                    <span class="status status-blue">
+                                        <span class="status-text">Generate Price</span>
+                                    </span>
+                                </a>
+                            </td>
                             <td>
                                 <span class="status status-gray" v-if="row.status == 'Pending'">
                                     <span class="status-text">{{ row.status }}</span>
@@ -134,7 +142,7 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">
+                                            <a class="dropdown-item" data-toggle="modal" v-bind:data-target="'#previewBookingModal'+row.id">
                                                 <i class="far fa-window-restore"></i>
                                                 <span class="nav__link-text">Preview</span>
                                             </a>
@@ -146,7 +154,7 @@
                                                 <i class="far fa-edit"></i>
                                                 <span class="nav__link-text">Edit</span>
                                             </a>
-                                            <a class="dropdown-item">
+                                            <a class="dropdown-item" @click="deleteBooking(row.id)">
                                                 <i class="far fa-trash-alt"></i>
                                                 <span class="nav__link-text">Delete</span>
                                             </a>
@@ -154,6 +162,119 @@
                                     </div>
                                 </div>
                             </td>
+
+                            <!-- Modal -->
+                            <div class="modal fade booking-modal" v-bind:id="'previewBookingModal'+row.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ row.pickup_time }} - {{ row.date | formatDate }} - #{{ row.id }} - {{ row.vehicle.bussiness_type }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-6 booking-modal-list">
+                                                    <div class="list-b-item">
+                                                        <h5>Booking Information:</h5>
+                                                        <div class="row">
+                                                            <label class="col-md-4 col-form-label justify-content-end">Pickup Address: </label>
+                                                            <div class="col-md-8 col-form-label">
+                                                                {{ row.pickup_address }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-4 col-form-label justify-content-end">Drop Address: </label>
+                                                            <div class="col-md-8 col-form-label">
+                                                                {{ row.drop_address }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-4 col-form-label justify-content-end">Time / Date: </label>
+                                                            <div class="col-md-8 col-form-label">
+                                                                {{ row.pickup_time }} / {{ row.date | formatDate }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="list-b-item">
+                                                        <h5>Customer Information:</h5>
+                                                        <div class="row">
+                                                            <label class="col-md-4 col-form-label justify-content-end">Name: </label>
+                                                            <div class="col-md-8">
+                                                                {{ row.customer.name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-4 col-form-label justify-content-end">Email: </label>
+                                                            <div class="col-md-8">
+                                                                {{ row.customer.email }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-4 col-form-label justify-content-end">Phone: </label>
+                                                            <div class="col-md-8">
+                                                                {{ row.customer.phone }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-b-item">
+                                                        <h5>Financial Information:</h5>
+                                                        <div class="row" style="display: flex;">
+                                                            <div class="">
+                                                                <label class="col-md-4 col-form-label justify-content-end">Price: </label>
+                                                                <div class="col-md-8">
+                                                                    {{ row.price }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="width-40">
+                                                                <label class="col-md-4 col-form-label justify-content-end">Invoice: </label>
+                                                                <div class="col-md-8">
+                                                                    {{ row.invoice.number }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="width-40">
+                                                                <label class="col-md-4 col-form-label justify-content-end">Payment Method: </label>
+                                                                <div class="col-md-8">
+                                                                    {{ row.payment_method }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <GmapMap
+                                                            :center="{lat:10, lng:10}"
+                                                            :zoom="7"
+                                                            map-type-id="terrain"
+                                                            style="width: auto; height: 400px"
+                                                    >
+                                                    </GmapMap>
+                                                    <div class="change-driver-form">
+                                                        <form>
+                                                            <div class="form-group">
+                                                                <label class="form-label">
+                                                                    <span>Change Driver:</span>
+                                                                </label>
+
+                                                                <select class="form-control select-input" name="vehicle_id">
+                                                                    <option value="" disabled="disabled">Select ..</option>
+                                                                    <option v-for="driver in drivers.data" value="">Dragus Patrick</option>
+                                                                </select>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     </tbody>
                 </table>
@@ -170,40 +291,25 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </template>
 
 <script>
     import Vue from 'vue'
     import axios from 'axios'
+    import Form from 'vform'
+
+
     //similar to vue-resource
     export default {
         bookings: {},
         props: ['title'],
         data() {
             return {
+                form: new Form({
+                    price: 'price',
+                }),
+                drivers: {},
                 model: {},
                 columns: {},
                 source: '/api/bookings',
@@ -229,7 +335,8 @@
             }
         },
         created() {
-            this.fetchIndexData()
+            this.fetchIndexData();
+            this.loadDrivers();
         },
         methods: {
             next() {
@@ -244,28 +351,23 @@
                     this.fetchIndexData()
                 }
             },
-            deleteBooking(id) {
-                swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-
-                    // Send request to the server
-                    this.form.delete('/api/bookings/'+id).then(() => {
-                        swal(
-                            'Deleted!',
-                            'Your contact has been deleted.',
-                            'success'
-                        );
-                    }).catch(() => {
-                        swal('Failed!', 'There was someting wrong!', 'Warning!');
+            generatePrice (id) {
+                axios.delete('/api/v1/bookings/'+id)
+                    .then(function (response) {
+                        window.location.reload();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
                     });
-                })
+            },
+            deleteBooking(id) {
+                axios.delete( '/api/v1/bookings/'+id)
+                    .then(function (response) {
+                        window.location.reload();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             toggleOrder(column) {
                 if(column === this.query.column) {
@@ -284,6 +386,9 @@
             loadContacts() {
                 axios.get('/api/bookings/all').then(({ data }) => (this.bookings = data));
             },
+            loadDrivers() {
+                axios.get('/api/v1/drivers').then(({ data }) => (this.drivers = data));
+            },
             fetchIndexData() {
                 var vm = this;
 
@@ -298,12 +403,11 @@
                         console.log(response)
                     })
             }
-        }
-        ,
+        },
         computed: {
             resultCount () {
                 return this.fetchIndexData = response.data
             }
-        },
+        }
     }
 </script>
