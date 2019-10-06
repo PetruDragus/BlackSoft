@@ -236,7 +236,52 @@
                                                     <div class="d-md-flex align-items-center">
                                                         <h4 class="mb-3"> {{ $row->customer_name }} </h4>
                                                         <small class="text-primary ml-md-auto">
-                                                            <i class="fe fe-calendar mr-1"></i> {{ $row->created_at }}</small>
+                                                            <i class="fe fe-calendar mr-1"></i>
+                                                            {{ $row->created_at }}
+                                                        </small>
+                                                    </div>
+                                                    <div>
+                                                        @if($row->rating === "1")
+                                                            <div style="display: inline-flex;">
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                            </div>
+                                                        @elseif($row->rating === "2")
+                                                            <div style="display: inline-flex;">
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                            </div>
+                                                        @elseif($row->rating === "3")
+                                                            <div style="display: inline-flex;">
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                            </div>
+                                                        @elseif($row->rating === "4")
+                                                            <div style="display: inline-flex;" >
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-starv"></i>
+                                                                <i class="far fa-star star-gold"></i>
+                                                            </div>
+                                                        @elseif($row->rating == "5")
+                                                            <div style="display: inline-flex;" >
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                                <i class="fas fa-star star-gold"></i>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                     <p class="mb-0 text-muted">
                                                         {{ $row->review }}

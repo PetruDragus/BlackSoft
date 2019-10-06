@@ -88,7 +88,7 @@ import Users from './components/views/users/index';
 import Drivers from './components/views/drivers/index';
 import Payments from './components/views/payments/index';
 import Chart from './components/ChartComponent';
-import GMAP from './components/GoogleMap';
+import GmapMap from './components/GoogleMap';
 
 import Test from './components/ExampleComponent';
 
@@ -122,7 +122,7 @@ const app = new Vue({
         Payments,
         Chart,
         Test,
-        GMAP
+        GmapMap
     }
 }).$mount('#app');
 // Now the app has started!

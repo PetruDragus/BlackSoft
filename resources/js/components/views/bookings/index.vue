@@ -299,7 +299,6 @@
     import axios from 'axios'
     import Form from 'vform'
 
-
     //similar to vue-resource
     export default {
         bookings: {},

@@ -17,15 +17,14 @@
             renderChart() {
 
                 new Chart(document.getElementById('canvas').getContext('2d'), {
-                    type: 'line',
+                    type: 'bar',
                     data: {
-                        labels: ["January","February","March","April","May","June","July","August","September","October", "November", "December"],
+                        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
                         datasets: [
                             {
-                                label: "Bookings",
-                                backgroundColor: ["#537fc9", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                                data: [168,132,167,132,111,164,134,199,143,123,167,155],
-                                backgroundColor: "#5e5e5e"
+                                label: "Population (millions)",
+                                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                                data: [2478,5267,734,784,433]
                             }
                         ]
                     },

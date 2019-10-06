@@ -16530,8 +16530,6 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Chart.js */ "./node_modules/Chart.js/dist/Chart.js");
 /* harmony import */ var Chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Chart_js__WEBPACK_IMPORTED_MODULE_0__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -16548,14 +16546,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     renderChart: function renderChart() {
       new Chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](document.getElementById('canvas').getContext('2d'), {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-          datasets: [_defineProperty({
-            label: "Bookings",
-            backgroundColor: ["#537fc9", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-            data: [168, 132, 167, 132, 111, 164, 134, 199, 143, 123, 167, 155]
-          }, "backgroundColor", "#5e5e5e")]
+          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+          datasets: [{
+            label: "Population (millions)",
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            data: [2478, 5267, 734, 784, 433]
+          }]
         },
         options: {
           title: {
@@ -92700,7 +92698,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     Payments: _components_views_payments_index__WEBPACK_IMPORTED_MODULE_20__["default"],
     Chart: _components_ChartComponent__WEBPACK_IMPORTED_MODULE_21__["default"],
     Test: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_23__["default"],
-    GMAP: _components_GoogleMap__WEBPACK_IMPORTED_MODULE_22__["default"]
+    GmapMap: _components_GoogleMap__WEBPACK_IMPORTED_MODULE_22__["default"]
   }
 }).$mount('#app'); // Now the app has started!
 
