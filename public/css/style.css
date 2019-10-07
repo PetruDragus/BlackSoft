@@ -1952,3 +1952,27 @@ div#send--invoice--modal .modal-footer .btn-primary {
   width: 40% !important;
 }
 
+.bulins {
+  display: flex;
+}
+
+.bulins .text-success {
+  color: #1ecab8 !important;
+}
+
+.bulins .text-warning {
+  color: #f3c74d !important;
+}
+
+.bulins .text-purple {
+  color: #7551e9 !important;
+}
+
+.bulins .text-secondary {
+  color: #4ac7ec !important;
+}
+
+.bulins .text-danger {
+  color: #f1646c !important;
+}
+

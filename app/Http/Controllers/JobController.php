@@ -11,16 +11,4 @@ class JobController extends Controller
     {
         return view('pages.jobs.index');
     }
-
-    public function getData()
-    {
-        $model = Job::searchPaginateAndOrder();
-        $columns = Job::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
 }

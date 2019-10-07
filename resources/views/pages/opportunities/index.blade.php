@@ -39,51 +39,72 @@
                                         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
+
                                                     <div class="modal-header">
                                                         <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Opportunities</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="Location">Location</label>
-                                                                        <input type="text" class="form-control" id="Location" required="">
+                                                    <form class="form" action="{{ route('opportunities.store') }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+
+                                                        <div class="modal-body">
+                                                            <form>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="Location">Logo</label>
+                                                                            <input type="file" source="input" label="name" name="logo" col="4" class="form-input" >
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="PhoneNo">Phone No</label>
-                                                                        <input type="text" class="form-control" id="PhoneNo" required="">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="Location">Name</label>
+                                                                            <input type="text" class="form-control" id="Location" name="name" required="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="PhoneNo">Phone No</label>
+                                                                            <input type="text" class="form-control" id="PhoneNo" name="phone" required="">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label for="NewOppEmail">Email</label>
-                                                                        <input type="email" class="form-control" id="NewOppEmail" required="">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="Location">Location</label>
+                                                                            <input type="text" class="form-control" id="Location" name="location" required="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="NewOppEmail">Email</label>
+                                                                            <input type="email" class="form-control" id="NewOppEmail" name="email" required="">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="modal-status-select" class="mr-2">Category</label>
-                                                                        <select class="custom-select" id="modal-status-select">
-                                                                            <option selected="">Select</option>
-                                                                            <option value="1">Hot</option>
-                                                                            <option value="2">Cold</option>
-                                                                            <option value="3">In Progress</option>
-                                                                            <option value="4">Lost</option>
-                                                                            <option value="5">Won</option>
-                                                                        </select>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label for="modal-status-select" class="mr-2">Category</label>
+                                                                            <select class="custom-select" id="modal-status-select" name="category">
+                                                                                <option selected="">Select</option>
+                                                                                <option value="Hot">Hot</option>
+                                                                                <option value="Cold">Cold</option>
+                                                                                <option value="In Progress">In Progress</option>
+                                                                                <option value="Lost">Lost</option>
+                                                                                <option value="Won">Won</option>
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <button type="button" class="btn btn-sm btn-primary">Save</button>
-                                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                                                        </form>
-                                                    </div>
+                                                                <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                                                                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <!-- /.modal-content -->
                                             </div>
@@ -149,710 +170,75 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://mannatthemes.com/metrica/light/assets/images/widgets/opp-1.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
+                @foreach($row as $item)
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <div class="media">
+                                            <img class="d-flex align-self-center mr-3 rounded-circle" src="/storage/{{ $item->filename}}" alt="" height="50">
+                                            <div class="media-body align-self-center">
+                                                <h4 class="mt-0 mb-2 font-16">{{ $item->name }}</h4>
+                                                <ul class="list-inline mb-0 text-muted">
+                                                    <li class="list-inline-item mr-2">
+                                                        <span>
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                        </span>{{ $item->location }}</li>
+                                                    <li class="list-inline-item mr-2">
+                                                        <span>
+                                                            <i class="far fa-envelope"></i>
+                                                        </span>{{ $item->email }}</li>
+                                                    <li class="list-inline-item">
+                                                        <span>
+                                                            <i class="fas fa-mobile-alt"></i>
+                                                        </span>
+                                                        {{ $item->phone }}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!--end media-body-->
+                                        </div>
+                                        <!--end media-->
                                     </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://mannatthemes.com/metrica/light/assets/images/widgets/opp-1.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
+                                    <!--end col-->
+                                    <div class="col-sm-2 align-self-center">
+                                        <div class="text-right bulins">
+                                            <span>
+                                                <i class="fas fa-circle
+                                                @if($item->category == 'Won')
+                                                    text-success
+                                                @elseif($item->category == 'In Progress')
+                                                    text-warning
+                                                @elseif($item->category == 'Hot')
+                                                    text-purple
+                                                @elseif($item->category == 'Cold')
+                                                    text-secondary
+                                                @elseif($item->category == 'Lost')
+                                                    text-danger
+                                                @endif
+                                                mr-2"></i>
+                                            </span>
+                                            <a href="#" class="mr-2">
+                                                <i class="fas fa-edit text-info font-16"></i>
+                                            </a>
+                                            <form action="{{ route('opportunities.destroy', $item->id) }}" method="post" >
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" onclick="return confirm('Are you sure?')">
+                                                    <i class="fas fa-trash-alt text-danger font-16"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <!--end media-body-->
+                                    <!--end col-->
                                 </div>
-                                <!--end media-->
+                                <!--end row-->
                             </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
+                            <!--end card-body-->
                         </div>
-                        <!--end row-->
                     </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://mannatthemes.com/metrica/light/assets/images/widgets/opp-1.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://mannatthemes.com/metrica/light/assets/images/widgets/opp-1.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://mannatthemes.com/metrica/light/assets/images/widgets/opp-1.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-WTEZFWKAgUBA70icz_DwKIekbJTmHS4U6A0lR4WAb46g4n0" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://cdn1.vectorstock.com/i/1000x1000/31/45/building-cityscape-construction-company-logo-vector-19953145.jpg" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://cdn1.vectorstock.com/i/1000x1000/31/45/building-cityscape-construction-company-logo-vector-19953145.jpg" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://cdn1.vectorstock.com/i/1000x1000/31/45/building-cityscape-construction-company-logo-vector-19953145.jpg" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://as1.ftcdn.net/jpg/02/41/30/72/500_F_241307210_MjjaJC3SJy2zJZ6B7bKGMRsKQbdwRSze.jpg" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://seeklogo.com/images/R/rounded-design-company-logo-58FEBA6563-seeklogo.com.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://image.freepik.com/free-vector/abstract-company-logo_1057-1742.jpg" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://cdn1.vectorstock.com/i/1000x1000/31/45/building-cityscape-construction-company-logo-vector-19953145.jpg" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="media">
-                                    <img class="d-flex align-self-center mr-3 rounded-circle" src="https://seeklogo.com/images/B/business-company-logo-2D5E330790-seeklogo.com.png" alt="" height="50">
-                                    <div class="media-body align-self-center">
-                                        <h4 class="mt-0 mb-2 font-16">Starbucks coffee</h4>
-                                        <ul class="list-inline mb-0 text-muted">
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                </span>Seattle, Washington</li>
-                                            <li class="list-inline-item mr-2">
-                                                <span>
-                                                    <i class="far fa-envelope"></i>
-                                                </span>Ernest@Webster.com</li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    <i class="fas fa-mobile-alt"></i>
-                                                </span>
-                                                +1 234 567 890
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--end media-body-->
-                                </div>
-                                <!--end media-->
-                            </div>
-                            <!--end col-->
-                            <div class="col-sm-2 align-self-center">
-                                <div class="text-right">
-                                    <span>
-                                        <i class="fas fa-circle text-success mr-2"></i>
-                                    </span>
-                                    <a href="#" class="mr-2">
-                                        <i class="fas fa-edit text-info font-16"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt text-danger font-16"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end card-body-->
-                </div>
-            </div>
+                @endforeach
         </div>
     </div>
 @endsection

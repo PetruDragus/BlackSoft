@@ -2080,3 +2080,27 @@ div#send--invoice--modal {
 .width-40 {
   width: 40% !important;
 }
+
+.bulins {
+  display: flex;
+
+  .text-success {
+    color: #1ecab8 !important;
+  }
+
+  .text-warning {
+    color: #f3c74d !important;
+  }
+
+  .text-purple {
+    color: #7551e9 !important;
+  }
+
+  .text-secondary {
+    color: #4ac7ec !important;
+  }
+
+  .text-danger {
+    color: #f1646c !important;
+  }
+}

@@ -169,7 +169,7 @@
                                             <i class="far fa-edit"></i>
                                             <span class="nav__link-text">Edit</span>
                                         </a>
-                                        <a class="dropdown-item">
+                                        <a class="dropdown-item" @click="deleteReview(row.id)">
                                             <i class="far fa-trash-alt"></i>
                                             <span class="nav__link-text">Delete</span>
                                         </a>
@@ -207,7 +207,7 @@
                 model: {},
                 columns: {},
                 title: 'Reviews',
-                source: '/api/reviews',
+                source: '/api/v1/reviews',
                 query: {
                     page: 1,
                     column: 'id',
@@ -259,10 +259,22 @@
                 }
                 this.fetchIndexData()
             },
+            deleteReview(id) {
+                if(confirm('are you sure?'))
+
+                // Send request to the server
+                    axios.delete( '/api/v1/reviews/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+            },
             fetchIndexData() {
                 var vm = this
 
-                const url = 'http://127.0.0.1:8000/api/reviews?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+                const url = 'http://127.0.0.1:8000/api/v1/reviews?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
                 axios.get(url)
                     .then(function(response) {

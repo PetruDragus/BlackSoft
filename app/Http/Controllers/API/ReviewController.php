@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Contact;
+use App\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $model = Contact::searchPaginateAndOrder();
-        $columns = Contact::$columns;
+        $model = Review::with('booking', 'driver')->searchPaginateAndOrder();
+        $columns = Review::$columns;
 
         return response()
             ->json([
@@ -67,10 +67,10 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        $contact = Contact::findOrFail($id);
+        $review = Review::findOrFail($id);
 
         // Delete the article
-        $contact->delete();
+        $review->delete();
         return ['message' => 'Contact Deleted!'];
     }
 }

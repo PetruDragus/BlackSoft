@@ -20,17 +20,6 @@ class ContactController extends Controller
     {
         return view('pages.contacts.index');
     }
-    public function getData()
-    {
-        $model = Contact::searchPaginateAndOrder();
-        $columns = Contact::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
 
     /**
      * Export to excel

@@ -23,18 +23,6 @@ class InvoiceController extends Controller
         return view('pages.invoices.index');
     }
 
-    public function getData()
-    {
-        $model = Invoice::with('customer')->searchPaginateAndOrder();
-        $columns = Invoice::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
-
     /**
      * Export to excel
      */

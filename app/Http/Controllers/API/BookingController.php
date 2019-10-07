@@ -18,7 +18,14 @@ class BookingController extends Controller
      */
     public function index()
     {
+        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->searchPaginateAndOrder();
+        $columns = Booking::$columns;
 
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
     }
 
     /**

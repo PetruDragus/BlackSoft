@@ -21,18 +21,6 @@ class ReviewController extends Controller
         return view('pages.reviews.index');
     }
 
-    public function getData() {
-
-        $model = Review::with('booking', 'driver')->searchPaginateAndOrder();
-        $columns = Review::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
-
     /**
      * Export to excel
      */

@@ -20,7 +20,7 @@ class Customer extends Model
 
     public static $columns = [
         'ID', 'Name', 'Phone',
-        'Email', 'Created', 'Updated', 'Full Name'
+        'Email', 'Created', 'Updated'
     ];
 
 

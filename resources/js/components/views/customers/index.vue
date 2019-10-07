@@ -1,5 +1,5 @@
 <template>
-    <div class="m-t-35">
+    <div class="m-t-65">
         <div class="col-md-12 toggled">
             <div class="row">
                 <div id="subheader_pg" class="subHeader__block">
@@ -38,7 +38,7 @@
                                         <i class="far fa-file-excel"></i>
                                         <span class="nav__link-text">Excel</span>
                                     </a>
-                                    <a class="dropdown-item"  href="/export/customers/exportCSV">
+                                    <a class="dropdown-item" href="/export/customers/exportCSV">
                                         <i class="fas fa-file-csv"></i>
                                         <span class="nav__link-text">CSV</span>
                                     </a>
@@ -57,138 +57,6 @@
             </div>
             <div class="alert-text">
                 DataTables fully supports colspan and rowspan in the table's header, assigning the required order listeners to the TH element suitable for that column.
-            </div>
-        </div>
-
-        <div class="accordion" id="customers--accordion">
-            <div class="card">
-                <div class="card-body">
-                    <a class="d-lg-flex justify-content-between collapsed" data-toggle="collapse" href="#Customer1" role="button" aria-expanded="false" aria-controls="Customer1">
-                        <div class="media mb-3 mb-lg-0">
-                            <img src="https://mannatthemes.com/metrica/light/assets/images/users/user-1.jpg" class="mr-3 thumb-md align-self-center rounded-circle" alt="...">
-                            <div class="media-body align-self-center">
-                                <h5 class="mt-0 mb-1">Donald Gardner</h5>
-                                <p class="text-muted mb-0">
-                                    <i class="fas fa-map-marker-alt mr-2 text-info"></i>
-                                    Seattle, Washington
-                                </p>
-                            </div>
-                            <!--end media body-->
-                        </div>
-                        <!--end media-->
-                        <p class="text-muted mb-2 mb-lg-0 align-self-center">
-                            <i class="far fa-envelope mr-2 text-info font-14">
-
-                            </i>
-                            Ernest@Webster.com
-                        </p>
-                        <p class="text-muted mb-2 mb-lg-0 align-self-center">
-                            <i class="fas fa-phone mr-2 text-info font-14">
-
-                            </i>+1 234 567 890</p>
-                        <p class="text-muted mb-2 mb-lg-0 align-self-center">
-                            <i class="fas fa-calendar mr-2 text-info font-14"></i>04 June 2019</p>
-                    </a>
-                </div>
-
-                <div class="collapse show" id="Customer1" data-parent="#customers--accordion">
-                    <div class="card card-body mb-0">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered mb-0 table-centered table-sm">
-                                        <thead>
-                                        <tr>
-                                            <th>Order ID</th>
-                                            <th>Order Date</th>
-                                            <th>Payment</th>
-                                            <th>Order Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>#124781</td>
-                                            <td>25/11/2018</td>
-                                            <td>$321</td>
-                                            <td>
-                                                <span class="badge badge-soft-success">Completed</span>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown d-inline-block float-right">
-                                                    <a class="nav-link dropdown-toggle arrow-none" id="dLabel1" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                                        <i class="fas fa-ellipsis-v font-20 text-muted"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel1">
-                                                        <a class="dropdown-item" href="#">Creat Project</a>
-                                                        <a class="dropdown-item" href="#">Open Project</a>
-                                                        <a class="dropdown-item" href="#">Tasks Details</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#542136</td>
-                                            <td>19/11/2018</td>
-                                            <td>$227</td>
-                                            <td>
-                                                <span class="badge badge-soft-success">Completed</span>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown d-inline-block float-right">
-                                                    <a class="nav-link dropdown-toggle arrow-none" id="dLabel5" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                                        <i class="fas fa-ellipsis-v font-20 text-muted"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel5">
-                                                        <a class="dropdown-item" href="#">Creat Project</a>
-                                                        <a class="dropdown-item" href="#">Open Project</a>
-                                                        <a class="dropdown-item" href="#">Tasks Details</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#234578</td>
-                                            <td>11/10/2018</td>
-                                            <td>$442</td>
-                                            <td>
-                                                <span class="badge badge-soft-danger">Cancelled</span>
-                                            </td>
-                                            <td>
-                                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                                    <div class="dropdown">
-                                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-h"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" v-bind:href="'/customers/'+row.id">
-                                                                <i class="far fa-eye"></i>
-                                                                <span class="nav__link-text">View</span>
-                                                            </a>
-                                                            <a class="dropdown-item" v-bind:href="'/customers/'+row.id+'/edit'">
-                                                                <i class="far fa-edit"></i>
-                                                                <span class="nav__link-text">Edit</span>
-                                                            </a>
-                                                            <a class="dropdown-item">
-                                                                <i class="far fa-trash-alt"></i>
-                                                                <span class="nav__link-text">Delete</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    </table>
-                                    <!--end /table-->
-                                </div>
-                                <!--end /tableresponsive-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -238,13 +106,28 @@
                     <tr v-for="row in model.data">
                         <td v-for="(value, key) in row">{{value}}</td>
                         <td>
-                        <span class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                            <div class="dropdown">
-                                <a class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </a>
+                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" v-bind:href="'/customers/'+row.id">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav__link-text">View</span>
+                                        </a>
+                                        <a class="dropdown-item" v-bind:href="'/customers/'+row.id+'/edit'">
+                                            <i class="far fa-edit"></i>
+                                            <span class="nav__link-text">Edit</span>
+                                        </a>
+                                        <a class="dropdown-item" @click="deleteCustomer(row.id)">
+                                            <i class="far fa-trash-alt"></i>
+                                            <span class="nav__link-text">Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </span>
                         </td>
                     </tr>
                     </tbody>
@@ -275,13 +158,13 @@
             return {
                 model: {},
                 columns: {},
-                source: '/api/customers',
-                title: 'Customers',
+                source: '/api/v1/customers',
+                title: 'Contacts',
                 query: {
                     page: 1,
                     column: 'id',
                     direction: 'desc',
-                    per_page: 20,
+                    per_page: 15,
                     search_column: 'id',
                     search_operator: 'not_equal',
                     search_input: ''
@@ -328,10 +211,22 @@
                 }
                 this.fetchIndexData()
             },
-            fetchIndexData() {
-                var vm = this;
+            deleteCustomer(id) {
+                if(confirm('are you sure?'))
 
-                const url = 'http://127.0.0.1:8000/api/customers?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+                // Send request to the server
+                    axios.delete( '/api/v1/customers/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+            },
+            fetchIndexData() {
+                var vm = this
+
+                const url = 'http://127.0.0.1:8000/api/v1/customers?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
                 axios.get(url)
                     .then(function(response) {

@@ -18,16 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('bookings', 'BookingController@getData');
-Route::get('bookings/all', 'BookingController@index');
-Route::get('invoices', 'InvoiceController@getData');
+// Get Data method endpoint
 Route::get('drivers', 'DriverController@getData');
-Route::get('reviews', 'ReviewController@getData');
-Route::get('contacts', 'ContactController@getData');
 Route::get('cities', 'CityController@getData');
-Route::get('jobs', 'JobController@getData');
-Route::get('jobApplication', 'JobApplicationController@getData');
-Route::get('customers', 'CustomerController@getData');
 Route::get('users', 'UserController@getData');
 Route::get('leads', 'LeadController@getData');
 Route::get('vehicles', 'VehicleController@getData');
@@ -37,3 +30,9 @@ Route::get('products', 'ProductController@search');
 
 Route::apiResources(['v1/bookings' => 'API\BookingController']);
 Route::apiResources(['v1/drivers' => 'API\DriverController']);
+Route::apiResources(['v1/contacts' => 'API\ContactController']);
+Route::apiResources(['v1/customers' => 'API\CustomerController']);
+Route::apiResources(['v1/reviews' => 'API\ReviewController']);
+Route::apiResources(['v1/invoices' => 'API\InvoiceController']);
+Route::apiResources(['v1/jobs' => 'API\JobsController']);
+Route::apiResources(['v1/jobApplication' => 'API\JobApplicationController']);

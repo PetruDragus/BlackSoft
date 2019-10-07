@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Contact;
+use App\JobApplication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class JobApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $model = Contact::searchPaginateAndOrder();
-        $columns = Contact::$columns;
+        $model = JobApplication::searchPaginateAndOrder();
+        $columns = JobApplication::$columns;
 
         return response()
             ->json([
@@ -67,10 +67,6 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        $contact = Contact::findOrFail($id);
-
-        // Delete the article
-        $contact->delete();
-        return ['message' => 'Contact Deleted!'];
+        //
     }
 }

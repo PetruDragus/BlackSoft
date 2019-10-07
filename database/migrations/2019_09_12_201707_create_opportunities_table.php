@@ -15,6 +15,15 @@ class CreateOpportunitiesTable extends Migration
     {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('location');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('category');
+            $table->string('logo')->default('');
+            $table->string('mime');
+            $table->string('original_filename');
+            $table->string('filename');
             $table->timestamps();
         });
     }

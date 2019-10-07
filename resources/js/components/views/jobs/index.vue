@@ -15,20 +15,35 @@
                         </div>
                     </div>
                     <div class="float-right">
-                        <div>
+                        <div style="display: flex;">
                             <a href="/jobs/create" class="btn btn-label-brand btn-bold">
                                 Add Job
                             </a>
 
-                            <a href="" class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
-                                        <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
-                                        <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" id="Combined-Shape" fill="#000000"></path>
-                                    </g>
-                                </svg>
-                            </a>
+                            <div class="dropdown">
+                                <a id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn export-btn">
+                                    <i class="fas fa-file-download"></i>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <div class="nav__section nav__section--first">
+                                        <span class="nav__section-text">Choose an option</span>
+                                    </div>
+
+                                    <a class="dropdown-item" >
+                                        <i class="fas fa-print"></i>
+                                        <span class="nav__link-text">Print</span>
+                                    </a>
+                                    <a class="dropdown-item" href="/export/jobs/exportExcel">
+                                        <i class="far fa-file-excel"></i>
+                                        <span class="nav__link-text">Excel</span>
+                                    </a>
+                                    <a class="dropdown-item"  href="/export/jobs/exportCSV">
+                                        <i class="fas fa-file-csv"></i>
+                                        <span class="nav__link-text">CSV</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -130,8 +145,7 @@
             return {
                 model: {},
                 columns: {},
-                source: '/api/jobs',
-                title: 'Jobs',
+                source: '/api/v1/jobs',
                 query: {
                     page: 1,
                     column: 'id',
@@ -186,7 +200,7 @@
             fetchIndexData() {
                 var vm = this;
 
-                const url = 'http://127.0.0.1:8000/api/jobs?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+                const url = 'http://127.0.0.1:8000/api/v1/jobs?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
                 axios.get(url)
                     .then(function(response) {

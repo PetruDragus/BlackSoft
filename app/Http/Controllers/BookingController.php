@@ -25,23 +25,6 @@ class BookingController extends Controller
         return view('pages.bookings.index');
     }
 
-    public function getData()
-    {
-        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->searchPaginateAndOrder();
-        $columns = Booking::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
-
-    public function ApiBooking() {
-        $booking = Booking::orderBy('id', 'ASC')->paginate(4);
-        return response()->json($booking);
-    }
-
     /**
      * Export to excel
      */

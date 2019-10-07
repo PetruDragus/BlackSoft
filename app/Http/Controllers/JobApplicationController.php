@@ -12,15 +12,4 @@ class JobApplicationController extends Controller
         return view('pages.jobApplication.index');
     }
 
-    public function getData()
-    {
-        $model = JobApplication::searchPaginateAndOrder();
-        $columns = JobApplication::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
 }
