@@ -26,6 +26,42 @@ class OpportunityController extends Controller
         return view('pages.opportunities.create');
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\c  $c
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $opportunity = Opportunity::find($id);
+
+        if(!empty($request->has('logo'))) {
+            $cover = $request->file('logo');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename().'.'.$extension,  File::get($cover));
+        }
+
+        $opportunity->name      = $request->get('name');
+        $opportunity->email     = $request->get('email');
+        $opportunity->phone     = $request->get('phone');
+        $opportunity->location  = $request->get('location');
+        $opportunity->category  = $request->get('category');
+
+        if(!empty($request->has('logo'))) {
+            $opportunity->mime = $cover->getClientMimeType();
+            $opportunity->original_filename = $cover->getClientOriginalName();
+            $opportunity->filename = $cover->getFilename().'.'.$extension;
+        }
+
+        $opportunity->save();
+
+        return redirect()
+            ->route('bookings.index')
+            ->with('success', 'Opportunity edited successfully.');
+    }
+
     public function store(Request $request)
     {
         $opportunity = New Opportunity();

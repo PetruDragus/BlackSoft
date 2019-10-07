@@ -219,7 +219,7 @@
                                                 @endif
                                                 mr-2"></i>
                                             </span>
-                                            <a href="#" class="mr-2">
+                                            <a class="mr-2" data-toggle="modal" data-target="#exampleModalLabe{{ $item->id }}">
                                                 <i class="fas fa-edit text-info font-16"></i>
                                             </a>
                                             <form action="{{ route('opportunities.destroy', $item->id) }}" method="post" >
@@ -238,6 +238,83 @@
                             <!--end card-body-->
                         </div>
                     </div>
+
+                <!--  Modal content for edit method -->
+                <div class="modal fade" id="exampleModalLabe{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="myLargeModalLabel{{$item->id}}">Edit Opportunities #{{ $item->id }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <form class="form" action="{{ route('opportunities.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PATCH')
+
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="Location">Logo</label>
+                                                    <input type="file" source="input" label="name" name="logo" col="4" class="form-input" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="Location">Name</label>
+                                                    <input type="text" class="form-control" id="Location" name="name" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="PhoneNo">Phone No</label>
+                                                    <input type="text" class="form-control" id="PhoneNo" name="phone" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="Location">Location</label>
+                                                    <input type="text" class="form-control" id="Location" name="location" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="NewOppEmail">Email</label>
+                                                    <input type="email" class="form-control" id="NewOppEmail" name="email" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="modal-status-select" class="mr-2">Category</label>
+                                                    <select class="custom-select" id="modal-status-select" name="category">
+                                                        <option selected="">Select</option>
+                                                        <option value="Hot">Hot</option>
+                                                        <option value="Cold">Cold</option>
+                                                        <option value="In Progress">In Progress</option>
+                                                        <option value="Lost">Lost</option>
+                                                        <option value="Won">Won</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Delete</button>
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
                 @endforeach
         </div>
     </div>
