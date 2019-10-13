@@ -16548,10 +16548,10 @@ __webpack_require__.r(__webpack_exports__);
       new Chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](document.getElementById('canvas').getContext('2d'), {
         type: 'bar',
         data: {
-          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+          labels: ["Maybach", "S Class", "E Class", "B Class"],
           datasets: [{
             label: "Population (millions)",
-            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
             data: [2478, 5267, 734, 784, 433]
           }]
         },

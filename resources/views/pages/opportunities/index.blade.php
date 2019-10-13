@@ -28,7 +28,7 @@
                                         </form>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                                         <div class="text-lg-right mt-3 mt-lg-0">
                                             <button type="button" class="btn btn-info waves-effect waves-light mr-1">
                                                 <i class="fas fa-filter"></i>
