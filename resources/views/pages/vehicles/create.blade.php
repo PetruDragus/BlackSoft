@@ -93,10 +93,10 @@
 
                                 <select name="bussiness_type" class="form-control select-input">
                                     <option value="" disabled="disabled">Select ..</option>
-                                        <option value="First Class">Luxury Class</option>
-                                        <option value="First Class">Bussiness Class</option>
+                                        <option value="Luxury Class">Luxury Class</option>
+                                        <option value="Bussiness Class">Bussiness Class</option>
                                         <option value="First Class">First Class</option>
-                                        <option value="First Class">City Class</option>
+                                        <option value="City Class">City Class</option>
                                 </select>
                             </div>
                         </div>

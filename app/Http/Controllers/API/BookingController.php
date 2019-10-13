@@ -28,6 +28,15 @@ class BookingController extends Controller
             ]);
     }
 
+    public function test()
+    {
+        $booking = Booking::
+            orderBy('customer_id', 'ASC')
+            ->with('invoice')
+            ->get();
+        return response()->json($booking);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -5,7 +5,7 @@
                 <div id="subheader_pg" class="subHeader__block">
                     <div class="float-left" style="display:flex;">
                         <div class="subheader__page__title">
-                            <h6>Jobs</h6>
+                            <h6>Job Applications</h6>
                         </div>
 
                         <span class="subheader__separator kt-subheader__separator--v"></span>
@@ -16,7 +16,7 @@
                     </div>
                     <div class="float-right">
                         <div>
-                            <a href="/jobs/create" class="btn btn-label-brand btn-bold">
+                            <a href="/applications/create" class="btn btn-label-brand btn-bold">
                                 Add Job Application
                             </a>
 
@@ -78,10 +78,13 @@
                     <tbody>
                     <tr v-for="row in model.data">
                         <th>#{{ row.id }}</th>
-                        <td class="md-w245">{{ row.title }}</td>
-                        <td class="md-w245">{{ row.description }}</td>
-                        <td>No Data Found</td>
-                        <td>{{ row.last_date | formatDate }}</td>
+                        <td>
+                            <a href="/jobs/1">#{{ row.job.title }}</a>
+                        </td>
+                        <td>{{ row.firstname }}</td>
+                        <td>{{ row.lastname }}</td>
+                        <td>{{ row.phone }}</td>
+                        <td>{{ row.email }}</td>
                         <td>
                             <span class="status status-green" v-if="row.status == 'Active'">
                                 <span class="status-text">{{ row.status }}</span>
@@ -91,15 +94,30 @@
                                 <span class="status-text">{{ row.status }}</span>
                             </span>
                         </td>
-                        <td>{{ row.created_at | formatDate }}</td>
+                        <td>{{ row.created_at }}</td>
                         <td>
-                        <span class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                            <div class="dropdown">
-                                <a class="btn btn-sm btn-clean btn-icon btn-icon-md" >
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </a>
+                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" v-bind:href="'/applications/'+row.id">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav__link-text">View</span>
+                                        </a>
+                                        <a class="dropdown-item" v-bind:href="'/applications/'+row.id+'/edit'">
+                                            <i class="far fa-edit"></i>
+                                            <span class="nav__link-text">Edit</span>
+                                        </a>
+                                        <a class="dropdown-item" @click="deleteApplication(row.id)">
+                                            <i class="far fa-trash-alt"></i>
+                                            <span class="nav__link-text">Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </span>
                         </td>
                     </tr>
                     </tbody>
@@ -130,8 +148,7 @@
             return {
                 model: {},
                 columns: {},
-                source: '/api/jobApplication',
-                title: 'Job Application',
+                source: '/api/v1/jobApplication',
                 query: {
                     page: 1,
                     column: 'id',
@@ -169,6 +186,18 @@
                     this.fetchIndexData()
                 }
             },
+            deleteApplication(id) {
+                if(confirm('are you sure?'))
+
+                // Send request to the server
+                    axios.delete( '/api/v1/jobApplication/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+            },
             toggleOrder(column) {
                 if(column === this.query.column) {
                     // only change direction
@@ -186,7 +215,7 @@
             fetchIndexData() {
                 var vm = this;
 
-                const url = 'http://127.0.0.1:8000/api/jobApplication?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+                const url = 'http://127.0.0.1:8000/api/v1/jobApplication?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
                 axios.get(url)
                     .then(function(response) {

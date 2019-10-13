@@ -4,10 +4,11 @@ namespace App;
 
 use App\Helper\DataViewer;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Contact extends Model
 {
-    use DataViewer;
+    use DataViewer, Notifiable;
 
     /**
      * The attributes that are mass assignable.

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Driver;
 use App\Exports\ReviewExport;
 use App\Review;
+use Session;
 use App\Booking;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -45,6 +46,19 @@ class ReviewController extends Controller
         return view('pages.reviews.create', compact('driver', 'booking'));
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\c  $c
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $review = Review::with(['driver', 'booking'])->findOrFail($id);
+
+        return view('pages.reviews.show', compact('review'));
+    }
+
     public function store(Request $request) {
 
         $review = New Review();
@@ -55,9 +69,10 @@ class ReviewController extends Controller
         $review->customer_name  = $request->get('customer_name');
         $review->save();
 
+        Session::flash('success', 'Review successfully created!');
+
         return redirect()
-            ->route('reviews.index')
-            ->with('success', 'Review created successfully.');
+            ->route('reviews.index');
     }
 
     /**

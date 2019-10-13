@@ -67,6 +67,10 @@ class JobsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jobs = Job::findOrFail($id);
+
+        // Delete the article
+        $jobs->delete();
+        return ['message' => 'Job Deleted!'];
     }
 }

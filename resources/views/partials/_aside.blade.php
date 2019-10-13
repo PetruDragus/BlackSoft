@@ -119,7 +119,7 @@
             </li>
 
             <li>
-                <a href="/users" class="sidebar-nav-link">
+                <a href="{{ route('applications.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-blender-phone"></i>
                     </div>

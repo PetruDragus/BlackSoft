@@ -105,6 +105,7 @@ class InvoiceController extends Controller
             $counter->increment('value');
             return $invoice;
         });
+
         return response()
             ->json(['saved' => true, 'id' => $invoice->id]);
     }

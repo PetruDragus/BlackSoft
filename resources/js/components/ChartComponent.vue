@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import {Chart} from 'Chart.js';
+    import { Chart } from 'Chart.js';
 
     export default {
         props: {
@@ -17,15 +17,16 @@
             renderChart() {
 
                 new Chart(document.getElementById('canvas').getContext('2d'), {
-                    type: 'line',
+                    type: 'bar',
                     data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'This week',
-                            data: data,
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        }]
+                        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                        datasets: [
+                            {
+                                label: "Population (millions)",
+                                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                                data: [2478,5267,734,784,433]
+                            }
+                        ]
                     },
                     options: {
                         title: {

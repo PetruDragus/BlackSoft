@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->string('number')->unique();
             $table->integer('customer_id')->unsigned();
+            $table->integer('booking_id')->unsigned();
             $table->date('date');
             $table->date('due_date');
             $table->string('reference')->nullable();

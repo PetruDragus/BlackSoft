@@ -17,7 +17,7 @@ class CityTableSeeder extends Seeder
 
         City::truncate();
 
-        foreach(range(1, 100) as $i) {
+        foreach(range(1, 250) as $i) {
             City::create([
                 'name' => $faker->city,
                 'country' => $faker->country,

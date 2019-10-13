@@ -15,6 +15,11 @@ class Job extends Model
 
     public static $columns = [
         'ID', 'Title', 'Description',
-        'Vacancy', 'Last Date', 'Status','Created', 'Updated'
+        'Vacancy', 'Last Date', 'Status','Created', 'Actions'
     ];
+
+    public function jobApplication()
+    {
+        return $this->hasMany(JobApplication::class);
+    }
 }

@@ -6,6 +6,8 @@ use App\Exports\PaymentsExport;
 use App\Payment;
 use App\Contact;
 use App\Invoice;
+use Session;
+
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -56,7 +58,11 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        $invoices = Invoice::all();
+
+        $contacts = Contact::all();
+
+        return view('pages.payments.create', compact('invoices', 'contacts'));
     }
 
     /**
@@ -67,7 +73,27 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        request()->validate([
+            'date'         => 'required',
+            'invoice_id'   => 'required',
+            'contact_id'   => 'required',
+            'amount'       => 'required',
+            'status'       => 'required',
+        ]);
+
+        $payment = New Payment();
+        $payment->date          = $request->get('date');
+        $payment->invoice_id    = $request->get('invoice_id');
+        $payment->contact_id    = $request->get('contact_id');
+        $payment->amount        = $request->get('amount');
+        $payment->status        = $request->get('status');
+        $payment->save();
+
+        Session::flash('success', 'Payment successfully created!');
+
+        return redirect()
+            ->route('payments.index');
     }
 
     /**

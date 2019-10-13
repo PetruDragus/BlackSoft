@@ -17,13 +17,14 @@ class VehicleTableSeeder extends Seeder
 
         Vehicle::truncate();
 
-        foreach(range(1, 250) as $i) {
+        foreach(range(1, 80) as $i) {
             Vehicle::create([
                 'make' => "Dacia",
                 'model' => "Logan",
                 'driver_id' => '1',
                 'price' => '2',
-
+                'bussiness_type' => 'First Class',
+                'plate' => 'GL 02DRA'
             ]);
         }
     }

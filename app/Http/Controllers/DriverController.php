@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Driver;
 use App\Vehicle;
-
+use Session;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -66,10 +66,10 @@ class DriverController extends Controller
         $driver->genter         = $request->genter;
         $driver->save();
 
+        Session::flash('success', 'Driver successfully created!');
 
         return redirect()
-            ->route('drivers.index')
-            ->with('success', 'Driver created successfully.');
+            ->route('drivers.index');
     }
 
     /**

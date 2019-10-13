@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Opportunity;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -58,7 +59,7 @@ class OpportunityController extends Controller
         $opportunity->save();
 
         return redirect()
-            ->route('bookings.index')
+            ->route('opportunities.index')
             ->with('success', 'Opportunity edited successfully.');
     }
 
@@ -85,9 +86,23 @@ class OpportunityController extends Controller
 
         $opportunity->save();
 
+        Session::flash('success', 'Opportunity successfully created!');
+
         return redirect()
-            ->route('opportunities.index')
-            ->with('success', 'Opportunity created successfully.');
+            ->route('opportunities.index');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\c  $c
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $opportunity = Opportunity::findOrFail($id);
+
+        return view('pages.opportunities.edit', compact('opportunity'));
     }
 
     public function destroy($id)

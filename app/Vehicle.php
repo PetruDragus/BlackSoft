@@ -20,7 +20,7 @@ class Vehicle extends Model
     ];
 
     public static $columns = [
-        'id', 'Driver', 'Plate', 'Model', 'Bussiness Type'
+        'Name', 'Business Type', 'Vehicle Price', 'Driver/Operator', 'Current Meter'
     ];
 
     public function categorie()

@@ -19,7 +19,7 @@ class CustomerTableSeeder extends Seeder
 
         Customer::truncate();
 
-        foreach(range(1, 300) as $i) {
+        foreach(range(1, 250) as $i) {
             Customer::create([
                 'name' => $faker->firstname,
                 'email'     => $faker->email,

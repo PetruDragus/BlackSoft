@@ -1976,3 +1976,154 @@ div#send--invoice--modal .modal-footer .btn-primary {
   color: #f1646c !important;
 }
 
+div#app-settings {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+div#app-settings a {
+  color: #29304c;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+div#app-settings textarea.form-input,
+div#app-settings textarea.table-form-control {
+  height: 99px !important;
+}
+
+div#app-settings .form-input {
+  color: #484746;
+  line-height: 16px;
+  font-size: 13px;
+  height: 32px;
+  background: #fafafa;
+  transition: background 0.2s;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 8px;
+  width: 100%;
+  display: block;
+}
+
+div#app-settings .upload {
+  height: 200px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+div#app-settings .upload .upload-inner {
+  border-radius: 3px;
+  border: 1px dashed #edece4;
+  background: #f9f8f5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div#app-settings .upload .upload-inner .upload-image-close {
+  z-index: 99;
+  padding-bottom: 5px;
+  text-align: right;
+}
+
+div#app-settings .upload .upload-inner .upload-image-img {
+  display: block;
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+}
+
+div#app-settings .settings-sidebar {
+  position: relative;
+  min-height: 100%;
+  /* width: 22%; */
+  height: 100vh;
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+div#app-settings .settings-sidebar .settings-title {
+  margin: 7px;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  display: block;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner {
+  background: #fff;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 15px;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner .settings-list {
+  padding: 0;
+  margin: 0;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner .settings-list li:hover {
+  background-color: #f8f8f8;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner .settings-list li {
+  display: block;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner .settings-list li a.settings-link {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 7px;
+  outline: none;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner .settings-list li a.settings-link .settings-text {
+  flex: 6;
+}
+
+div#app-settings .settings-sidebar .settings-sidebar-inner .settings-list li a.settings-link .settings-icon2 {
+  flex: 0.5;
+  text-align: right;
+}
+
+div#app-settings .settings-inner {
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.crud-alert {
+  margin-top: 65px !important;
+  margin-bottom: -45px !important;
+  border-radius: 0 !important;
+}
+
+.vh--content {
+  display: grid;
+  margin-left: 14px;
+}
+
+.vh--content a {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.vh--content p {
+  margin-bottom: 0;
+}
+
+.vh--content p span {
+  font-weight: 600;
+}
+

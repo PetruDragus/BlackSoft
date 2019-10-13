@@ -219,7 +219,7 @@
                                                 @endif
                                                 mr-2"></i>
                                             </span>
-                                            <a class="mr-2" data-toggle="modal" data-target="#exampleModalLabe{{ $item->id }}">
+                                            <a class="mr-2" href="{{ route('opportunities.edit', $item->id) }}">
                                                 <i class="fas fa-edit text-info font-16"></i>
                                             </a>
                                             <form action="{{ route('opportunities.destroy', $item->id) }}" method="post" >

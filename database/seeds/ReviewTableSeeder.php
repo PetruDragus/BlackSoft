@@ -17,7 +17,7 @@ class ReviewTableSeeder extends Seeder
 
         Review::truncate();
 
-        foreach(range(1, 200) as $i) {
+        foreach(range(1, 500) as $i) {
             Review::create([
                 'review' => $faker->realText($maxNbChars = 200, $indexSize = 2),
                 'rating' => $faker->numberBetween(1, 5),

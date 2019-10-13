@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <JobApplications></JobApplications>
+    <applications></applications>
 @endsection

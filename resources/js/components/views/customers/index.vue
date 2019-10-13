@@ -113,10 +113,6 @@
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/customers/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
-                                        </a>
                                         <a class="dropdown-item" v-bind:href="'/customers/'+row.id+'/edit'">
                                             <i class="far fa-edit"></i>
                                             <span class="nav__link-text">Edit</span>

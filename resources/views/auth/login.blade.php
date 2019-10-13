@@ -35,7 +35,7 @@
 
                         </div>
                         <div class="col-md-6 col-12 float-sm-left text-center text-sm-right">
-                            <a href="recover-password.html" class="card-link">Forgot Password?</a>
+                            <a href="{{ route('register') }}" class="card-link">New User?</a>
                         </div>
                     </div>
                     <div class="form-group text-center">

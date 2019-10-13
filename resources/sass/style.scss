@@ -2104,3 +2104,154 @@ div#send--invoice--modal {
     color: #f1646c !important;
   }
 }
+
+div#app-settings {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  a {
+    color: #29304c;
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  textarea.form-input, textarea.table-form-control {
+    height: 99px !important;
+  }
+
+  .form-input {
+    color: #484746;
+    line-height: 16px;
+    font-size: 13px;
+    height: 32px;
+    background: #fafafa;
+    transition: background .2s;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.01);
+    box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+    border-radius: 2px;
+    padding: 8px;
+    width: 100%;
+    display: block;
+  }
+
+  .upload {
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+
+    .upload-inner {
+      border-radius: 3px;
+      border: 1px dashed #edece4;
+      background: #f9f8f5;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .upload-image-close {
+        z-index: 99;
+        padding-bottom: 5px;
+        text-align: right;
+      }
+
+      .upload-image-img {
+        display: block;
+        max-width: 230px;
+        max-height: 95px;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  .settings-sidebar {
+    position: relative;
+    min-height: 100%;
+    /* width: 22%; */
+    height: 100vh;
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.02);
+
+    .settings-title {
+      margin: 7px;
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 400;
+      display: block;
+    }
+
+    .settings-sidebar-inner {
+      background: #fff;
+      height: 100%;
+      overflow-y: scroll;
+      padding: 15px;
+
+      .settings-list {
+        padding: 0;
+        margin: 0;
+
+        li:hover {
+          background-color: #f8f8f8;
+        }
+
+        li {
+          display: block;
+
+          a.settings-link {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 7px;
+            outline: none;
+
+
+            .settings-text {
+              flex: 6;
+            }
+
+            .settings-icon2 {
+              flex: 0.5;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .settings-inner {
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+
+.crud-alert {
+  margin-top: 65px !important;
+  margin-bottom: -45px !important;
+  border-radius: 0 !important;
+}
+
+.vh--content {
+  display: grid;
+  margin-left: 14px;
+
+  a {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 0;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

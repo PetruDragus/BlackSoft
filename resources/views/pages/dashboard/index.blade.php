@@ -153,54 +153,51 @@
 
                     <div class="card-body">
                         <div id="timeline-chart" class="h-300" style="min-height: 365px;">
-                            <chart
-                                    labels="{{ json_encode(['2014', '2015', '2016', '2017', '2020']) }}"
-                                    data-prop="{{ json_encode(['99', '66', '87', '49', '92']) }}">
-                            </chart>
+                            <chart></chart>
                         </div>
 
 
                         <p class="text-muted">Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example</p>
-                        <div class="row">
-                            <div class="col-md-4 mb-5 mb-md-0">
-                                <h6 class="text-body text-uppercase font-weight-semibold">Sales Last Week</h6>
-                                <h3 class="mb-3 font-weight-semibold">8,965</h3>
-                                <div class="mb-0">
-                                    <h5 class="mb-2 d-block text-muted">
-                                        <span class="fs-16">Weekly</span>
-                                        <span class="float-right">55%</span>
-                                    </h5>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%; background-color: rgb(52, 125, 241);"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-5 mb-md-0">
-                                <h6 class="text-body text-uppercase font-weight-semibold">Sales Last Month</h6>
-                                <h3 class="mb-3 font-weight-semibold">19,758</h3>
-                                <div class="mb-0">
-                                    <h5 class="mb-2 d-block text-muted">
-                                        <span class="fs-16">Monthly</span>
-                                        <span class="float-right">75%</span>
-                                    </h5>
-                                    <div class="progress progress-md h-2">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary w-75"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4"> <h6 class="text-body text-uppercase font-weight-semibold">Sales Last Year</h6>
-                                <h3 class="mb-3 font-weight-semibold">1,52,635</h3>
-                                <div class="mb-0">
-                                    <h5 class="mb-2 d-block text-muted">
-                                        <span class="fs-16">Yearly</span>
-                                        <span class="float-right">85%</span>
-                                    </h5>
-                                    <div class="progress progress-md h-2">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning w-85"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-4 mb-5 mb-md-0">--}}
+{{--                                <h6 class="text-body text-uppercase font-weight-semibold">Sales Last Week</h6>--}}
+{{--                                <h3 class="mb-3 font-weight-semibold">8,965</h3>--}}
+{{--                                <div class="mb-0">--}}
+{{--                                    <h5 class="mb-2 d-block text-muted">--}}
+{{--                                        <span class="fs-16">Weekly</span>--}}
+{{--                                        <span class="float-right">55%</span>--}}
+{{--                                    </h5>--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%; background-color: rgb(52, 125, 241);"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-4 mb-5 mb-md-0">--}}
+{{--                                <h6 class="text-body text-uppercase font-weight-semibold">Sales Last Month</h6>--}}
+{{--                                <h3 class="mb-3 font-weight-semibold">19,758</h3>--}}
+{{--                                <div class="mb-0">--}}
+{{--                                    <h5 class="mb-2 d-block text-muted">--}}
+{{--                                        <span class="fs-16">Monthly</span>--}}
+{{--                                        <span class="float-right">75%</span>--}}
+{{--                                    </h5>--}}
+{{--                                    <div class="progress progress-md h-2">--}}
+{{--                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary w-75"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-4"> <h6 class="text-body text-uppercase font-weight-semibold">Sales Last Year</h6>--}}
+{{--                                <h3 class="mb-3 font-weight-semibold">1,52,635</h3>--}}
+{{--                                <div class="mb-0">--}}
+{{--                                    <h5 class="mb-2 d-block text-muted">--}}
+{{--                                        <span class="fs-16">Yearly</span>--}}
+{{--                                        <span class="float-right">85%</span>--}}
+{{--                                    </h5>--}}
+{{--                                    <div class="progress progress-md h-2">--}}
+{{--                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning w-85"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="resize-triggers">
                             <div class="expand-trigger">
                                 <div style="width: 937px; height: 556px;"></div>
@@ -231,7 +228,7 @@
                                     @foreach ($reviews as $row)
                                         <a class="list-group-item list-group-item-action" href="#">
                                             <div class="media mt-0">
-                                                <img class="avatar-xxl rounded-circle mr-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_S9DUg_S9CHf-DxgcNbxYzZmibzud95wxTQslnreREOxA1ch1" alt="Image description">
+                                                <img class="avatar-xxl rounded-circle mr-3" src="https://www.theupholsteryforum.com/styles/FLATBOOTS/theme/images/user4.png" alt="Image description">
                                                 <div class="media-body">
                                                     <div class="d-md-flex align-items-center">
                                                         <h4 class="mb-3"> {{ $row->customer_name }} </h4>
@@ -326,135 +323,6 @@
                     </div>
                 </div>
             </div>
-
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-6">--}}
-{{--                        <div class="card crm-data-card">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-sm-4 align-self-center">--}}
-{{--                                        <div class="data-icon">--}}
-{{--                                            <i class="far fa-smile rounded-circle bg-soft-warning"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                    <div class="col-sm-8">--}}
-{{--                                        <h3>{{ $customers->count() }}</h3>--}}
-{{--                                        <p class="text-muted font-14 mb-0">Happy Customers</p>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                </div>--}}
-{{--                                <!-- end row-->--}}
-{{--                            </div>--}}
-{{--                            <!--end card-body-->--}}
-{{--                        </div>--}}
-{{--                        <!--end card-->--}}
-{{--                    </div>--}}
-{{--                    <!-- end col-->--}}
-{{--                    <div class="col-md-6">--}}
-{{--                        <div class="card crm-data-card">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-sm-4 align-self-center">--}}
-{{--                                        <div class="data-icon">--}}
-{{--                                            <i class="far fa-user rounded-circle bg-soft-success"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                    <div class="col-sm-8">--}}
-{{--                                        <h3>{{ $new_customers->count() }}</h3>--}}
-{{--                                        <p class="text-muted font-14 mb-0">New Customers</p>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                </div>--}}
-{{--                                <!-- end row-->--}}
-{{--                            </div>--}}
-{{--                            <!--end card-body-->--}}
-{{--                        </div>--}}
-{{--                        <!--end card-->--}}
-{{--                    </div>--}}
-{{--                    <!-- end col-->--}}
-{{--                </div>--}}
-
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-6">--}}
-{{--                        <div class="card crm-data-card">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-sm-4 align-self-center">--}}
-{{--                                        <div class="data-icon">--}}
-{{--                                            <i class="far fa-handshake rounded-circle bg-soft-secondary"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                    <div class="col-sm-8">--}}
-{{--                                        <h3>{{ $new_bookings->count() }}</h3>--}}
-{{--                                        <p class="text-muted font-14 mb-0">New Bookings</p>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                </div>--}}
-{{--                                <!-- end row-->--}}
-{{--                            </div>--}}
-{{--                            <!--end card-body-->--}}
-{{--                        </div>--}}
-{{--                        <!--end card-->--}}
-{{--                    </div>--}}
-{{--                    <!-- end col-->--}}
-{{--                    <div class="col-md-6">--}}
-{{--                        <div class="card crm-data-card">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-sm-4 align-self-center">--}}
-{{--                                        <div class="data-icon">--}}
-{{--                                            <i class="far fa-registered rounded-circle bg-soft-pink"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                    <div class="col-sm-8">--}}
-{{--                                        <h3>964</h3>--}}
-{{--                                        <p class="text-muted font-14 mb-0">New Register</p>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- end col-->--}}
-{{--                                </div>--}}
-{{--                                <!-- end row-->--}}
-{{--                            </div>--}}
-{{--                            <!--end card-body-->--}}
-{{--                        </div>--}}
-{{--                        <!--end card-->--}}
-{{--                    </div>--}}
-{{--                    <!-- end col-->--}}
-{{--                </div>--}}
-
-{{--                <div class="card">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <div class="row mb-3">--}}
-{{--                            <div class="col-sm-6">--}}
-{{--                                <p class="mb-0 text-muted font-13">--}}
-{{--                                    <i class="fas fa-dot-circle text-secondary mr-2"></i>New Leads</p>--}}
-{{--                            </div>--}}
-{{--                            <!-- end col-->--}}
-{{--                            <div class="col-sm-6">--}}
-{{--                                <p class="mb-0 text-muted font-13">--}}
-{{--                                    <i class="fas fa-dot-circle text-warning mr-2"></i>New Leads Target</p>--}}
-{{--                            </div>--}}
-{{--                            <!-- end col-->--}}
-{{--                        </div>--}}
-{{--                        <!-- end row-->--}}
-{{--                        <div class="progress bg-warning mb-3" style="height:5px;">--}}
-{{--                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex justify-content-between">--}}
-{{--                            <p class="mb-0 text-muted text-truncate align-self-center">--}}
-{{--                                <span class="text-success">--}}
-{{--                                    <i class="fas fa-sort-amount-up mr-2"></i>1.5%</span> Up From Last Week</p>--}}
-{{--                            <button type="button" class="btn btn-outline-info btn-sm">Leads Report</button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <!--end card-body-->--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
 
         <div class="row">
@@ -489,7 +357,7 @@
                                                 {{ $item->status  }}
                                             </td>
                                             <td class="text-truncate">
-                                                <a href="{{ route('invoices.show', $item->invoice->id) }}">{{ $item->invoice->number }}</a>
+                                                <a href="">#52345</a>
                                             </td>
                                             <td class="text-truncate">
                                                 <span>{{ $item->customer->name }}</span>

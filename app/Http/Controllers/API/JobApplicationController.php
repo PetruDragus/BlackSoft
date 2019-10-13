@@ -15,7 +15,7 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-        $model = JobApplication::searchPaginateAndOrder();
+        $model = JobApplication::with('job')->searchPaginateAndOrder();
         $columns = JobApplication::$columns;
 
         return response()
@@ -67,6 +67,10 @@ class JobApplicationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jobs = JobApplication::findOrFail($id);
+
+        // Delete the article
+        $jobs->delete();
+        return ['message' => 'Application Deleted!'];
     }
 }

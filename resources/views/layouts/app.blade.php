@@ -24,6 +24,7 @@
     </head>
 
     <body>
+
     <div class="ui" id="app">
         <div id="header">
             @include('partials._header')
@@ -38,6 +39,7 @@
                 <div class="ui-container">
                     <div class="content-body">
                         <div class="ui-container">
+                            @include('partials._notifications')
                             <transition name="fade" mode="out-in">
                                 <!-- Content section -->
                                     @yield('content')

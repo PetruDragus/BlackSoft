@@ -16546,14 +16546,13 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     renderChart: function renderChart() {
       new Chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](document.getElementById('canvas').getContext('2d'), {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: labels,
+          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
           datasets: [{
-            label: 'This week',
-            data: data,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)'
+            label: "Population (millions)",
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            data: [2478, 5267, 734, 784, 433]
           }]
         },
         options: {
@@ -17169,6 +17168,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
  //similar to vue-resource
 
@@ -17178,6 +17188,7 @@ __webpack_require__.r(__webpack_exports__);
       model: {},
       columns: {},
       source: '/api/cities',
+      title: 'Cities',
       query: {
         page: 1,
         column: 'id',
@@ -17258,10 +17269,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
 //
 //
 //
@@ -17507,10 +17514,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
 //
 //
 //
@@ -18379,6 +18382,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
  //similar to vue-resource
 
@@ -18440,6 +18460,14 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.fetchIndexData();
+    },
+    deleteJob: function deleteJob(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/jobs/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
@@ -18596,6 +18624,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
  //similar to vue-resource
 
@@ -18605,8 +18651,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       model: {},
       columns: {},
-      source: '/api/jobApplication',
-      title: 'Job Application',
+      source: '/api/v1/jobApplication',
       query: {
         page: 1,
         column: 'id',
@@ -18644,6 +18689,14 @@ __webpack_require__.r(__webpack_exports__);
         this.fetchIndexData();
       }
     },
+    deleteApplication: function deleteApplication(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/jobApplication/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+    },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
         // only change direction
@@ -18661,7 +18714,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/jobApplication?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = 'http://127.0.0.1:8000/api/v1/jobApplication?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -18904,6 +18957,14 @@ __webpack_require__.r(__webpack_exports__);
         this.fetchIndexData();
       }
     },
+    deletePayment: function deletePayment(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/payments/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+    },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
         // only change direction
@@ -18947,10 +19008,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
 //
 //
 //
@@ -19608,6 +19665,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
  //similar to vue-resource
 
@@ -19654,6 +19734,14 @@ __webpack_require__.r(__webpack_exports__);
         this.query.page--;
         this.fetchIndexData();
       }
+    },
+    deleteVehicle: function deleteVehicle(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/vehicles/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -72007,95 +72095,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/cities/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add City\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("a", { staticClass: "btn", attrs: { href: "" } }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass:
-                        "kt-svg-icon kt-svg-icon--success kt-svg-icon--md",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                        width: "24px",
-                        height: "24px",
-                        viewBox: "0 0 24 24",
-                        version: "1.1"
-                      }
-                    },
-                    [
-                      _c(
-                        "g",
-                        {
-                          attrs: {
-                            stroke: "none",
-                            "stroke-width": "1",
-                            fill: "none",
-                            "fill-rule": "evenodd"
-                          }
-                        },
-                        [
-                          _c("polygon", {
-                            attrs: {
-                              id: "Shape",
-                              points: "0 0 24 0 24 24 0 24"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z",
-                              id: "Combined-Shape",
-                              fill: "#000000",
-                              "fill-rule": "nonzero",
-                              opacity: "0.3"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z",
-                              id: "Combined-Shape",
-                              fill: "#000000"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
-          ]
-        )
-      ])
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
@@ -72314,23 +72314,6 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass: "dropdown-item",
-                                  attrs: { href: "/cities/" + row.id }
-                                },
-                                [
-                                  _c("i", { staticClass: "far fa-eye" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "nav__link-text" },
-                                    [_vm._v("View")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "dropdown-item",
                                   attrs: { href: "/cities/" + row.id + "/edit" }
                                 },
                                 [
@@ -72413,23 +72396,125 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "float-left", staticStyle: { display: "flex" } },
-      [
-        _c("div", { staticClass: "subheader__page__title" }, [
-          _c("h6", [_vm._v("Citis")])
-        ]),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "subheader__separator kt-subheader__separator--v"
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "subheader__desc__count" }, [
-          _c("span", [_vm._v("2 Total")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _c("div", { staticClass: "subheader__page__title" }, [
+                  _c("h6", [_vm._v("Cities")])
+                ]),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [_vm._v("2 Total")])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "float-right" }, [
+              _c("div", { staticStyle: { display: "flex" } }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-label-brand btn-bold",
+                    attrs: { href: "/cities/create" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Add City\n                        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn export-btn",
+                      attrs: {
+                        id: "dropdownMenuButton1",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-file-download" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "dropdown-menu",
+                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "nav__section nav__section--first" },
+                        [
+                          _c("span", { staticClass: "nav__section-text" }, [
+                            _vm._v("Choose an option")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("a", { staticClass: "dropdown-item" }, [
+                        _c("i", { staticClass: "fas fa-print" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "nav__link-text" }, [
+                          _vm._v("Print")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "/export/cities/exportExcel" }
+                        },
+                        [
+                          _c("i", { staticClass: "far fa-file-excel" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "nav__link-text" }, [
+                            _vm._v("Excel")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "/export/cities/exportCSV" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-file-csv" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "nav__link-text" }, [
+                            _vm._v("CSV")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -72720,23 +72805,6 @@ var render = function() {
                               attrs: { "aria-labelledby": "dropdownMenuButton" }
                             },
                             [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "dropdown-item",
-                                  attrs: { href: "/contacts/" + row.id }
-                                },
-                                [
-                                  _c("i", { staticClass: "far fa-eye" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "nav__link-text" },
-                                    [_vm._v("View")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
                               _c(
                                 "a",
                                 {
@@ -73243,23 +73311,6 @@ var render = function() {
                               attrs: { "aria-labelledby": "dropdownMenuButton" }
                             },
                             [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "dropdown-item",
-                                  attrs: { href: "/customers/" + row.id }
-                                },
-                                [
-                                  _c("i", { staticClass: "far fa-eye" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "nav__link-text" },
-                                    [_vm._v("View")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
                               _c(
                                 "a",
                                 {
@@ -74766,11 +74817,19 @@ var render = function() {
                   _vm._v(_vm._s(row.title))
                 ]),
                 _vm._v(" "),
-                _c("td", { staticClass: "md-w245" }, [
-                  _vm._v(_vm._s(row.description))
-                ]),
+                _c(
+                  "td",
+                  { staticClass: "md-w245", staticStyle: { width: "50%" } },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(row.description.substring(0, 400) + "..") +
+                        "\n                    "
+                    )
+                  ]
+                ),
                 _vm._v(" "),
-                _c("td", [_vm._v("No Data Found")]),
+                _c("td", [_vm._v(_vm._s(row.vacancy))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(_vm._f("formatDate")(row.last_date)))]),
                 _vm._v(" "),
@@ -74796,7 +74855,84 @@ var render = function() {
                   _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
                 ]),
                 _vm._v(" "),
-                _vm._m(1, true)
+                _c("td", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "bk-span-actions",
+                      staticStyle: {
+                        overflow: "visible",
+                        position: "relative",
+                        width: "80px",
+                        color: "#595d6e",
+                        "font-size": "1rem"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "dropdown" }, [
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "dropdownMenuButton" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "/jobs/" + row.id }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-eye" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("View")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "/jobs/" + row.id + "/edit" }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-edit" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Edit")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteJob(row.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-trash-alt" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Delete")
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
               ])
             }),
             0
@@ -74981,30 +75117,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "span",
-        {
-          staticClass: "bk-span-actions",
-          staticStyle: {
-            overflow: "visible",
-            position: "relative",
-            width: "80px",
-            color: "#595d6e",
-            "font-size": "1rem"
-          }
-        },
-        [
-          _c("div", { staticClass: "dropdown" }, [
-            _c(
-              "a",
-              { staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md" },
-              [_c("i", { staticClass: "fas fa-ellipsis-h" })]
-            )
-          ])
-        ]
-      )
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
+        attrs: {
+          id: "dropdownMenuButton",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [_c("i", { staticClass: "fas fa-ellipsis-h" })]
+    )
   }
 ]
 render._withStripped = true
@@ -75043,7 +75168,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/jobs/create" }
+                    attrs: { href: "/applications/create" }
                   },
                   [
                     _vm._v(
@@ -75294,17 +75419,19 @@ var render = function() {
               return _c("tr", [
                 _c("th", [_vm._v("#" + _vm._s(row.id))]),
                 _vm._v(" "),
-                _c("td", { staticClass: "md-w245" }, [
-                  _vm._v(_vm._s(row.title))
+                _c("td", [
+                  _c("a", { attrs: { href: "/jobs/1" } }, [
+                    _vm._v("#" + _vm._s(row.job.title))
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("td", { staticClass: "md-w245" }, [
-                  _vm._v(_vm._s(row.description))
-                ]),
+                _c("td", [_vm._v(_vm._s(row.firstname))]),
                 _vm._v(" "),
-                _c("td", [_vm._v("No Data Found")]),
+                _c("td", [_vm._v(_vm._s(row.lastname))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm._f("formatDate")(row.last_date)))]),
+                _c("td", [_vm._v(_vm._s(row.phone))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.email))]),
                 _vm._v(" "),
                 _c("td", [
                   row.status == "Active"
@@ -75324,11 +75451,88 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c("td", [
-                  _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
-                ]),
+                _c("td", [_vm._v(_vm._s(row.created_at))]),
                 _vm._v(" "),
-                _vm._m(1, true)
+                _c("td", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "bk-span-actions",
+                      staticStyle: {
+                        overflow: "visible",
+                        position: "relative",
+                        width: "80px",
+                        color: "#595d6e",
+                        "font-size": "1rem"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "dropdown" }, [
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "dropdownMenuButton" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "/applications/" + row.id }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-eye" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("View")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: {
+                                  href: "/applications/" + row.id + "/edit"
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-edit" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Edit")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteApplication(row.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-trash-alt" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Delete")
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
               ])
             }),
             0
@@ -75394,7 +75598,7 @@ var staticRenderFns = [
       { staticClass: "float-left", staticStyle: { display: "flex" } },
       [
         _c("div", { staticClass: "subheader__page__title" }, [
-          _c("h6", [_vm._v("Jobs")])
+          _c("h6", [_vm._v("Job Applications")])
         ]),
         _vm._v(" "),
         _c("span", {
@@ -75411,30 +75615,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "span",
-        {
-          staticClass: "bk-span-actions",
-          staticStyle: {
-            overflow: "visible",
-            position: "relative",
-            width: "80px",
-            color: "#595d6e",
-            "font-size": "1rem"
-          }
-        },
-        [
-          _c("div", { staticClass: "dropdown" }, [
-            _c(
-              "a",
-              { staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md" },
-              [_c("i", { staticClass: "fas fa-ellipsis-h" })]
-            )
-          ])
-        ]
-      )
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
+        attrs: {
+          id: "dropdownMenuButton",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [_c("i", { staticClass: "fas fa-ellipsis-h" })]
+    )
   }
 ]
 render._withStripped = true
@@ -75730,7 +75923,24 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(3, true)
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deletePayment(row.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-trash-alt" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Delete")
+                                ])
+                              ]
+                            )
                           ]
                         )
                       ])
@@ -75957,16 +76167,6 @@ var staticRenderFns = [
       },
       [_c("i", { staticClass: "fas fa-ellipsis-h" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "dropdown-item" }, [
-      _c("i", { staticClass: "far fa-trash-alt" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "nav__link-text" }, [_vm._v("Delete")])
-    ])
   }
 ]
 render._withStripped = true
@@ -76303,21 +76503,6 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("span", { staticClass: "nav__link-text" }, [
                                   _vm._v("View")
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "/reviews/" + row.id + "/edit" }
-                              },
-                              [
-                                _c("i", { staticClass: "far fa-edit" }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "nav__link-text" }, [
-                                  _vm._v("Edit")
                                 ])
                               ]
                             ),
@@ -77042,95 +77227,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/vehicles/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Vehicle\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("a", { staticClass: "btn", attrs: { href: "" } }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass:
-                        "kt-svg-icon kt-svg-icon--success kt-svg-icon--md",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                        width: "24px",
-                        height: "24px",
-                        viewBox: "0 0 24 24",
-                        version: "1.1"
-                      }
-                    },
-                    [
-                      _c(
-                        "g",
-                        {
-                          attrs: {
-                            stroke: "none",
-                            "stroke-width": "1",
-                            fill: "none",
-                            "fill-rule": "evenodd"
-                          }
-                        },
-                        [
-                          _c("polygon", {
-                            attrs: {
-                              id: "Shape",
-                              points: "0 0 24 0 24 24 0 24"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z",
-                              id: "Combined-Shape",
-                              fill: "#000000",
-                              "fill-rule": "nonzero",
-                              opacity: "0.3"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z",
-                              id: "Combined-Shape",
-                              fill: "#000000"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
-          ]
-        )
-      ])
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
@@ -77315,17 +77412,122 @@ var render = function() {
             "tbody",
             _vm._l(_vm.model.data, function(row) {
               return _c("tr", [
-                _c("th", [_vm._v("#" + _vm._s(row.id))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(row.driver.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(row.plate))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(row.make) + " " + _vm._s(row.model))]),
+                _c("td", { staticStyle: { width: "25%" } }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "vh--table--name",
+                      staticStyle: { display: "flex" }
+                    },
+                    [
+                      _c("div", { staticClass: "vh--image" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "/storage/" + row.filename,
+                            width: "100"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "vh--content" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v(
+                            "#" +
+                              _vm._s(row.id) +
+                              " - " +
+                              _vm._s(row.year) +
+                              " - " +
+                              _vm._s(row.make) +
+                              " " +
+                              _vm._s(row.model)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("span", [_vm._v("VIN/SN:")]),
+                          _vm._v(" " + _vm._s(row.vin))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("span", [_vm._v("Plate No:")]),
+                          _vm._v(" " + _vm._s(row.plate))
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(row.bussiness_type))]),
                 _vm._v(" "),
-                _vm._m(2, true)
+                _c("td", [_vm._v("€ " + _vm._s(row.price))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.driver.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.current_meter) + " km")]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "bk-span-actions",
+                      staticStyle: {
+                        overflow: "visible",
+                        position: "relative",
+                        width: "80px",
+                        color: "#595d6e",
+                        "font-size": "1rem"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "dropdown" }, [
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "dropdownMenuButton" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "/vehicles/" + row.id + "/edit" }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-edit" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Edit")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteVehicle(row.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-trash-alt" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Delete")
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
               ])
             }),
             0
@@ -77386,23 +77588,125 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "float-left", staticStyle: { display: "flex" } },
-      [
-        _c("div", { staticClass: "subheader__page__title" }, [
-          _c("h6", [_vm._v("Vehicles")])
-        ]),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "subheader__separator kt-subheader__separator--v"
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "subheader__desc__count" }, [
-          _c("span", [_vm._v("2 Total")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _c("div", { staticClass: "subheader__page__title" }, [
+                  _c("h6", [_vm._v("Vehicles")])
+                ]),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [_vm._v("2 Total")])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "float-right" }, [
+              _c("div", { staticStyle: { display: "flex" } }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-label-brand btn-bold",
+                    attrs: { href: "/vehicles/create" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Add Vehicle\n                        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn export-btn",
+                      attrs: {
+                        id: "dropdownMenuButton1",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-file-download" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "dropdown-menu",
+                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "nav__section nav__section--first" },
+                        [
+                          _c("span", { staticClass: "nav__section-text" }, [
+                            _vm._v("Choose an option")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("a", { staticClass: "dropdown-item" }, [
+                        _c("i", { staticClass: "fas fa-print" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "nav__link-text" }, [
+                          _vm._v("Print")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "/export/vehicles/exportExcel" }
+                        },
+                        [
+                          _c("i", { staticClass: "far fa-file-excel" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "nav__link-text" }, [
+                            _vm._v("Excel")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "/export/vehicles/exportCSV" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-file-csv" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "nav__link-text" }, [
+                            _vm._v("CSV")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -77431,83 +77735,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "div",
-        {
-          staticClass: "bk-span-actions",
-          staticStyle: {
-            overflow: "visible",
-            position: "relative",
-            width: "80px",
-            color: "#595d6e",
-            "font-size": "1rem"
-          }
-        },
-        [
-          _c("div", { staticClass: "dropdown" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
-                attrs: {
-                  id: "dropdownMenuButton",
-                  "data-toggle": "dropdown",
-                  "aria-haspopup": "true",
-                  "aria-expanded": "false"
-                }
-              },
-              [_c("i", { staticClass: "fas fa-ellipsis-h" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "dropdown-menu",
-                attrs: { "aria-labelledby": "dropdownMenuButton" }
-              },
-              [
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("i", { staticClass: "far fa-eye" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "nav__link-text" }, [
-                      _vm._v("View")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("i", { staticClass: "far fa-edit" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "nav__link-text" }, [
-                      _vm._v("Edit")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("i", { staticClass: "far fa-trash-alt" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "nav__link-text" }, [
-                      _vm._v("Delete")
-                    ])
-                  ]
-                )
-              ]
-            )
-          ])
-        ]
-      )
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
+        attrs: {
+          id: "dropdownMenuButton",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [_c("i", { staticClass: "fas fa-ellipsis-h" })]
+    )
   }
 ]
 render._withStripped = true
@@ -92325,7 +92565,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     Vehicles: _components_views_vehicles_index__WEBPACK_IMPORTED_MODULE_17__["default"],
     Users: _components_views_users_index__WEBPACK_IMPORTED_MODULE_18__["default"],
     Jobs: _components_views_jobs_index__WEBPACK_IMPORTED_MODULE_12__["default"],
-    JobApplications: _components_views_jobs_jobApplication_index__WEBPACK_IMPORTED_MODULE_13__["default"],
+    Applications: _components_views_jobs_jobApplication_index__WEBPACK_IMPORTED_MODULE_13__["default"],
     Drivers: _components_views_drivers_index__WEBPACK_IMPORTED_MODULE_19__["default"],
     Payments: _components_views_payments_index__WEBPACK_IMPORTED_MODULE_20__["default"],
     Chart: _components_ChartComponent__WEBPACK_IMPORTED_MODULE_21__["default"],

@@ -79,7 +79,7 @@ import Bookings from './components/views/bookings/index';
 import Invoices from './components/views/invoices/index';
 import Reviews from './components/views/reviews/index';
 import Jobs from './components/views/jobs/index';
-import JobApplications from './components/views/jobs/jobApplication/index';
+import Applications from './components/views/jobs/jobApplication/index';
 import Contacts from './components/views/contacts/index';
 import Customers from './components/views/customers/index';
 import Cities from './components/views/cities/index';
@@ -117,7 +117,7 @@ const app = new Vue({
         Vehicles,
         Users,
         Jobs,
-        JobApplications,
+        Applications,
         Drivers,
         Payments,
         Chart,

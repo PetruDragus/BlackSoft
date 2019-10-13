@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
-
+use Session;
 use App\Exports\ContactsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -57,9 +57,10 @@ class ContactController extends Controller
         $contact->address   = $request->get('address');
         $contact->save();
 
+        Session::flash('success', 'Contact successfully created!');
+
         return redirect()
-            ->route('contacts.index')
-            ->with('success', 'Contact created successfully.');
+            ->route('contacts.index');
     }
 
     /**
@@ -102,8 +103,9 @@ class ContactController extends Controller
 
         $contact->delete();
 
+        Session::flash('success', 'Contact successfully deleted!');
+
         return redirect()
-            ->back()
-            ->with('success', 'Contact has been deleted Successfully');
+            ->route('contacts.index');
     }
 }

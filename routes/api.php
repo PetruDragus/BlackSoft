@@ -36,3 +36,6 @@ Route::apiResources(['v1/reviews' => 'API\ReviewController']);
 Route::apiResources(['v1/invoices' => 'API\InvoiceController']);
 Route::apiResources(['v1/jobs' => 'API\JobsController']);
 Route::apiResources(['v1/jobApplication' => 'API\JobApplicationController']);
+Route::apiResources(['v1/vehicles' => 'API\VehicleController']);
+Route::apiResources(['v1/cities' => 'API\CitiesController']);
+Route::apiResources(['v1/payments' => 'API\PaymentController']);

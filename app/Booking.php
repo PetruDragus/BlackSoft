@@ -38,7 +38,7 @@ class Booking extends Model
      */
     public function invoice()
     {
-        return $this->belongsTo(Invoice::class);
+        return $this->hasMany(Invoice::class);
     }
 
     /**

@@ -19,16 +19,16 @@ class CreateVehiclesTable extends Migration
             $table->string('plate');
             $table->string('make');
             $table->string('model');
-            $table->string('bussiness_type');
-            $table->string('price');
-            $table->string('color');
-            $table->string('year');
-            $table->string('vin');
-            $table->string('current_meter');
+            $table->string('bussiness_type')->nullable();
+            $table->string('price')->nullable();
+            $table->string('color')->nullable();
+            $table->string('year')->nullable();
+            $table->string('vin')->nullable();
+            $table->string('current_meter')->nullable();
             $table->string('photo')->default('');
-            $table->string('mime');
-            $table->string('original_filename');
-            $table->string('filename');
+            $table->string('mime')->nullable();
+            $table->string('original_filename')->nullable();
+            $table->string('filename')->nullable();
 
             $table->timestamps();
         });

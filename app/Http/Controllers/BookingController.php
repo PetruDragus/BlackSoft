@@ -6,6 +6,7 @@ use App\Customer;
 use App\Driver;
 use App\Vehicle;
 use App\Booking;
+use Session;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -142,9 +143,10 @@ class BookingController extends Controller
 
         $booking->save();
 
+        Session::flash('success', 'Booking successfully created!');
+
         return redirect()
-            ->route('bookings.index')
-            ->with('success', 'Booking created successfully.');
+            ->route('bookings.index');
     }
 
     /**

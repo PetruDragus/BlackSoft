@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/opportunities', function () {
-    return view('pages.opportunities.index');
-});
-
 Route::get('/profile', function () {
     return view('pages.users.profile');
 });
@@ -39,7 +35,7 @@ Route::resource('/leads', 'LeadController');
 Route::resource('/opportunities', 'OpportunityController');
 Route::resource('/', 'DashboardController');
 Route::resource('/jobs', 'JobController');
-Route::resource('/job-applications', 'JobApplicationController');
+Route::resource('/applications', 'JobApplicationController');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/bookings', 'BookingController');
@@ -58,6 +54,9 @@ Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
     Route::get('/reviews/exportExcel', 'ReviewController@exportExcel');
     Route::get('/customers/exportExcel', 'CustomerController@exportExcel');
     Route::get('/users/exportExcel', 'UserController@exportExcel');
+    Route::get('/vehicles/exportExcel', 'VehicleController@exportExcel');
+    Route::get('/cities/exportExcel', 'CityController@exportExcel');
+    Route::get('/jobs/exportExcel', 'JobController@exportExcel');
 
     // Export to csv
     Route::get('/contacts/exportCSV', 'ContactController@exportCSV');
@@ -67,10 +66,22 @@ Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
     Route::get('/reviews/exportCSV', 'ReviewController@exportCSV');
     Route::get('/customers/exportCSV', 'CustomerController@exportCSV');
     Route::get('/users/exportCSV', 'UserController@exportCSV');
+    Route::get('/vehicles/exportCSV', 'VehicleController@exportCSV');
+    Route::get('/cities/exportCSV', 'CityController@exportCSV');
+    Route::get('/jobs/exportCSV', 'JobController@exportCSV');
 });
+
+Route::group(['prefix' => 'settings', 'as' => 'settings.'], function(){
+    Route::resource('', 'SettingController');
+    Route::get('/payment', 'SettingController@getPaymentScreen');
+    Route::get('/company', 'SettingController@getCompanyScreen');
+});
+
 
 Route::group(['prefix' => 'mobile', 'as' => 'mobile.'], function(){
     Route::get('/bookings', 'API\BookingController@index');
 });
 
 Route::get('/events', 'HomeController@Events');
+
+Route::get('/test', 'API\BookingController@test');

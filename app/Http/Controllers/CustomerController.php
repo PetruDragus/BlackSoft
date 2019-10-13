@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Booking;
+use Session;
 use App\Exports\CustomersExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -62,12 +63,40 @@ class CustomerController extends Controller
         $customer = New Customer();
         $customer->name       = $request->get('name');
         $customer->email      = $request->get('email');
-        $customer->phone      = $request->get('email');
+        $customer->phone      = $request->get('phone');
         $customer->save();
 
+        Session::flash('success', 'Customer successfully created!');
+
         return redirect()
-            ->route('customers.index')
-            ->with('success', 'Customer created successfully.');
+            ->route('customers.index');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\c  $c
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $customer = Customer::findOrFail($id);
+
+        return view('pages.customers.edit', compact('customer'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $customer = Customer::findOrFail($id);
+        $customer->name       = $request->get('name');
+        $customer->email      = $request->get('email');
+        $customer->phone      = $request->get('phone');
+        $customer->save();
+
+        Session::flash('success', 'Customer successfully edited!');
+
+        return redirect()
+            ->route('customers.index');
     }
 
     /**

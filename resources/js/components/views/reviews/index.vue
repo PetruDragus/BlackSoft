@@ -165,10 +165,6 @@
                                             <i class="far fa-eye"></i>
                                             <span class="nav__link-text">View</span>
                                         </a>
-                                        <a class="dropdown-item" v-bind:href="'/reviews/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
                                         <a class="dropdown-item" @click="deleteReview(row.id)">
                                             <i class="far fa-trash-alt"></i>
                                             <span class="nav__link-text">Delete</span>

@@ -223,6 +223,15 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    <tbody>
+                        @if($payments->isEmpty())
+                        <tr>
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        @endif
+                    </tbody>
                     <!---->
                 </table>
             </div>

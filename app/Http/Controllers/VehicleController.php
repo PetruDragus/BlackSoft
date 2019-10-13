@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
+use App\Exports\VehiclesExport;
 use App\Vehicle;
 use App\Driver;
+use Maatwebsite\Excel\Facades\Excel;
+use Session;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -46,6 +50,22 @@ class VehicleController extends Controller
     }
 
     /**
+     * Export to excel
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new VehiclesExport, 'vehicles.xlsx');
+    }
+
+    /**
+     * Export to csv
+     */
+    public function exportCSV()
+    {
+        return Excel::download(new VehiclesExport, 'vehicles.csv');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -84,9 +104,10 @@ class VehicleController extends Controller
 
         $vehicle->save();
 
+        Session::flash('success', 'Vehicle successfully created!');
+
         return redirect()
-            ->route('vehicles.index')
-            ->with('success', 'Vehicle created successfully.');
+            ->route('vehicles.index');
     }
 
     /**
@@ -103,24 +124,56 @@ class VehicleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\c  $c
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $vehicle = Vehicle::findOrFail($id);
+
+        $driver = Driver::all();
+
+        return view('pages.vehicles.edit', compact('vehicle', 'driver'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $vehicles = Vehicle::findOrFail($id);
+
+        request()->validate([
+            'make'  => '',
+            'model'   => '',
+        ]);
+
+        if(!empty($request->has('photo'))) {
+            $cover = $request->file('photo');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename().'.'.$extension,  File::get($cover));
+        }
+
+        $vehicles->make            = $request->get('make');
+        $vehicles->model           = $request->get('model');
+        $vehicles->driver_id       = $request->get('driver_id');
+        $vehicles->plate           = $request->get('plate');
+        $vehicles->bussiness_type  = $request->get('bussiness_type');
+        $vehicles->price           = $request->get('price');
+        $vehicles->color           = $request->get('color');
+        $vehicles->year            = $request->get('year');
+        $vehicles->vin             = $request->get('vin');
+        $vehicles->current_meter   = $request->get('current_meter');
+
+        if(!empty($request->has('photo'))) {
+            $vehicles->mime = $cover->getClientMimeType();
+            $vehicles->original_filename = $cover->getClientOriginalName();
+            $vehicles->filename = $cover->getFilename().'.'.$extension;
+        }
+
+        $vehicles->save();
+
+        Session::flash('success', 'Vehicle successfully edited!');
+
+        return redirect()
+            ->route('vehicles.index');
     }
 
     /**
