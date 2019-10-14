@@ -45,13 +45,15 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $client = new Client(); //GuzzleHttp\Client
-
-        $this->client->post('bookings/new', [
-           'json' => $request->all()
+        $this->validate($request, [
+            'pickup_address'    => '',
+            'drop_address'      => '',
         ]);
 
-        return redirect('/bookings');
+        return Booking::create([
+            'pickup_address'        => $request['pickup_address'],
+            'drop_address'          => $request['drop_address'],
+        ]);
     }
 
     /**
