@@ -17001,7 +17001,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/v1/bookings?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/v1/bookings?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -19300,6 +19300,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -76948,7 +76967,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("th", [
                   _vm._v(
-                    "\n                        Actions\n                    "
+                    "\n                            Actions\n                        "
                   )
                 ])
               ],
@@ -76959,17 +76978,96 @@ var render = function() {
           _c(
             "tbody",
             _vm._l(_vm.model.data, function(row) {
-              return _c(
-                "tr",
-                [
-                  _vm._l(row, function(value, key) {
-                    return _c("td", [_vm._v(_vm._s(value))])
-                  }),
-                  _vm._v(" "),
-                  _vm._m(2, true)
-                ],
-                2
-              )
+              return _c("tr", [
+                _c("th", [_vm._v("#" + _vm._s(row.id))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("img", {
+                    staticStyle: {
+                      width: "50px",
+                      "border-radius": "50%",
+                      height: "50px",
+                      "object-fit": "cover",
+                      "box-shadow": "0 0 5px #5e5e5e"
+                    },
+                    attrs: { src: "/storage/" + row.profile.filename }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.email))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.verified_at))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.created_at))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(row.updated_at))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "bk-span-actions",
+                      staticStyle: {
+                        overflow: "visible",
+                        position: "relative",
+                        width: "80px",
+                        color: "#595d6e",
+                        "font-size": "1rem"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "dropdown" }, [
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "dropdownMenuButton" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "/profile/" + row.profile.id }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-eye" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("View")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteUser(row.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "far fa-trash-alt" }),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "nav__link-text" }, [
+                                  _vm._v("Delete")
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ])
             }),
             0
           )
@@ -77176,33 +77274,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "span",
-        {
-          staticClass: "bk-span-actions",
-          staticStyle: {
-            overflow: "visible",
-            position: "relative",
-            width: "80px",
-            color: "#595d6e",
-            "font-size": "1rem"
-          }
-        },
-        [
-          _c("div", { staticClass: "dropdown" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
-                attrs: { "data-toggle": "dropdown" }
-              },
-              [_c("i", { staticClass: "fas fa-ellipsis-h" })]
-            )
-          ])
-        ]
-      )
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
+        attrs: {
+          id: "dropdownMenuButton",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [_c("i", { staticClass: "fas fa-ellipsis-h" })]
+    )
   }
 ]
 render._withStripped = true

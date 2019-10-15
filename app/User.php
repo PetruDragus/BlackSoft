@@ -21,7 +21,7 @@ class User extends Authenticatable
     ];
 
     public static $columns = [
-        'id', 'Name', 'Email', 'Email Verified At', 'Created At', 'Updated At'
+        'id', 'Avatar', 'Name', 'Email', 'Email Verified At', 'Created At', 'Updated At'
     ];
 
     /**
@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
+    }
 }

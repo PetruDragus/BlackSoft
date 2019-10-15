@@ -89,30 +89,49 @@
             <div class="dv-body table-responsive">
                 <table class="dv-table table">
                     <thead>
-                    <tr>
-                        <th v-for="column in columns" @click="toggleOrder(column)">
-                            <span>{{ column }}</span>
-                            <span class="dv-table-column" v-if="column === query.column">
-                            <span v-if="query.direction === 'desc'">&darr;</span>
-                            <span v-else>&uarr;</span>
-                        </span>
-                        </th>
-                        <th>
-                            Actions
-                        </th>
-                    </tr>
+                        <tr>
+                            <th v-for="column in columns" @click="toggleOrder(column)">
+                                <span>{{ column }}</span>
+                                <span class="dv-table-column" v-if="column === query.column">
+                                <span v-if="query.direction === 'desc'">&darr;</span>
+                                <span v-else>&uarr;</span>
+                            </span>
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                     <tr v-for="row in model.data">
-                        <td v-for="(value, key) in row">{{value}}</td>
+                        <th>#{{ row.id }}</th>
                         <td>
-                        <span class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                            <div class="dropdown">
-                                <a class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </a>
+                            <img :src="'/storage/' + row.profile.filename" style="width: 50px;border-radius: 50%;height: 50px;object-fit: cover;box-shadow: 0 0 5px #5e5e5e;">
+                        </td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.email }}</td>
+                        <td>{{ row.verified_at }}</td>
+                        <td>{{ row.created_at }}</td>
+                        <td>{{ row.updated_at }}</td>
+                        <td>
+                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" v-bind:href="'/profile/'+row.profile.id">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav__link-text">View</span>
+                                        </a>
+                                        <a class="dropdown-item" @click="deleteUser(row.id)">
+                                            <i class="far fa-trash-alt"></i>
+                                            <span class="nav__link-text">Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </span>
                         </td>
                     </tr>
                     </tbody>

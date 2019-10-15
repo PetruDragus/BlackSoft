@@ -29,7 +29,7 @@
                 <div class="header__topbar-user dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                     <span class="header__topbar-welcome hidden-mobile">Hi,</span>
                     @if (Auth::check())
-                        <span class="header__topbar-username hidden-mobile">{{ Auth::user()->name }}</span>
+                        <span class="header__topbar-username hidden-mobile">{{ Auth::user()->profile->name }}</span>
                     @else
                         <span class="header__topbar-username hidden-mobile">User Name</span>
                     @endif
@@ -40,7 +40,7 @@
 
                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
                     <li class="hide">
-                        <a href="#">
+                        <a href="/profile/{{ Auth::user()->profile->id }}">
                             <i class="fas fa-user"></i>
                             Profile
                         </a>

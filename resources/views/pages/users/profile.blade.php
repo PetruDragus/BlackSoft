@@ -8,12 +8,12 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="widget__media">
-                                <img src="https://keenthemes.com/metronic/themes/metronic/theme/default/demo4/dist/assets/media/users/100_13.jpg" alt="image">
+                                <img src="/storage/{{ $profile->filename }}" alt="image">
                             </div>
                             <div class="widget__content">
                                 <div class="widget__section">
                                     <a href="#" class="widget__username">
-                                        {{ Auth::user()->name }}
+                                        {{ $profile->name }}
                                         <i class="fas fa-certificate font-success"></i>
                                     </a>
                                     <span class="widget__subtitle">
@@ -32,11 +32,11 @@
                             </div>
                             <div class="widget__info">
                                 <span class="widget__label">Phone:</span>
-                                <a href="#" class="widget__data">44(76)34254578</a>
+                                <a href="#" class="widget__data">{{ $profile->phone }}</a>
                             </div>
                             <div class="widget__info">
                                 <span class="widget__label">Location:</span>
-                                <span class="widget__data">Melbourne</span>
+                                <span class="widget__data">{{ $profile->city }}</span>
                             </div>
                         </div>
 
@@ -61,8 +61,6 @@
                                     </span>
                                 </span>
                             </a>
-
-
                         </div>
                     </div>
                 </div>
@@ -77,8 +75,11 @@
                             </div>
                         </div>
 
-                        <div class="card-body">
-                            <form class="form form--label-right">
+                        <form class="form form--label-right" action="{{ route('profile.update', $profile->id) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+
+                            <div class="card-body">
                                 <div class="portlet__body">
                                     <div class="section section--first">
                                         <div class="section__body">
@@ -93,10 +94,10 @@
                                                 <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Avatar</label>
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="kt-avatar avatar--outline" >
-                                                        <div class="avatar__holder" style="background-image: url(https://keenthemes.com/metronic/themes/metronic/theme/default/demo4/dist/assets/media/users/100_13.jpg)"></div>
+                                                        <div class="avatar__holder" style="background-image: url(/storage/{{ $profile->filename }})"></div>
                                                         <label class="avatar__upload" title="" data-original-title="Change avatar">
                                                             <i class="fa fa-pen"></i>
-                                                            <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                                            <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
                                                         </label>
                                                         <span class="avatar__cancel"  title="" data-original-title="Cancel avatar">
                                                             <i class="fa fa-times"></i>
@@ -108,7 +109,7 @@
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Name</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <input class="form-control" type="text" value="Nick">
+                                                    <input class="form-control" type="text" name="name" value="{{ $profile->name }}">
                                                 </div>
                                             </div>
 
@@ -128,7 +129,7 @@
                                                                 <i class="fas fa-phone"></i>
                                                             </span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="+35278953712" placeholder="Phone" aria-describedby="basic-addon1">
+                                                        <input type="text" class="form-control" name="phone" value="{{ $profile->phone }}" placeholder="Phone" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +143,7 @@
                                                                 <i class="fas fa-at"></i>
                                                             </span>
                                                         </div>
-                                                        <input type="email" class="form-control" value="dragus.patrick@codixital.com" placeholder="Email Address" aria-describedby="basic-addon1">
+                                                        <input type="email" class="form-control" name="email" value="{{ $profile->email }}" placeholder="Email Address" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,7 +151,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
 
                         <div class="card-footer">
@@ -158,11 +158,12 @@
                                 <div class="col-lg-3 col-xl-3">
                                 </div>
                                 <div class="col-lg-9 col-xl-9">
-                                    <button type="reset" class="btn btn-success">Submit</button>&nbsp;
+                                    <button type="submit" class="btn btn-success">Submit</button>&nbsp;
                                     <button type="reset" class="btn btn-secondary">Cancel</button>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane fade show card" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
@@ -172,72 +173,78 @@
                             </div>
                         </div>
 
-                        <div class="card-body">
-                            <form class="form form--label-right">
-                                <div class="portlet__body">
-                                    <div class="section section--first">
-                                        <div class="section__body">
-                                            <div class="alert alert-solid-danger alert-bold fade show kt-margin-t-20 kt-margin-b-40" role="alert">
-                                                <div class="alert-icon"><i class="fa fa-exclamation-triangle"></i></div>
-                                                <div class="alert-text">Configure user passwords to expire periodically. Users will need warning that their passwords are going to expire, <br>or they might inadvertently get locked out of the system!</div>
-                                                <div class="alert-close">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="la la-close"></i></span>
-                                                    </button>
-                                                </div>
-                                            </div>
+                        <form class="form form--label-right" method="POST" action="{{ route('password.update') }}">
+                            @csrf
 
-                                            <div class="row">
-                                                <label class="col-xl-3"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <h3 class="section__title section__title-sm">Change Or Recover Your Password:</h3>
-                                                </div>
-                                            </div>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Current Password</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Current Password" aria-describedby="basic-addon1">
+                            <div class="card-body">
+                                    <div class="portlet__body">
+                                        <div class="section section--first">
+                                            <div class="section__body">
+                                                <div class="alert alert-solid-danger alert-bold fade show kt-margin-t-20 kt-margin-b-40" role="alert">
+                                                    <div class="alert-icon">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                    </div>
+                                                    <div class="alert-text">Configure user passwords to expire periodically. Users will need warning that their passwords are going to expire, <br>or they might inadvertently get locked out of the system!</div>
+                                                    <div class="alert-close">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">
+                                                                <i class="la la-close"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-xl-3"></label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <h3 class="section__title section__title-sm">Change Or Recover Your Password:</h3>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Current Password</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="current-password" name="current-password" placeholder="Current Password" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">New Password</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="password" name="password" placeholder="New Password" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Verify Password</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Verify Password" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">New Password</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="New Password" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Verify Password</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Verify Password" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
                                         </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
 
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-3 col-xl-3">
-                                </div>
-                                <div class="col-lg-9 col-xl-9">
-                                    <button type="reset" class="btn btn-success">Change Password</button>&nbsp;
-                                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xl-3">
+                                    </div>
+                                    <div class="col-lg-9 col-xl-9">
+                                        <button type="reset" class="btn btn-success">Change Password</button>&nbsp;
+                                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
 
                     </div>
 

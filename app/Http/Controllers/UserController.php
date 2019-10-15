@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
+use App\Profile;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,7 +19,7 @@ class UserController extends Controller
 
     public function getData()
     {
-        $model = User::searchPaginateAndOrder();
+        $model = User::with('profile')->searchPaginateAndOrder();
         $columns = User::$columns;
 
         return response()
@@ -72,7 +74,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = Auth()->user();
+        $user = User::findOrFail($id);
 
         return view('pages.users.profile', compact('user'));
     }
@@ -97,7 +99,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

@@ -36,6 +36,7 @@ Route::resource('/opportunities', 'OpportunityController');
 Route::resource('/', 'DashboardController');
 Route::resource('/jobs', 'JobController');
 Route::resource('/applications', 'JobApplicationController');
+Route::resource('/profile', 'ProfileController');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/bookings', 'BookingController');
