@@ -96,7 +96,7 @@
                                 <div class="table-no_results">No results found!</div>
                             </td>
                         </tr>
-                        <tr v-for="row in model.data" data-href='http://127.0.0.1:8000/bookings/' >
+                        <tr v-for="row in model.data">
                             <th>#{{ row.id }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>
                             <td class="md-w245">{{ row.drop_address }}</td>
@@ -208,19 +208,19 @@
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Name: </label>
                                                             <div class="col-md-8">
-                                                                {{ row.customer.name }}
+                                                                Lorem
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Email: </label>
                                                             <div class="col-md-8">
-                                                                {{ row.customer.email }}
+                                                                Lorem
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Phone: </label>
                                                             <div class="col-md-8">
-                                                                {{ row.customer.phone }}
+                                                                Lorem
                                                             </div>
                                                         </div>
                                                     </div>

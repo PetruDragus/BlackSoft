@@ -17236,6 +17236,14 @@ __webpack_require__.r(__webpack_exports__);
         this.fetchIndexData();
       }
     },
+    deleteCities: function deleteCities(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/cities/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+    },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
         // only change direction
@@ -17933,11 +17941,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
  //similar to vue-resource
 
@@ -17984,6 +17987,14 @@ __webpack_require__.r(__webpack_exports__);
         this.query.page--;
         this.fetchIndexData();
       }
+    },
+    deleteDriver: function deleteDriver(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/drivers/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -18242,6 +18253,14 @@ __webpack_require__.r(__webpack_exports__);
         this.query.page--;
         this.fetchIndexData();
       }
+    },
+    deleteInvoice: function deleteInvoice(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/invoices/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -19314,6 +19333,14 @@ __webpack_require__.r(__webpack_exports__);
         this.query.page--;
         this.fetchIndexData();
       }
+    },
+    deleteReview: function deleteReview(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/reviews/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -71309,396 +71336,387 @@ var render = function() {
               _vm.model.data < 1 ? _c("tr", [_vm._m(1)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
-                return _c(
-                  "tr",
-                  { attrs: { "data-href": "http://127.0.0.1:8000/bookings/" } },
-                  [
-                    _c("th", [_vm._v("#" + _vm._s(row.id))]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "md-w245" }, [
-                      _vm._v(_vm._s(row.pickup_address))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "md-w245" }, [
-                      _vm._v(_vm._s(row.drop_address))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm._f("formatDate")(row.date)))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "status status-blue" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "status-text",
-                            staticStyle: {
-                              "font-weight": "600 !important",
-                              "font-size": "10px"
-                            }
-                          },
-                          [_vm._v(_vm._s(row.seats))]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "status status-blue" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "status-text",
-                            staticStyle: {
-                              "font-weight": "600 !important",
-                              "font-size": "10px"
-                            }
-                          },
-                          [_vm._v(_vm._s(row.passagers))]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "status status-blue" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "status-text",
-                            staticStyle: {
-                              "font-weight": "600 !important",
-                              "font-size": "10px"
-                            }
-                          },
-                          [_vm._v(_vm._s(row.bags))]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    row.price > "0"
-                      ? _c("td", { staticClass: "td-price" }, [
-                          _vm._v(
-                            "€ " + _vm._s(_vm._f("formatMoney")(row.price))
-                          )
-                        ])
-                      : _c("td", { staticClass: "td-price" }, [
-                          _c(
-                            "a",
-                            {
-                              on: {
-                                click: function($event) {
-                                  return _vm.generatePrice(row.id)
-                                }
-                              }
-                            },
-                            [_vm._m(2, true)]
-                          )
-                        ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      row.status == "Pending"
-                        ? _c("span", { staticClass: "status status-gray" }, [
-                            _c("span", { staticClass: "status-text" }, [
-                              _vm._v(_vm._s(row.status))
-                            ])
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      row.status == "Cancelled"
-                        ? _c("span", { staticClass: "status status-pink" }, [
-                            _c("span", { staticClass: "status-text" }, [
-                              _vm._v(_vm._s(row.status))
-                            ])
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      row.status == "Finished"
-                        ? _c("span", { staticClass: "status status-green" }, [
-                            _c("span", { staticClass: "status-text" }, [
-                              _vm._v(_vm._s(row.status))
-                            ])
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
+                return _c("tr", [
+                  _c("th", [_vm._v("#" + _vm._s(row.id))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "md-w245" }, [
+                    _vm._v(_vm._s(row.pickup_address))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "md-w245" }, [
+                    _vm._v(_vm._s(row.drop_address))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm._f("formatDate")(row.date)))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("span", { staticClass: "status status-blue" }, [
                       _c(
-                        "div",
+                        "span",
                         {
-                          staticClass: "bk-span-actions",
+                          staticClass: "status-text",
                           staticStyle: {
-                            overflow: "visible",
-                            position: "relative",
-                            width: "80px",
-                            color: "#595d6e",
-                            "font-size": "1rem"
+                            "font-weight": "600 !important",
+                            "font-size": "10px"
                           }
                         },
-                        [
-                          _c("div", { staticClass: "dropdown" }, [
-                            _vm._m(3, true),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "dropdown-menu",
-                                attrs: {
-                                  "aria-labelledby": "dropdownMenuButton"
-                                }
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    attrs: {
-                                      "data-toggle": "modal",
-                                      "data-target":
-                                        "#previewBookingModal" + row.id
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "far fa-window-restore"
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "nav__link-text" },
-                                      [_vm._v("Preview")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    attrs: { href: "/bookings/" + row.id }
-                                  },
-                                  [
-                                    _c("i", { staticClass: "far fa-eye" }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "nav__link-text" },
-                                      [_vm._v("View")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    attrs: {
-                                      href: "/bookings/" + row.id + "/edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", { staticClass: "far fa-edit" }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "nav__link-text" },
-                                      [_vm._v("Edit")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.deleteBooking(row.id)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "far fa-trash-alt"
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "nav__link-text" },
-                                      [_vm._v("Delete")]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ])
-                        ]
+                        [_vm._v(_vm._s(row.seats))]
                       )
-                    ]),
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("span", { staticClass: "status status-blue" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "status-text",
+                          staticStyle: {
+                            "font-weight": "600 !important",
+                            "font-size": "10px"
+                          }
+                        },
+                        [_vm._v(_vm._s(row.passagers))]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("span", { staticClass: "status status-blue" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "status-text",
+                          staticStyle: {
+                            "font-weight": "600 !important",
+                            "font-size": "10px"
+                          }
+                        },
+                        [_vm._v(_vm._s(row.bags))]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  row.price > "0"
+                    ? _c("td", { staticClass: "td-price" }, [
+                        _vm._v("€ " + _vm._s(_vm._f("formatMoney")(row.price)))
+                      ])
+                    : _c("td", { staticClass: "td-price" }, [
+                        _c(
+                          "a",
+                          {
+                            on: {
+                              click: function($event) {
+                                return _vm.generatePrice(row.id)
+                              }
+                            }
+                          },
+                          [_vm._m(2, true)]
+                        )
+                      ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    row.status == "Pending"
+                      ? _c("span", { staticClass: "status status-gray" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v(_vm._s(row.status))
+                          ])
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
+                    row.status == "Cancelled"
+                      ? _c("span", { staticClass: "status status-pink" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v(_vm._s(row.status))
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    row.status == "Finished"
+                      ? _c("span", { staticClass: "status status-green" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v(_vm._s(row.status))
+                          ])
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
                     _c(
                       "div",
                       {
-                        staticClass: "modal fade booking-modal",
-                        attrs: {
-                          id: "previewBookingModal" + row.id,
-                          tabindex: "-1",
-                          role: "dialog",
-                          "aria-labelledby": "exampleModalLabel",
-                          "aria-hidden": "true"
+                        staticClass: "bk-span-actions",
+                        staticStyle: {
+                          overflow: "visible",
+                          position: "relative",
+                          width: "80px",
+                          color: "#595d6e",
+                          "font-size": "1rem"
                         }
                       },
                       [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "modal-dialog modal-lg",
-                            attrs: { role: "document" }
-                          },
-                          [
-                            _c("div", { staticClass: "modal-content" }, [
-                              _c("div", { staticClass: "modal-header" }, [
+                        _c("div", { staticClass: "dropdown" }, [
+                          _vm._m(3, true),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "dropdown-menu",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: {
+                                    "data-toggle": "modal",
+                                    "data-target":
+                                      "#previewBookingModal" + row.id
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "far fa-window-restore"
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Preview")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "/bookings/" + row.id }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-eye" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("View")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: {
+                                    href: "/bookings/" + row.id + "/edit"
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-edit" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Edit")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteBooking(row.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-trash-alt" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Delete")]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade booking-modal",
+                      attrs: {
+                        id: "previewBookingModal" + row.id,
+                        tabindex: "-1",
+                        role: "dialog",
+                        "aria-labelledby": "exampleModalLabel",
+                        "aria-hidden": "true"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog modal-lg",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-header" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass: "modal-title",
+                                  attrs: { id: "exampleModalLabel" }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(row.pickup_time) +
+                                      " - " +
+                                      _vm._s(_vm._f("formatDate")(row.date)) +
+                                      " - #" +
+                                      _vm._s(row.id) +
+                                      " - " +
+                                      _vm._s(row.vehicle.bussiness_type)
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(4, true)
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("div", { staticClass: "row" }, [
                                 _c(
-                                  "h5",
+                                  "div",
                                   {
-                                    staticClass: "modal-title",
-                                    attrs: { id: "exampleModalLabel" }
+                                    staticClass: "col-md-6 booking-modal-list"
                                   },
                                   [
-                                    _vm._v(
-                                      _vm._s(row.pickup_time) +
-                                        " - " +
-                                        _vm._s(_vm._f("formatDate")(row.date)) +
-                                        " - #" +
-                                        _vm._s(row.id) +
-                                        " - " +
-                                        _vm._s(row.vehicle.bussiness_type)
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(4, true)
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "modal-body" }, [
-                                _c("div", { staticClass: "row" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "col-md-6 booking-modal-list"
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "list-b-item" },
-                                        [
-                                          _c("h5", [
-                                            _vm._v("Booking Information:")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-md-4 col-form-label justify-content-end"
-                                              },
-                                              [_vm._v("Pickup Address: ")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-md-8 col-form-label"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                            " +
-                                                    _vm._s(row.pickup_address) +
-                                                    "\n                                                        "
-                                                )
-                                              ]
+                                    _c("div", { staticClass: "list-b-item" }, [
+                                      _c("h5", [
+                                        _vm._v("Booking Information:")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-md-4 col-form-label justify-content-end"
+                                          },
+                                          [_vm._v("Pickup Address: ")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "col-md-8 col-form-label"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                            " +
+                                                _vm._s(row.pickup_address) +
+                                                "\n                                                        "
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-md-4 col-form-label justify-content-end"
-                                              },
-                                              [_vm._v("Drop Address: ")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-md-8 col-form-label"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                            " +
-                                                    _vm._s(row.drop_address) +
-                                                    "\n                                                        "
-                                                )
-                                              ]
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-md-4 col-form-label justify-content-end"
+                                          },
+                                          [_vm._v("Drop Address: ")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "col-md-8 col-form-label"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                            " +
+                                                _vm._s(row.drop_address) +
+                                                "\n                                                        "
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-md-4 col-form-label justify-content-end"
-                                              },
-                                              [_vm._v("Time / Date: ")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-md-8 col-form-label"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                            " +
-                                                    _vm._s(row.pickup_time) +
-                                                    " / " +
-                                                    _vm._s(
-                                                      _vm._f("formatDate")(
-                                                        row.date
-                                                      )
-                                                    ) +
-                                                    "\n                                                        "
-                                                )
-                                              ]
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-md-4 col-form-label justify-content-end"
+                                          },
+                                          [_vm._v("Time / Date: ")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "col-md-8 col-form-label"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                            " +
+                                                _vm._s(row.pickup_time) +
+                                                " / " +
+                                                _vm._s(
+                                                  _vm._f("formatDate")(row.date)
+                                                ) +
+                                                "\n                                                        "
                                             )
-                                          ])
-                                        ]
-                                      ),
+                                          ]
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._m(5, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "list-b-item" }, [
+                                      _c("h5", [
+                                        _vm._v("Financial Information:")
+                                      ]),
                                       _vm._v(" "),
                                       _c(
                                         "div",
-                                        { staticClass: "list-b-item" },
+                                        {
+                                          staticClass: "row",
+                                          staticStyle: { display: "flex" }
+                                        },
                                         [
-                                          _c("h5", [
-                                            _vm._v("Customer Information:")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "row" }, [
+                                          _c("div", {}, [
                                             _c(
                                               "label",
                                               {
                                                 staticClass:
                                                   "col-md-4 col-form-label justify-content-end"
                                               },
-                                              [_vm._v("Name: ")]
+                                              [_vm._v("Price: ")]
                                             ),
                                             _vm._v(" "),
                                             _c(
@@ -71706,154 +71724,66 @@ var render = function() {
                                               { staticClass: "col-md-8" },
                                               [
                                                 _vm._v(
-                                                  "\n                                                            " +
-                                                    _vm._s(row.customer.name) +
-                                                    "\n                                                        "
+                                                  "\n                                                                " +
+                                                    _vm._s(row.price) +
+                                                    "\n                                                            "
                                                 )
                                               ]
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-md-4 col-form-label justify-content-end"
-                                              },
-                                              [_vm._v("Email: ")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-8" },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                            " +
-                                                    _vm._s(row.customer.email) +
-                                                    "\n                                                        "
-                                                )
-                                              ]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-md-4 col-form-label justify-content-end"
-                                              },
-                                              [_vm._v("Phone: ")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-8" },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                            " +
-                                                    _vm._s(row.customer.phone) +
-                                                    "\n                                                        "
-                                                )
-                                              ]
-                                            )
-                                          ])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "list-b-item" },
-                                        [
-                                          _c("h5", [
-                                            _vm._v("Financial Information:")
                                           ]),
                                           _vm._v(" "),
                                           _c(
                                             "div",
-                                            {
-                                              staticClass: "row",
-                                              staticStyle: { display: "flex" }
-                                            },
+                                            { staticClass: "width-40" },
                                             [
-                                              _c("div", {}, [
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "col-md-4 col-form-label justify-content-end"
-                                                  },
-                                                  [_vm._v("Price: ")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "col-md-8" },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                                                " +
-                                                        _vm._s(row.price) +
-                                                        "\n                                                            "
-                                                    )
-                                                  ]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
                                               _c(
-                                                "div",
-                                                { staticClass: "width-40" },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "col-md-4 col-form-label justify-content-end"
-                                                    },
-                                                    [_vm._v("Invoice: ")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "col-md-8" },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                                                " +
-                                                          _vm._s(
-                                                            row.invoice.number
-                                                          ) +
-                                                          "\n                                                            "
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "col-md-4 col-form-label justify-content-end"
+                                                },
+                                                [_vm._v("Invoice: ")]
                                               ),
                                               _vm._v(" "),
                                               _c(
                                                 "div",
-                                                { staticClass: "width-40" },
+                                                { staticClass: "col-md-8" },
                                                 [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "col-md-4 col-form-label justify-content-end"
-                                                    },
-                                                    [_vm._v("Payment Method: ")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "col-md-8" },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                                                " +
-                                                          _vm._s(
-                                                            row.payment_method
-                                                          ) +
-                                                          "\n                                                            "
-                                                      )
-                                                    ]
+                                                  _vm._v(
+                                                    "\n                                                                " +
+                                                      _vm._s(
+                                                        row.invoice.number
+                                                      ) +
+                                                      "\n                                                            "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "width-40" },
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "col-md-4 col-form-label justify-content-end"
+                                                },
+                                                [_vm._v("Payment Method: ")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-md-8" },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                " +
+                                                      _vm._s(
+                                                        row.payment_method
+                                                      ) +
+                                                      "\n                                                            "
                                                   )
                                                 ]
                                               )
@@ -71861,95 +71791,93 @@ var render = function() {
                                           )
                                         ]
                                       )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-md-6" },
-                                    [
-                                      _c("GmapMap", {
-                                        staticStyle: {
-                                          width: "auto",
-                                          height: "400px"
-                                        },
-                                        attrs: {
-                                          center: { lat: 10, lng: 10 },
-                                          zoom: 7,
-                                          "map-type-id": "terrain"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "change-driver-form" },
-                                        [
-                                          _c("form", [
-                                            _c(
-                                              "div",
-                                              { staticClass: "form-group" },
-                                              [
-                                                _vm._m(5, true),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "select",
-                                                  {
-                                                    staticClass:
-                                                      "form-control select-input",
-                                                    attrs: {
-                                                      name: "vehicle_id"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "option",
-                                                      {
-                                                        attrs: {
-                                                          value: "",
-                                                          disabled: "disabled"
-                                                        }
-                                                      },
-                                                      [_vm._v("Select ..")]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _vm._l(
-                                                      _vm.drivers.data,
-                                                      function(driver) {
-                                                        return _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "Dragus Patrick"
-                                                            )
-                                                          ]
-                                                        )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-md-6" },
+                                  [
+                                    _c("GmapMap", {
+                                      staticStyle: {
+                                        width: "auto",
+                                        height: "400px"
+                                      },
+                                      attrs: {
+                                        center: { lat: 10, lng: 10 },
+                                        zoom: 7,
+                                        "map-type-id": "terrain"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "change-driver-form" },
+                                      [
+                                        _c("form", [
+                                          _c(
+                                            "div",
+                                            { staticClass: "form-group" },
+                                            [
+                                              _vm._m(6, true),
+                                              _vm._v(" "),
+                                              _c(
+                                                "select",
+                                                {
+                                                  staticClass:
+                                                    "form-control select-input",
+                                                  attrs: { name: "vehicle_id" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: "disabled"
                                                       }
-                                                    )
-                                                  ],
-                                                  2
-                                                )
-                                              ]
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(6, true)
-                            ])
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
+                                                    },
+                                                    [_vm._v("Select ..")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.drivers.data,
+                                                    function(driver) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          attrs: { value: "" }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "Dragus Patrick"
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(7, true)
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
               })
             ],
             2
@@ -72186,6 +72114,56 @@ var staticRenderFns = [
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "list-b-item" }, [
+      _c("h5", [_vm._v("Customer Information:")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "label",
+          { staticClass: "col-md-4 col-form-label justify-content-end" },
+          [_vm._v("Name: ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8" }, [
+          _vm._v(
+            "\n                                                            Lorem\n                                                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "label",
+          { staticClass: "col-md-4 col-form-label justify-content-end" },
+          [_vm._v("Email: ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8" }, [
+          _vm._v(
+            "\n                                                            Lorem\n                                                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "label",
+          { staticClass: "col-md-4 col-form-label justify-content-end" },
+          [_vm._v("Phone: ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8" }, [
+          _vm._v(
+            "\n                                                            Lorem\n                                                        "
+          )
+        ])
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -72478,7 +72456,28 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _vm._m(4, true)
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "dropdown-item",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.deleteCities(row.id)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "far fa-trash-alt"
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "nav__link-text" },
+                                      [_vm._v("Delete")]
+                                    )
+                                  ]
+                                )
                               ]
                             )
                           ])
@@ -72722,16 +72721,6 @@ var staticRenderFns = [
       },
       [_c("i", { staticClass: "fas fa-ellipsis-h" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "dropdown-item" }, [
-      _c("i", { staticClass: "far fa-trash-alt" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "nav__link-text" }, [_vm._v("Delete")])
-    ])
   }
 ]
 render._withStripped = true
@@ -74136,23 +74125,6 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass: "dropdown-item",
-                                  attrs: { href: "/drivers/" + row.id }
-                                },
-                                [
-                                  _c("i", { staticClass: "far fa-eye" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "nav__link-text" },
-                                    [_vm._v("View")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "dropdown-item",
                                   attrs: {
                                     href: "/drivers/" + row.id + "/edit"
                                   }
@@ -74168,7 +74140,26 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(4, true)
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteDriver(row.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-trash-alt" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Delete")]
+                                  )
+                                ]
+                              )
                             ]
                           )
                         ])
@@ -74308,16 +74299,6 @@ var staticRenderFns = [
       },
       [_c("i", { staticClass: "fas fa-ellipsis-h" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "dropdown-item" }, [
-      _c("i", { staticClass: "far fa-trash-alt" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "nav__link-text" }, [_vm._v("Delete")])
-    ])
   }
 ]
 render._withStripped = true
@@ -74624,7 +74605,26 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(4, true)
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteInvoice(row.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-trash-alt" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Delete")]
+                                  )
+                                ]
+                              )
                             ]
                           )
                         ])
@@ -74703,7 +74703,7 @@ var staticRenderFns = [
               { staticClass: "float-left", staticStyle: { display: "flex" } },
               [
                 _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Reviews")])
+                  _c("h6", [_vm._v("Invoices")])
                 ]),
                 _vm._v(" "),
                 _c("span", {
@@ -74866,16 +74866,6 @@ var staticRenderFns = [
       },
       [_c("i", { staticClass: "fas fa-ellipsis-h" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "dropdown-item" }, [
-      _c("i", { staticClass: "far fa-trash-alt" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "nav__link-text" }, [_vm._v("Delete")])
-    ])
   }
 ]
 render._withStripped = true
@@ -76736,7 +76726,7 @@ var render = function() {
                   _c("td", [_vm._v(_vm._s(row.driver.name))]),
                   _vm._v(" "),
                   _c("td", { staticStyle: { width: "40%" } }, [
-                    _vm._v(_vm._s(_vm._f("truncate")(row.review, 300, "...")))
+                    _vm._v(_vm._s(_vm._f("truncate")(row.review, 150, "...")))
                   ]),
                   _vm._v(" "),
                   _c("td", [

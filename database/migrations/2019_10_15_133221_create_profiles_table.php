@@ -19,6 +19,10 @@ class CreateProfilesTable extends Migration
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();
+            $table->string('photo')->default('avatar-default.png');
+            $table->string('mime')->nullable();
+            $table->string('original_filename')->nullable();
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }

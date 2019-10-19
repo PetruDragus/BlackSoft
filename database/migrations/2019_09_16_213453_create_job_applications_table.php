@@ -20,7 +20,7 @@ class CreateJobApplicationsTable extends Migration
             $table->string('lastname');
             $table->string('phone');
             $table->string('email');
-            $table->string('statis');
+            $table->string('status');
             $table->timestamps();
         });
     }

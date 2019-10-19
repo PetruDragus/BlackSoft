@@ -5,7 +5,7 @@
                 <div id="subheader_pg" class="subHeader__block">
                     <div class="float-left" style="display:flex;">
                         <div class="subheader__page__title">
-                            <h6>Reviews</h6>
+                            <h6>Invoices</h6>
                         </div>
 
                         <span class="subheader__separator kt-subheader__separator--v"></span>
@@ -139,7 +139,7 @@
                                                 <i class="far fa-edit"></i>
                                                 <span class="nav__link-text">Edit</span>
                                             </a>
-                                            <a class="dropdown-item">
+                                            <a class="dropdown-item" @click="deleteInvoice(row.id)">
                                                 <i class="far fa-trash-alt"></i>
                                                 <span class="nav__link-text">Delete</span>
                                             </a>
@@ -214,6 +214,18 @@
                     this.query.page--
                     this.fetchIndexData()
                 }
+            },
+            deleteInvoice(id) {
+                if(confirm('are you sure?'))
+
+                // Send request to the server
+                    axios.delete( '/api/v1/invoices/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
             },
             toggleOrder(column) {
                 if(column === this.query.column) {

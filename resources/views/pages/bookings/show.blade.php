@@ -8,7 +8,7 @@
         <div class="panel-heading">
             <div class="panel-title">
                 <div>
-                    <a href="/contacts" class="router-link-active">Booking</a> / {{ $booking->customer->firstname }} {{ $booking->customer->lastname }}
+                    <a href="/contacts" class="router-link-active">Booking</a> / {{ $booking->customer->name }}
                     <small>(#000{{ $booking->id  }})</small>
                 </div>
             </div>

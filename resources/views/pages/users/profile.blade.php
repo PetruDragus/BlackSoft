@@ -172,7 +172,7 @@
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">
-                                                                <i class="fas fa-at"></i>
+                                                                <i class="fas fa-map-marker-alt"></i>
                                                             </span>
                                                         </div>
                                                         <input type="text" class="form-control" name="address" value="{{ $profile->address }}" placeholder="Address" aria-describedby="basic-addon1">
@@ -186,7 +186,7 @@
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">
-                                                                <i class="fas fa-map-marker-alt"></i>
+                                                                <i class="fas fa-at"></i>
                                                             </span>
                                                         </div>
                                                         <input type="email" class="form-control" name="email" value="{{ $profile->email }}" placeholder="Email Address" aria-describedby="basic-addon1">

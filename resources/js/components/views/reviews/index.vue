@@ -114,7 +114,7 @@
                                 <a href="/booking/1">#{{ row.booking.id }}</a>
                             </th>
                             <td>{{ row.driver.name }}</td>
-                            <td style="width: 40%;">{{ row.review | truncate(300, '...') }}</td>
+                            <td style="width: 40%;">{{ row.review | truncate(150, '...') }}</td>
                             <td>
                                 <div style="display: inline-flex;" v-if="row.rating == '1'">
                                     <i class="fas fa-star star-gold"></i>
@@ -248,6 +248,18 @@
                     this.query.page--
                     this.fetchIndexData()
                 }
+            },
+            deleteReview(id) {
+                if(confirm('are you sure?'))
+
+                // Send request to the server
+                    axios.delete( '/api/v1/reviews/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
             },
             toggleOrder(column) {
                 if(column === this.query.column) {

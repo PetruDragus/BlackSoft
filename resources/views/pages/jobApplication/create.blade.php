@@ -71,7 +71,7 @@
                                         <span>Email</span>
                                     </label>
 
-                                    <input type="text" source="input" label="name" name="email" col="4" class="form-input" placeholder="Enter Application Email">
+                                    <input type="email" source="input" label="name" name="email" col="4" class="form-input" placeholder="Enter Application Email">
                                 </div>
                             </div>
 
@@ -95,7 +95,7 @@
                 <div class="panel-footer panel-alt">
                     <div class="flex flex-end">
                         <div>
-                            <a href="{{ route('contacts.index') }}" class="btn btn-default">
+                            <a href="{{ route('applications.index') }}" class="btn btn-default">
                                 <span class="btn-text">Cancel</span>
                             </a>
 

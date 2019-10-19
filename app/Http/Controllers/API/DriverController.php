@@ -60,6 +60,10 @@ class DriverController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $driver = Driver::findOrFail($id);
+
+        // Delete the article
+        $driver->delete();
+        return ['message' => 'Contact Deleted!'];
     }
 }

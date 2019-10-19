@@ -108,17 +108,12 @@
                                         <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-h"></i>
                                         </a>
-
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" v-bind:href="'/drivers/'+row.id">
-                                                <i class="far fa-eye"></i>
-                                                <span class="nav__link-text">View</span>
-                                            </a>
                                             <a class="dropdown-item" v-bind:href="'/drivers/'+row.id+'/edit'">
                                                 <i class="far fa-edit"></i>
                                                 <span class="nav__link-text">Edit</span>
                                             </a>
-                                            <a class="dropdown-item">
+                                            <a class="dropdown-item" @click="deleteDriver(row.id)">
                                                 <i class="far fa-trash-alt"></i>
                                                 <span class="nav__link-text">Delete</span>
                                             </a>
@@ -195,6 +190,18 @@
                     this.query.page--
                     this.fetchIndexData()
                 }
+            },
+            deleteDriver(id) {
+                if(confirm('are you sure?'))
+
+                // Send request to the server
+                    axios.delete( '/api/v1/drivers/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
             },
             toggleOrder(column) {
                 if(column === this.query.column) {

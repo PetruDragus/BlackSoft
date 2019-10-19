@@ -67,6 +67,10 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cities = City::findOrFail($id);
+
+        // Delete the article
+        $cities->delete();
+        return ['message' => 'Contact Deleted!'];
     }
 }

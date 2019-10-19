@@ -67,6 +67,10 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $invoice = Invoice::findOrFail($id);
+
+        // Delete the article
+        $invoice->delete();
+        return ['message' => 'Contact Deleted!'];
     }
 }
