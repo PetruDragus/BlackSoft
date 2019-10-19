@@ -60,6 +60,12 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+        request()->validate([
+            'name'    => 'required',
+            'phone'   => 'required',
+            'email'   => 'required',
+        ]);
+
         $customer = New Customer();
         $customer->name       = $request->get('name');
         $customer->email      = $request->get('email');
@@ -87,6 +93,12 @@ class CustomerController extends Controller
 
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'name'    => 'required',
+            'phone'   => 'required',
+            'email'   => 'required',
+        ]);
+
         $customer = Customer::findOrFail($id);
         $customer->name       = $request->get('name');
         $customer->email      = $request->get('email');

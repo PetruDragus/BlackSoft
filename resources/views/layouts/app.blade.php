@@ -40,11 +40,9 @@
                     <div class="content-body">
                         <div class="ui-container">
                             @include('partials._notifications')
-                            <transition name="fade" mode="out-in">
                                 <!-- Content section -->
                                     @yield('content')
                                 <!-- End Content -->
-                            </transition>
                         </div>
                     </div>
                 </div>

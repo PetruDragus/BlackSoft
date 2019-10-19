@@ -59,7 +59,15 @@ class ReviewController extends Controller
         return view('pages.reviews.show', compact('review'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
+        request()->validate([
+            'driver_id'        => 'required',
+            'booking_id'       => 'required',
+            'review'           => 'required',
+            'rating'           => 'required',
+            'customer_name'    => 'required',
+        ]);
 
         $review = New Review();
         $review->driver_id      = $request->get('driver_id');

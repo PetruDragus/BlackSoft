@@ -74,8 +74,11 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name'  => '',
-            'url'   => '',
+            'make'           => 'required',
+            'model'          => 'required',
+            'bussiness_type' => 'required',
+            'driver_id'      => 'required',
+            'plate'          => 'required',
         ]);
 
         if(!empty($request->has('photo'))) {
@@ -141,8 +144,11 @@ class VehicleController extends Controller
         $vehicles = Vehicle::findOrFail($id);
 
         request()->validate([
-            'make'  => '',
-            'model'   => '',
+            'make'           => 'required',
+            'model'          => 'required',
+            'bussiness_type' => 'required',
+            'driver_id'      => 'required',
+            'plate'          => 'required',
         ]);
 
         if(!empty($request->has('photo'))) {

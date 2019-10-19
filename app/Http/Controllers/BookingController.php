@@ -60,7 +60,6 @@ class BookingController extends Controller
     {
         $booking = Booking::find($id);
 
-
         $origin = urlencode($booking->pickup_address);
         $destination = urlencode($booking->drop_address);
         $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
@@ -92,6 +91,18 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'pickup_address'   => 'required',
+            'drop_address'     => 'required',
+            'vehicle_id'       => 'required',
+            'customer_id'      => 'required',
+            'driver_id'        => 'required',
+            'pickup_sign'      => 'required',
+            'pickup_time'      => 'required',
+            'flight_number'    => 'required',
+            'date'             => 'required',
+        ]);
+
         $booking = New Booking();
         $booking->pickup_address  = $request->get('pickup_address');
         $booking->drop_address    = $request->get('drop_address');
@@ -191,6 +202,18 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'pickup_address'   => 'required',
+            'drop_address'     => 'required',
+            'vehicle_id'       => 'required',
+            'customer_id'      => 'required',
+            'driver_id'        => 'required',
+            'pickup_sign'      => 'required',
+            'pickup_time'      => 'required',
+            'flight_number'    => 'required',
+            'date'             => 'required',
+        ]);
+
         $booking = Booking::find($id);
         $booking->pickup_address  = $request->get('pickup_address');
         $booking->drop_address    = $request->get('drop_address');

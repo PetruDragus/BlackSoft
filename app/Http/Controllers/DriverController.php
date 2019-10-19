@@ -108,8 +108,8 @@ class DriverController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'name'    => 'required',
-            'phone'   => 'required',
+            'name'        => 'required',
+            'phone'       => 'required',
         ]);
 
         $driver = Driver::find($id);
