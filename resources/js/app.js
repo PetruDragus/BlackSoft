@@ -64,6 +64,10 @@ Vue.filter('formatMiniDate', (value) => {
     }
 })
 
+Vue.filter('truncate', function (text, length, suffix) {
+    return text.substring(0, length) + suffix;
+});
+
 let Fire = new Vue();
 window.Fire = Fire;
 

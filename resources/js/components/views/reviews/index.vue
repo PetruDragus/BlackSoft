@@ -109,7 +109,7 @@
                             <a href="/booking/1">#{{ row.booking.id }}</a>
                         </th>
                         <td>{{ row.driver.name }}</td>
-                        <td style="width: 40%;">{{ row.review }}</td>
+                        <td style="width: 40%;">{{ row.review | truncate(300, '...') }}</td>
                         <td>
                             <div style="display: inline-flex;" v-if="row.rating == '1'">
                                 <i class="fas fa-star star-gold"></i>

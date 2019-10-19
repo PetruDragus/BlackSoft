@@ -76419,7 +76419,7 @@ var render = function() {
                 _c("td", [_vm._v(_vm._s(row.driver.name))]),
                 _vm._v(" "),
                 _c("td", { staticStyle: { width: "40%" } }, [
-                  _vm._v(_vm._s(row.review))
+                  _vm._v(_vm._s(_vm._f("truncate")(row.review, 300, "...")))
                 ]),
                 _vm._v(" "),
                 _c("td", [
@@ -92612,6 +92612,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('formatMiniDate', function (va
   if (value) {
     return moment__WEBPACK_IMPORTED_MODULE_1___default()(String(value)).format('DD.MM');
   }
+});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('truncate', function (text, length, suffix) {
+  return text.substring(0, length) + suffix;
 });
 var Fire = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 window.Fire = Fire;
