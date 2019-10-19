@@ -15,7 +15,14 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $model = Payment::with('contact', 'invoice')->searchPaginateAndOrder();
+        $columns = Payment::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
     }
 
     /**

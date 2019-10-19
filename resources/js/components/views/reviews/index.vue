@@ -195,14 +195,17 @@
 <script>
     import Vue from 'vue'
     import axios from 'axios'
-    //similar to vue-resource
+    import Form from 'vform'
 
+    //similar to vue-resource
     export default {
+        bookings: {},
+        props: ['title'],
         data() {
             return {
+                drivers: {},
                 model: {},
                 columns: {},
-                title: 'Reviews',
                 source: '/api/v1/reviews',
                 query: {
                     page: 1,
@@ -226,7 +229,7 @@
             }
         },
         created() {
-            this.fetchIndexData()
+            this.fetchIndexData();
         },
         methods: {
             next() {
@@ -255,20 +258,8 @@
                 }
                 this.fetchIndexData()
             },
-            deleteReview(id) {
-                if(confirm('are you sure?'))
-
-                // Send request to the server
-                    axios.delete( '/api/v1/reviews/'+id)
-                        .then(function (response) {
-                            window.location.reload();
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-            },
             fetchIndexData() {
-                var vm = this
+                var vm = this;
 
                 const url = '/api/v1/reviews?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
@@ -280,6 +271,11 @@
                     .catch(function(response) {
                         console.log(response)
                     })
+            }
+        },
+        computed: {
+            resultCount () {
+                return this.fetchIndexData = response.data
             }
         }
     }
