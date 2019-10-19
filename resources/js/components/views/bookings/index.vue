@@ -392,7 +392,7 @@
                 axios.get('/api/v1/drivers').then(({ data }) => (this.drivers = data));
             },
             fetchIndexData() {
-                var vm = this;
+                var vm = this
 
                 const url = '/api/v1/bookings?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
