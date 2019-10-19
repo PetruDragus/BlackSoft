@@ -17269,6 +17269,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -17416,16 +17418,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
  //similar to vue-resource
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  bookings: {},
+  props: ['title'],
   data: function data() {
     return {
+      drivers: {},
       model: {},
       columns: {},
       source: '/api/v1/contacts',
-      title: 'Contacts',
       query: {
         page: 1,
         column: 'id',
@@ -17449,6 +17454,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.fetchIndexData();
+    this.loadDrivers();
   },
   methods: {
     next: function next() {
@@ -17462,6 +17468,14 @@ __webpack_require__.r(__webpack_exports__);
         this.query.page--;
         this.fetchIndexData();
       }
+    },
+    deleteContact: function deleteContact(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/contacts/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -17478,14 +17492,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.fetchIndexData();
     },
-    deleteContact: function deleteContact(id) {
-      if (confirm('are you sure?')) // Send request to the server
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/contacts/' + id).then(function (response) {
-          window.location.reload();
-        })["catch"](function (error) {
-          console.log(error);
-        });
-    },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
       var url = '/api/v1/contacts?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
@@ -17495,6 +17501,11 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (response) {
         console.log(response);
       });
+    }
+  },
+  computed: {
+    resultCount: function resultCount() {
+      return this.fetchIndexData = response.data;
     }
   }
 });
@@ -17966,7 +17977,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/drivers?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/drivers?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -18219,7 +18230,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/v1/invoices?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/v1/invoices?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -18471,7 +18482,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/v1/jobs?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/v1/jobs?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -18714,7 +18725,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/v1/jobApplication?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/v1/jobApplication?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -18982,7 +18993,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/payments?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/payments?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -19008,6 +19019,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -19202,15 +19215,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
  //similar to vue-resource
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  bookings: {},
+  props: ['title'],
   data: function data() {
     return {
+      drivers: {},
       model: {},
       columns: {},
-      title: 'Reviews',
       source: '/api/v1/reviews',
       query: {
         page: 1,
@@ -19264,23 +19280,20 @@ __webpack_require__.r(__webpack_exports__);
 
       this.fetchIndexData();
     },
-    deleteReview: function deleteReview(id) {
-      if (confirm('are you sure?')) // Send request to the server
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/reviews/' + id).then(function (response) {
-          window.location.reload();
-        })["catch"](function (error) {
-          console.log(error);
-        });
-    },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/v1/reviews?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/v1/reviews?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
       })["catch"](function (response) {
         console.log(response);
       });
+    }
+  },
+  computed: {
+    resultCount: function resultCount() {
+      return this.fetchIndexData = response.data;
     }
   }
 });
@@ -19518,7 +19531,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/users?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/users?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
@@ -19779,7 +19792,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
-      var url = 'http://127.0.0.1:8000/api/vehicles?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+      var url = '/api/vehicles?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
