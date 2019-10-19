@@ -11,7 +11,7 @@
                         <span class="subheader__separator kt-subheader__separator--v"></span>
 
                         <div class="subheader__desc__count">
-                            <span> 2 Total</span>
+                            <span> {{ this.model.total }} Total</span>
                         </div>
                     </div>
                     <div class="float-right">
@@ -409,11 +409,6 @@
                     .catch(function(response) {
                         console.log(response)
                     })
-            }
-        },
-        computed: {
-            resultCount () {
-                return this.fetchIndexData = response.data
             }
         }
     }

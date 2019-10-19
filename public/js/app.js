@@ -17014,11 +17014,6 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       });
     }
-  },
-  computed: {
-    resultCount: function resultCount() {
-      return this.fetchIndexData = response.data;
-    }
   }
 });
 
@@ -71159,7 +71154,37 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-35" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -71333,7 +71358,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(1)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -71411,7 +71436,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._m(2, true)]
+                          [_vm._m(3, true)]
                         )
                       ]),
                   _vm._v(" "),
@@ -71460,7 +71485,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(3, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -71596,7 +71621,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(4, true)
+                              _vm._m(5, true)
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "modal-body" }, [
@@ -71695,7 +71720,7 @@ var render = function() {
                                       ])
                                     ]),
                                     _vm._v(" "),
-                                    _vm._m(5, true),
+                                    _vm._m(6, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "list-b-item" }, [
                                       _c("h5", [
@@ -71820,7 +71845,7 @@ var render = function() {
                                             "div",
                                             { staticClass: "form-group" },
                                             [
-                                              _vm._m(6, true),
+                                              _vm._m(7, true),
                                               _vm._v(" "),
                                               _c(
                                                 "select",
@@ -71871,7 +71896,7 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _vm._m(7, true)
+                            _vm._m(8, true)
                           ])
                         ]
                       )
@@ -71938,123 +71963,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Bookings")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/bookings/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Bookings")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v(" 2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/bookings/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Booking\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/bookings/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/bookings/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Booking\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/bookings/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/bookings/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -72217,9 +72212,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -72401,7 +72426,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c(
@@ -72426,7 +72451,7 @@ var render = function() {
                         },
                         [
                           _c("div", { staticClass: "dropdown" }, [
-                            _vm._m(3, true),
+                            _vm._m(4, true),
                             _vm._v(" "),
                             _c(
                               "div",
@@ -72547,123 +72572,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Cities")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/cities/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Cities")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/cities/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add City\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/cities/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/cities/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add City\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/cities/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/cities/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -72745,9 +72740,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -72929,7 +72954,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c(
@@ -72954,7 +72979,7 @@ var render = function() {
                         },
                         [
                           _c("div", { staticClass: "dropdown" }, [
-                            _vm._m(3, true),
+                            _vm._m(4, true),
                             _vm._v(" "),
                             _c(
                               "div",
@@ -73075,123 +73100,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Contacts")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/contacts/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Contacts")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/contacts/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Contact\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/contacts/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/contacts/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Contact\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/contacts/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/contacts/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -73273,9 +73268,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -73457,7 +73482,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c(
@@ -73482,7 +73507,7 @@ var render = function() {
                         },
                         [
                           _c("div", { staticClass: "dropdown" }, [
-                            _vm._m(3, true),
+                            _vm._m(4, true),
                             _vm._v(" "),
                             _c(
                               "div",
@@ -73603,123 +73628,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Customers")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/customers/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Customers")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/customers/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Customer\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/customers/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/customers/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Customer\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/customers/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/customers/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -73807,7 +73802,23 @@ var render = function() {
           "div",
           { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
           [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "float-right" }, [
               _c("div", [
@@ -74227,23 +74238,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "float-left", staticStyle: { display: "flex" } },
-      [
-        _c("div", { staticClass: "subheader__page__title" }, [
-          _c("h6", [_vm._v("Drivers")])
-        ]),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "subheader__separator kt-subheader__separator--v"
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "subheader__desc__count" }, [
-          _c("span", [_vm._v("2 Total")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Drivers")])
+    ])
   },
   function() {
     var _vm = this
@@ -74323,9 +74320,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -74507,7 +74534,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -74560,7 +74587,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(3, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -74692,123 +74719,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Invoices")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/invoices/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Invoices")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/invoices/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Invoice\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/invoices/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/invoices/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Invoice\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/invoices/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/invoices/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -74890,7 +74887,37 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-35" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -75064,7 +75091,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(1)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -75129,7 +75156,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(2, true),
+                          _vm._m(3, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -75259,123 +75286,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Jobs")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/jobs/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Jobs")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v(" 2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/jobs/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Job\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/jobs/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/jobs/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Job\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/jobs/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/jobs/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -75440,7 +75437,23 @@ var render = function() {
           "div",
           { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
           [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "float-right" }, [
               _c("div", [
@@ -75883,23 +75896,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "float-left", staticStyle: { display: "flex" } },
-      [
-        _c("div", { staticClass: "subheader__page__title" }, [
-          _c("h6", [_vm._v("Job Applications")])
-        ]),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "subheader__separator kt-subheader__separator--v"
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "subheader__desc__count" }, [
-          _c("span", [_vm._v(" 2 Total")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Job Applications")])
+    ])
   },
   function() {
     var _vm = this
@@ -75956,9 +75955,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -76140,7 +76169,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -76197,7 +76226,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(3, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -76329,123 +76358,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Payments")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/payments/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Payments")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/payments/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Payment\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/payments/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/payments/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Payment\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/payments/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/payments/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -76527,9 +76526,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -76711,7 +76740,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -76822,7 +76851,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(3, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -76935,123 +76964,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Reviews")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/reviews/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Reviews")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/reviews/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Review\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/reviews/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/reviews/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Review\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/reviews/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/reviews/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -77133,9 +77132,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -77317,7 +77346,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -77360,7 +77389,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(3, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -77473,123 +77502,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Users")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/users/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Users")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/users/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add User\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/users/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/users/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add User\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/users/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/users/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },
@@ -77671,9 +77670,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "m-t-65" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "col-md-12 toggled" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          [
+            _c(
+              "div",
+              { staticClass: "float-left", staticStyle: { display: "flex" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "subheader__separator kt-subheader__separator--v"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "subheader__desc__count" }, [
+                  _c("span", [
+                    _vm._v(" " + _vm._s(this.model.total) + " Total")
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "dv" }, [
       _c("div", { staticClass: "dv-header" }, [
@@ -77855,7 +77884,7 @@ var render = function() {
           _c(
             "tbody",
             [
-              _vm.model.data < 1 ? _c("tr", [_vm._m(2)]) : _vm._e(),
+              _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
@@ -77927,7 +77956,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(3, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -78042,123 +78071,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 toggled" }, [
-      _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "subheader__page__title" }, [
+      _c("h6", [_vm._v("Vehicles")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticStyle: { display: "flex" } }, [
         _c(
-          "div",
-          { staticClass: "subHeader__block", attrs: { id: "subheader_pg" } },
+          "a",
+          {
+            staticClass: "btn btn-label-brand btn-bold",
+            attrs: { href: "/vehicles/create" }
+          },
           [
-            _c(
-              "div",
-              { staticClass: "float-left", staticStyle: { display: "flex" } },
-              [
-                _c("div", { staticClass: "subheader__page__title" }, [
-                  _c("h6", [_vm._v("Vehicles")])
-                ]),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "subheader__separator kt-subheader__separator--v"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "subheader__desc__count" }, [
-                  _c("span", [_vm._v("2 Total")])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "float-right" }, [
-              _c("div", { staticStyle: { display: "flex" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-label-brand btn-bold",
-                    attrs: { href: "/vehicles/create" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Add Vehicle\n                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn export-btn",
-                      attrs: {
-                        id: "dropdownMenuButton1",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-file-download" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenuButton1" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "nav__section nav__section--first" },
-                        [
-                          _c("span", { staticClass: "nav__section-text" }, [
-                            _vm._v("Choose an option")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _c("i", { staticClass: "fas fa-print" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "nav__link-text" }, [
-                          _vm._v("Print")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/vehicles/exportExcel" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-file-excel" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("Excel")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "/export/vehicles/exportCSV" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-file-csv" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nav__link-text" }, [
-                            _vm._v("CSV")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "clearfix" })
+            _vm._v(
+              "\n                            Add Vehicle\n                        "
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn export-btn",
+              attrs: {
+                id: "dropdownMenuButton1",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "fas fa-file-download" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuButton1" }
+            },
+            [
+              _c("div", { staticClass: "nav__section nav__section--first" }, [
+                _c("span", { staticClass: "nav__section-text" }, [
+                  _vm._v("Choose an option")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _c("i", { staticClass: "fas fa-print" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/vehicles/exportExcel" }
+                },
+                [
+                  _c("i", { staticClass: "far fa-file-excel" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [
+                    _vm._v("Excel")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { href: "/export/vehicles/exportCSV" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-file-csv" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "nav__link-text" }, [_vm._v("CSV")])
+                ]
+              )
+            ]
+          )
+        ])
       ])
     ])
   },

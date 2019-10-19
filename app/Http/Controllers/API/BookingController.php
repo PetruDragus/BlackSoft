@@ -24,7 +24,8 @@ class BookingController extends Controller
         return response()
             ->json([
                 'model' => $model,
-                'columns' => $columns
+                'columns' => $columns,
+                'items_count' => $model->count()
             ]);
     }
 
