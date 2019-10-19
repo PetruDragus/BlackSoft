@@ -29,7 +29,11 @@
                 <div class="header__topbar-user dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                     <span class="header__topbar-welcome hidden-mobile">Hi,</span>
                     @if (Auth::check())
-                        <span class="header__topbar-username hidden-mobile">{{ Auth::user()->profile->name }}</span>
+                        @if(!Auth::user()->profile->name)
+                            <span class="header__topbar-username hidden-mobile">{{ Auth::user()->name }}</span>
+                        @else
+                            <span class="header__topbar-username hidden-mobile">{{ Auth::user()->profile->name }}</span>
+                        @endif
                     @else
                         <span class="header__topbar-username hidden-mobile">User Name</span>
                     @endif

@@ -210,7 +210,7 @@
             fetchIndexData() {
                 var vm = this;
 
-                const url = 'http://127.0.0.1:8000/api/cities?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
+                const url = '/api/cities?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
 
                 axios.get(url)
                     .then(function(response) {

@@ -36,7 +36,11 @@
                             </div>
                             <div class="widget__info">
                                 <span class="widget__label">Location:</span>
-                                <span class="widget__data">{{ $profile->city }}</span>
+                                <span class="widget__data">{{ $profile->city }}, {{ $profile->country }}</span>
+                            </div>
+                            <div class="widget__info">
+                                <span class="widget__label">Address:</span>
+                                <span class="widget__data">{{ $profile->address }}</span>
                             </div>
                         </div>
 
@@ -71,7 +75,7 @@
                     <div class="tab-pane fade show active card" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                         <div class="card-header">
                             <div class="portlet__head-label">
-                                <h3 class="portlet__head-title">Personal Information <small>update your personal informaiton</small></h3>
+                                <h3 class="portlet__head-title">Personal Information <small>update your personal information</small></h3>
                             </div>
                         </div>
 
@@ -113,6 +117,34 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">City</label>
+                                                <div class="col-lg-9 col-xl-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-city"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="city" value="{{ $profile->city }}" placeholder="City" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Country</label>
+                                                <div class="col-lg-9 col-xl-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-globe"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="country" value="{{ $profile->country }}" placeholder="Country" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="row">
                                                 <label class="col-xl-3"></label>
                                                 <div class="col-lg-9 col-xl-6">
@@ -135,12 +167,26 @@
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Email Address</label>
+                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Address</label>
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">
                                                                 <i class="fas fa-at"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="address" value="{{ $profile->address }}" placeholder="Address" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-lg-3 col-form-label justify-content-end">Email Address</label>
+                                                <div class="col-lg-9 col-xl-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-map-marker-alt"></i>
                                                             </span>
                                                         </div>
                                                         <input type="email" class="form-control" name="email" value="{{ $profile->email }}" placeholder="Email Address" aria-describedby="basic-addon1">

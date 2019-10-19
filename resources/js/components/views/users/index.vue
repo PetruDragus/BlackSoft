@@ -106,7 +106,7 @@
                     <tr v-for="row in model.data">
                         <th>#{{ row.id }}</th>
                         <td>
-                            <img :src="'/storage/' + row.profile.filename" style="width: 50px;border-radius: 50%;height: 50px;object-fit: cover;box-shadow: 0 0 5px #5e5e5e;">
+                            <img :src="'/storage/' + row.profile.filename" style="width: 50px;border-radius: 50%;height: 50px;object-fit: cover;">
                         </td>
                         <td>{{ row.name }}</td>
                         <td>{{ row.email }}</td>
