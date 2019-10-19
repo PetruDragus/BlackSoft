@@ -91,7 +91,11 @@ class DriverController extends Controller
      */
     public function edit($id)
     {
-        //
+        $driver = Driver::findOrFail($id);
+
+        $vehicle = Vehicle::all();
+
+        return view('pages.drivers.edit', compact('driver', 'vehicle'));
     }
 
     /**
@@ -103,7 +107,24 @@ class DriverController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'name'    => 'required',
+            'phone'   => 'required',
+        ]);
+
+        $driver = Driver::find($id);
+        $driver->partener_id    = $request->partener_id;
+        $driver->name           = $request->name;
+        $driver->phone          = $request->phone;
+        $driver->vehicle_id     = $request->vehicle_id;
+        $driver->city           = $request->city;
+        $driver->birthday       = $request->birthday;
+        $driver->genter         = $request->genter;
+        $driver->save();
+
+        return redirect()
+            ->route('drivers.index')
+            ->with('success', 'Driver edited successfully.');
     }
 
     /**

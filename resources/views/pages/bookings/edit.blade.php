@@ -85,10 +85,10 @@
                                         <span>Vehicle</span>
                                     </label>
 
-                                    <select class="form-control select-input">
+                                    <select class="form-control select-input" name="vehicle_id">
                                         <option value="" disabled="disabled">Select ..</option>
                                         @foreach($vehicle as $item)
-                                            <option value="{{ $booking->id }}">{{ $booking->make }} {{ $booking->make }} / € {{ $booking->price }}</option>
+                                            <option value="{{ $item->id }}">{{ $item->make }} {{ $item->make }} / € {{ $item->price }}</option>
                                         @endforeach
                                     </select>
                                 </div>

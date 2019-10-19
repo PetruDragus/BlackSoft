@@ -136,25 +136,16 @@
             </div>
 
             <div class="row row-line">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="info-group">
                         <label class="info-label">
-                            <span>Customer Firstname</span>
+                            <span>Customer Name</span>
                         </label>
-                        <p>{{ $booking->customer->firstname }}</p>
+                        <p>{{ $booking->customer->name }}</p>
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="info-group">
-                        <label class="info-label">
-                            <span>Customer Lastname</span>
-                        </label>
-                        <p>{{ $booking->customer->lastname }}</p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="info-group">
                         <label class="info-label">
                             <span>Customer Email</span>
@@ -163,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="info-group">
                         <label class="info-label">
                             <span>Customer Phone</span>

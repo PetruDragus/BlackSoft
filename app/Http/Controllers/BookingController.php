@@ -135,10 +135,13 @@ class BookingController extends Controller
             $booking->customer_id = $customer_id->id;
         } else {
             $customer = new Customer();
-            $customer->name = $request->get('name');
+            $customer->name  = $request->get('name');
             $customer->email = $request->get('email');
             $customer->phone = $request->get('phone');
             $customer->save();
+
+            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
         }
 
         $booking->save();
