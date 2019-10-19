@@ -103,77 +103,82 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <th>#{{ row.id }}</th>
-                        <th>
-                            <a href="/booking/1">#{{ row.booking.id }}</a>
-                        </th>
-                        <td>{{ row.driver.name }}</td>
-                        <td style="width: 40%;">{{ row.review | truncate(300, '...') }}</td>
-                        <td>
-                            <div style="display: inline-flex;" v-if="row.rating == '1'">
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                            </div>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <th>#{{ row.id }}</th>
+                            <th>
+                                <a href="/booking/1">#{{ row.booking.id }}</a>
+                            </th>
+                            <td>{{ row.driver.name }}</td>
+                            <td style="width: 40%;">{{ row.review | truncate(300, '...') }}</td>
+                            <td>
+                                <div style="display: inline-flex;" v-if="row.rating == '1'">
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                </div>
 
-                            <div style="display: inline-flex;" v-if="row.rating == '2'">
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                            </div>
+                                <div style="display: inline-flex;" v-if="row.rating == '2'">
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                </div>
 
-                            <div style="display: inline-flex;" v-if="row.rating == '3'">
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                                <i class="far fa-star star-gold"></i>
-                            </div>
+                                <div style="display: inline-flex;" v-if="row.rating == '3'">
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                </div>
 
-                            <div style="display: inline-flex;" v-if="row.rating == '4'">
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-starv"></i>
-                                <i class="far fa-star star-gold"></i>
-                            </div>
+                                <div style="display: inline-flex;" v-if="row.rating == '4'">
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-starv"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                </div>
 
-                            <div style="display: inline-flex;" v-if="row.rating == '5'">
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                                <i class="fas fa-star star-gold"></i>
-                            </div>
-                        </td>
-                        <td>{{ row.customer_name }}</td>
-                        <td>{{ row.created_at | formatDate }}</td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/reviews/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
+                                <div style="display: inline-flex;" v-if="row.rating == '5'">
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                    <i class="fas fa-star star-gold"></i>
+                                </div>
+                            </td>
+                            <td>{{ row.customer_name }}</td>
+                            <td>{{ row.created_at | formatDate }}</td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
                                         </a>
-                                        <a class="dropdown-item" @click="deleteReview(row.id)">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/reviews/'+row.id">
+                                                <i class="far fa-eye"></i>
+                                                <span class="nav__link-text">View</span>
+                                            </a>
+                                            <a class="dropdown-item" @click="deleteReview(row.id)">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

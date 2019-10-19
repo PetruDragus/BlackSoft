@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db79e5c0-6007-4664-b776-e03e3d581d55" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/cities/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/cities/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/jobs/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/jobs/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/payments/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/payments/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/reviews/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/reviews/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/users/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/users/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,22 +46,98 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/invoices/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="324">
+              <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="149" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/payments/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="150" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/users/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="140" selection-end-column="29" />
               <folding>
-                <element signature="e#1859#1916#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="148" selection-end-column="29" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/views/reviews/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="111" column="76" selection-start-line="111" selection-start-column="76" selection-end-line="111" selection-end-column="76" />
+            <state relative-caret-position="69">
+              <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="180" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/bookings/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="97" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/cities/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="105" column="19" selection-start-line="105" selection-start-column="19" selection-end-line="132" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/contacts/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="105" column="32" selection-start-line="105" selection-start-column="32" selection-end-line="109" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/customers/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="132" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/drivers/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="128" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -64,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/pages/jobs/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/jobApplication/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/JobApplicationController.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/jobApplication/edit.blade.php" />
@@ -101,20 +186,21 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/users/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/_header.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PaymentController.php" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/views/jobs/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/payments/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/users/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PaymentController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/views/cities/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/payments/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/views/reviews/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/users/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" />
       </list>
     </option>
   </component>
@@ -270,7 +356,109 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="bookings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="cities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="contacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="customers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="drivers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="invoices" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="payments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="reviews" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vehicles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="invoices" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -353,12 +541,12 @@
       <workItem from="1571236329525" duration="369000" />
       <workItem from="1571317018733" duration="172000" />
       <workItem from="1571475780204" duration="415000" />
-      <workItem from="1571479640382" duration="2332000" />
+      <workItem from="1571479640382" duration="3344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149195000" />
+    <option name="totallyTimeSpent" value="150207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -414,13 +602,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/DriverController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_15_133221_create_profiles_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -521,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/users/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="220" column="29" selection-start-line="220" selection-start-column="29" selection-end-line="220" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ChartComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -540,31 +711,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/GoogleMap.vue">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/jobs/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="231" column="29" selection-start-line="231" selection-start-column="29" selection-end-line="231" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="217" column="29" selection-start-line="217" selection-start-column="29" selection-end-line="217" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="240" column="320" selection-start-line="240" selection-start-column="320" selection-end-line="240" selection-end-column="320" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/VehicleController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -677,64 +823,10 @@
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4923" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/cities/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
-          <caret line="210" column="29" lean-forward="true" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/bookings/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="394" column="29" lean-forward="true" selection-start-line="394" selection-start-column="29" selection-end-line="394" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/contacts/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="227" column="29" lean-forward="true" selection-start-line="227" selection-start-column="29" selection-end-line="227" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/customers/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
-          <caret line="222" column="29" lean-forward="true" selection-start-line="222" selection-start-column="29" selection-end-line="222" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/drivers/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="210" column="29" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/invoices/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="229" column="29" selection-start-line="229" selection-start-column="29" selection-end-line="229" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/payments/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="242" column="320" selection-start-line="242" selection-start-column="320" selection-end-line="242" selection-end-column="320" />
         </state>
       </provider>
     </entry>
@@ -751,6 +843,13 @@
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="228" column="129" selection-start-line="228" selection-start-column="129" selection-end-line="228" selection-end-column="129" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="712">
@@ -761,10 +860,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/invoices/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="227" column="24" selection-start-line="227" selection-start-column="24" selection-end-line="231" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/jobs/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="97" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="82" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/bookings/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="97" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/cities/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="105" column="19" selection-start-line="105" selection-start-column="19" selection-end-line="132" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/contacts/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="105" column="32" selection-start-line="105" selection-start-column="32" selection-end-line="109" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/customers/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="132" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/drivers/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="128" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/invoices/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="149" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/payments/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="150" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/views/reviews/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="111" column="76" selection-start-line="111" selection-start-column="76" selection-end-line="111" selection-end-column="76" />
+        <state relative-caret-position="69">
+          <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="180" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/users/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="140" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="148" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

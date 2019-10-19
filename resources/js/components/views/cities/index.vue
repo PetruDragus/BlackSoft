@@ -103,29 +103,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <td v-for="(value, key) in row">{{value}}</td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <td v-for="(value, key) in row">{{value}}</td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/cities/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
-                                        <a class="dropdown-item">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/cities/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

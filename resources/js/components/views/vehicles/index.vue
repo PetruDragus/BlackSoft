@@ -103,45 +103,50 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <td style="width: 25%;">
-                            <div class="vh--table--name" style="display:flex;">
-                                <div class="vh--image">
-                                    <img :src="'/storage/' + row.filename" width="100">
-                                </div>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <td style="width: 25%;">
+                                <div class="vh--table--name" style="display:flex;">
+                                    <div class="vh--image">
+                                        <img :src="'/storage/' + row.filename" width="100">
+                                    </div>
 
-                                <div class="vh--content" >
-                                    <a href="#">#{{ row.id }} - {{ row.year }} - {{ row.make }} {{ row.model }}</a>
-                                    <p><span>VIN/SN:</span> {{ row.vin }}</p>
-                                    <p><span>Plate No:</span> {{ row.plate }}</p>
+                                    <div class="vh--content" >
+                                        <a href="#">#{{ row.id }} - {{ row.year }} - {{ row.make }} {{ row.model }}</a>
+                                        <p><span>VIN/SN:</span> {{ row.vin }}</p>
+                                        <p><span>Plate No:</span> {{ row.plate }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td>{{ row.bussiness_type }}</td>
-                        <td>€ {{ row.price }}</td>
-                        <td>{{ row.driver.name }}</td>
-                        <td>{{ row.current_meter }} km</td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                            </td>
+                            <td>{{ row.bussiness_type }}</td>
+                            <td>€ {{ row.price }}</td>
+                            <td>{{ row.driver.name }}</td>
+                            <td>{{ row.current_meter }} km</td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" v-bind:href="'/vehicles/'+row.id+'/edit'">
-                                          <i class="far fa-edit"></i>
-                                          <span class="nav__link-text">Edit</span>
-                                      </a>
-                                      <a class="dropdown-item" @click="deleteVehicle(row.id)">
-                                          <i class="far fa-trash-alt"></i>
-                                          <span class="nav__link-text">Delete</span>
-                                      </a>
-                                  </div>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <a class="dropdown-item" v-bind:href="'/vehicles/'+row.id+'/edit'">
+                                              <i class="far fa-edit"></i>
+                                              <span class="nav__link-text">Edit</span>
+                                          </a>
+                                          <a class="dropdown-item" @click="deleteVehicle(row.id)">
+                                              <i class="far fa-trash-alt"></i>
+                                              <span class="nav__link-text">Delete</span>
+                                          </a>
+                                      </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

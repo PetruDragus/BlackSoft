@@ -91,6 +91,11 @@
                     </tr>
                     </thead>
                     <tbody>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
                         <tr v-for="row in model.data" data-href='http://127.0.0.1:8000/bookings/' >
                             <th>#{{ row.id }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>

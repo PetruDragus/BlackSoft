@@ -103,46 +103,51 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <th>#{{ row.number }}</th>
-                        <td>{{ row.date | formatDate }}</td>
-                        <td>{{ row.due_date | formatDate }}</td>
-                        <td>{{ row.customer.name }}</td>
-                        <td>{{ row.total | formatMoney }}</td>
-                        <td>
-                            <span v-if="row.status == 'Sent'" class="status status-light_green">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <th>#{{ row.number }}</th>
+                            <td>{{ row.date | formatDate }}</td>
+                            <td>{{ row.due_date | formatDate }}</td>
+                            <td>{{ row.customer.name }}</td>
+                            <td>{{ row.total | formatMoney }}</td>
+                            <td>
+                                <span v-if="row.status == 'Sent'" class="status status-light_green">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
 
-                            <span v-if="row.status == 'Paid'" class="status status-blue">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
-                        </td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                                <span v-if="row.status == 'Paid'" class="status status-blue">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
+                            </td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/invoices/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
-                                        </a>
-                                        <a class="dropdown-item" v-bind:href="'/invoices/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
-                                        <a class="dropdown-item">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/invoices/'+row.id">
+                                                <i class="far fa-eye"></i>
+                                                <span class="nav__link-text">View</span>
+                                            </a>
+                                            <a class="dropdown-item" v-bind:href="'/invoices/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

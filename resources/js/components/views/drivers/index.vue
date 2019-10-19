@@ -88,40 +88,45 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <th>{{ row.id }}</th>
-                        <td>{{ row.city }}</td>
-                        <td>{{ row.name }}</td>
-                        <td>{{ row.vehicle.make }} {{ row.vehicle.model }}</td>
-                        <td>{{ row.fleet_operator_id }}</td>
-                        <td>{{ row.phone }}</td>
-                        <td>{{ row.birthday }}</td>
-                        <td>{{ row.created_at }}</td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <th>{{ row.id }}</th>
+                            <td>{{ row.city }}</td>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.vehicle.make }} {{ row.vehicle.model }}</td>
+                            <td>{{ row.fleet_operator_id }}</td>
+                            <td>{{ row.phone }}</td>
+                            <td>{{ row.birthday }}</td>
+                            <td>{{ row.created_at }}</td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/drivers/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
-                                        </a>
-                                        <a class="dropdown-item" v-bind:href="'/drivers/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
-                                        <a class="dropdown-item">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/drivers/'+row.id">
+                                                <i class="far fa-eye"></i>
+                                                <span class="nav__link-text">View</span>
+                                            </a>
+                                            <a class="dropdown-item" v-bind:href="'/drivers/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

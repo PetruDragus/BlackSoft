@@ -226,7 +226,7 @@
                             <div class="card-body p-0 ">
                                 <div class="list-group list-lg-group list-group-flush">
                                     @foreach ($reviews as $row)
-                                        <a class="list-group-item list-group-item-action" href="#">
+                                        <a class="list-group-item list-group-item-action" href="{{ route('reviews.show', $row->id) }}">
                                             <div class="media mt-0">
                                                 <img class="avatar-xxl rounded-circle mr-3" src="https://www.theupholsteryforum.com/styles/FLATBOOTS/theme/images/user4.png" alt="Image description">
                                                 <div class="media-body">
@@ -281,7 +281,7 @@
                                                         @endif
                                                     </div>
                                                     <p class="mb-0 text-muted">
-                                                        {{ $row->review }}
+                                                        {!!  substr(strip_tags($row->review), 0, 150) !!}
                                                     </p>
                                                 </div>
                                             </div>

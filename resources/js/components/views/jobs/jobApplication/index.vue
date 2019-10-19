@@ -39,7 +39,7 @@
         <div class="dv">
             <div class="dv-header">
                 <div class="dv-header-title">
-                    Bookings
+                    Job Applications
                 </div>
                 <div class="dv-header-columns">
                     <span class="dv-header-pre">Search: </span>
@@ -69,57 +69,62 @@
                         <th v-for="column in columns" @click="toggleOrder(column)">
                             <span>{{column}}</span>
                             <span class="dv-table-column" v-if="column === query.column">
-                    <span v-if="query.direction === 'desc'">&darr;</span>
-                    <span v-else>&uarr;</span>
-                  </span>
+                                <span v-if="query.direction === 'desc'">&darr;</span>
+                                <span v-else>&uarr;</span>
+                            </span>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <th>#{{ row.id }}</th>
-                        <td>
-                            <a href="/jobs/1">#{{ row.job.title }}</a>
-                        </td>
-                        <td>{{ row.firstname }}</td>
-                        <td>{{ row.lastname }}</td>
-                        <td>{{ row.phone }}</td>
-                        <td>{{ row.email }}</td>
-                        <td>
-                            <span class="status status-green" v-if="row.status == 'Active'">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <th>#{{ row.id }}</th>
+                            <td>
+                                <a href="/jobs/1">#{{ row.job.title }}</a>
+                            </td>
+                            <td>{{ row.firstname }}</td>
+                            <td>{{ row.lastname }}</td>
+                            <td>{{ row.phone }}</td>
+                            <td>{{ row.email }}</td>
+                            <td>
+                                <span class="status status-green" v-if="row.status == 'Active'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
 
-                            <span class="status status-pink" v-if="row.status == 'Inactive'">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
-                        </td>
-                        <td>{{ row.created_at }}</td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                                <span class="status status-pink" v-if="row.status == 'Inactive'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
+                            </td>
+                            <td>{{ row.created_at }}</td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/applications/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
-                                        </a>
-                                        <a class="dropdown-item" v-bind:href="'/applications/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
-                                        <a class="dropdown-item" @click="deleteApplication(row.id)">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/applications/'+row.id">
+                                                <i class="far fa-eye"></i>
+                                                <span class="nav__link-text">View</span>
+                                            </a>
+                                            <a class="dropdown-item" v-bind:href="'/applications/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item" @click="deleteApplication(row.id)">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

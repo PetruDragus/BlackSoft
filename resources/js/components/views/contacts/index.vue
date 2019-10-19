@@ -103,6 +103,11 @@
                     </tr>
                     </thead>
                     <tbody>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
                         <tr v-for="row in model.data">
                             <td v-for="(value, key) in row">{{value}}</td>
                             <td>

@@ -103,47 +103,52 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <th>#{{ row.id }}</th>
-                        <td>
-                            <a v-bind:href="'/invoices/'+row.invoice.id">{{ row.invoice.number }}</a>
-                        </td>
-                        <td>{{ row.contact.name }}</td>
-                        <td>€ {{ row.amount | formatMoney }}</td>
-                        <td>
-                            <span class="status status-light_green" v-if="row.status == 'Sent'">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <th>#{{ row.id }}</th>
+                            <td>
+                                <a v-bind:href="'/invoices/'+row.invoice.id">{{ row.invoice.number }}</a>
+                            </td>
+                            <td>{{ row.contact.name }}</td>
+                            <td>€ {{ row.amount | formatMoney }}</td>
+                            <td>
+                                <span class="status status-light_green" v-if="row.status == 'Sent'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
 
-                            <span class="status status-blue" v-if="row.status == 'Paid'">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
-                        </td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                                <span class="status status-blue" v-if="row.status == 'Paid'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
+                            </td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/payments/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
-                                        </a>
-                                        <a class="dropdown-item" v-bind:href="'/payments/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
-                                        <a class="dropdown-item" @click="deletePayment(row.id)">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/payments/'+row.id">
+                                                <i class="far fa-eye"></i>
+                                                <span class="nav__link-text">View</span>
+                                            </a>
+                                            <a class="dropdown-item" v-bind:href="'/payments/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item" @click="deletePayment(row.id)">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

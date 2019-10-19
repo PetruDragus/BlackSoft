@@ -91,49 +91,54 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="row in model.data">
-                        <th>#{{ row.id }}</th>
-                        <td class="md-w245">{{ row.title }}</td>
-                        <td class="md-w245" style="width: 50%;">
-                            {{ row.description.substring(0,400)+".." }}
-                        </td>
-                        <td>{{ row.vacancy }}</td>
-                        <td>{{ row.last_date | formatDate }}</td>
-                        <td>
-                            <span class="status status-green" v-if="row.status == 'Active'">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
+                        <tr v-if="model.data < 1">
+                            <td class="" colspan="10" style="text-align: left;">
+                                <div class="table-no_results">No results found!</div>
+                            </td>
+                        </tr>
+                        <tr v-for="row in model.data">
+                            <th>#{{ row.id }}</th>
+                            <td class="md-w245">{{ row.title }}</td>
+                            <td class="md-w245" style="width: 50%;">
+                                {{ row.description.substring(0,400)+".." }}
+                            </td>
+                            <td>{{ row.vacancy }}</td>
+                            <td>{{ row.last_date | formatDate }}</td>
+                            <td>
+                                <span class="status status-green" v-if="row.status == 'Active'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
 
-                            <span class="status status-pink" v-if="row.status == 'Inactive'">
-                                <span class="status-text">{{ row.status }}</span>
-                            </span>
-                        </td>
-                        <td>{{ row.created_at | formatDate }}</td>
-                        <td>
-                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
+                                <span class="status status-pink" v-if="row.status == 'Inactive'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
+                            </td>
+                            <td>{{ row.created_at | formatDate }}</td>
+                            <td>
+                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/jobs/'+row.id">
-                                            <i class="far fa-eye"></i>
-                                            <span class="nav__link-text">View</span>
-                                        </a>
-                                        <a class="dropdown-item" v-bind:href="'/jobs/'+row.id+'/edit'">
-                                            <i class="far fa-edit"></i>
-                                            <span class="nav__link-text">Edit</span>
-                                        </a>
-                                        <a class="dropdown-item" @click="deleteJob(row.id)">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span class="nav__link-text">Delete</span>
-                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/jobs/'+row.id">
+                                                <i class="far fa-eye"></i>
+                                                <span class="nav__link-text">View</span>
+                                            </a>
+                                            <a class="dropdown-item" v-bind:href="'/jobs/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item" @click="deleteJob(row.id)">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
