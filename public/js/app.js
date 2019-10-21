@@ -16530,6 +16530,8 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Chart.js */ "./node_modules/Chart.js/dist/Chart.js");
 /* harmony import */ var Chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Chart_js__WEBPACK_IMPORTED_MODULE_0__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -16545,16 +16547,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     renderChart: function renderChart() {
+      var _data;
+
       new Chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](document.getElementById('canvas').getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: ["Maybach", "S Class", "E Class", "B Class"],
-          datasets: [{
-            label: "Population (millions)",
-            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
-            data: [2478, 5267, 734, 784, 433]
-          }]
-        },
+        type: 'line',
+        data: (_data = {
+          labels: ["Maybach", "S Class", "E Class", "B Class"]
+        }, _defineProperty(_data, "labels", ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']), _defineProperty(_data, "datasets", [{
+          label: 'Bookings',
+          backgroundColor: ['rgba(89, 162, 221, 0.4)'],
+          borderColor: ['rgba(89, 162, 221,1)'],
+          pointBackgroundColor: 'white',
+          borderWidth: 1,
+          pointBorderColor: '#249EBF',
+          //Data to be represented on y-axis
+          data: [40, 30, 40, 50, 90, 40, 20, 40, 50, 70, 90, 100]
+        }]), _data),
         options: {
           title: {
             display: false,
@@ -16585,6 +16593,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PieChartComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PieChartComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var Chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Chart.js */ "./node_modules/Chart.js/dist/Chart.js");
+/* harmony import */ var Chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Chart_js__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    labels: String,
+    dataProp: String
+  },
+  methods: {
+    renderChart: function renderChart() {
+      new Chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](document.getElementById('pie-chart').getContext('2d'), {
+        type: 'pie',
+        data: {
+          labels: ["Luxury Class", "Bussiness Class", "First Class", "City Class"],
+          datasets: [{
+            label: "Population (millions)",
+            backgroundColor: ["#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            data: [2478, 5267, 734, 784]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Monthly sales by vehicles'
+          }
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.renderChart();
+  }
+});
 
 /***/ }),
 
@@ -17426,14 +17486,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
  //similar to vue-resource
 
@@ -17448,7 +17500,7 @@ __webpack_require__.r(__webpack_exports__);
         page: 1,
         column: 'id',
         direction: 'desc',
-        per_page: 20,
+        per_page: 15,
         search_column: 'id',
         search_operator: 'not_equal',
         search_input: ''
@@ -20066,7 +20118,7 @@ __webpack_require__.r(__webpack_exports__);
         page: 1,
         column: 'id',
         direction: 'desc',
-        per_page: 15,
+        per_page: 10,
         search_column: 'id',
         search_operator: 'not_equal',
         search_input: ''
@@ -71388,6 +71440,37 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PieChartComponent.vue?vue&type=template&id=2d095710&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PieChartComponent.vue?vue&type=template&id=2d095710& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("canvas", { attrs: { id: "canvas" } })])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/bookings/index.vue?vue&type=template&id=ade60d6e&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/bookings/index.vue?vue&type=template&id=ade60d6e& ***!
@@ -73358,19 +73441,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "float-right" }, [
       _c("div", { staticStyle: { display: "flex" } }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-label-brand btn-bold",
-            attrs: { href: "/contact-form/create" }
-          },
-          [
-            _vm._v(
-              "\n                            Add Contact Form\n                        "
-            )
-          ]
-        ),
-        _vm._v(" "),
         _c("div", { staticClass: "dropdown" }, [
           _c(
             "a",
@@ -73399,17 +73469,11 @@ var staticRenderFns = [
                 ])
               ]),
               _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item" }, [
-                _c("i", { staticClass: "fas fa-print" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "nav__link-text" }, [_vm._v("Print")])
-              ]),
-              _vm._v(" "),
               _c(
                 "a",
                 {
                   staticClass: "dropdown-item",
-                  attrs: { href: "/export/cities/exportExcel" }
+                  attrs: { href: "/export/contact-form/exportExcel" }
                 },
                 [
                   _c("i", { staticClass: "far fa-file-excel" }),
@@ -73424,7 +73488,7 @@ var staticRenderFns = [
                 "a",
                 {
                   staticClass: "dropdown-item",
-                  attrs: { href: "/export/cities/exportCSV" }
+                  attrs: { href: "/export/contact-form/exportCSV" }
                 },
                 [
                   _c("i", { staticClass: "fas fa-file-csv" }),
@@ -93708,9 +93772,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_views_drivers_index__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/views/drivers/index */ "./resources/js/components/views/drivers/index.vue");
 /* harmony import */ var _components_views_payments_index__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/views/payments/index */ "./resources/js/components/views/payments/index.vue");
 /* harmony import */ var _components_ChartComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/ChartComponent */ "./resources/js/components/ChartComponent.vue");
-/* harmony import */ var _components_GoogleMap__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/GoogleMap */ "./resources/js/components/GoogleMap.vue");
-/* harmony import */ var _components_views_contactForm_index__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/views/contactForm/index */ "./resources/js/components/views/contactForm/index.vue");
-/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var _components_PieChartComponent__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/PieChartComponent */ "./resources/js/components/PieChartComponent.vue");
+/* harmony import */ var _components_GoogleMap__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/GoogleMap */ "./resources/js/components/GoogleMap.vue");
+/* harmony import */ var _components_views_contactForm_index__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/views/contactForm/index */ "./resources/js/components/views/contactForm/index.vue");
+/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -93790,6 +93855,7 @@ window.Fire = Fire;
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('bookings', __webpack_require__(/*! ./components/views/bookings/index */ "./resources/js/components/views/bookings/index.vue"));
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('invoices', __webpack_require__(/*! ./components/views/invoices/index */ "./resources/js/components/views/invoices/index.vue"));
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('reviews', __webpack_require__(/*! ./components/views/reviews/index */ "./resources/js/components/views/reviews/index.vue")); // const files = require.context('./', true, /\.vue$/i)
@@ -93817,9 +93883,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     Drivers: _components_views_drivers_index__WEBPACK_IMPORTED_MODULE_19__["default"],
     Payments: _components_views_payments_index__WEBPACK_IMPORTED_MODULE_20__["default"],
     Chart: _components_ChartComponent__WEBPACK_IMPORTED_MODULE_21__["default"],
-    Test: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_24__["default"],
-    GmapMap: _components_GoogleMap__WEBPACK_IMPORTED_MODULE_22__["default"],
-    contact_forms: _components_views_contactForm_index__WEBPACK_IMPORTED_MODULE_23__["default"]
+    Test: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_25__["default"],
+    GmapMap: _components_GoogleMap__WEBPACK_IMPORTED_MODULE_23__["default"],
+    contact_forms: _components_views_contactForm_index__WEBPACK_IMPORTED_MODULE_24__["default"],
+    pie_chart: _components_PieChartComponent__WEBPACK_IMPORTED_MODULE_22__["default"]
   }
 }).$mount('#app'); // Now the app has started!
 
@@ -94010,6 +94077,75 @@ component.options.__file = "resources/js/components/GoogleMap.vue"
   \************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PieChartComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/PieChartComponent.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PieChartComponent_vue_vue_type_template_id_2d095710___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PieChartComponent.vue?vue&type=template&id=2d095710& */ "./resources/js/components/PieChartComponent.vue?vue&type=template&id=2d095710&");
+/* harmony import */ var _PieChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PieChartComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PieChartComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PieChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PieChartComponent_vue_vue_type_template_id_2d095710___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PieChartComponent_vue_vue_type_template_id_2d095710___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PieChartComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PieChartComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/PieChartComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PieChartComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PieChartComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PieChartComponent.vue?vue&type=template&id=2d095710&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/PieChartComponent.vue?vue&type=template&id=2d095710& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChartComponent_vue_vue_type_template_id_2d095710___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PieChartComponent.vue?vue&type=template&id=2d095710& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PieChartComponent.vue?vue&type=template&id=2d095710&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChartComponent_vue_vue_type_template_id_2d095710___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChartComponent_vue_vue_type_template_id_2d095710___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

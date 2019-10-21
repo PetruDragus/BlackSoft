@@ -70,7 +70,7 @@
             <li>
                 <a href="/contact-form" class="sidebar-nav-link">
                     <div class="sidebar-icon">
-                        <i class="fas fa-id-card-alt"></i>
+                        <i class="far fa-address-book"></i>
                     </div>
                     <div class="sidebar-text"> Contact Form</div>
                     <div class="sidebar-arrow">
@@ -106,7 +106,7 @@
             <li>
                 <a href="/invoices" class="sidebar-nav-link">
                     <div class="sidebar-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     <div class="sidebar-text"> Invoices</div>
                     <div class="sidebar-arrow">
@@ -148,7 +148,7 @@
             <li>
                 <a href="/payments" class="sidebar-nav-link">
                     <div class="sidebar-icon">
-                        <i class="fas fa-blender-phone"></i>
+                        <i class="fas fa-money-check-alt"></i>
                     </div>
                     <div class="sidebar-text"> Payments</div>
                     <div class="sidebar-arrow">

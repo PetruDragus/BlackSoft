@@ -92,6 +92,7 @@ import Users from './components/views/users/index';
 import Drivers from './components/views/drivers/index';
 import Payments from './components/views/payments/index';
 import Chart from './components/ChartComponent';
+import pie_chart from './components/PieChartComponent';
 import GmapMap from './components/GoogleMap';
 import contact_forms from './components/views/contactForm/index';
 
@@ -128,7 +129,8 @@ const app = new Vue({
         Chart,
         Test,
         GmapMap,
-        contact_forms
+        contact_forms,
+        pie_chart
     }
 }).$mount('#app');
 // Now the app has started!

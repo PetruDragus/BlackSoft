@@ -16,10 +16,6 @@
                     </div>
                     <div class="float-right">
                         <div style="display: flex;">
-                            <a href="/contact-form/create" class="btn btn-label-brand btn-bold">
-                                Add Contact Form
-                            </a>
-
                             <div class="dropdown">
                                 <a id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn export-btn">
                                     <i class="fas fa-file-download"></i>
@@ -30,15 +26,11 @@
                                         <span class="nav__section-text">Choose an option</span>
                                     </div>
 
-                                    <a class="dropdown-item" >
-                                        <i class="fas fa-print"></i>
-                                        <span class="nav__link-text">Print</span>
-                                    </a>
-                                    <a class="dropdown-item" href="/export/cities/exportExcel">
+                                    <a class="dropdown-item" href="/export/contact-form/exportExcel">
                                         <i class="far fa-file-excel"></i>
                                         <span class="nav__link-text">Excel</span>
                                     </a>
-                                    <a class="dropdown-item"  href="/export/cities/exportCSV">
+                                    <a class="dropdown-item"  href="/export/contact-form/exportCSV">
                                         <i class="fas fa-file-csv"></i>
                                         <span class="nav__link-text">CSV</span>
                                     </a>
@@ -165,7 +157,7 @@
                     page: 1,
                     column: 'id',
                     direction: 'desc',
-                    per_page: 20,
+                    per_page: 15,
                     search_column: 'id',
                     search_operator: 'not_equal',
                     search_input: ''

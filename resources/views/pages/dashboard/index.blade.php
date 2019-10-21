@@ -326,7 +326,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div id="recent-transactions">
                     <div class="card dashboard-card">
                         <div class="card-header custom-header">
@@ -383,6 +383,29 @@
                                         <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
                                     </div>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card dashboard-card">
+
+                    <div class="card-body">
+                        <canvas id="pie-chart" width="800" height="425">
+                            <pie_chart></pie_chart>
+                        </canvas>
+                    </div>
+
+                        <p class="text-muted">Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example</p>
+
+                        <div class="resize-triggers">
+                            <div class="expand-trigger">
+                                <div style="width: 937px; height: 556px;"></div>
+                            </div>
+                            <div class="contract-trigger">
+
                             </div>
                         </div>
                     </div>

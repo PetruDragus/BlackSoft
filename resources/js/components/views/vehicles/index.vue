@@ -181,7 +181,7 @@
                     page: 1,
                     column: 'id',
                     direction: 'desc',
-                    per_page: 15,
+                    per_page: 10,
                     search_column: 'id',
                     search_operator: 'not_equal',
                     search_input: ''

@@ -59,6 +59,7 @@ Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
     Route::get('/vehicles/exportExcel', 'VehicleController@exportExcel');
     Route::get('/cities/exportExcel', 'CityController@exportExcel');
     Route::get('/jobs/exportExcel', 'JobController@exportExcel');
+    Route::get('/contact-form/exportExcel', 'ContactFormController@exportExcel');
 
     // Export to csv
     Route::get('/contacts/exportCSV', 'ContactController@exportCSV');
@@ -71,6 +72,7 @@ Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
     Route::get('/vehicles/exportCSV', 'VehicleController@exportCSV');
     Route::get('/cities/exportCSV', 'CityController@exportCSV');
     Route::get('/jobs/exportCSV', 'JobController@exportCSV');
+    Route::get('/contact-form/exportCSV', 'ContactFormController@exportCSV');
 });
 
 Route::group(['prefix' => 'settings', 'as' => 'settings.'], function(){

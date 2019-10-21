@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ContactForm;
 use Illuminate\Http\Request;
+use App\Exports\ContactFormsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ContactFormController extends Controller
 {
@@ -15,6 +17,22 @@ class ContactFormController extends Controller
     public function index()
     {
         return view('pages.contactForm.index');
+    }
+
+    /**
+     * Export to excel
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new ContactFormsExport, 'contact-forms.xlsx');
+    }
+
+    /**
+     * Export to csv
+     */
+    public function exportCSV()
+    {
+        return Excel::download(new ContactFormsExport, 'contact-forms.csv');
     }
 
     /**

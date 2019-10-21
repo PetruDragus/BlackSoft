@@ -17,14 +17,25 @@
             renderChart() {
 
                 new Chart(document.getElementById('canvas').getContext('2d'), {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: ["Maybach", "S Class", "E Class", "B Class"],
+                        //Data to be represented on x-axis
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                         datasets: [
                             {
-                                label: "Population (millions)",
-                                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
-                                data: [2478,5267,734,784,433]
+                                label: 'Bookings',
+                                backgroundColor: [
+                                    'rgba(89, 162, 221, 0.4)',
+                                ],
+                                borderColor: [
+                                    'rgba(89, 162, 221,1)',
+                                ],
+                                pointBackgroundColor: 'white',
+                                borderWidth: 1,
+                                pointBorderColor: '#249EBF',
+                                //Data to be represented on y-axis
+                                data: [40, 30, 40, 50, 90, 40, 20, 40, 50, 70, 90, 100]
                             }
                         ]
                     },
