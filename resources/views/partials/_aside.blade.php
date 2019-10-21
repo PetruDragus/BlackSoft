@@ -68,6 +68,18 @@
             </li>
 
             <li>
+                <a href="/contact-form" class="sidebar-nav-link">
+                    <div class="sidebar-icon">
+                        <i class="fas fa-id-card-alt"></i>
+                    </div>
+                    <div class="sidebar-text"> Contact Form</div>
+                    <div class="sidebar-arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                </a>
+            </li>
+
+            <li>
                 <a href="/opportunities" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-id-card-alt"></i>

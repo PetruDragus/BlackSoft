@@ -93,6 +93,7 @@ import Drivers from './components/views/drivers/index';
 import Payments from './components/views/payments/index';
 import Chart from './components/ChartComponent';
 import GmapMap from './components/GoogleMap';
+import contact_forms from './components/views/contactForm/index';
 
 import Test from './components/ExampleComponent';
 
@@ -126,7 +127,8 @@ const app = new Vue({
         Payments,
         Chart,
         Test,
-        GmapMap
+        GmapMap,
+        contact_forms
     }
 }).$mount('#app');
 // Now the app has started!

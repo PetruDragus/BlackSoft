@@ -206,7 +206,6 @@ class BookingController extends Controller
             'pickup_address'   => 'required',
             'drop_address'     => 'required',
             'vehicle_id'       => 'required',
-            'customer_id'      => 'required',
             'driver_id'        => 'required',
             'pickup_sign'      => 'required',
             'pickup_time'      => 'required',

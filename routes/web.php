@@ -35,6 +35,7 @@ Route::resource('/leads', 'LeadController');
 Route::resource('/opportunities', 'OpportunityController');
 Route::resource('/', 'DashboardController');
 Route::resource('/jobs', 'JobController');
+Route::resource('/contact-form', 'ContactFormController');
 Route::resource('/applications', 'JobApplicationController');
 Route::resource('/profile', 'ProfileController');
 
