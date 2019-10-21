@@ -34,7 +34,19 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'         => 'required',
+            'email'        => 'required',
+            'subject'      => '',
+            'message'      => 'required',
+        ]);
+
+        return ContactForm::create([
+            'name'           => $request['name'],
+            'email'          => $request['email'],
+            'subject'        => $request['subject'],
+            'message'        => $request['message'],
+        ]);
     }
 
     /**

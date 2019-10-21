@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db79e5c0-6007-4664-b776-e03e3d581d55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/PieChartComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactFormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ChartComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/contactForm/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/contactForm/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,22 +32,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/PieChartComponent.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="776">
-              <caret line="395" column="70" selection-start-line="395" selection-start-column="70" selection-end-line="395" selection-end-column="70" />
+            <state relative-caret-position="415">
+              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
               <folding>
-                <element signature="e#28905#28941#0#HTML" expanded="true" />
+                <element signature="e#44#64#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,7 +90,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_10_21_094357_create_contact_forms_table.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/contactForm/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" />
         <option value="$PROJECT_DIR$/app/ContactForm.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/contactForm/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" />
@@ -122,6 +102,7 @@
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/js/components/PieChartComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" />
       </list>
     </option>
   </component>
@@ -226,7 +207,7 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="2560" />
     <option name="height" value="1440" />
   </component>
@@ -246,41 +227,28 @@
             <path>
               <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
               <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
               <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
               <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
               <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blacksoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blacksoft" type="b2602c69:ProjectViewProjectNode" />
@@ -375,12 +343,12 @@
       <workItem from="1571317018733" duration="172000" />
       <workItem from="1571475780204" duration="415000" />
       <workItem from="1571479640382" duration="7498000" />
-      <workItem from="1571650972803" duration="3191000" />
+      <workItem from="1571650972803" duration="3425000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157552000" />
+    <option name="totallyTimeSpent" value="157786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -663,16 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="70" column="34" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
-          <folding>
-            <element signature="e#44#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/reviews/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -812,10 +770,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="395" column="70" selection-start-line="395" selection-start-column="70" selection-end-line="395" selection-end-column="70" />
+        <state relative-caret-position="512">
+          <caret line="364" column="38" lean-forward="true" selection-start-line="364" selection-start-column="38" selection-end-line="364" selection-end-column="38" />
           <folding>
             <element signature="e#28905#28941#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding>
+            <element signature="e#44#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
