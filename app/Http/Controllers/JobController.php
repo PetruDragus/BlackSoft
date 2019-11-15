@@ -12,6 +12,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class JobController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('pages.jobs.index');
