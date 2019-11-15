@@ -2127,3 +2127,48 @@ div#app-settings .settings-inner {
   font-weight: 600;
 }
 
+@media (min-width: 576px) {
+  .add__user--form form.form-horizontal .form-group .label-control {
+    text-align: right;
+  }
+}
+
+.add__user--form .form-control {
+  border: 1px solid #CACFE7;
+  color: #3B4781;
+}
+
+.add__user--form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block !important;
+  /* justify-content: space-between; */
+  text-align: right !important;
+  padding-top: 5px;
+  color: #5F6D85;
+}
+
+.add__user--form .form-control {
+  color: #484746;
+  line-height: 16px;
+  font-size: 13px;
+  height: 32px;
+  background: #fafafa;
+  transition: background 0.2s;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 8px;
+  width: 100%;
+  display: block;
+}
+
+.add__user--form form.form-bordered .form-group .label-control {
+  padding-top: 1.5rem;
+}
+
+.add__user--form .form-group {
+  margin-bottom: 0;
+}
+

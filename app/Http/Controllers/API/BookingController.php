@@ -54,6 +54,9 @@ class BookingController extends Controller
         return Booking::create([
             'pickup_address'        => $request['pickup_address'],
             'drop_address'          => $request['drop_address'],
+            'pickup_time'           => $request['pickup_time'],
+            'type'                  => $request['type'],
+            'date'                  => $request['date'],
         ]);
     }
 

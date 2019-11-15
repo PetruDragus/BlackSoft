@@ -9,6 +9,11 @@ class Review extends Model
 {
     use DataViewer;
 
+    protected $fillable = [
+        'booking_id', 'driver_id', 'review',
+        'rating', 'customer_name'
+    ];
+
     public static $columns = [
         'ID', 'Booking', 'Driver',
         'Review', 'Rating', 'Customer', 'Created'

@@ -33,7 +33,21 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'booking_id'         => 'required',
+            'driver_id'          => 'required',
+            'review'             => 'required',
+            'rating'             => 'required',
+            'customer_name'      => 'required',
+        ]);
+
+        return Review::create([
+            'booking_id'         => $request['booking_id'],
+            'driver_id'          => $request['driver_id'],
+            'review'             => $request['review'],
+            'rating'             => $request['rating'],
+            'customer_name'      => $request['customer_name'],
+        ]);
     }
 
     /**

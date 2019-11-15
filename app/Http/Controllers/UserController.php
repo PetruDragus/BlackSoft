@@ -6,7 +6,9 @@ use App\Exports\UsersExport;
 use App\Profile;
 use App\User;
 use Auth;
+use Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -52,7 +54,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.users.create');
     }
 
     /**
@@ -63,7 +65,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user = User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password')),
+        ]);
+
+        Profile::create([
+            'user_id'           =>      $user->id,
+        ]);
+
+        Session::flash('success', 'User successfully created!');
+
+        return redirect()
+            ->route('users.index');
     }
 
     /**

@@ -25,6 +25,8 @@ class CreateVehiclesTable extends Migration
             $table->string('year')->nullable();
             $table->string('vin')->nullable();
             $table->string('current_meter')->nullable();
+            $table->string('passagers');
+            $table->string('bags');
             $table->string('photo')->default('');
             $table->string('mime')->nullable();
             $table->string('original_filename')->nullable();

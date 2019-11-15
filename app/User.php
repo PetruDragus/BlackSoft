@@ -5,11 +5,12 @@ namespace App;
 use App\Helper\DataViewer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use NotificationChannels\WebPush\HasPushSubscriptions;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, DataViewer;
+    use Notifiable, DataViewer, HasPushSubscriptions;
 
     /**
      * The attributes that are mass assignable.

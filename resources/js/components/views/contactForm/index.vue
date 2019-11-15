@@ -194,7 +194,7 @@
                 if(confirm('are you sure?'))
 
                 // Send request to the server
-                    axios.delete( '/api/v1/contact-form'+id)
+                    axios.delete( '/api/v1/contact-form/'+id)
                         .then(function (response) {
                             window.location.reload();
                         })

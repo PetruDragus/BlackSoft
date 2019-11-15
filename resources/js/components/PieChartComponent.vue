@@ -19,7 +19,7 @@
                 new Chart(document.getElementById('pie-chart').getContext('2d'), {
                     type: 'pie',
                     data: {
-                        labels: ["Luxury Class", "Bussiness Class", "First Class", "City Class"],
+                        labels: ["Luxury", "Business", "First", "City"],
                         datasets: [{
                             label: "Population (millions)",
                             backgroundColor: ["#8e5ea2","#3cba9f","#e8c3b9","#c45850"],

@@ -16625,7 +16625,7 @@ __webpack_require__.r(__webpack_exports__);
       new Chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](document.getElementById('pie-chart').getContext('2d'), {
         type: 'pie',
         data: {
-          labels: ["Luxury Class", "Bussiness Class", "First Class", "City Class"],
+          labels: ["Luxury", "Business", "First", "City"],
           datasets: [{
             label: "Population (millions)",
             backgroundColor: ["#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
@@ -17535,7 +17535,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteContactForm: function deleteContactForm(id) {
       if (confirm('are you sure?')) // Send request to the server
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/contact-form' + id).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/contact-form/' + id).then(function (response) {
           window.location.reload();
         })["catch"](function (error) {
           console.log(error);
