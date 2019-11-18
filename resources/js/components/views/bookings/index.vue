@@ -208,41 +208,35 @@
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Name: </label>
                                                             <div class="col-md-8">
-                                                                Lorem
+                                                                {{ row.customer.name }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Email: </label>
                                                             <div class="col-md-8">
-                                                                Lorem
+                                                                {{ row.customer.email }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Phone: </label>
                                                             <div class="col-md-8">
-                                                                Lorem
+                                                                {{ row.customer.phone }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="list-b-item">
                                                         <h5>Financial Information:</h5>
                                                         <div class="row" style="display: flex;">
-                                                            <div class="">
+                                                            <div class="col-md-6">
                                                                 <label class="col-md-4 col-form-label justify-content-end">Price: </label>
                                                                 <div class="col-md-8">
-                                                                    {{ row.price }}
+                                                                    € {{ row.price | formatMoney }}
                                                                 </div>
                                                             </div>
-                                                            <div class="width-40">
+                                                            <div class="col-md-6">
                                                                 <label class="col-md-4 col-form-label justify-content-end">Invoice: </label>
                                                                 <div class="col-md-8">
                                                                     {{ row.invoice.number }}
-                                                                </div>
-                                                            </div>
-                                                            <div class="width-40">
-                                                                <label class="col-md-4 col-form-label justify-content-end">Payment Method: </label>
-                                                                <div class="col-md-8">
-                                                                    {{ row.payment_method }}
                                                                 </div>
                                                             </div>
                                                         </div>

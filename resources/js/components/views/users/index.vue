@@ -206,6 +206,18 @@
                     this.fetchIndexData()
                 }
             },
+            deleteUser(id) {
+                if(confirm('are you sure?'))
+
+                // Send request to the server
+                    axios.delete( '/api/v1/users/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+            },
             toggleOrder(column) {
                 if(column === this.query.column) {
                     // only change direction

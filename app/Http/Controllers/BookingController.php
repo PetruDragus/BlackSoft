@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Driver;
+use App\Invoice;
 use App\Vehicle;
 use App\Booking;
 use Session;
@@ -15,11 +16,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class BookingController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -99,7 +95,6 @@ class BookingController extends Controller
             'pickup_address'   => 'required',
             'drop_address'     => 'required',
             'vehicle_id'       => 'required',
-            'customer_id'      => 'required',
             'driver_id'        => 'required',
             'pickup_sign'      => 'required',
             'pickup_time'      => 'required',
@@ -123,28 +118,28 @@ class BookingController extends Controller
         $booking->special_request = $request->get('special_request');
         $booking->additional_info = $request->get('additional_info');
         $booking->flight_number   = $request->get('flight_number');
-        $booking->price           = $request->get('price');
 
-//        $origin = urlencode($booking->pickup_address);
-//        $destination = urlencode($booking->drop_address);
-//        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-//        $distance = json_decode($api);
-//
-//        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-//
-//        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-//
-//        $elements_hours = $distance->rows[0]->elements;
-//
-//        $duration = $elements_hours[0]->duration->text;
-//
-//        if($meters < 10) {
-//            $booking->price = $booking->vehicle->price;
-//        } else {
-//            $google = $meters - 10;
-//            $booking->price = $google + $booking->vehicle->price;
-//        }
+        $origin = urlencode($booking->pickup_address);
+        $destination = urlencode($booking->drop_address);
+        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+        $distance = json_decode($api);
 
+        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+
+        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
+
+        $elements_hours = $distance->rows[0]->elements;
+
+        $duration = $elements_hours[0]->duration->text;
+
+        if($meters < 10) {
+            $booking->price = $booking->vehicle->price;
+        } else {
+            $google = $meters - 10;
+            $booking->price = $google + $booking->vehicle->price;
+        }
+
+        // Create new custom if not exist
         if (Customer::where('email', $request->get('email'))->exists()) {
             $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
             $booking->customer_id = $customer_id->id;

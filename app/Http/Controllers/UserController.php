@@ -13,10 +13,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function index()
     {
@@ -71,13 +67,13 @@ class UserController extends Controller
     {
 
         $user = User::create([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
+            'name'     => $request->get('name'),
+            'email'    => $request->get('email'),
             'password' => Hash::make($request->get('password')),
         ]);
 
         Profile::create([
-            'user_id'           =>      $user->id,
+            'user_id'  =>      $user->id,
         ]);
 
         Session::flash('success', 'User successfully created!');

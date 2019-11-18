@@ -11,37 +11,31 @@
 |
 */
 
-Route::get('/profile', function () {
-    return view('pages.users.profile');
-});
-
 Route::get('/calendar', function () {
     return view('pages.calendar.index');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('/drivers', 'DriverController');
-Route::resource('/invoices', 'InvoiceController');
-Route::resource('/reviews', 'ReviewController');
-Route::resource('/vehicles', 'VehicleController');
-Route::resource('/users', 'UserController');
-Route::resource('/contacts', 'ContactController');
-Route::resource('/customers', 'CustomerController');
-Route::resource('/cities', 'CityController');
-Route::resource('/leads', 'LeadController');
-Route::resource('/opportunities', 'OpportunityController');
-Route::resource('/', 'DashboardController');
-Route::resource('/jobs', 'JobController');
-Route::resource('/contact-form', 'ContactFormController');
-Route::resource('/applications', 'JobApplicationController');
-Route::resource('/profile', 'ProfileController');
+Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/bookings', 'BookingController');
     Route::resource('/payments', 'PaymentController');
+    Route::resource('/drivers', 'DriverController');
+    Route::resource('/invoices', 'InvoiceController');
+    Route::resource('/reviews', 'ReviewController');
+    Route::resource('/vehicles', 'VehicleController');
+    Route::resource('/users', 'UserController');
+    Route::resource('/contacts', 'ContactController');
+    Route::resource('/customers', 'CustomerController');
+    Route::resource('/cities', 'CityController');
+    Route::resource('/leads', 'LeadController');
+    Route::resource('/opportunities', 'OpportunityController');
+    Route::resource('/', 'DashboardController');
+    Route::resource('/jobs', 'JobController');
+    Route::resource('/contact-form', 'ContactFormController');
+    Route::resource('/applications', 'JobApplicationController');
+    Route::resource('/profile', 'ProfileController');
+    Route::resource('/dispatch', 'DispatchController');
 });
 
 Route::get('/api/book', 'BookingController@ApiBooking');
@@ -87,5 +81,4 @@ Route::group(['prefix' => 'mobile', 'as' => 'mobile.'], function(){
 });
 
 Route::get('/events', 'HomeController@Events');
-
 Route::get('/test', 'API\BookingController@test');

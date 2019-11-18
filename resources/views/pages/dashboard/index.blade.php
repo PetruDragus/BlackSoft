@@ -412,5 +412,19 @@
                 </div>
             </div>
         </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="http://127.0.0.1:8000/sys-update.jpg" class="img-responsive" style="width:100%;height:60% !important;">
+                </div>
+            </div>
+        </div>
     </div>
+
+    </div>
+
+
 @endsection

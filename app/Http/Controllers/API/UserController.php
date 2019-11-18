@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\ContactForm;
+use App\User;
+
 use Illuminate\Http\Request;
-use App\Exports\ContactFormsExport;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
-class ContactFormController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,32 +15,6 @@ class ContactFormController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('pages.contactForm.index');
-    }
-
-    /**
-     * Export to excel
-     */
-    public function exportExcel()
-    {
-        return Excel::download(new ContactFormsExport, 'contact-forms.xlsx');
-    }
-
-    /**
-     * Export to csv
-     */
-    public function exportCSV()
-    {
-        return Excel::download(new ContactFormsExport, 'contact-forms.csv');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -63,19 +37,6 @@ class ContactFormController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $contactForm = ContactForm::findOrFail($id);
-
-        return view('pages.contactForm.show', compact('contactForm'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }
@@ -100,6 +61,11 @@ class ContactFormController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        // Delete the item
+        $user->delete();
+
+        return ['message' => 'User Deleted!'];
     }
 }

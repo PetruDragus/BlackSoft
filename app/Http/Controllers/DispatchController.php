@@ -2,21 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
-use App\Invoice;
-use App\Booking;
-use App\Review;
-
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class DispatchController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,22 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-        $currentMonth = date('m');
-
-        $customers = Customer::orderBy('id', 'DESC')->get();
-
-        $new_customers = Customer::whereRaw('MONTH(created_at) = ?',[$currentMonth])->get();
-
-        $new_invoices = Invoice::whereRaw('MONTH(created_at) = ?',[$currentMonth])->get();
-
-        $new_bookings = Booking::with('customer', 'invoice')->whereRaw('MONTH(created_at) = ?',[$currentMonth])->get();
-
-        $reviews = Review::orderBy('id', 'DESC')->paginate(4);
-
-        $bookings = Booking::with(['invoice', 'customer', 'driver', 'driver.vehicle', 'driver.vehicle.categorie'])->orderBy('id', 'DESC')->get();
-
-        return view('pages.dashboard.index', compact('customers','bookings', 'new_customers', 'new_bookings', 'new_invoices', 'reviews'));
+        return view('pages.dispatch.index');
     }
 
     /**

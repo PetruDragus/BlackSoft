@@ -2172,3 +2172,66 @@ div#app-settings .settings-inner {
   margin-bottom: 0;
 }
 
+aside#dispatch-sidebar {
+  float: left;
+  width: 250px;
+  color: #99a4ce;
+  background-color: #fff !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.299s;
+  height: 100vh;
+  padding: 0 !important;
+  position: fixed;
+  overflow: scroll;
+  box-shadow: 0 0 15px #d6d6d6;
+}
+
+aside#dispatch-sidebar .dispatch-sidebar__header {
+  padding: 45px 15px;
+  border-bottom: 1px solid #d6d6d6;
+  background-color: #62b9b9;
+}
+
+aside#dispatch-sidebar li:hover {
+  background-color: #e4e6f7;
+}
+
+aside#dispatch-sidebar li {
+  padding: 15px;
+  border-bottom: 1px solid #d6d6d6;
+  width: 100%;
+}
+
+aside#dispatch-sidebar li a {
+  text-decoration: none;
+}
+
+aside#dispatch-sidebar li .car-title {
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+aside#dispatch-sidebar li .car-plate {
+  color: #504f52;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+aside#dispatch-sidebar li .car-status {
+  color: #504f52;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+aside#dispatch-sidebar li .car-driver {
+  color: #504f52;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+div#dispatch-content {
+  min-height: 100vh;
+  padding-left: 250px;
+}
+

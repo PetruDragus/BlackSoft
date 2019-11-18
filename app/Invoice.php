@@ -48,7 +48,6 @@ class Invoice extends Model
     public function setSubTotalAttribute($value)
     {
         $this->attributes['sub_total'] = $value;
-        $discount = $this->attributes['discount'];
-        $this->attributes['total'] = $value - $discount;
+        $this->attributes['total'] = $value ;
     }
 }

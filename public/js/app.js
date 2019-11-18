@@ -16958,12 +16958,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
  //similar to vue-resource
@@ -19892,6 +19886,14 @@ __webpack_require__.r(__webpack_exports__);
         this.query.page--;
         this.fetchIndexData();
       }
+    },
+    deleteUser: function deleteUser(id) {
+      if (confirm('are you sure?')) // Send request to the server
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/users/' + id).then(function (response) {
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+        });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -72053,7 +72055,68 @@ var render = function() {
                                       ])
                                     ]),
                                     _vm._v(" "),
-                                    _vm._m(6, true),
+                                    _c("div", { staticClass: "list-b-item" }, [
+                                      _c("h5", [
+                                        _vm._v("Customer Information:")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-md-4 col-form-label justify-content-end"
+                                          },
+                                          [_vm._v("Name: ")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-md-8" }, [
+                                          _vm._v(
+                                            "\n                                                            " +
+                                              _vm._s(row.customer.name) +
+                                              "\n                                                        "
+                                          )
+                                        ])
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-md-4 col-form-label justify-content-end"
+                                          },
+                                          [_vm._v("Email: ")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-md-8" }, [
+                                          _vm._v(
+                                            "\n                                                            " +
+                                              _vm._s(row.customer.email) +
+                                              "\n                                                        "
+                                          )
+                                        ])
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-md-4 col-form-label justify-content-end"
+                                          },
+                                          [_vm._v("Phone: ")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-md-8" }, [
+                                          _vm._v(
+                                            "\n                                                            " +
+                                              _vm._s(row.customer.phone) +
+                                              "\n                                                        "
+                                          )
+                                        ])
+                                      ])
+                                    ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "list-b-item" }, [
                                       _c("h5", [
@@ -72067,32 +72130,40 @@ var render = function() {
                                           staticStyle: { display: "flex" }
                                         },
                                         [
-                                          _c("div", {}, [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-md-4 col-form-label justify-content-end"
-                                              },
-                                              [_vm._v("Price: ")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-8" },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                                " +
-                                                    _vm._s(row.price) +
-                                                    "\n                                                            "
-                                                )
-                                              ]
-                                            )
-                                          ]),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-6" },
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "col-md-4 col-form-label justify-content-end"
+                                                },
+                                                [_vm._v("Price: ")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-md-8" },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                € " +
+                                                      _vm._s(
+                                                        _vm._f("formatMoney")(
+                                                          row.price
+                                                        )
+                                                      ) +
+                                                      "\n                                                            "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
                                           _vm._v(" "),
                                           _c(
                                             "div",
-                                            { staticClass: "width-40" },
+                                            { staticClass: "col-md-6" },
                                             [
                                               _c(
                                                 "label",
@@ -72111,35 +72182,6 @@ var render = function() {
                                                     "\n                                                                " +
                                                       _vm._s(
                                                         row.invoice.number
-                                                      ) +
-                                                      "\n                                                            "
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "width-40" },
-                                            [
-                                              _c(
-                                                "label",
-                                                {
-                                                  staticClass:
-                                                    "col-md-4 col-form-label justify-content-end"
-                                                },
-                                                [_vm._v("Payment Method: ")]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "col-md-8" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                                " +
-                                                      _vm._s(
-                                                        row.payment_method
                                                       ) +
                                                       "\n                                                            "
                                                   )
@@ -72178,7 +72220,7 @@ var render = function() {
                                             "div",
                                             { staticClass: "form-group" },
                                             [
-                                              _vm._m(7, true),
+                                              _vm._m(6, true),
                                               _vm._v(" "),
                                               _c(
                                                 "select",
@@ -72229,7 +72271,7 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _vm._m(8, true)
+                            _vm._m(7, true)
                           ])
                         ]
                       )
@@ -72442,56 +72484,6 @@ var staticRenderFns = [
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list-b-item" }, [
-      _c("h5", [_vm._v("Customer Information:")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "label",
-          { staticClass: "col-md-4 col-form-label justify-content-end" },
-          [_vm._v("Name: ")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-8" }, [
-          _vm._v(
-            "\n                                                            Lorem\n                                                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "label",
-          { staticClass: "col-md-4 col-form-label justify-content-end" },
-          [_vm._v("Email: ")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-8" }, [
-          _vm._v(
-            "\n                                                            Lorem\n                                                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "label",
-          { staticClass: "col-md-4 col-form-label justify-content-end" },
-          [_vm._v("Phone: ")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-8" }, [
-          _vm._v(
-            "\n                                                            Lorem\n                                                        "
-          )
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
