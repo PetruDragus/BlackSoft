@@ -15,6 +15,10 @@ Route::get('/calendar', function () {
     return view('pages.calendar.index');
 });
 
+Route::get('/accepted', function () {
+    return view('emails.accepted');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function () {
@@ -82,3 +86,6 @@ Route::group(['prefix' => 'mobile', 'as' => 'mobile.'], function(){
 
 Route::get('/events', 'HomeController@Events');
 Route::get('/test', 'API\BookingController@test');
+
+
+Route::get('/send/send_feedback', 'HomeController@sendFeedback');

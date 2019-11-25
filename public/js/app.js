@@ -72206,7 +72206,7 @@ var render = function() {
                                       },
                                       attrs: {
                                         center: { lat: 10, lng: 10 },
-                                        zoom: 7,
+                                        zoom: 10,
                                         "map-type-id": "terrain"
                                       }
                                     }),

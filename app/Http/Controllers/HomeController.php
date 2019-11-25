@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +26,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function sendFeedback()
+    {
+
+        Mail::to('codixital@gmail.com')->send(new TestMail());
+
+        return 'A message has been sent to Mailtrap!';
     }
 
     public function Events()

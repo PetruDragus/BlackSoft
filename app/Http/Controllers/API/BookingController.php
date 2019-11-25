@@ -31,8 +31,7 @@ class BookingController extends Controller
 
     public function test()
     {
-        $booking = Booking::
-            orderBy('customer_id', 'ASC')
+        $booking = Booking::orderBy('customer_id', 'ASC')
             ->with('invoice')
             ->get();
         return response()->json($booking);
@@ -54,7 +53,6 @@ class BookingController extends Controller
         return Booking::create([
             'pickup_address'        => $request['pickup_address'],
             'drop_address'          => $request['drop_address'],
-            'pickup_time'           => $request['pickup_time'],
             'type'                  => $request['type'],
             'date'                  => $request['date'],
         ]);

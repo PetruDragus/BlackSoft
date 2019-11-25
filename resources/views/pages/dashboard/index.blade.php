@@ -360,16 +360,25 @@
                                                 <a href="">#52345</a>
                                             </td>
                                             <td class="text-truncate">
-                                                <span>{{ $item->customer->name }}</span>
+                                                @if (!empty($item->customer))
+                                                    <span>{{ $item->customer->name }}</span>
+                                                @else
+                                                    <span>N/A</span>
+                                                @endif
                                             </td>
                                             <td>
-                                                @if ($item->vehicle->bussiness_type == "Bussiness Class")
-                                                    <button type="button" class="btn btn-sm btn-outline-danger round">{{ $item->vehicle->bussiness_type }}</button>
-                                                @elseif ($item->vehicle->bussiness_type == "Luxury Class")
-                                                    <button type="button" class="btn btn-sm btn-outline-purple round">{{ $item->vehicle->bussiness_type }}</button>
-                                                @elseif ($item->vehicle->bussiness_type == "First Class")
-                                                    <button type="button" class="btn btn-sm btn-outline-yellow round">{{ $item->vehicle->bussiness_type }}</button>
+                                                @if (!empty($item->vehicle))
+                                                    @if ($item->vehicle->bussiness_type == "Bussiness Class")
+                                                        <button type="button" class="btn btn-sm btn-outline-danger round">{{ $item->vehicle->bussiness_type }}</button>
+                                                    @elseif ($item->vehicle->bussiness_type == "Luxury Class")
+                                                        <button type="button" class="btn btn-sm btn-outline-purple round">{{ $item->vehicle->bussiness_type }}</button>
+                                                    @elseif ($item->vehicle->bussiness_type == "First Class")
+                                                        <button type="button" class="btn btn-sm btn-outline-yellow round">{{ $item->vehicle->bussiness_type }}</button>
+                                                    @endif
+                                                @else
+                                                    <button type="button" class="btn btn-sm btn-outline-danger round">N/A</button>
                                                 @endif
+
                                             </td>
                                             <td class="text-truncate">€ {{ $item->price }}</td>
                                         </tr>
@@ -412,18 +421,6 @@
                 </div>
             </div>
         </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="http://127.0.0.1:8000/sys-update.jpg" class="img-responsive" style="width:100%;height:60% !important;">
-                </div>
-            </div>
-        </div>
-    </div>
-
     </div>
 
 

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Driver;
 use App\Invoice;
+use App\Mail\TestMail;
 use App\Vehicle;
 use App\Booking;
 use Session;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exports\BookingsExport;
@@ -119,25 +121,25 @@ class BookingController extends Controller
         $booking->additional_info = $request->get('additional_info');
         $booking->flight_number   = $request->get('flight_number');
 
-        $origin = urlencode($booking->pickup_address);
-        $destination = urlencode($booking->drop_address);
-        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-        $distance = json_decode($api);
+//        $origin = urlencode($booking->pickup_address);
+//        $destination = urlencode($booking->drop_address);
+//        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+//        $distance = json_decode($api);
+//
+//        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+//
+//        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
+//
+//        $elements_hours = $distance->rows[0]->elements;
+//
+//        $duration = $elements_hours[0]->duration->text;
 
-        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-
-        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-
-        $elements_hours = $distance->rows[0]->elements;
-
-        $duration = $elements_hours[0]->duration->text;
-
-        if($meters < 10) {
-            $booking->price = $booking->vehicle->price;
-        } else {
-            $google = $meters - 10;
-            $booking->price = $google + $booking->vehicle->price;
-        }
+//        if($meters < 10) {
+//            $booking->price = $booking->vehicle->price;
+//        } else {
+//            $google = $meters - 10;
+//            $booking->price = $google + $booking->vehicle->price;
+//        }
 
         // Create new custom if not exist
         if (Customer::where('email', $request->get('email'))->exists()) {
@@ -153,6 +155,8 @@ class BookingController extends Controller
             $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
             $booking->customer_id = $customer_id->id;
         }
+
+        Mail::to('codixital@gmail.com')->send(new TestMail($booking));
 
         $booking->save();
 

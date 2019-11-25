@@ -245,7 +245,7 @@
                                                 <div class="col-md-6">
                                                     <GmapMap
                                                             :center="{lat:10, lng:10}"
-                                                            :zoom="7"
+                                                            :zoom="10"
                                                             map-type-id="terrain"
                                                             style="width: auto; height: 400px"
                                                     >

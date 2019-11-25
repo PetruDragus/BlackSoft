@@ -211,16 +211,16 @@
             <hr>
             <hr class="divider-type4">
 
-            <li>
-                <a href="/dispatch" class="sidebar-nav-link">
-                    <div class="sidebar-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="sidebar-text"> Dispatch</div>
-                    <div class="sidebar-arrow">
-                        <i class="fas fa-satellite-dish"></i>
-                    </div>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="/dispatch" class="sidebar-nav-link">--}}
+{{--                    <div class="sidebar-icon">--}}
+{{--                        <i class="fas fa-cogs"></i>--}}
+{{--                    </div>--}}
+{{--                    <div class="sidebar-text"> Dispatch</div>--}}
+{{--                    <div class="sidebar-arrow">--}}
+{{--                        <i class="fas fa-satellite-dish"></i>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
+{{--            </li>--}}
         </ul>
     </div>
