@@ -86,6 +86,3 @@ Route::group(['prefix' => 'mobile', 'as' => 'mobile.'], function(){
 
 Route::get('/events', 'HomeController@Events');
 Route::get('/test', 'API\BookingController@test');
-
-
-Route::get('/send/send_feedback', 'HomeController@sendFeedback');

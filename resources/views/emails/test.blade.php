@@ -36,6 +36,7 @@
 
             hr.divider {
                 border-top: 1px solid #00AAEF;
+                margin: 15px 0;
             }
 
             .row.one-columns {
@@ -93,7 +94,7 @@
         <div class="wrapper">
             <div id="header-logo" style="background-color: #efaf57;height: 100px; margin: auto;text-align: center;">
                 <div style="margin-top: auto;margin-bottom: auto;padding-top: 3%;">
-                    <img src="https://blackhansa.de/images/blackhansa-logo.png" style="    width: 250px;">
+                    <img src="/mail-icons/email-logo.png" style="width: 250px;">
                 </div>
             </div>
 
@@ -147,7 +148,7 @@
                 <div class="row">
                     <div class="item multi-columns" style="display: flex;width:65%;">
                         <div class="icon-box">
-                            <img src="http://127.0.0.1:8000/mail-icons/icons-01.svg" width="35px">
+                            <img src="http://127.0.0.1:8000/mail-icons/icons-03.svg" width="35px">
                         </div>
 
                         <div class="item-wrap" style="margin-left: 20px;">
@@ -214,8 +215,9 @@
 
                 <hr class="divider">
 
-                <div class="row one-columns">
-                    <div class="item " style="display: flex;">
+                <div class="item one-columns" style="display: flex;margin-left: 35px;">
+
+                    <div class="item-wrap" style="margin-left: 20px;">
                         <div class="icon-box">
                             <img src="http://127.0.0.1:8000/mail-icons/icons-07.svg" width="35px">
                         </div>

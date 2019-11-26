@@ -36,6 +36,7 @@
 
         hr.divider {
             border-top: 1px solid #8DC63F;
+            margin: 15px 0;
         }
 
         .row.one-columns {
@@ -93,7 +94,7 @@
 <div class="wrapper">
     <div id="header-logo" style="background-color: #efaf57;height: 135px; margin: auto;text-align: center;">
         <div style="margin-top: auto;margin-bottom: auto;padding-top: 3%;">
-            <img src="https://blackhansa.de/images/blackhansa-logo.png">
+            <img src="/mail-icons/email-logo.png" style="width: 250px;">
         </div>
 
     </div>
@@ -101,7 +102,7 @@
     <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
         <div style="width:100%;padding: 25px 50px;display: inline-flex;">
             <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
-                <img src="http://127.0.0.1:8000/mail-icons/icons-14.svg" width="50px">
+                <img src="/mail-icons/icons-14.svg" width="50px">
             </div>
 
             <div class="header-content-right" style="margin-left: 50px;">
@@ -151,7 +152,7 @@
         <div class="row">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-01.svg" width="35px">
+                    <img src="/mail-icons/icons-03.svg" width="35px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 20px;">
@@ -235,10 +236,7 @@
                 </div>
             </div>
 
-            <div class="item one-columns" style="display: flex;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-07.svg" width="35px">
-                </div>
+            <div class="item one-columns" style="display: flex;margin-left: 35px;">
 
                 <div class="item-wrap" style="margin-left: 20px;">
                     <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">

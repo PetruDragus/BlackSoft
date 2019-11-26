@@ -205,17 +205,6 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        request()->validate([
-            'pickup_address'   => 'required',
-            'drop_address'     => 'required',
-            'vehicle_id'       => 'required',
-            'driver_id'        => 'required',
-            'pickup_sign'      => 'required',
-            'pickup_time'      => 'required',
-            'flight_number'    => 'required',
-            'date'             => 'required',
-        ]);
-
         $booking = Booking::find($id);
         $booking->pickup_address  = $request->get('pickup_address');
         $booking->drop_address    = $request->get('drop_address');
@@ -232,11 +221,64 @@ class BookingController extends Controller
         $booking->special_request = $request->get('special_request');
         $booking->additional_info = $request->get('additional_info');
         $booking->flight_number   = $request->get('flight_number');
+
+        $origin = urlencode($booking->pickup_address);
+        $destination = urlencode($booking->drop_address);
+        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+        $distance = json_decode($api);
+
+        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+
+        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
+
+        $elements_hours = $distance->rows[0]->elements;
+
+        $duration = $elements_hours[0]->duration->text;
+
+        if($meters < 10) {
+            $booking->price = $booking->vehicle->price;
+        } else {
+            $google = $meters - 10;
+            $booking->price = $google + $booking->vehicle->price;
+        }
+
+        // Create new custom if not exist
+        if (Customer::where('email', $request->get('email'))->exists()) {
+            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
+        } else {
+            $customer = new Customer();
+            $customer->name  = $request->get('name');
+            $customer->email = $request->get('email');
+            $customer->phone = $request->get('phone');
+            $customer->save();
+
+            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
+        }
+
+        Mail::to('codixital@gmail.com')->send(new TestMail($booking));
+
         $booking->save();
 
         return redirect()
             ->route('bookings.index')
             ->with('success', 'Booking edited successfully.');
+    }
+
+    public function changeDriver(Request $request, $id) {
+
+        request()->validate([
+            'driver_id'   => 'required',
+        ]);
+
+        $booking = Booking::find($id);
+        $booking->driver_id  = $request->get('driver_id');
+        $booking->save();
+
+        return redirect()
+            ->route('bookings.index')
+            ->with('success', 'Driver edited successfully.');
     }
 
     /**
