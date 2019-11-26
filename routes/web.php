@@ -19,6 +19,18 @@ Route::get('/accepted', function () {
     return view('emails.accepted');
 });
 
+Route::get('/ceva', function () {
+    return view('emails.test');
+});
+
+Route::get('/edited', function () {
+    return view('emails.edited');
+});
+
+Route::get('/cancelled', function () {
+    return view('emails.cancelled');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function () {

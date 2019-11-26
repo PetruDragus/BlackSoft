@@ -23,6 +23,7 @@
 
             * {
                 font-family: Arial !important;
+                font-style: 13px;
             }
 
             a.social-link {
@@ -44,12 +45,12 @@
             }
 
             .item-title {
-                font-size: 15px;
+                font-size: 13px;
             }
 
             .item-subtitle {
                 color: #5e5e5e;
-                font-size: 15px;
+                font-size: 13px;
             }
 
             /* These are our tablet/medium screen media queries */
@@ -123,7 +124,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['date'] }}
+                                27 Dev 2019
                             </p>
                         </div>
                     </div>
@@ -139,7 +140,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['pickup_time'] }}
+                                20:21
                             </p>
                         </div>
                     </div>
@@ -148,7 +149,7 @@
                 <div class="row">
                     <div class="item multi-columns" style="display: flex;width:65%;">
                         <div class="icon-box">
-                            <img src="http://127.0.0.1:8000/mail-icons/icons-03.svg" width="35px">
+                            <img src="/mail-icons/icons-03.svg" width="35px">
                         </div>
 
                         <div class="item-wrap" style="margin-left: 20px;">
@@ -157,7 +158,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['id'] }}
+                                #6354634564
                             </p>
                         </div>
                     </div>
@@ -173,7 +174,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                ca. 54km
+                                ca. 260km
                             </p>
                         </div>
                     </div>
@@ -191,7 +192,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                First Class
+                                Business Class
                             </p>
                         </div>
                     </div>
@@ -207,7 +208,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                EUR 54.00
+                                EUR 27.00
                             </p>
                         </div>
                     </div>
@@ -215,9 +216,8 @@
 
                 <hr class="divider">
 
-                <div class="item one-columns" style="display: flex;margin-left: 35px;">
-
-                    <div class="item-wrap" style="margin-left: 20px;">
+                <div class="row one-columns">
+                    <div class="item " style="display: flex;">
                         <div class="icon-box">
                             <img src="http://127.0.0.1:8000/mail-icons/icons-07.svg" width="35px">
                         </div>
@@ -228,15 +228,12 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['pickup_address'] }}
+                                Strada Zaharia Stancu 6, Brașov, Romania
                             </p>
                         </div>
                     </div>
 
-                    <div class="item one-columns" style="display: flex;">
-                        <div class="icon-box">
-                            <img src="http://127.0.0.1:8000/mail-icons/icons-07.svg" width="35px">
-                        </div>
+                    <div class="item one-columns" style="display: flex;margin-left: 35px;">
 
                         <div class="item-wrap" style="margin-left: 20px;">
                             <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
@@ -244,7 +241,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['drop_address'] }}
+                                Strada Brăilei Nr. 171, Galați, Romania
                             </p>
                         </div>
                     </div>
@@ -280,7 +277,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['pickup_sign'] }}
+                                #Lorem
                             </p>
                         </div>
                     </div>
@@ -298,7 +295,7 @@
                             </p>
 
                             <p class="item-subtitle" style="margin-top: 0;">
-                                {{ $booking['additional_info'] }}
+                                lorem ipsum dolor sit met
                             </p>
                         </div>
                     </div>
@@ -321,22 +318,22 @@
 
             <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
                 <div style="width: 100%;display:inline-flex;">
-                    <div class="left-box" style="width: 70%;">
+                    <div class="left-box" style="width: 70%;padding-top: 8px;">
                         <p style="color: #5e5e5e;font-size: 15px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
                         <p style="color: #5e5e5e;font-size: 15px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
                     </div>
 
                     <div class="right-box" style="width: 30%;">
                         <a class="social-link">
-                            <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
+                            <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px" style="padding-top: 10px;">
                         </a>
 
                         <a class="social-link">
-                            <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
+                            <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px" style="padding-top: 10px;">
                         </a>
 
                         <a class="social-link">
-                            <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
+                            <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px" style="padding-top: 10px;">
                         </a>
 
                     </div>

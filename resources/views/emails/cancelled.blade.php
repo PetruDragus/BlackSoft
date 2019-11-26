@@ -35,7 +35,7 @@
         }
 
         hr.divider {
-            border-top: 1px solid #8DC63F;
+            border-top: 1px solid #FF0000;
             margin: 15px 0;
         }
 
@@ -44,12 +44,12 @@
         }
 
         .item-title {
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .item-subtitle {
             color: #5e5e5e;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* These are our tablet/medium screen media queries */
@@ -100,16 +100,19 @@
     </div>
 
     <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
-        <div style="width:100%;padding: 25px 50px;display: inline-flex;">
-            <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
-                <img src="/mail-icons/icons-14.svg" width="50px">
+        <div style="width:100%;">
+            <div style="padding: 25px 50px;display: inline-flex;">
+                <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
+                    <img src="/mail-icons/icons-15.svg" width="50px">
+                </div>
+
+                <div class="header-content-right" style="margin-left: 50px;">
+                    <p style="color: #ffffff;margin: 0;font-size: 28px;font-weight: 700;">Ride Cancelled!</p>
+                    <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;">You ride at 15:30, Sat Dec 2019 (details below) has been cancelle. It will automatically be removed from you list of upcoming rides.</p>
+                    <p style="color:#FF0000;font-size: 14px;margin-top: 10px;">You will not receive payment for this ride.</p>
+                </div>
             </div>
 
-            <div class="header-content-right" style="margin-left: 50px;">
-                <p style="color: #ffffff;margin: 0;font-size: 28px;font-weight: 700;">Ride Accepted!</p>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 10px;">Thanks you for the confirmation.</p>
-                <p style="color:#8DC63F;font-size: 15px;margin-top: 10px;">Please conduct the following ride:</p>
-            </div>
         </div>
 
     </div>
@@ -308,35 +311,35 @@
     <div id="footer-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;display: inline-flex;width:100%;">
         <div style="padding: 15px 25px;width: 100%;">
             <div>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
+                <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
+                <p style="color:#e0e0e0;font-size: 14px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
             </div>
 
             <div style="margin-top: 10px;">
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 0px;">blackhansa team</p>
+                <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
+                <p style="color:#e0e0e0;font-size: 14px;margin-top: 0px;">blackhansa team</p>
             </div>
         </div>
     </div>
 
     <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
         <div style="width: 100%;display:inline-flex;">
-            <div class="left-box" style="width: 70%;">
-                <p style="color: #5e5e5e;font-size: 15px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
-                <p style="color: #5e5e5e;font-size: 15px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
+            <div class="left-box" style="width: 70%;padding-top: 8px;">
+                <p style="color: #5e5e5e;font-size: 14px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
+                <p style="color: #5e5e5e;font-size: 14px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
             </div>
 
             <div class="right-box" style="width: 30%;">
                 <a class="social-link">
-                    <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
+                    <img src="http://127.0.0.1:8000/mail-icons/icons-11.svg" width="35px" style="padding-top: 10px;">
                 </a>
 
                 <a class="social-link">
-                    <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
+                    <img src="http://127.0.0.1:8000/mail-icons/icons-12.svg" width="35px" style="padding-top: 10px;">
                 </a>
 
                 <a class="social-link">
-                    <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
+                    <img src="http://127.0.0.1:8000/mail-icons/icons-13.svg" width="35px" style="padding-top: 10px;">
                 </a>
 
             </div>
