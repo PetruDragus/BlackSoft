@@ -4,10 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Booking;
 
+use App\Mail\BookingDeleteMail;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -111,8 +113,11 @@ class BookingController extends Controller
     {
         $booking = Booking::findOrFail($id);
 
+        Mail::to($booking->customer->email)->send(new BookingDeleteMail($booking));
+
         // Delete the article
         $booking->delete();
+
         return ['message' => 'Contact Deleted!'];
     }
 }

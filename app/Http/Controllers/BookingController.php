@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Driver;
 use App\Invoice;
-use App\Mail\TestMail;
 use App\Vehicle;
 use App\Booking;
 use Session;
+
+use App\Mail\BookingAcceptedMail;
+use App\Mail\BookingEditedMail;
+use App\Mail\BookingDeleteMail;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -121,25 +124,25 @@ class BookingController extends Controller
         $booking->additional_info = $request->get('additional_info');
         $booking->flight_number   = $request->get('flight_number');
 
-//        $origin = urlencode($booking->pickup_address);
-//        $destination = urlencode($booking->drop_address);
-//        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-//        $distance = json_decode($api);
-//
-//        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-//
-//        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-//
-//        $elements_hours = $distance->rows[0]->elements;
-//
-//        $duration = $elements_hours[0]->duration->text;
+        $origin = urlencode($booking->pickup_address);
+        $destination = urlencode($booking->drop_address);
+        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+        $distance = json_decode($api);
 
-//        if($meters < 10) {
-//            $booking->price = $booking->vehicle->price;
-//        } else {
-//            $google = $meters - 10;
-//            $booking->price = $google + $booking->vehicle->price;
-//        }
+        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+
+        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
+
+        $elements_hours = $distance->rows[0]->elements;
+
+        $duration = $elements_hours[0]->duration->text;
+
+        if($meters < 10) {
+            $booking->price = $booking->vehicle->price;
+        } else {
+            $google = $meters - 10;
+            $booking->price = $google + $booking->vehicle->price;
+        }
 
         // Create new custom if not exist
         if (Customer::where('email', $request->get('email'))->exists()) {
@@ -156,9 +159,9 @@ class BookingController extends Controller
             $booking->customer_id = $customer_id->id;
         }
 
-        Mail::to('codixital@gmail.com')->send(new TestMail($booking));
-
         $booking->save();
+
+        Mail::to($booking->customer->email)->send(new BookingAcceptedMail($booking));
 
         Session::flash('success', 'Booking successfully created!');
 
@@ -214,7 +217,6 @@ class BookingController extends Controller
         $booking->passagers       = $request->get('passagers');
         $booking->vehicle_id      = $request->get('vehicle_id');
         $booking->driver_id       = $request->get('driver_id');
-        $booking->payment_method  = $request->get('payment_method');
         $booking->status          = $request->get('status');
         $booking->pickup_sign     = $request->get('pickup_sign');
         $booking->pickup_time     = $request->get('pickup_time');
@@ -242,22 +244,8 @@ class BookingController extends Controller
             $booking->price = $google + $booking->vehicle->price;
         }
 
-        // Create new custom if not exist
-        if (Customer::where('email', $request->get('email'))->exists()) {
-            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
-            $booking->customer_id = $customer_id->id;
-        } else {
-            $customer = new Customer();
-            $customer->name  = $request->get('name');
-            $customer->email = $request->get('email');
-            $customer->phone = $request->get('phone');
-            $customer->save();
 
-            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
-            $booking->customer_id = $customer_id->id;
-        }
-
-        Mail::to('codixital@gmail.com')->send(new TestMail($booking));
+        Mail::to($booking->customer->email)->send(new BookingEditedMail($booking));
 
         $booking->save();
 
@@ -293,6 +281,9 @@ class BookingController extends Controller
 
         // Delete the article
         $booking->delete();
+
+        Mail::to('codixital@gmail.com')->send(new BookingDeleteMail($booking));
+
         return ['message' => 'Booking Deleted!'];
     }
 }

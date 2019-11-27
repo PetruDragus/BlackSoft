@@ -24,7 +24,7 @@
         * {
             font-family: Arial !important;
         }
-        
+
         a {
             text-decoration: none;
         }
@@ -35,7 +35,7 @@
         }
 
         hr.divider {
-            border-top: 1px solid #FF0000;
+            border-top: 1px solid #00AAEF;
             margin: 15px 0;
         }
 
@@ -112,13 +112,13 @@
         <div>
             <div style="padding: 25px 25px;display: inline-flex;">
                 <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-15.png" width="50px">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-16.svg" width="50px">
                 </div>
 
                 <div class="header-content-right" style="margin-left: 50px;">
-                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Cancelled!</p>
-                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">You ride at {{ $booking['pickup_time'] }}, {{ $booking['date'] }} (details below) has been cancelled. It will automatically be removed from you list of upcoming rides.</p>
-                    <p style="color:#FF0000;font-size: 12px;margin-top: 10px;margin-bottom: 0;">You will not receive payment for this ride.</p>
+                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Updated!</p>
+                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">The passenger made changes to ride <span style="color: #fff;font-size: 12px;font-weight: 600;">#{{ $booking['id'] }}</span> because the booking has been changed, the original booking number is no longer valid. We will now only refer to this booking the new booking number listed below.</p>
+                    <p style="color:#00AAEF;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please accept or reject this changed ride until {{ $booking['pickup_time'] }} 19 Nov otherwise the ride will be added back into the system.</p>
                 </div>
             </div>
 
@@ -272,7 +272,7 @@
 
                 <div class="item-wrap" style="margin-left: 10px;">
                     <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Passager contact
+                        Passenger contact
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;">

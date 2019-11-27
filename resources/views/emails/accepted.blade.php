@@ -25,8 +25,8 @@
             font-family: Arial !important;
         }
 
-        a.social-link {
-            margin: 0 5px;
+        a {
+            text-decoration: none;
         }
 
         .row {
@@ -44,12 +44,12 @@
         }
 
         .item-title {
-            font-size: 15px;
+            font-size: 12px;
         }
 
         .item-subtitle {
             color: #5e5e5e;
-            font-size: 15px;
+            font-size: 12px;
         }
 
         /* These are our tablet/medium screen media queries */
@@ -90,258 +90,270 @@
     </style>
 </head>
 
+@php
+    $origin = urlencode($booking['pickup_address']);
+    $destination = urlencode($booking['drop_address']);
+    $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+    $distance = json_decode($api);
+
+    $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+@endphp
+
 <body style="padding:0; margin:0">
-<div class="wrapper">
-    <div id="header-logo" style="background-color: #efaf57;height: 135px; margin: auto;text-align: center;">
-        <div style="margin-top: auto;margin-bottom: auto;padding-top: 3%;">
-            <img src="/mail-icons/email-logo.png" style="width: 250px;">
+    <div class="wrapper">
+        <div id="header-logo" style="background-color: #efaf57;height: 135px;display: table;text-align: center;width: 100%;">
+            <div style="display: table-cell;vertical-align: middle;">
+                <img src="https://app.blackhansa.de/mail-icons/email-logo.png" style="width: 250px;">
+            </div>
+
         </div>
 
-    </div>
-
-    <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
-        <div style="width:100%;padding: 25px 50px;display: inline-flex;">
-            <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
-                <img src="/mail-icons/icons-14.svg" width="50px">
-            </div>
-
-            <div class="header-content-right" style="margin-left: 50px;">
-                <p style="color: #ffffff;margin: 0;font-size: 28px;font-weight: 700;">Ride Accepted!</p>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 10px;">Thanks you for the confirmation.</p>
-                <p style="color:#8DC63F;font-size: 15px;margin-top: 10px;">Please conduct the following ride:</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="content" style="padding: 25px 0px;">
-        <div class="row">
-            <div class="item multi-columns" style="display: flex;width:65%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-01.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Date
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        27 Dev 2019
-                    </p>
-                </div>
-            </div>
-
-            <div class="item multi-columns" style="display: flex;width:35%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-02.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Time
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        20:21
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="item multi-columns" style="display: flex;width:65%;">
-                <div class="icon-box">
-                    <img src="/mail-icons/icons-03.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Booking number
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        #6354634564
-                    </p>
-                </div>
-            </div>
-
-            <div class="item multi-columns" style="display: flex;width:35%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-04.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Distance
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        ca. 260km
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="item multi-columns" style="display: flex;width:65%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-05.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Category
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        Business Class
-                    </p>
-                </div>
-            </div>
-
-            <div class="item multi-columns" style="display: flex;width:35%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-06.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Net Price
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        EUR 27.00
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="divider">
-
-        <div class="row one-columns">
-            <div class="item " style="display: flex;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-07.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Pick up address
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        Strada Zaharia Stancu 6, Brașov, Romania
-                    </p>
-                </div>
-            </div>
-
-            <div class="item one-columns" style="display: flex;margin-left: 35px;">
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Drop off address
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        Strada Brăilei Nr. 171, Galați, Romania
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="divider">
-
-        <div class="row">
-            <div class="item multi-columns" style="display: flex;width:65%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-08.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Passager contact
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        +407456543
-                    </p>
-                </div>
-            </div>
-
-            <div class="item multi-columns" style="display: flex;width:35%;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-09.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Pickup Sign
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        Teste Teste
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="item" style="display: flex;">
-                <div class="icon-box">
-                    <img src="http://127.0.0.1:8000/mail-icons/icons-10.svg" width="35px">
-                </div>
-
-                <div class="item-wrap" style="margin-left: 20px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Aditional Comment
-                    </p>
-
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        lorem ipsum dolor sit met
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="footer-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;display: inline-flex;width:100%;">
-        <div style="padding: 15px 25px;width: 100%;">
+        <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
             <div>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
+                <div style="padding: 25px 25px;display: inline-flex;">
+                    <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-14.png" width="50px">
+                    </div>
+
+                    <div class="header-content-right" style="margin-left: 50px;">
+                        <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Accepted!</p>
+                        <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">Thanks you for the confirmation.</p>
+                        <p style="color:#8DC63F;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please conduct the following ride:</p>
+                    </div>
+                </div>
+
             </div>
 
-            <div style="margin-top: 10px;">
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
-                <p style="color:#e0e0e0;font-size: 15px;margin-top: 0px;">blackhansa team</p>
+        </div>
+
+        <div id="content" style="padding: 25px 0px;">
+            <div class="row">
+                <div class="item multi-columns" style="display:flex; flex-wrap:wrap;;width:65%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-01.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Date
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            {{ $booking['date'] }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item multi-columns" style="display: flex;width:35%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-02.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Time
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            20:21
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item multi-columns" style="display: flex;width:65%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-03.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Booking number
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            #{{ $booking['id'] }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item multi-columns" style="display: flex;width:35%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-04.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Distance
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            ca. {{ $meters }}km
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item multi-columns" style="display: flex;width:65%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-05.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Category
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            Business Class
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item multi-columns" style="display: flex;width:35%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-06.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Net Price
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            EUR {{ $booking['price'] }}.00
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="row one-columns" style="margin-top: 25px;">
+                <div class="item " style="display: flex;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-07.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Pick up address
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            {{ $booking['pickup_address'] }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item one-columns" style="display: flex;margin-left: 35px;">
+
+                    <div class="item-wrap" style="margin-left: 0px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Drop off address
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            {{ $booking['drop_address'] }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="row" style="margin-top: 25px;">
+                <div class="item multi-columns" style="display: flex;width:65%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-08.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Passager contact
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            +407456543
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item multi-columns" style="display: flex;width:35%;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-09.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left:10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Pickup Sign
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            {{ $booking['pickup_sign'] }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item" style="display: flex;">
+                    <div class="icon-box">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-10.png" width="25px">
+                    </div>
+
+                    <div class="item-wrap" style="margin-left: 10px;">
+                        <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                            Aditional Comment
+                        </p>
+
+                        <p class="item-subtitle" style="margin-top: 0;">
+                            {{ $booking['special_request'] }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;display: inline-flex;width:100%;">
+            <div style="padding: 15px 25px;width: 100%;">
+                <div>
+                    <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
+                    <p style="color:#e0e0e0;font-size: 14px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
+                    <p style="color:#e0e0e0;font-size: 14px;margin-top: 0px;">blackhansa team</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
+            <div style="width: 100%;display:inline-flex;">
+                <div class="left-box" style="width: 70%;padding-top: 8px;">
+                    <p style="color: #5e5e5e;font-size: 12px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
+                    <p style="color: #5e5e5e;font-size: 12px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
+                </div>
+
+                <div class="right-box" style="width: 30%;">
+                    <a href="https://www.facebook.com/blackhansaHQ" class="social-link">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-11.png" width="25px" style="padding-top: 10px;">
+                    </a>
+
+                    <a class="social-link">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-12.png" width="25px" style="padding-top: 10px;">
+                    </a>
+
+                    <a class="social-link">
+                        <img src="https://app.blackhansa.de/mail-icons/icons-13.png" width="25px" style="padding-top: 10px;">
+                    </a>
+
+                </div>
             </div>
         </div>
     </div>
-
-    <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
-        <div style="width: 100%;display:inline-flex;">
-            <div class="left-box" style="width: 70%;">
-                <p style="color: #5e5e5e;font-size: 15px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
-                <p style="color: #5e5e5e;font-size: 15px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
-            </div>
-
-            <div class="right-box" style="width: 30%;">
-                <a class="social-link">
-                    <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
-                </a>
-
-                <a class="social-link">
-                    <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
-                </a>
-
-                <a class="social-link">
-                    <img src="http://127.0.0.1:8000/mail-icons/facebook.svg" width="25px">
-                </a>
-
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 </html>
