@@ -357,7 +357,11 @@
                                                 {{ $item->status  }}
                                             </td>
                                             <td class="text-truncate">
-                                                <a href="">#52345</a>
+                                                @if (!empty($item->invoice))
+                                                    <a href="">#{{ $item->invoicep['number'] }}</a>
+                                                @else
+                                                    <a>N/A</a>
+                                                @endif
                                             </td>
                                             <td class="text-truncate">
                                                 @if (!empty($item->customer))

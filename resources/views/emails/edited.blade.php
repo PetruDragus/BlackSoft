@@ -30,7 +30,7 @@
         }
 
         .row {
-            display: flex;
+            display: -webkit-box;
             margin: 5px 25px;
         }
 
@@ -90,14 +90,14 @@
     </style>
 </head>
 
-@php
-    $origin = urlencode($booking['pickup_address']);
-    $destination = urlencode($booking['drop_address']);
-    $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-    $distance = json_decode($api);
+{{--@php--}}
+{{--    $origin = urlencode($booking['pickup_address']);--}}
+{{--    $destination = urlencode($booking['drop_address']);--}}
+{{--    $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");--}}
+{{--    $distance = json_decode($api);--}}
 
-    $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-@endphp
+{{--    $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);--}}
+{{--@endphp--}}
 
 <body style="padding:0; margin:0">
 <div class="wrapper">
@@ -111,14 +111,14 @@
     <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
         <div>
             <div style="padding: 25px 25px;display: inline-flex;">
-                <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-16.svg" width="50px">
+                <div class="header-content-left" style="margin-top: auto;margin-left: 20px;margin-bottom: auto;">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-16.png" width="50px">
                 </div>
 
-                <div class="header-content-right" style="margin-left: 50px;">
-                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Updated!</p>
-                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">The passenger made changes to ride <span style="color: #fff;font-size: 12px;font-weight: 600;">#{{ $booking['id'] }}</span> because the booking has been changed, the original booking number is no longer valid. We will now only refer to this booking the new booking number listed below.</p>
-                    <p style="color:#00AAEF;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please accept or reject this changed ride until {{ $booking['pickup_time'] }} 19 Nov otherwise the ride will be added back into the system.</p>
+                <div class="header-content-right" style="margin-left: 35px;">
+                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride updated!</p>
+                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">The passenger made changes to ride <span style="color:#fff;font-size: 12px;">#{{ $booking['id'] }}</span> Because the booking has been changed, the original bookingn number is no longer valid. We will now only refer to this booking by the new booking number listed below.</p>
+                    <p style="color:#00AAEF;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please accept or reject this changed ride until 20:25 30 Nov 19 otherwise the ride will be added back into the system.</p>
                 </div>
             </div>
 
@@ -127,18 +127,18 @@
     </div>
 
     <div id="content" style="padding: 25px 0px;">
-        <div class="row">
+        <div class="row" style="display: flex;">
             <div class="item multi-columns" style="display:flex; flex-wrap:wrap;;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-01.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Date
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
                         {{ $booking['date'] }}
                     </p>
                 </div>
@@ -150,29 +150,29 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Time
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
                         20:21
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display: flex;">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-03.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Booking number
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
                         #{{ $booking['id'] }}
                     </p>
                 </div>
@@ -184,29 +184,29 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Distance
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
-                        ca. {{ $meters }}km
+                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
+                        ca. 22km
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display: flex;">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-05.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Category
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
                         {{ $booking['vehicle']['bussiness_type'] }}
                     </p>
                 </div>
@@ -218,18 +218,18 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Net Price
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
                         EUR {{ $booking['price'] }}.00
                     </p>
                 </div>
             </div>
         </div>
 
-        <hr class="divider">
+        <hr class="divider" style="border-top: 1px solid #00AAEF;margin: 15px 0;">
 
         <div class="row one-columns" style="margin-top: 25px;">
             <div class="item " style="display: flex;">
@@ -238,11 +238,11 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Pick up address
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
                         {{ $booking['pickup_address'] }}
                     </p>
                 </div>
@@ -251,31 +251,31 @@
             <div class="item one-columns" style="display: flex;margin-left: 35px;">
 
                 <div class="item-wrap" style="margin-left: 0px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Drop off address
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
                         {{ $booking['drop_address'] }}
                     </p>
                 </div>
             </div>
         </div>
 
-        <hr class="divider">
+        <hr class="divider" style="border-top: 1px solid #00AAEF;margin: 15px 0;">
 
-        <div class="row" style="margin-top: 25px;">
+        <div class="row" style="margin-top: 25px;display: flex;">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-08.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Passenger contact
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                        Passager contact
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
                         {{ $booking['customer']['phone'] }}
                     </p>
                 </div>
@@ -287,29 +287,29 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left:10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Pickup Sign
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
                         {{ $booking['pickup_sign'] }}
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display:flex;">
             <div class="item" style="display: flex;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-10.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Aditional Comment
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;">
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
                         {{ $booking['special_request'] }}
                     </p>
                 </div>
@@ -320,13 +320,13 @@
     <div id="footer-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;display: inline-flex;width:100%;">
         <div style="padding: 15px 25px;width: 100%;">
             <div>
-                <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
-                <p style="color:#e0e0e0;font-size: 14px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
             </div>
 
             <div style="margin-top: 10px;">
-                <p style="color:#e0e0e0;font-size: 14px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
-                <p style="color:#e0e0e0;font-size: 14px;margin-top: 0px;">blackhansa team</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 0px;">blackhansa team</p>
             </div>
         </div>
     </div>

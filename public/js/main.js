@@ -1,3 +1,4 @@
+// Minimize aside sidebar
 function toggleSidebar() {
     var element = document.getElementById("aside");
     element.classList.toggle("toggled");
@@ -10,9 +11,7 @@ function toggleSidebar() {
 }
 
 $(document).ready(function() {
-
     $("#carousel_cars").owlCarousel({
-
         navigation : true, // Show next and prev buttons
         slideSpeed : 300,
         paginationSpeed : 400,
@@ -24,5 +23,26 @@ $(document).ready(function() {
         // itemsDesktopSmall : false,
         // itemsTablet: false,
         // itemsMobile : false
+    });
+});
+
+// Make app full screen
+var elem = document.getElementById("app");
+function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+}
+
+// Print invoice function
+$(function() {
+    $(".document").find('.print').on('click', function() {
+        $.print(".document");
     });
 });

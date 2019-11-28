@@ -31,7 +31,7 @@ class BookingEditedMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Booking Deleted')
+        return $this->subject('Ride no. 45234 has been edited.')
             ->from('booking@blackhansa.de')
             ->view('emails.edited')->with(['booking', $this->booking]);
     }

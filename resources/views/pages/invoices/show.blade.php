@@ -23,7 +23,6 @@
                         <!---->
                         <!---->
                     </button>
-                    <!---->
                     <div class="dropdown">
                         <button type="button" class="btn btn-default btn-sm">
                             <span class="icon icon-more">

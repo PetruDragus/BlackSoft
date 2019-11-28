@@ -37,7 +37,7 @@ class Invoice extends Model
 
     public function booking()
     {
-        return $this->belongsTo(Booking::class, 'booking_id');
+        return $this->belongsTo(Booking::class);
     }
 
     public function items()

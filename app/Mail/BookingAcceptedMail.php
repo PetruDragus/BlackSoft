@@ -5,7 +5,6 @@ namespace App\Mail;
 use App\Booking;
 use Carbon\Carbon;
 
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -34,7 +33,7 @@ class BookingAcceptedMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Booking Confirmation')
+        return $this->subject('Ride Confirmation no. 23423')
             ->from('booking@blackhansa.de')
             ->view('emails.accepted')->with(['booking', $this->booking]);
     }
