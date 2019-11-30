@@ -56,7 +56,12 @@
                         <label class="info-label">
                             <span>Driver</span>
                         </label>
-                        <p>{{ $booking->driver->name }}</p>
+
+                        @if(empty($booking->driver))
+                            <p>N/A</p>
+                        @else
+                            <p>{{ $booking->driver->name }}</p>
+                        @endif
                     </div>
                 </div>
 

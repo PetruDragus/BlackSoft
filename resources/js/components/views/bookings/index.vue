@@ -215,20 +215,32 @@
                                                         <h5>Customer Information:</h5>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Name: </label>
-                                                            <div class="col-md-8">
+                                                            <div v-if="row.name !== null" class="col-md-8">
                                                                 {{ row.name }}
+                                                            </div>
+
+                                                            <div v-if="row.name == null" class="col-md-8">
+                                                                N/A
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Email: </label>
-                                                            <div class="col-md-8">
-                                                                {{ row.email }}
+                                                            <div v-if="row.customer !== null" class="col-md-8">
+                                                                {{ row.customer.email }}
+                                                            </div>
+
+                                                            <div v-if="row.customer == null" class="col-md-8">
+                                                                N/A
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Phone: </label>
-                                                            <div class="col-md-8">
+                                                            <div v-if="row.phone !== null" class="col-md-8">
                                                                 {{ row.phone }}
+                                                            </div>
+
+                                                            <div v-if="row.phone == null" class="col-md-8">
+                                                                N/A
                                                             </div>
                                                         </div>
                                                     </div>

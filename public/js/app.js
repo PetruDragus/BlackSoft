@@ -17401,6 +17401,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
  //similar to vue-resource
@@ -73632,17 +73644,31 @@ var render = function() {
                                                 [_vm._v("Name: ")]
                                               ),
                                               _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "col-md-8" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                            " +
-                                                      _vm._s(row.name) +
-                                                      "\n                                                        "
+                                              row.name !== null
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-8" },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                            " +
+                                                          _vm._s(row.name) +
+                                                          "\n                                                        "
+                                                      )
+                                                    ]
                                                   )
-                                                ]
-                                              )
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              row.name == null
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-8" },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                            N/A\n                                                        "
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
                                             ]),
                                             _vm._v(" "),
                                             _c("div", { staticClass: "row" }, [
@@ -73655,17 +73681,33 @@ var render = function() {
                                                 [_vm._v("Email: ")]
                                               ),
                                               _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "col-md-8" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                            " +
-                                                      _vm._s(row.email) +
-                                                      "\n                                                        "
+                                              row.customer !== null
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-8" },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                            " +
+                                                          _vm._s(
+                                                            row.customer.email
+                                                          ) +
+                                                          "\n                                                        "
+                                                      )
+                                                    ]
                                                   )
-                                                ]
-                                              )
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              row.customer == null
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-8" },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                            N/A\n                                                        "
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
                                             ]),
                                             _vm._v(" "),
                                             _c("div", { staticClass: "row" }, [
@@ -73678,17 +73720,31 @@ var render = function() {
                                                 [_vm._v("Phone: ")]
                                               ),
                                               _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "col-md-8" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                            " +
-                                                      _vm._s(row.phone) +
-                                                      "\n                                                        "
+                                              row.phone !== null
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-8" },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                            " +
+                                                          _vm._s(row.phone) +
+                                                          "\n                                                        "
+                                                      )
+                                                    ]
                                                   )
-                                                ]
-                                              )
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              row.phone == null
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-8" },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                            N/A\n                                                        "
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
                                             ])
                                           ]
                                         ),
