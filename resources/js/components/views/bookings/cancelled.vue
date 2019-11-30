@@ -139,7 +139,7 @@
                             </span>
                         </td>
                         <td>
-                            <a href="route_map.html" class="btn btn-tbl-delete btn-xs btn-view-route">
+                            <a target="_blank" v-bind:href="'https://maps.google.com/maps?saddr=' + row.pickup_address + '&amp;daddr=' + row.drop_address + '&amp;ie=UTF8&amp;z=11&amp;layer=t&amp;t=m&amp;iwloc=A&amp;output=embed?iframe=true&amp;width=640&amp;height=480'" data-gal="prettyPhoto[gallery]" class="btn btn-tbl-delete btn-xs btn-view-route">
                                 <i class="fa fa-map-marker-alt"></i>
                             </a>
                         </td>

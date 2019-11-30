@@ -17405,6 +17405,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
  //similar to vue-resource
@@ -72258,7 +72259,25 @@ var render = function() {
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _vm._m(4, true),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-tbl-delete btn-xs btn-view-route",
+                        attrs: {
+                          target: "_blank",
+                          href:
+                            "https://maps.google.com/maps?saddr=" +
+                            row.pickup_address +
+                            "&daddr=" +
+                            row.drop_address +
+                            "&ie=UTF8&z=11&layer=t&t=m&iwloc=A&output=embed?iframe=true&width=640&height=480",
+                          "data-gal": "prettyPhoto[gallery]"
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-map-marker-alt" })]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
@@ -72279,7 +72298,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(5, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -72415,7 +72434,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(6, true)
+                              _vm._m(5, true)
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "modal-body" }, [
@@ -72679,7 +72698,7 @@ var render = function() {
                                             "div",
                                             { staticClass: "form-group" },
                                             [
-                                              _vm._m(7, true),
+                                              _vm._m(6, true),
                                               _vm._v(" "),
                                               _c(
                                                 "select",
@@ -72730,7 +72749,7 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _vm._m(8, true)
+                            _vm._m(7, true)
                           ])
                         ]
                       )
@@ -72907,21 +72926,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "status status-blue" }, [
       _c("span", { staticClass: "status-text" }, [_vm._v("Generate Price")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-tbl-delete btn-xs btn-view-route",
-          attrs: { href: "route_map.html" }
-        },
-        [_c("i", { staticClass: "fa fa-map-marker-alt" })]
-      )
     ])
   },
   function() {
@@ -73323,7 +73327,25 @@ var render = function() {
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _vm._m(4, true),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-tbl-delete btn-xs btn-view-route",
+                        attrs: {
+                          target: "_blank",
+                          href:
+                            "https://maps.google.com/maps?saddr=" +
+                            row.pickup_address +
+                            "&daddr=" +
+                            row.drop_address +
+                            "&ie=UTF8&z=11&layer=t&t=m&iwloc=A&output=embed?iframe=true&width=640&height=480",
+                          "data-gal": "prettyPhoto[gallery]"
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-map-marker-alt" })]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
@@ -73344,7 +73366,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(5, true),
+                          _vm._m(4, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -73412,7 +73434,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(6, true),
+                              _vm._m(5, true),
                               _vm._v(" "),
                               _c(
                                 "a",
@@ -73482,7 +73504,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(7, true)
+                              _vm._m(6, true)
                             ]),
                             _vm._v(" "),
                             _c(
@@ -73829,7 +73851,7 @@ var render = function() {
                                                 "div",
                                                 { staticClass: "form-group" },
                                                 [
-                                                  _vm._m(8, true),
+                                                  _vm._m(7, true),
                                                   _vm._v(" "),
                                                   _c(
                                                     "select",
@@ -73925,7 +73947,7 @@ var render = function() {
                                   ])
                                 ]),
                                 _vm._v(" "),
-                                _vm._m(9, true)
+                                _vm._m(8, true)
                               ]
                             )
                           ])
@@ -74110,21 +74132,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-tbl-delete btn-xs btn-view-route",
-          attrs: { href: "route_map.html" }
-        },
-        [_c("i", { staticClass: "fa fa-map-marker-alt" })]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "a",
       {
@@ -74146,9 +74153,7 @@ var staticRenderFns = [
     return _c("a", { staticClass: "dropdown-item" }, [
       _c("i", { staticClass: "fas fa-ban" }),
       _vm._v(" "),
-      _c("span", { staticClass: "nav__link-text", attrs: { type: "submit" } }, [
-        _vm._v("Cancel")
-      ])
+      _c("span", { staticClass: "nav__link-text" }, [_vm._v("Cancel")])
     ])
   },
   function() {
