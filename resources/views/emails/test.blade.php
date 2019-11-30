@@ -30,12 +30,12 @@
         }
 
         .row {
-            display: flex;
+            display: -webkit-box;
             margin: 5px 25px;
         }
 
         hr.divider {
-            border-top: 1px solid #FF0000;
+            border-top: 1px solid #8DC63F;
             margin: 15px 0;
         }
 
@@ -90,6 +90,15 @@
     </style>
 </head>
 
+{{--@php--}}
+{{--    $origin = urlencode($booking['pickup_address']);--}}
+{{--    $destination = urlencode($booking['drop_address']);--}}
+{{--    $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");--}}
+{{--    $distance = json_decode($api);--}}
+
+{{--    $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);--}}
+{{--@endphp--}}
+
 <body style="padding:0; margin:0">
 <div class="wrapper">
     <div id="header-logo" style="background-color: #efaf57;height: 135px;display: table;text-align: center;width: 100%;">
@@ -102,14 +111,14 @@
     <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
         <div>
             <div style="padding: 25px 25px;display: inline-flex;">
-                <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-15.png" width="50px">
+                <div class="header-content-left" style="margin-top: auto;margin-left: 20px;margin-bottom: auto;">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-14.png" width="50px">
                 </div>
 
-                <div class="header-content-right" style="margin-left: 50px;">
-                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride updated!</p>
-                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">The passenger made changes to ride <span style="color:#fff;font-size: 12px;">#{{ $booking['id'] }}</span> Because the booking has been changed, the original bookingn number is no longer valid. We will now only refer to this booking by the new booking number listed below.</p>
-                    <p style="color:#FF0000;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please accept or reject this changed ride until 20:25 30 Nov 19 otherwise the ride will be added back into the system.</p>
+                <div class="header-content-right" style="margin-left: 35px;">
+                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Accepted!</p>
+                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">Thanks you for the confirmation.</p>
+                    <p style="color:#8DC63F;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please conduct following ride:</p>
                 </div>
             </div>
 
@@ -118,19 +127,19 @@
     </div>
 
     <div id="content" style="padding: 25px 0px;">
-        <div class="row">
+        <div class="row" style="display: flex;">
             <div class="item multi-columns" style="display:flex; flex-wrap:wrap;;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-01.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Date
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        10 Nov 19
+                        20:20
                     </p>
                 </div>
             </div>
@@ -141,7 +150,7 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Time
                     </p>
 
@@ -152,19 +161,19 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display: flex;">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-03.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Booking number
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        #42342
+                        #32
                     </p>
                 </div>
             </div>
@@ -175,30 +184,30 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Distance
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        ca. 26km
+                        ca. 22km
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display: flex;">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-05.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="margin: 0 0 5px 0;font-size: 12px;color: #c1c1c1;font-weight: 300;">
                         Category
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        fadsfasdf
+                        gsdfgsdg
                     </p>
                 </div>
             </div>
@@ -209,7 +218,7 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Net Price
                     </p>
 
@@ -220,7 +229,7 @@
             </div>
         </div>
 
-        <hr class="divider">
+        <hr class="divider" style="border-top: 1px solid #8DC63F;margin: 15px 0;">
 
         <div class="row one-columns" style="margin-top: 25px;">
             <div class="item " style="display: flex;">
@@ -229,12 +238,12 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Pick up address
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        asdfsafsadf
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
+                        sdfgdsgsd
                     </p>
                 </div>
             </div>
@@ -242,32 +251,32 @@
             <div class="item one-columns" style="display: flex;margin-left: 35px;">
 
                 <div class="item-wrap" style="margin-left: 0px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Drop off address
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        afsdfasfas
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
+                        sfdgsgdgdsg
                     </p>
                 </div>
             </div>
         </div>
 
-        <hr class="divider">
+        <hr class="divider" style="border-top: 1px solid #8DC63F;margin: 15px 0;">
 
-        <div class="row" style="margin-top: 25px;">
+        <div class="row" style="margin-top: 25px;display: flex;">
             <div class="item multi-columns" style="display: flex;width:65%;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-08.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Passager contact
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        4563764543
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
+                        452535
                     </p>
                 </div>
             </div>
@@ -278,30 +287,30 @@
                 </div>
 
                 <div class="item-wrap" style="margin-left:10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Pickup Sign
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        gsdfgds
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
+                        fasdfdasf
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display:flex;">
             <div class="item" style="display: flex;">
                 <div class="icon-box">
                     <img src="https://app.blackhansa.de/mail-icons/icons-10.png" width="25px">
                 </div>
 
                 <div class="item-wrap" style="margin-left: 10px;">
-                    <p class="item-title" style="margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;font-size: 12px;">
+                    <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
                         Aditional Comment
                     </p>
 
-                    <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        gsdfgdsg
+                    <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
+                        fasdfas
                     </p>
                 </div>
             </div>
@@ -311,13 +320,13 @@
     <div id="footer-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;display: inline-flex;width:100%;">
         <div style="padding: 15px 25px;width: 100%;">
             <div>
-                <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
-                <p style="color:#e0e0e0;font-size: 12px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 10px;margin-bottom: 5px;">Be sure to double check the ride information.</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 0px;">If you have any questions, please contact: booking@blackhansa.de</p>
             </div>
 
             <div style="margin-top: 10px;">
-                <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
-                <p style="color:#e0e0e0;font-size: 12px;margin-top: 0px;">blackhansa team</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 10px;margin-bottom: 5px;">Best regards,</p>
+                <p style="color:#e0e0e0;font-size: 13px;margin-top: 0px;">blackhansa team</p>
             </div>
         </div>
     </div>
@@ -325,21 +334,21 @@
     <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
         <div style="width: 100%;display:inline-flex;">
             <div class="left-box" style="width: 70%;padding-top: 8px;">
-                <p style="color: #5e5e5e;font-size: 12px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
+                <p style="color: #5e5e5e;font-size: 12px;margin-top: 0;margin-bottom: -3px;">blackhansa GmbH</p>
                 <p style="color: #5e5e5e;font-size: 12px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
             </div>
 
             <div class="right-box" style="width: 30%;">
-                <a href="https://www.facebook.com/blackhansaHQ" class="social-link">
+                <a href="https://www.facebook.com/blackhansaHQ" class="social-link" style="text-decoration: none;">
                     <img src="https://app.blackhansa.de/mail-icons/icons-11.png" width="25px" style="padding-top: 10px;">
                 </a>
 
                 <a class="social-link">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-12.png" width="25px" style="padding-top: 10px;">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-12.png" width="25px" style="padding-top: 10px;" style="text-decoration: none;">
                 </a>
 
                 <a class="social-link">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-13.png" width="25px" style="padding-top: 10px;">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-13.png" width="25px" style="padding-top: 10px;" style="text-decoration: none;">
                 </a>
 
             </div>

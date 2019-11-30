@@ -15,6 +15,10 @@ Route::get('/calendar', function () {
     return view('pages.calendar.index');
 });
 
+Route::get('/mails', function () {
+    return view('emails.test');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function () {
