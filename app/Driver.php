@@ -20,8 +20,7 @@ class Driver extends Model
     ];
 
     public static $columns = [
-        'ID', 'City', 'Name', 'Vehicle',
-        'Fleet Operator', 'Phone', 'Birthday', 'Created'
+        ' ', 'ID', 'City', 'Name', 'Vehicle', 'Phone', 'Birthday', 'Joining Date', 'Trips',
     ];
 
     /**

@@ -31,6 +31,39 @@ class BookingController extends Controller
             ]);
     }
 
+    /**
+     * Display a listing of the cancelled resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelled()
+    {
+        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->where('status', '=', 'Cancelled')->searchPaginateAndOrder();
+        $columns = Booking::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns,
+                'items_count' => $model->count()
+            ]);
+    }
+
+    public function changeDriver(Request $request, $id)
+    {
+        $ccv = Booking::findOrFail($id);
+        $ccv->update($request->all());
+
+        return ['message', 'Driver changed successfully'];
+    }
+
+    public function cancelBooking(Request $request, $id)
+    {
+        $data = Booking::findOrFail($id);
+        $data->status = $request->status;
+        $data->save();
+    }
+
     public function test()
     {
         $booking = Booking::orderBy('customer_id', 'ASC')

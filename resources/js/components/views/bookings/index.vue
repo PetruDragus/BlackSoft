@@ -138,6 +138,11 @@
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
                             </td>
+                            <td>
+                                <a href="route_map.html" class="btn btn-tbl-delete btn-xs btn-view-route">
+                                    <i class="fa fa-map-marker-alt"></i>
+                                </a>
+                            </td>
                             <td>{{ row.created_at | formatDate }}</td>
                             <td>
                                 <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
@@ -159,6 +164,10 @@
                                                 <i class="far fa-edit"></i>
                                                 <span class="nav__link-text">Edit</span>
                                             </a>
+                                            <a class="dropdown-item">
+                                                <i class="fas fa-ban"></i>
+                                                <span type="submit" class="nav__link-text">Cancel</span>
+                                            </a>
                                             <a class="dropdown-item" @click="deleteBooking(row.id)">
                                                 <i class="far fa-trash-alt"></i>
                                                 <span class="nav__link-text">Delete</span>
@@ -178,7 +187,10 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
+                                        <form @submit.prevent="editBooking()">
+
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-6 booking-modal-list">
                                                     <div class="list-b-item">
@@ -228,15 +240,19 @@
                                                         <h5>Financial Information:</h5>
                                                         <div class="row" style="display: flex;">
                                                             <div class="col-md-6">
-                                                                <label class="col-md-4 col-form-label justify-content-end">Price: </label>
-                                                                <div class="col-md-8">
-                                                                    € {{ row.price | formatMoney }}
+                                                                <div class="row" style="display: block;">
+                                                                    <label class="col-md-4 col-form-label justify-content-end">Price: </label>
+                                                                    <div class="col-md-8">
+                                                                        € {{ row.price | formatMoney }}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label class="col-md-4 col-form-label justify-content-end">Invoice: </label>
-                                                                <div class="col-md-8">
-                                                                    {{ row.invoice.number }}
+                                                                <div class="row" style="display: block;">
+                                                                    <label class="col-md-4 col-form-label justify-content-end">Invoice: </label>
+                                                                    <div class="col-md-8">
+                                                                        {{ row.invoice.number }}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -244,7 +260,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <GmapMap
-                                                            :center="{lat:10, lng:10}"
+                                                            :center="{ lat:10, lng:10 }"
                                                             :zoom="10"
                                                             map-type-id="terrain"
                                                             style="width: auto; height: 400px"
@@ -257,9 +273,9 @@
                                                                     <span>Change Driver:</span>
                                                                 </label>
 
-                                                                <select class="form-control select-input" name="vehicle_id">
+                                                                <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
                                                                     <option value="" disabled="disabled">Select ..</option>
-                                                                    <option v-for="driver in drivers.data" value="">Dragus Patrick</option>
+                                                                    <option v-for="item in drivers.data" value="1">{{ item.name }}</option>
                                                                 </select>
                                                             </div>
                                                         </form>
@@ -269,8 +285,9 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -305,7 +322,11 @@
         data() {
             return {
                 form: new Form({
-                    price: 'price',
+                    id: '',
+                    driver_id: '',
+                    status: '',
+                    pickup_address: '',
+                    drop_address: ''
                 }),
                 drivers: {},
                 model: {},
@@ -315,7 +336,7 @@
                     page: 1,
                     column: 'id',
                     direction: 'desc',
-                    per_page: 15,
+                    per_page: 20,
                     search_column: 'id',
                     search_operator: 'not_equal',
                     search_input: ''
@@ -349,26 +370,37 @@
                     this.fetchIndexData()
                 }
             },
-            generatePrice (id) {
-                axios.delete('/api/v1/bookings/'+id)
-                    .then(function (response) {
-                        window.location.reload();
+            editBooking (id) {
+                this.form.patch('api/v1/bookings/changeDriver/'+this.form.id)
+                    .then(() => {
+
                     })
-                    .catch(function (error) {
-                        console.log(error);
+                    .catch(() => {
+
                     });
+                $('.booking-modal').modal('hide')
+            },
+            cancelBooking (id) {
+                this.form.put('api/v1/bookings/cancel/'+this.form.id)
+                    .then(() => {
+
+                    })
+                    .catch(() => {
+
+                    });
+                $('.booking-modal').modal('hide')
             },
             deleteBooking(id) {
                 if(confirm('are you sure?'))
 
                 // Send request to the server
-                axios.delete( '/api/v1/bookings/'+id)
-                    .then(function (response) {
-                        window.location.reload();
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                    axios.delete( '/api/v1/bookings/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
             },
             toggleOrder(column) {
                 if(column === this.query.column) {

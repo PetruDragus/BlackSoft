@@ -32,6 +32,16 @@ class BookingController extends Controller
     }
 
     /**
+     * Display a listing of the cancelled resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelled()
+    {
+        return view('pages.bookings.cancelled');
+    }
+
+    /**
      * Export to excel
      */
     public function exportExcel()
@@ -161,6 +171,22 @@ class BookingController extends Controller
 
         $booking->save();
 
+        // Create new invoice if not exist
+        if (Invoice::where('booking_id', $booking->id)->exists()) {
+            //
+        } else {
+            $invoice = new Invoice();
+            $invoice->number        = "INV-" . $booking->id;
+            $invoice->customer_id   = $booking->customer->id;
+            $invoice->booking_id    = $booking->id;
+            $invoice->date          = $request->get('date');
+            $invoice->due_date      = date('Y-m-d', strtotime($request->get('date') . ' + 15 days')); // add + 15 to date
+            $invoice->subtotal      = $booking->price;
+            $invoice->reference     = "Booking #" . $booking->id;
+            $invoice->total         = $booking->price;
+            $invoice->save();
+        }
+
         Mail::to($booking->customer->email)->send(new BookingAcceptedMail($booking));
 
         Session::flash('success', 'Booking successfully created!');
@@ -243,7 +269,6 @@ class BookingController extends Controller
             $google = $meters - 10;
             $booking->price = $google + $booking->vehicle->price;
         }
-
 
         Mail::to($booking->customer->email)->send(new BookingEditedMail($booking));
 

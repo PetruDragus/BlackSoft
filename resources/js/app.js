@@ -60,7 +60,7 @@ Vue.filter('formatDate', (value) => {
 
 Vue.filter('formatMiniDate', (value) => {
     if (value) {
-        return moment(String(value)).format('DD.MM')
+        return moment(String(value)).format('D MMM YY')
     }
 })
 
@@ -80,6 +80,7 @@ window.Fire = Fire;
  */
 
 import Bookings from './components/views/bookings/index';
+import bcancelled from './components/views/bookings/cancelled';
 import Invoices from './components/views/invoices/index';
 import Reviews from './components/views/reviews/index';
 import Jobs from './components/views/jobs/index';
@@ -130,7 +131,8 @@ const app = new Vue({
         Test,
         GmapMap,
         contact_forms,
-        pie_chart
+        pie_chart,
+        bcancelled
     }
 }).$mount('#app');
 // Now the app has started!

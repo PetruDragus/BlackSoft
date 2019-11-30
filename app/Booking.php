@@ -22,7 +22,7 @@ class Booking extends Model
     ];
 
     public static $columns = [
-        'id', 'pickup_address', 'Drop Address', 'Date', 'Seats', 'Passagers', 'Bags', 'Price', 'Status', 'Created', 'Actions'
+        'id', 'Pickup Address', 'Drop Address', 'Date', 'Seats', 'Passagers', 'Bags', 'Price', 'Status', 'View Route', 'Created', 'Actions'
     ];
 
     /**

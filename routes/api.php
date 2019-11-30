@@ -27,6 +27,9 @@ Route::get('vehicles', 'VehicleController@getData');
 Route::get('payments', 'PaymentController@getData');
 Route::get('opportunities', 'OpportunityController@getData');
 Route::get('products', 'ProductController@search');
+Route::get('v1/bookings/cancelled', 'API\BookingController@cancelled');
+Route::match(['put', 'patch'], 'v1/bookings/changeDriver/{id}', 'API\BookingController@changeDriver');
+Route::match(['put', 'patch'], 'v1/bookings/cancel/{id}', 'API\BookingController@cancelBooking');
 
 Route::apiResources(['v1/bookings' => 'API\BookingController']);
 Route::apiResources(['v1/drivers' => 'API\DriverController']);

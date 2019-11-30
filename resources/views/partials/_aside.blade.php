@@ -165,7 +165,19 @@
                     <div class="sidebar-icon">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
-                    <div class="sidebar-text"> Bookings</div>
+                    <div class="sidebar-text"> Trips Bookings</div>
+                    <div class="sidebar-arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/booking/cancelled" class="sidebar-nav-link">
+                    <div class="sidebar-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div class="sidebar-text"> Cancelled Trips</div>
                     <div class="sidebar-arrow">
                         <i class="fas fa-angle-right"></i>
                     </div>

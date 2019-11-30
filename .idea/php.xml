@@ -113,6 +113,8 @@
       <path value="$PROJECT_DIR$/vendor/web-token/jwt-util-ecc" />
       <path value="$PROJECT_DIR$/vendor/web-token/jwt-signature-algorithm-rsa" />
       <path value="$PROJECT_DIR$/vendor/web-token/jwt-core" />
+      <path value="$PROJECT_DIR$/vendor/theiconic/php-ga-measurement-protocol" />
+      <path value="$PROJECT_DIR$/vendor/irazasyed/laravel-gamp" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
