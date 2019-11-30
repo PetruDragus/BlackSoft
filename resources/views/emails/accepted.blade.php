@@ -155,7 +155,7 @@
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        20:21
+                        {{ $booking['pickup_hour'] }}:{{ $booking['pickup_min'] }}
                     </p>
                 </div>
             </div>

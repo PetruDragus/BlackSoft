@@ -139,15 +139,15 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="form-label">
-                                        <span>Passagers</span>
+                                        <span>Passengers</span>
                                     </label>
 
                                     <select class="form-control select-input" name="passagers">
                                         <option value="" disabled="disabled">Select ..</option>
-                                        <option value="1" >1</option>
-                                        <option value="2" >2</option>
-                                        <option value="3" >3</option>
-                                        <option value="4" >4</option>
+                                        <option value="1" @if($booking->passagers == 1) selected @endif>1</option>
+                                        <option value="2" @if($booking->passagers == 2) selected @endif>2</option>
+                                        <option value="3" @if($booking->passagers == 3) selected @endif>3</option>
+                                        <option value="4" @if($booking->passagers == 4) selected @endif>4</option>
                                     </select>
                                 </div>
                             </div>
@@ -160,10 +160,10 @@
 
                                     <select class="form-control select-input" name="seats">
                                         <option value="" disabled="disabled">Select ..</option>
-                                        <option value="1" >1</option>
-                                        <option value="2" >2</option>
-                                        <option value="3" >3</option>
-                                        <option value="4" >4</option>
+                                        <option value="1" @if($booking->seats == 1) selected @endif>1</option>
+                                        <option value="2" @if($booking->seats == 2) selected @endif>2</option>
+                                        <option value="3" @if($booking->seats == 3) selected @endif>3</option>
+                                        <option value="4" @if($booking->seats == 4) selected @endif>4</option>
                                     </select>
                                 </div>
                             </div>
@@ -176,12 +176,12 @@
 
                                     <select class="form-control select-input" name="bags">
                                         <option value="" disabled="disabled">Select ..</option>
-                                        <option value="1" >1</option>
-                                        <option value="2" >2</option>
-                                        <option value="3" >3</option>
-                                        <option value="4" >4</option>
-                                        <option value="5" >5</option>
-                                        <option value="6">6</option>
+                                        <option value="1" @if($booking->bags == 1) selected @endif>1</option>
+                                        <option value="2" @if($booking->bags == 2) selected @endif>2</option>
+                                        <option value="3" @if($booking->bags == 3) selected @endif>3</option>
+                                        <option value="4" @if($booking->bags == 4) selected @endif>4</option>
+                                        <option value="5" @if($booking->bags == 5) selected @endif>5</option>
+                                        <option value="6" @if($booking->bags == 6) selected @endif>6</option>
                                     </select>
                                 </div>
                             </div>

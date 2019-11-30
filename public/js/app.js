@@ -73616,7 +73616,9 @@ var render = function() {
                                                 [
                                                   _vm._v(
                                                     "\n                                                            " +
-                                                      _vm._s(row.pickup_time) +
+                                                      _vm._s(row.pickup_hour) +
+                                                      ":" +
+                                                      _vm._s(row.pickup_min) +
                                                       " / " +
                                                       _vm._s(
                                                         _vm._f("formatDate")(

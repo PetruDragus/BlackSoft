@@ -211,7 +211,7 @@
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Time / Date: </label>
                                                             <div class="col-md-8 col-form-label">
-                                                                {{ row.pickup_time }} / {{ row.date | formatDate }}
+                                                                {{ row.pickup_hour }}:{{ row.pickup_min }} / {{ row.date | formatDate }}
                                                             </div>
                                                         </div>
                                                     </div>
