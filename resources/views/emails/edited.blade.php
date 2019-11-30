@@ -90,14 +90,14 @@
     </style>
 </head>
 
-{{--@php--}}
-{{--    $origin = urlencode($booking['pickup_address']);--}}
-{{--    $destination = urlencode($booking['drop_address']);--}}
-{{--    $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");--}}
-{{--    $distance = json_decode($api);--}}
+@php
+    $origin = urlencode($booking['pickup_address']);
+    $destination = urlencode($booking['drop_address']);
+    $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
+    $distance = json_decode($api);
 
-{{--    $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);--}}
-{{--@endphp--}}
+    $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
+@endphp
 
 <body style="padding:0; margin:0">
 <div class="wrapper">
@@ -117,8 +117,8 @@
 
                 <div class="header-content-right" style="margin-left: 35px;">
                     <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride updated!</p>
-                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">The passenger made changes to ride <span style="color:#fff;font-size: 12px;">#{{ $booking['id'] }}</span> Because the booking has been changed, the original bookingn number is no longer valid. We will now only refer to this booking by the new booking number listed below.</p>
-                    <p style="color:#00AAEF;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please accept or reject this changed ride until 20:25 30 Nov 19 otherwise the ride will be added back into the system.</p>
+                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">The passenger made changes to ride <span style="font-size: 12px;color: #fff;font-weight: 600;">#{{ $booking['id'] }}</span> Because the booking has been changed, the original booking number is no longer valid. We will now only refer to this booking by the new booking number listed below.</p>
+                    <p style="color:#00AAEF;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please accept or reject this changed ride until {{ $booking['pickup_hour'] }}:{{ $booking['pickup_min'] }} {{ $booking['date'] }} otherwise the ride will be added back into the system.</p>
                 </div>
             </div>
 
@@ -155,7 +155,7 @@
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        20:21
+                        {{ $booking['pickup_hour'] }}:{{ $booking['pickup_min'] }}
                     </p>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        ca. 22km
+                        ca. {{ $meters }}km
                     </p>
                 </div>
             </div>
@@ -223,7 +223,7 @@
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        EUR {{ $booking['price'] }}.00
+                        EUR {{ $booking['price'] }}
                     </p>
                 </div>
             </div>
@@ -272,11 +272,11 @@
 
                 <div class="item-wrap" style="margin-left: 10px;">
                     <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Passager contact
+                        Passenger contact
                     </p>
 
                     <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
-                        {{ $booking['customer']['phone'] }}
+                        {{ $booking['phone'] }}
                     </p>
                 </div>
             </div>
@@ -334,21 +334,21 @@
     <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
         <div style="width: 100%;display:inline-flex;">
             <div class="left-box" style="width: 70%;padding-top: 8px;">
-                <p style="color: #5e5e5e;font-size: 12px;margin-top: 0;margin-bottom: 0px;">blackhansa GmbH</p>
+                <p style="color: #5e5e5e;font-size: 12px;margin-top: 0;margin-bottom: -3px;">blackhansa GmbH</p>
                 <p style="color: #5e5e5e;font-size: 12px;margin-top: 5px;margin-bottom: 0;"> Halensee Str. 3 10711 Berlin</p>
             </div>
 
             <div class="right-box" style="width: 30%;">
-                <a href="https://www.facebook.com/blackhansaHQ" class="social-link">
+                <a href="https://www.facebook.com/blackhansaHQ" class="social-link" style="text-decoration: none;">
                     <img src="https://app.blackhansa.de/mail-icons/icons-11.png" width="25px" style="padding-top: 10px;">
                 </a>
 
                 <a class="social-link">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-12.png" width="25px" style="padding-top: 10px;">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-12.png" width="25px" style="padding-top: 10px;" style="text-decoration: none;">
                 </a>
 
                 <a class="social-link">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-13.png" width="25px" style="padding-top: 10px;">
+                    <img src="https://app.blackhansa.de/mail-icons/icons-13.png" width="25px" style="padding-top: 10px;" style="text-decoration: none;">
                 </a>
 
             </div>
