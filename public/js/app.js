@@ -17401,11 +17401,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
  //similar to vue-resource
@@ -73246,22 +73241,6 @@ var render = function() {
                             "font-size": "10px"
                           }
                         },
-                        [_vm._v(_vm._s(row.seats))]
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("span", { staticClass: "status status-blue" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "status-text",
-                          staticStyle: {
-                            "font-weight": "600 !important",
-                            "font-size": "10px"
-                          }
-                        },
                         [_vm._v(_vm._s(row.passagers))]
                       )
                     ])
@@ -73493,7 +73472,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    _vm._s(row.pickup_time) +
+                                    _vm._s(row.pickup_hour) +
+                                      ":" +
+                                      _vm._s(row.pickup_min) +
                                       " - " +
                                       _vm._s(_vm._f("formatDate")(row.date)) +
                                       " - #" +
@@ -73657,9 +73638,7 @@ var render = function() {
                                                 [
                                                   _vm._v(
                                                     "\n                                                            " +
-                                                      _vm._s(
-                                                        row.customer.name
-                                                      ) +
+                                                      _vm._s(row.name) +
                                                       "\n                                                        "
                                                   )
                                                 ]
@@ -73682,9 +73661,7 @@ var render = function() {
                                                 [
                                                   _vm._v(
                                                     "\n                                                            " +
-                                                      _vm._s(
-                                                        row.customer.email
-                                                      ) +
+                                                      _vm._s(row.email) +
                                                       "\n                                                        "
                                                   )
                                                 ]
@@ -73707,9 +73684,7 @@ var render = function() {
                                                 [
                                                   _vm._v(
                                                     "\n                                                            " +
-                                                      _vm._s(
-                                                        row.customer.phone
-                                                      ) +
+                                                      _vm._s(row.phone) +
                                                       "\n                                                        "
                                                   )
                                                 ]

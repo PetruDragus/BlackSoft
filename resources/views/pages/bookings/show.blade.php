@@ -83,7 +83,7 @@
                         <label class="info-label">
                             <span>Pickup Time</span>
                         </label>
-                        <p>{{ $booking->pickup_time }}</p>
+                        <p>{{ $booking->pickup_hour }}:{{ $booking->pickup_min }}</p>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                         <label class="info-label">
                             <span>Customer Name</span>
                         </label>
-                        <p>{{ $booking->customer->name }}</p>
+                        <p>{{ $booking->name }}</p>
                     </div>
                 </div>
 
@@ -159,7 +159,7 @@
                         <label class="info-label">
                             <span>Customer Phone</span>
                         </label>
-                        <p>{{ $booking->customer->phone }}</p>
+                        <p>{{ $booking->phone }}</p>
                     </div>
                 </div>
             </div>

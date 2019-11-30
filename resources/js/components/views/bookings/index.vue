@@ -103,11 +103,6 @@
                             <td>{{ row.date | formatDate }}</td>
                             <td>
                                 <span class="status status-blue">
-                                    <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.seats }}</span>
-                                </span>
-                            </td>
-                            <td>
-                                <span class="status status-blue">
                                     <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.passagers }}</span>
                                 </span>
                             </td>
@@ -183,7 +178,7 @@
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">{{ row.pickup_time }} - {{ row.date | formatDate }} - #{{ row.id }} - {{ row.vehicle.bussiness_type }}</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ row.pickup_hour }}:{{ row.pickup_min }} - {{ row.date | formatDate }} - #{{ row.id }} - {{ row.vehicle.bussiness_type }}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -221,19 +216,19 @@
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Name: </label>
                                                             <div class="col-md-8">
-                                                                {{ row.customer.name }}
+                                                                {{ row.name }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Email: </label>
                                                             <div class="col-md-8">
-                                                                {{ row.customer.email }}
+                                                                {{ row.email }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-4 col-form-label justify-content-end">Phone: </label>
                                                             <div class="col-md-8">
-                                                                {{ row.customer.phone }}
+                                                                {{ row.phone }}
                                                             </div>
                                                         </div>
                                                     </div>

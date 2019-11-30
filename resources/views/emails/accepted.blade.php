@@ -272,11 +272,11 @@
 
                 <div class="item-wrap" style="margin-left: 10px;">
                     <p class="item-title" style="font-size: 12px;margin: 0 0 5px 0;color: #c1c1c1;font-weight: 300;">
-                        Passager contact
+                        Passenger contact
                     </p>
 
                     <p class="item-subtitle" style="font-size: 12px;margin-top: 0;">
-                        {{ $booking['customer']['phone'] }}
+                        {{ $booking['phone'] }}
                     </p>
                 </div>
             </div>
