@@ -249,10 +249,13 @@ class BookingController extends Controller
         $booking->driver_id       = $request->get('driver_id');
         $booking->status          = $request->get('status');
         $booking->pickup_sign     = $request->get('pickup_sign');
-        $booking->pickup_time     = $request->get('pickup_time');
         $booking->special_request = $request->get('special_request');
         $booking->additional_info = $request->get('additional_info');
         $booking->flight_number   = $request->get('flight_number');
+        $booking->pickup_hour     = $request->get('pickup_hour');
+        $booking->pickup_min      = $request->get('pickup_min');
+        $booking->name            = $request->get('name');
+        $booking->phone           = $request->get('phone');
 
         $origin = urlencode($booking->pickup_address);
         $destination = urlencode($booking->drop_address);
