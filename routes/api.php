@@ -44,3 +44,4 @@ Route::apiResources(['v1/cities' => 'API\CitiesController']);
 Route::apiResources(['v1/payments' => 'API\PaymentController']);
 Route::apiResources(['v1/users' => 'API\UserController']);
 Route::apiResources(['v1/contact-form' => 'API\ContactFormController']);
+Route::apiResources(['v1/coupons' => 'API\CouponController']);

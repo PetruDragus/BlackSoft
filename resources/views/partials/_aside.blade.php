@@ -157,6 +157,18 @@
                 </a>
             </li>
 
+            <li>
+                <a href="/coupons" class="sidebar-nav-link">
+                    <div class="sidebar-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <div class="sidebar-text"> Coupons List</div>
+                    <div class="sidebar-arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                </a>
+            </li>
+
             <li class="header nav-small-cap">App</li>
             <hr class="divider-type4">
 

@@ -82,6 +82,7 @@ window.Fire = Fire;
 import Bookings from './components/views/bookings/index';
 import bcancelled from './components/views/bookings/cancelled';
 import Invoices from './components/views/invoices/index';
+import Coupons from './components/views/coupons/index';
 import Reviews from './components/views/reviews/index';
 import Jobs from './components/views/jobs/index';
 import Applications from './components/views/jobs/jobApplication/index';
@@ -132,7 +133,8 @@ const app = new Vue({
         GmapMap,
         contact_forms,
         pie_chart,
-        bcancelled
+        bcancelled,
+        Coupons
     }
 }).$mount('#app');
 // Now the app has started!
