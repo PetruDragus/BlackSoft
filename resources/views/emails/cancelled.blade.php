@@ -117,7 +117,7 @@
 
                 <div class="header-content-right" style="margin-left: 35px;">
                     <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Cancelled!</p>
-                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">You ride at {{ $booking['pickup_hour'] }}:{{ $booking['pickup_min'] }} {{ $booking['date'] }} (details below) has been cancelled. It will automatically be removed from you list of upcoming rides.</p>
+                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">You ride at {{ $booking['pickup_hour'] }}:{{ $booking['pickup_min'] }}, {{ $booking['date'] }} (details below) has been cancelled. It will automatically be removed from you list of upcoming rides.</p>
                     <p style="color:#FF0000;font-size: 12px;margin-top: 10px;margin-bottom: 0;">You will not receive payment for this ride.</p>
                 </div>
             </div>

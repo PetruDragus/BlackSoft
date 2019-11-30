@@ -18,7 +18,7 @@ class Booking extends Model
     protected $fillable = [
         'pickup_address', 'drop_address', 'bags', 'passagers', 'email', 'flight_number',
         'vehicle_id', 'payment_method', 'status', 'pickup_sign', 'special_request', 'price', 'pickup_hour', 'pickup_min', 'date',
-        'additional_info', 'phone', 'driver_id'
+        'additional_info', 'phone', 'driver_id', 'name'
     ];
 
     public static $columns = [
