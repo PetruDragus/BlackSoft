@@ -33,7 +33,7 @@ class BookingDeleteMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Ride no. 4232 has been deleted.')
+        return $this->subject('Ride #' . $this->booking['number'] . ' ' . 'cancelled' . ' ' . $this->booking['date'] . ' - ' . $this->booking['pickup_hour'] . ':' . $this->booking['pickup_min'])
             ->from('booking@blackhansa.de')
             ->view('emails.cancelled')->with(['booking', $this->booking]);
     }

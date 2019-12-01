@@ -228,7 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'GAMP'  => Irazasyed\LaravelGAMP\Facades\GAMP::class,
+//        'GAMP'  => Irazasyed\LaravelGAMP\Facades\GAMP::class,
+        'Keygen' => Keygen\Keygen::class,
     ],
 
 ];

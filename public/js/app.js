@@ -17413,6 +17413,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
  //similar to vue-resource
@@ -73507,6 +73508,8 @@ var render = function() {
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
                   _c("th", [_vm._v("#" + _vm._s(row.id))]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(row.number))]),
                   _vm._v(" "),
                   _c("td", { staticClass: "md-w245" }, [
                     _vm._v(_vm._s(row.pickup_address))

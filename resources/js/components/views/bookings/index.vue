@@ -98,6 +98,7 @@
                         </tr>
                         <tr v-for="row in model.data">
                             <th>#{{ row.id }}</th>
+                            <th>{{ row.number }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>
                             <td class="md-w245">{{ row.drop_address }}</td>
                             <td>{{ row.date | formatDate }}</td>

@@ -16,13 +16,16 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'pickup_address', 'drop_address', 'bags', 'passagers', 'email', 'flight_number',
-        'vehicle_id', 'payment_method', 'status', 'pickup_sign', 'special_request', 'price', 'pickup_hour', 'pickup_min', 'date',
-        'additional_info', 'phone', 'driver_id', 'name'
+        'pickup_address', 'drop_address', 'bags', 'passagers',
+        'email', 'flight_number', 'vehicle_id', 'payment_method',
+        'status', 'pickup_sign', 'special_request', 'price',
+        'pickup_hour', 'pickup_min', 'date',
+        'additional_info', 'phone', 'driver_id',
+        'name', 'number'
     ];
 
     public static $columns = [
-        'id', 'Pickup Address', 'Drop Address', 'Date', 'Passagers', 'Bags', 'Price', 'Status', 'View Route', 'Created', 'Actions'
+        'id', 'Trip No.', 'Pickup Address', 'Drop Address', 'Date', 'Passagers', 'Bags', 'Price', 'Status', 'View Route', 'Created', 'Actions'
     ];
 
     /**

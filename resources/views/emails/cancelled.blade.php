@@ -173,7 +173,7 @@
                     </p>
 
                     <p class="item-subtitle" style="margin-top: 0;font-size: 12px;">
-                        #{{ $booking['id'] }}
+                        #{{ $booking['number'] }}
                     </p>
                 </div>
             </div>

@@ -7,11 +7,13 @@ use App\Driver;
 use App\Invoice;
 use App\Vehicle;
 use App\Booking;
-use Session;
 
 use App\Mail\BookingAcceptedMail;
 use App\Mail\BookingEditedMail;
 use App\Mail\BookingDeleteMail;
+
+use Keygen\Keygen;
+use Session;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -55,6 +57,24 @@ class BookingController extends Controller
     public function exportCSV()
     {
         return Excel::download(new BookingsExport, 'bookings.csv');
+    }
+
+    protected function generateCode()
+    {
+        return Keygen::bytes()->generate(
+            function($key) {
+                // Generate a random numeric key
+                $random = Keygen::numeric()->generate();
+
+                // Manipulate the random bytes width the numeric key
+                return substr(md5($key . $random . strrev($key)), mt_rand(0,5), 5);
+            },
+            function($key) {
+                // Add a (-) after every fourth character in the key (not used)
+                return join('-', str_split($key, 4));
+            },
+            'strtoupper'
+        );
     }
 
     /**
@@ -137,6 +157,19 @@ class BookingController extends Controller
         $booking->flight_number   = $request->get('flight_number');
         $booking->name            = $request->get('name');
         $booking->phone           = $request->get('phone');
+
+        // Generate booking number with vehicle prefix
+        if ($request->get('vehicle_id') == 1 ) {
+            $booking->number = '550' . Keygen::numeric(3)->generate();
+        } elseif ($request->get('vehicle_id') == 2) {
+            $booking->number = '330' . Keygen::numeric(3)->generate();
+        } elseif ($request->get('vehicle_id') == 3) {
+            $booking->number = '220' . Keygen::numeric(3)->generate();
+        } elseif ($request->get('vehicle_id') == 4) {
+            $booking->number = '110' . Keygen::numeric(3)->generate();
+        } elseif ($request->get('vehicle_id') == 5) {
+            $booking->number = '440' . Keygen::numeric(3)->generate();
+        }
 
         $origin = urlencode($booking->pickup_address);
         $destination = urlencode($booking->drop_address);

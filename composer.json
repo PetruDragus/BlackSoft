@@ -13,6 +13,7 @@
         "dompdf/dompdf": "^0.8.3",
         "fideloper/proxy": "^4.0",
         "fzaninotto/faker": "^1.8",
+        "gladcodes/keygen": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
         "irazasyed/laravel-gamp": "^1.4",
         "laravel-notification-channels/webpush": "^5.0",

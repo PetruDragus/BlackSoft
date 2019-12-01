@@ -9,15 +9,15 @@
             <div class="panel-title">
                 <div>
                     <a href="/contacts" class="router-link-active">Booking</a> / {{ $booking->customer->name }}
-                    <small>(#000{{ $booking->id  }})</small>
+                    <small>(#{{ $booking->number  }})</small>
                 </div>
             </div>
             <div class="panel-extra">
                 <div>
-                    <a href="/contacts" class="btn btn-default btn-sm router-link-active">
+                    <a href="/bookings" class="btn btn-default btn-sm router-link-active">
                         <small class="icon icon-arrow-left-c"></small>
                     </a>
-                    <a href="/contacts/1/edit" class="btn btn-default btn-sm">
+                    <a href="/bookings/{{ $booking->id }}/edit" class="btn btn-default btn-sm">
                     <small class="icon icon-edit"></small>
                     </a>
                     <button type="button" class="btn btn-error btn-sm">
