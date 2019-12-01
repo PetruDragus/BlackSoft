@@ -95,7 +95,7 @@
                         </tr>
                         <tr v-for="row in model.data">
                             <th class="text-center">
-                                <img src="https://pbs.twimg.com/profile_images/476024367214628865/UjMWoQXO.jpeg" style="border-radius: 50%;box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.2);border: 1px solid #fff;width: 50px;" />
+                                <img :src="'/storage/' + row.filename" style="border-radius: 50%;box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.2);border: 1px solid #fff;width: 50px;">
                             </th>
                             <th>#{{ row.id }}</th>
                             <td>{{ row.city }}</td>
@@ -104,7 +104,11 @@
                             <td>{{ row.phone }}</td>
                             <td>{{ row.birthday }}</td>
                             <td>{{ row.created_at | formatDate }}</td>
-                            <td>217</td>
+                            <td>
+                                <span class="status status-blue">
+                                    <span class="status-text" style="font-weight: 600 !important; font-size: 10px;">217</span>
+                                </span>
+                            </td>
                             <td>
                                 <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
                                     <div class="dropdown">

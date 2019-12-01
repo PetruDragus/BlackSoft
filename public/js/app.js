@@ -18967,6 +18967,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
  //similar to vue-resource
 
@@ -77455,7 +77459,17 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
                 return _c("tr", [
-                  _vm._m(3, true),
+                  _c("th", { staticClass: "text-center" }, [
+                    _c("img", {
+                      staticStyle: {
+                        "border-radius": "50%",
+                        "box-shadow": "0px 5px 25px 0px rgba(0,0,0,0.2)",
+                        border: "1px solid #fff",
+                        width: "50px"
+                      },
+                      attrs: { src: "/storage/" + row.filename }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("th", [_vm._v("#" + _vm._s(row.id))]),
                   _vm._v(" "),
@@ -77477,7 +77491,7 @@ var render = function() {
                     _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v("217")]),
+                  _vm._m(3, true),
                   _vm._v(" "),
                   _c("td", [
                     _c(
@@ -77654,19 +77668,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("th", { staticClass: "text-center" }, [
-      _c("img", {
-        staticStyle: {
-          "border-radius": "50%",
-          "box-shadow": "0px 5px 25px 0px rgba(0,0,0,0.2)",
-          border: "1px solid #fff",
-          width: "50px"
-        },
-        attrs: {
-          src:
-            "https://pbs.twimg.com/profile_images/476024367214628865/UjMWoQXO.jpeg"
-        }
-      })
+    return _c("td", [
+      _c("span", { staticClass: "status status-blue" }, [
+        _c(
+          "span",
+          {
+            staticClass: "status-text",
+            staticStyle: {
+              "font-weight": "600 !important",
+              "font-size": "10px"
+            }
+          },
+          [_vm._v("217")]
+        )
+      ])
     ])
   },
   function() {

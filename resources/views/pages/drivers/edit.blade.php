@@ -90,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Genter</span>
@@ -98,10 +98,21 @@
 
                                     <select name="genter" class="form-control select-input">
                                         <option value="" disabled="disabled">Select ..</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
+                                        <option value="Male" @if($driver->genter == 'Male') selected @endif>Male</option>
+                                        <option value="Female" @if($driver->genter == 'Female') selected @endif>Female</option>
                                     </select>
                                 </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>Driver Photo</span>
+                                    </label>
+
+                                    <input type="file" name="photo" accept=".png, .jpg, .jpeg">
+                                </div>
+
                             </div>
 
                         </div>

@@ -72,6 +72,8 @@ Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
     Route::get('/cities/exportCSV', 'CityController@exportCSV');
     Route::get('/jobs/exportCSV', 'JobController@exportCSV');
     Route::get('/contact-form/exportCSV', 'ContactFormController@exportCSV');
+
+    // Export to PDF
 });
 
 Route::group(['prefix' => 'settings', 'as' => 'settings.'], function(){

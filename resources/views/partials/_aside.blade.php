@@ -2,7 +2,7 @@
     <div>
         <ul class="nav aside-nav">
             <li>
-                <a href="/" class="sidebar-nav-link">
+                <a href="/" class="sidebar-nav-link {{ Route::currentRouteName() == '' ? 'active' : '' }}">
                     <div class="sidebar-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
@@ -17,7 +17,7 @@
             <hr class="divider-type4">
 
             <li>
-                <a href="/vehicles" class="sidebar-nav-link">
+                <a href="/vehicles" class="sidebar-nav-link {{ Route::currentRouteName() == '' ? 'vehicles' : '' }}">
                     <div class="sidebar-icon">
                         <i class="fas fa-car"></i>
                     </div>

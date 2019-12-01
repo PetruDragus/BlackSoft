@@ -83,7 +83,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label class="form-label">
                                     <span>Genter</span>
@@ -94,6 +94,16 @@
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span>Driver Photo</span>
+                                </label>
+
+                                <input type="file" name="photo" accept=".png, .jpg, .jpeg">
                             </div>
                         </div>
 

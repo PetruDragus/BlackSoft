@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Driver;
 use App\Vehicle;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Illuminate\Http\Request;
 
@@ -56,6 +58,12 @@ class DriverController extends Controller
             'phone'   => 'required',
         ]);
 
+        if(!empty($request->has('photo'))) {
+            $cover = $request->file('photo');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename().'.'.$extension,  File::get($cover));
+        }
+
         $driver = new Driver();
         $driver->partener_id    = $request->partener_id;
         $driver->name           = $request->name;
@@ -64,6 +72,13 @@ class DriverController extends Controller
         $driver->city           = $request->city;
         $driver->birthday       = $request->birthday;
         $driver->genter         = $request->genter;
+
+        if(!empty($request->has('photo'))) {
+            $driver->mime = $cover->getClientMimeType();
+            $driver->original_filename = $cover->getClientOriginalName();
+            $driver->filename = $cover->getFilename().'.'.$extension;
+        }
+
         $driver->save();
 
         Session::flash('success', 'Driver successfully created!');
@@ -113,6 +128,13 @@ class DriverController extends Controller
         ]);
 
         $driver = Driver::find($id);
+
+        if(!empty($request->has('photo'))) {
+            $cover = $request->file('photo');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename().'.'.$extension,  File::get($cover));
+        }
+
         $driver->partener_id    = $request->partener_id;
         $driver->name           = $request->name;
         $driver->phone          = $request->phone;
@@ -120,6 +142,13 @@ class DriverController extends Controller
         $driver->city           = $request->city;
         $driver->birthday       = $request->birthday;
         $driver->genter         = $request->genter;
+
+        if(!empty($request->has('photo'))) {
+            $driver->mime = $cover->getClientMimeType();
+            $driver->original_filename = $cover->getClientOriginalName();
+            $driver->filename = $cover->getFilename().'.'.$extension;
+        }
+
         $driver->save();
 
         return redirect()
