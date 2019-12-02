@@ -16959,10 +16959,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
  //similar to vue-resource
@@ -72439,6 +72435,8 @@ var render = function() {
                 return _c("tr", [
                   _c("th", [_vm._v("#" + _vm._s(row.id))]),
                   _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(row.number))]),
+                  _vm._v(" "),
                   _c("td", { staticClass: "md-w245" }, [
                     _vm._v(_vm._s(row.pickup_address))
                   ]),
@@ -72449,22 +72447,6 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(_vm._s(_vm._f("formatMiniDate")(row.date)))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("span", { staticClass: "status status-blue" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "status-text",
-                          staticStyle: {
-                            "font-weight": "600 !important",
-                            "font-size": "10px"
-                          }
-                        },
-                        [_vm._v(_vm._s(row.seats))]
-                      )
-                    ])
                   ]),
                   _vm._v(" "),
                   _c("td", [

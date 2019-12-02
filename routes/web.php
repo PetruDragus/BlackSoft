@@ -19,6 +19,10 @@ Route::get('/mails', function () {
     return view('emails.test');
 });
 
+Route::get('/testt', function () {
+    return view('pickupsign');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth']], function () {

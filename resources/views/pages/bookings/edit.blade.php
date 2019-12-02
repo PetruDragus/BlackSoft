@@ -88,7 +88,7 @@
                                     <select class="form-control select-input" name="vehicle_id">
                                         <option value="" disabled="disabled">Select ..</option>
                                         @foreach($vehicle as $item)
-                                            <option value="{{ $item->id }}" {{ ( $booking->vehicle_id == $item->id ) ? 'selected' : '' }}>{{ $item->make }} {{ $item->make }} / € {{ $item->price }}</option>
+                                            <option value="{{ $item->id }}" {{ ( $booking->vehicle_id == $item->id ) ? 'selected' : '' }}>{{ $item->make }} {{ $item->model }} / € {{ $item->price }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -209,6 +209,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row-line">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>Name</span>
+                                    </label>
+
+                                    <input type="text" source="input" label="name" name="name" col="4" class="form-input" value="{{ $booking->name }}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>Phone</span>
+                                    </label>
+
+                                    <input type="text" source="input" label="name" name="phone" col="4" class="form-input" value="{{ $booking->phone }}">
                                 </div>
                             </div>
                         </div>

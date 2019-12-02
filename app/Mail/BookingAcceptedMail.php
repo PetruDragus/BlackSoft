@@ -33,8 +33,13 @@ class BookingAcceptedMail extends Mailable
      */
     public function build()
     {
+        $myPublicFolder = storage_path("app/public/PDF/");
+
         return $this->subject('Ride #' . $this->booking['number'] . ' ' . 'confirmed' . ' ' . $this->booking['date'] . ' - ' . $this->booking['pickup_hour'] . ':' . $this->booking['pickup_min'])
             ->from('booking@blackhansa.de')
+            ->attach($myPublicFolder.'/'.$this->booking['pickup_sign'].'.pdf', [
+                'mime' => 'application/pdf',
+            ])
             ->view('emails.accepted')->with(['booking', $this->booking]);
     }
 }

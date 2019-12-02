@@ -98,14 +98,10 @@
                     </tr>
                     <tr v-for="row in model.data">
                         <th>#{{ row.id }}</th>
+                        <th>{{ row.number }}</th>
                         <td class="md-w245">{{ row.pickup_address }}</td>
                         <td class="md-w245">{{ row.drop_address }}</td>
                         <td>{{ row.date | formatMiniDate }}</td>
-                        <td>
-                            <span class="status status-blue">
-                                <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.seats }}</span>
-                            </span>
-                        </td>
                         <td>
                             <span class="status status-blue">
                                 <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.passagers }}</span>

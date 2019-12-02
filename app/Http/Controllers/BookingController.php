@@ -14,6 +14,8 @@ use App\Mail\BookingDeleteMail;
 
 use Keygen\Keygen;
 use Session;
+use PDF;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -209,19 +211,32 @@ class BookingController extends Controller
         $booking->save();
 
         // Create new invoice if not exist
-        if (Invoice::where('booking_id', $booking->id)->exists()) {
-            //
-        } else {
-            $invoice = new Invoice();
-            $invoice->number        = "INV-" . $booking->id;
-            $invoice->customer_id   = $booking->customer->id;
-            $invoice->booking_id    = $booking->id;
-            $invoice->date          = $request->get('date');
-            $invoice->due_date      = date('Y-m-d', strtotime($request->get('date') . ' + 15 days')); // add + 15 to date
-            $invoice->subtotal      = $booking->price;
-            $invoice->reference     = "Booking #" . $booking->id;
-            $invoice->total         = $booking->price;
-            $invoice->save();
+//        if (Invoice::where('booking_id', $booking->id)->exists()) {
+//            //
+//        } else {
+//            $invoice = new Invoice();
+//            $invoice->number        = "INV-" . $booking->id;
+//            $invoice->customer_id   = $booking->customer->id;
+//            $invoice->booking_id    = $booking->id;
+//            $invoice->date          = $request->get('date');
+//            $invoice->due_date      = date('Y-m-d', strtotime($request->get('date') . ' + 15 days')); // add + 15 to date
+//            $invoice->subtotal      = $booking->price;
+//            $invoice->reference     = "Booking #" . $booking->id;
+//            $invoice->total         = $booking->price;
+//            $invoice->save();
+//        }
+
+        // Auto-generate pdf file with 'pickup-sign'
+        if ($request->get('pickup_sign')) {
+            $pickup_s = $request->get('pickup_sign');
+            $data = ['title' => $pickup_s];
+            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+            $pdf = PDF::loadView('pickupsign', $data)->setPaper('a4', 'landscape');
+
+            $content = $pdf->download()->getOriginalContent();
+
+            // Generate pdf file named from input text
+            Storage::put('public/PDF/'.$pickup_s.'.pdf', $content) ;
         }
 
         Mail::to($booking->customer->email)->send(new BookingAcceptedMail($booking));

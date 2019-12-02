@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Irazasyed\LaravelGAMP\LaravelGAMPServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +231,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 //        'GAMP'  => Irazasyed\LaravelGAMP\Facades\GAMP::class,
         'Keygen' => Keygen\Keygen::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

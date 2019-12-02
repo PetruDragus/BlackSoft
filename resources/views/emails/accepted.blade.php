@@ -23,6 +23,7 @@
 
         * {
             font-family: Arial !important;
+            text-decoration: none !important;
         }
 
         a {
@@ -105,7 +106,6 @@
         <div style="display: table-cell;vertical-align: middle;">
             <img src="https://app.blackhansa.de/mail-icons/email-logo.png" style="width: 250px;">
         </div>
-
     </div>
 
     <div id="header-content" style="background-color: #000;box-shadow: 0 0 20px #5e5e5e;">
