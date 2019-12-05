@@ -19,8 +19,8 @@ Route::get('/mails', function () {
     return view('emails.test');
 });
 
-Route::get('/testt', function () {
-    return view('pickupsign');
+Route::get('/gmail', function () {
+    return view('emails.client.completed');
 });
 
 Auth::routes(['verify' => true]);

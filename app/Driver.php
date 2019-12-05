@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use App\Helper\DataViewer;
 use Illuminate\Database\Eloquent\Model;
 
 class Driver extends Model
 {
 
-    use DataViewer;
+    use DataViewer, Notifiable;
 
     /**
      * The attributes that are mass assignable.

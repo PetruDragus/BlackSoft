@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Booking;
 
 use App\Mail\BookingDeleteMail;
+use App\Mail\ClientBookingCancelled;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
@@ -146,7 +147,7 @@ class BookingController extends Controller
     {
         $booking = Booking::findOrFail($id);
 
-        Mail::to($booking->customer->email)->send(new BookingDeleteMail($booking));
+        Mail::to($booking->customer->email)->send(new ClientBookingCancelled($booking));
 
         // Delete the article
         $booking->delete();

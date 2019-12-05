@@ -144,8 +144,9 @@
                                     <i class="fas fa-star star-gold"></i>
                                     <i class="fas fa-star star-gold"></i>
                                     <i class="fas fa-star star-gold"></i>
-                                    <i class="fas fa-starv"></i>
                                     <i class="far fa-star star-gold"></i>
+                                    <i class="far fa-star star-gold"></i>
+                                    <i class="fas fa-starv"></i>
                                 </div>
 
                                 <div style="display: inline-flex;" v-if="row.rating == '5'">

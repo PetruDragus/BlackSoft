@@ -19,10 +19,13 @@
         "irazasyed/laravel-gamp": "^1.4",
         "laravel-notification-channels/webpush": "^5.0",
         "laravel/framework": "^5.8",
+        "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
         "maatwebsite/excel": "^3.0",
-        "nesbot/carbon": "^2.27"
+        "nesbot/carbon": "^2.27",
+        "spatie/laravel-backup": "^6.7",
+        "theiconic/php-ga-measurement-protocol": "^2.7"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

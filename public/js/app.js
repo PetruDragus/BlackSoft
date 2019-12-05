@@ -20311,6 +20311,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
  //similar to vue-resource
@@ -80199,9 +80200,11 @@ var render = function() {
                           _vm._v(" "),
                           _c("i", { staticClass: "fas fa-star star-gold" }),
                           _vm._v(" "),
-                          _c("i", { staticClass: "fas fa-starv" }),
+                          _c("i", { staticClass: "far fa-star star-gold" }),
                           _vm._v(" "),
-                          _c("i", { staticClass: "far fa-star star-gold" })
+                          _c("i", { staticClass: "far fa-star star-gold" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fas fa-starv" })
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -97760,8 +97763,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/projects/blacksoft/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/projects/blacksoft/resources/sass/style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/projects/BlackSoft/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/projects/BlackSoft/resources/sass/style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

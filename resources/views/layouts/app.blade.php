@@ -25,9 +25,9 @@
 
     <body>
         <div class="ui" id="app">
-            <div class="maintenance-notification">
-                <p>We are going to upgrade soon, and whilst thinking of ways to improve our upgrade process, I thought it would...</p>
-            </div>
+{{--            <div class="maintenance-notification">--}}
+{{--                <p>We are going to upgrade soon, and whilst thinking of ways to improve our upgrade process, I thought it would...</p>--}}
+{{--            </div>--}}
 
             <div id="header">
                 @include('partials._header')

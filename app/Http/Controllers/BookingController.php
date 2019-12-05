@@ -11,6 +11,10 @@ use App\Booking;
 use App\Mail\BookingAcceptedMail;
 use App\Mail\BookingEditedMail;
 use App\Mail\BookingDeleteMail;
+use App\Mail\ClientConfirmed;
+use App\Mail\ClientChauffeurArrived;
+use App\Mail\ClientBookingConfirmed;
+use App\Mail\ClientBookingCancelled;
 
 use Keygen\Keygen;
 use Session;
@@ -161,17 +165,17 @@ class BookingController extends Controller
         $booking->phone           = $request->get('phone');
 
         // Generate booking number with vehicle prefix
-        if ($request->get('vehicle_id') == 1 ) {
-            $booking->number = '550' . Keygen::numeric(3)->generate();
-        } elseif ($request->get('vehicle_id') == 2) {
-            $booking->number = '330' . Keygen::numeric(3)->generate();
-        } elseif ($request->get('vehicle_id') == 3) {
-            $booking->number = '220' . Keygen::numeric(3)->generate();
-        } elseif ($request->get('vehicle_id') == 4) {
-            $booking->number = '110' . Keygen::numeric(3)->generate();
-        } elseif ($request->get('vehicle_id') == 5) {
-            $booking->number = '440' . Keygen::numeric(3)->generate();
-        }
+//        if ($request->get('vehicle_id') == 1 ) {
+//            $booking->number = '550' . Keygen::numeric(3)->generate();
+//        } elseif ($request->get('vehicle_id') == 2) {
+//            $booking->number = '330' . Keygen::numeric(3)->generate();
+//        } elseif ($request->get('vehicle_id') == 3) {
+//            $booking->number = '220' . Keygen::numeric(3)->generate();
+//        } elseif ($request->get('vehicle_id') == 4) {
+//            $booking->number = '110' . Keygen::numeric(3)->generate();
+//        } elseif ($request->get('vehicle_id') == 5) {
+//            $booking->number = '440' . Keygen::numeric(3)->generate();
+//        }
 
         $origin = urlencode($booking->pickup_address);
         $destination = urlencode($booking->drop_address);
@@ -186,7 +190,7 @@ class BookingController extends Controller
 
         $duration = $elements_hours[0]->duration->text;
 
-        if($meters < 10) {
+        if ($meters < 10) {
             $booking->price = $booking->vehicle->price;
         } else {
             $google = $meters - 10;
@@ -227,19 +231,19 @@ class BookingController extends Controller
 //        }
 
         // Auto-generate pdf file with 'pickup-sign'
-        if ($request->get('pickup_sign')) {
-            $pickup_s = $request->get('pickup_sign');
-            $data = ['title' => $pickup_s];
-            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-            $pdf = PDF::loadView('pickupsign', $data)->setPaper('a4', 'landscape');
+//        if ($request->get('pickup_sign')) {
+//            $pickup_s = $request->get('pickup_sign');
+//            $data = ['title' => $pickup_s];
+//            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+//            $pdf = PDF::loadView('pickupsign', $data)->setPaper('a4', 'landscape');
+//
+//            $content = $pdf->download()->getOriginalContent();
+//
+//            // Generate pdf file named from input text
+//            Storage::put('public/PDF/'.$pickup_s.'.pdf', $content) ;
+//        }
 
-            $content = $pdf->download()->getOriginalContent();
-
-            // Generate pdf file named from input text
-            Storage::put('public/PDF/'.$pickup_s.'.pdf', $content) ;
-        }
-
-        Mail::to($booking->customer->email)->send(new BookingAcceptedMail($booking));
+        Mail::to($booking->customer->email)->send(new ClientConfirmed($booking));
 
         Session::flash('success', 'Booking successfully created!');
 
@@ -305,6 +309,12 @@ class BookingController extends Controller
         $booking->name            = $request->get('name');
         $booking->phone           = $request->get('phone');
 
+        if ($request->get('status') == 'Finished') {
+            Mail::to($booking->customer->email)->send(new ClientConfirmed($booking));
+        } else {
+            Mail::to($booking->customer->email)->send(new ClientBookingEdited($booking));
+        }
+
         $origin = urlencode($booking->pickup_address);
         $destination = urlencode($booking->drop_address);
         $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
@@ -324,8 +334,6 @@ class BookingController extends Controller
             $google = $meters - 10;
             $booking->price = $google + $booking->vehicle->price;
         }
-
-        Mail::to($booking->customer->email)->send(new BookingEditedMail($booking));
 
         $booking->save();
 
@@ -362,7 +370,7 @@ class BookingController extends Controller
         // Delete the article
         $booking->delete();
 
-        Mail::to('codixital@gmail.com')->send(new BookingDeleteMail($booking));
+        Mail::to($booking->customer->email)->send(new ClientBookingCancelled($booking));
 
         return ['message' => 'Booking Deleted!'];
     }
