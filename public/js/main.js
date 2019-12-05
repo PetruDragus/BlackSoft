@@ -54,3 +54,7 @@ $(function() {
     js.src='https://apis.google.com/js/platform.js';
     fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
 }(window,document,'script'));
+
+$(document).ready(function() {
+    $('.select2').select2();
+});

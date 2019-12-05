@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Driver;
+use App\Http\Requests\BookingStoreRequest;
 use App\Invoice;
+use App\Services\BookingService;
 use App\Vehicle;
 use App\Booking;
 
@@ -16,13 +18,9 @@ use App\Mail\ClientChauffeurArrived;
 use App\Mail\ClientBookingConfirmed;
 use App\Mail\ClientBookingCancelled;
 
-use Keygen\Keygen;
 use Session;
-use PDF;
-use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exports\BookingsExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -37,16 +35,6 @@ class BookingController extends Controller
     public function index()
     {
         return view('pages.bookings.index');
-    }
-
-    /**
-     * Display a listing of the cancelled resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function cancelled()
-    {
-        return view('pages.bookings.cancelled');
     }
 
     /**
@@ -91,37 +79,9 @@ class BookingController extends Controller
     public function create()
     {
         $driver = Driver::all();
-
         $vehicle = Vehicle::all();
 
         return view('pages.bookings.create', compact('driver', 'vehicle'));
-    }
-
-    public function generatePrice(Request $request, $id)
-    {
-        $booking = Booking::find($id);
-
-        $origin = urlencode($booking->pickup_address);
-        $destination = urlencode($booking->drop_address);
-        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-        $distance = json_decode($api);
-
-        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-
-        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-
-        $elements_hours = $distance->rows[0]->elements;
-
-        $duration = $elements_hours[0]->duration->text;
-
-        $google = $meters - 10;
-        $booking->price = $google + $booking->vehicle->price;
-
-        $booking->update(['price' => $booking->price]);
-
-        return redirect()
-            ->route('bookings.index')
-            ->with('success', 'Booking created successfully.');
     }
 
     /**
@@ -130,19 +90,8 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookingStoreRequest $request, BookingService $bookingService)
     {
-        request()->validate([
-            'pickup_address'   => 'required',
-            'drop_address'     => 'required',
-            'vehicle_id'       => 'required',
-            'driver_id'        => 'required',
-            'pickup_sign'      => 'required',
-            'pickup_hour'      => 'required',
-            'pickup_min'       => 'required',
-            'flight_number'    => 'required',
-            'date'             => 'required',
-        ]);
 
         $booking = New Booking();
         $booking->pickup_address  = $request->get('pickup_address');
@@ -163,86 +112,12 @@ class BookingController extends Controller
         $booking->flight_number   = $request->get('flight_number');
         $booking->name            = $request->get('name');
         $booking->phone           = $request->get('phone');
-
-        // Generate booking number with vehicle prefix
-//        if ($request->get('vehicle_id') == 1 ) {
-//            $booking->number = '550' . Keygen::numeric(3)->generate();
-//        } elseif ($request->get('vehicle_id') == 2) {
-//            $booking->number = '330' . Keygen::numeric(3)->generate();
-//        } elseif ($request->get('vehicle_id') == 3) {
-//            $booking->number = '220' . Keygen::numeric(3)->generate();
-//        } elseif ($request->get('vehicle_id') == 4) {
-//            $booking->number = '110' . Keygen::numeric(3)->generate();
-//        } elseif ($request->get('vehicle_id') == 5) {
-//            $booking->number = '440' . Keygen::numeric(3)->generate();
-//        }
-
-        $origin = urlencode($booking->pickup_address);
-        $destination = urlencode($booking->drop_address);
-        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-        $distance = json_decode($api);
-
-        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-
-        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-
-        $elements_hours = $distance->rows[0]->elements;
-
-        $duration = $elements_hours[0]->duration->text;
-
-        if ($meters < 10) {
-            $booking->price = $booking->vehicle->price;
-        } else {
-            $google = $meters - 10;
-            $booking->price = $google + $booking->vehicle->price;
-        }
-
-        // Create new custom if not exist
-        if (Customer::where('email', $request->get('email'))->exists()) {
-            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
-            $booking->customer_id = $customer_id->id;
-        } else {
-            $customer = new Customer();
-            $customer->name  = $request->get('name');
-            $customer->email = $request->get('email');
-            $customer->phone = $request->get('phone');
-            $customer->save();
-
-            $customer_id = Customer::select('id')->where('email', $request->get('email'))->first();
-            $booking->customer_id = $customer_id->id;
-        }
+        // Using custom service for price calculator
+        $booking->price           = $bookingService->calculateBookingPrice($booking);
 
         $booking->save();
 
-        // Create new invoice if not exist
-//        if (Invoice::where('booking_id', $booking->id)->exists()) {
-//            //
-//        } else {
-//            $invoice = new Invoice();
-//            $invoice->number        = "INV-" . $booking->id;
-//            $invoice->customer_id   = $booking->customer->id;
-//            $invoice->booking_id    = $booking->id;
-//            $invoice->date          = $request->get('date');
-//            $invoice->due_date      = date('Y-m-d', strtotime($request->get('date') . ' + 15 days')); // add + 15 to date
-//            $invoice->subtotal      = $booking->price;
-//            $invoice->reference     = "Booking #" . $booking->id;
-//            $invoice->total         = $booking->price;
-//            $invoice->save();
-//        }
-
-        // Auto-generate pdf file with 'pickup-sign'
-//        if ($request->get('pickup_sign')) {
-//            $pickup_s = $request->get('pickup_sign');
-//            $data = ['title' => $pickup_s];
-//            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-//            $pdf = PDF::loadView('pickupsign', $data)->setPaper('a4', 'landscape');
-//
-//            $content = $pdf->download()->getOriginalContent();
-//
-//            // Generate pdf file named from input text
-//            Storage::put('public/PDF/'.$pickup_s.'.pdf', $content) ;
-//        }
-
+        // After booking submitted, send email to customer
         Mail::to($booking->customer->email)->send(new ClientConfirmed($booking));
 
         Session::flash('success', 'Booking successfully created!');
@@ -273,9 +148,7 @@ class BookingController extends Controller
     public function edit($id)
     {
         $booking = Booking::with('customer', 'driver')->findOrFail($id);
-
         $driver = Driver::all();
-
         $vehicle = Vehicle::all();
 
         return view('pages.bookings.edit', compact('booking', 'driver', 'vehicle'));
@@ -340,21 +213,6 @@ class BookingController extends Controller
         return redirect()
             ->route('bookings.index')
             ->with('success', 'Booking edited successfully.');
-    }
-
-    public function changeDriver(Request $request, $id) {
-
-        request()->validate([
-            'driver_id'   => 'required',
-        ]);
-
-        $booking = Booking::find($id);
-        $booking->driver_id  = $request->get('driver_id');
-        $booking->save();
-
-        return redirect()
-            ->route('bookings.index')
-            ->with('success', 'Driver edited successfully.');
     }
 
     /**

@@ -70,7 +70,7 @@
                                         <span>Driver</span>
                                     </label>
 
-                                    <select name="driver_id" class="form-control select-input">
+                                    <select name="driver_id" class="form-control select-input select2">
                                         <option value="" disabled="disabled">Select ..</option>
                                         @foreach($driver as $item)
                                             <option value="{{ $item->id }}" {{ ( $booking->driver_id == $item->id ) ? 'selected' : '' }}>{{ $item->name }}</option>
@@ -85,7 +85,7 @@
                                         <span>Vehicle</span>
                                     </label>
 
-                                    <select class="form-control select-input" name="vehicle_id">
+                                    <select class="form-control select-input select2" name="vehicle_id">
                                         <option value="" disabled="disabled">Select ..</option>
                                         @foreach($vehicle as $item)
                                             <option value="{{ $item->id }}" {{ ( $booking->vehicle_id == $item->id ) ? 'selected' : '' }}>{{ $item->make }} {{ $item->model }} / € {{ $item->price }}</option>

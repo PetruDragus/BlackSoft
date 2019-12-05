@@ -2,7 +2,7 @@
     <div>
         <ul class="nav aside-nav">
             <li>
-                <a href="/" class="sidebar-nav-link {{ Route::currentRouteName() == '' ? 'active' : '' }}">
+                <a href="/" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
@@ -17,7 +17,7 @@
             <hr class="divider-type4">
 
             <li>
-                <a href="/vehicles" class="sidebar-nav-link {{ Route::currentRouteName() == '' ? 'vehicles' : '' }}">
+                <a href="/vehicles" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-car"></i>
                     </div>
@@ -92,7 +92,7 @@
             </li>
 
             <li>
-                <a href="/customers" class="sidebar-nav-link">
+                <a href="{{ route('customers.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-headset"></i>
                     </div>
@@ -104,7 +104,7 @@
             </li>
 
             <li>
-                <a href="/invoices" class="sidebar-nav-link">
+                <a href="{{ route('invoices.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
@@ -119,7 +119,7 @@
             <hr class="divider-type4">
 
             <li>
-                <a href="/jobs" class="sidebar-nav-link">
+                <a href="{{ route('jobs.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
@@ -146,7 +146,7 @@
             <hr class="divider-type4">
 
             <li>
-                <a href="/payments" class="sidebar-nav-link">
+                <a href="{{ route('payments.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-money-check-alt"></i>
                     </div>
@@ -158,7 +158,7 @@
             </li>
 
             <li>
-                <a href="/coupons" class="sidebar-nav-link">
+                <a href="{{ route('coupons.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-percent"></i>
                     </div>
@@ -173,7 +173,7 @@
             <hr class="divider-type4">
 
             <li>
-                <a href="/bookings" class="sidebar-nav-link">
+                <a href="{{ route('bookings.index') }}" class="{{ (request()->segment(2) == 'bookings') ? 'active' : '' }}  sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
@@ -197,7 +197,7 @@
             </li>
 
             <li>
-                <a href="/reviews" class="sidebar-nav-link">
+                <a href="{{ route('reviews.index') }}" class="{{ (request()->segment(2) == 'reviews') ? 'active' : '' }} sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="far fa-star"></i>
                     </div>
