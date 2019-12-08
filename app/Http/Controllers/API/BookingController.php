@@ -67,10 +67,7 @@ class BookingController extends Controller
 
     public function test()
     {
-        $booking = Booking::orderBy('customer_id', 'ASC')
-            ->with('invoice')
-            ->get();
-        return response()->json($booking);
+        return Booking::with('vehicle')->orderBy('id', 'DESC')->paginate(10);
     }
 
     /**

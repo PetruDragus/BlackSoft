@@ -12,17 +12,16 @@
 
         <link rel="shortcut icon" href="https://blackhansa.de/icon.png">
 
-        <link href="{{ asset('css/owl/owl.carousel.css') }}" rel="stylesheet">
-
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
         <!-- Bootstrap 4 -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
         <!-- Select2 -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
 
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+        <!-- Owl Carousel -->
+        <link href="{{ asset('css/owl/owl.carousel.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
 
@@ -64,6 +63,8 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         <script src="{{ asset('js/owl/owl.carousel.js') }}" defer></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
         <script src="{{ asset('js/main.js') }}" defer></script>
 

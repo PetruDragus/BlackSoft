@@ -50,6 +50,11 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
+        $notification = array(
+            'message' => 'Contact created successfully!',
+            'alert-type' => 'success'
+        );
+
         $contact = New Contact();
         $contact->name      = $request->get('name');
         $contact->email     = $request->get('email');
@@ -58,10 +63,19 @@ class ContactController extends Controller
         $contact->address   = $request->get('address');
         $contact->save();
 
-        Session::flash('success', 'Contact successfully created!');
+//      Session::flash('success', 'Contact successfully created!');
+//        return redirect()->route('contacts.index')->with($notification);
 
-        return redirect()
-            ->route('contacts.index');
+        if ($contact instanceof Contact) {
+            toastr()->success('Data has been saved successfully!');
+
+            return redirect()->route('contacts.index');
+        }
+
+        toastr()->error('An error has occurred please try again later.');
+
+        return back();
+
     }
 
     /**

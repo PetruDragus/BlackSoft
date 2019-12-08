@@ -11,20 +11,6 @@
 |
 */
 
-Route::get('/calendar', function () {
-    return view('pages.calendar.index');
-});
-
-Route::get('/mails', function () {
-    return view('emails.test');
-});
-
-Route::get('/gmail', function () {
-    return view('emails.client.completed');
-});
-
-Auth::routes(['verify' => true]);
-
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/bookings', 'BookingController');
     Route::resource('/payments', 'PaymentController');
@@ -45,40 +31,42 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/profile', 'ProfileController');
     Route::resource('/dispatch', 'DispatchController');
     Route::resource('/coupons', 'CouponController');
+
+    Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
+        // Export to excel
+        Route::get('/contacts/exportExcel', 'ContactController@exportExcel');
+        Route::get('/bookings/exportExcel', 'BookingController@exportExcel');
+        Route::get('/invoices/exportExcel', 'InvoiceController@exportExcel');
+        Route::get('/payments/exportExcel', 'PaymentController@exportExcel');
+        Route::get('/reviews/exportExcel', 'ReviewController@exportExcel');
+        Route::get('/customers/exportExcel', 'CustomerController@exportExcel');
+        Route::get('/users/exportExcel', 'UserController@exportExcel');
+        Route::get('/vehicles/exportExcel', 'VehicleController@exportExcel');
+        Route::get('/cities/exportExcel', 'CityController@exportExcel');
+        Route::get('/jobs/exportExcel', 'JobController@exportExcel');
+        Route::get('/contact-form/exportExcel', 'ContactFormController@exportExcel');
+
+        // Export to csv
+        Route::get('/contacts/exportCSV', 'ContactController@exportCSV');
+        Route::get('/bookings/exportCSV', 'BookingController@exportCSV');
+        Route::get('/invoices/exportCSV', 'InvoiceController@exportCSV');
+        Route::get('/payments/exportCSV', 'PaymentController@exportCSV');
+        Route::get('/reviews/exportCSV', 'ReviewController@exportCSV');
+        Route::get('/customers/exportCSV', 'CustomerController@exportCSV');
+        Route::get('/users/exportCSV', 'UserController@exportCSV');
+        Route::get('/vehicles/exportCSV', 'VehicleController@exportCSV');
+        Route::get('/cities/exportCSV', 'CityController@exportCSV');
+        Route::get('/jobs/exportCSV', 'JobController@exportCSV');
+        Route::get('/contact-form/exportCSV', 'ContactFormController@exportCSV');
+
+        // Export to PDF
+    });
 });
+
+Auth::routes(['verify' => true]);
 
 Route::get('/api/book', 'BookingController@ApiBooking');
 Route::post('/api/booking/generatePrice/{id}', 'BookingController@generatePrice');
-
-Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
-    // Export to excel
-    Route::get('/contacts/exportExcel', 'ContactController@exportExcel');
-    Route::get('/bookings/exportExcel', 'BookingController@exportExcel');
-    Route::get('/invoices/exportExcel', 'InvoiceController@exportExcel');
-    Route::get('/payments/exportExcel', 'PaymentController@exportExcel');
-    Route::get('/reviews/exportExcel', 'ReviewController@exportExcel');
-    Route::get('/customers/exportExcel', 'CustomerController@exportExcel');
-    Route::get('/users/exportExcel', 'UserController@exportExcel');
-    Route::get('/vehicles/exportExcel', 'VehicleController@exportExcel');
-    Route::get('/cities/exportExcel', 'CityController@exportExcel');
-    Route::get('/jobs/exportExcel', 'JobController@exportExcel');
-    Route::get('/contact-form/exportExcel', 'ContactFormController@exportExcel');
-
-    // Export to csv
-    Route::get('/contacts/exportCSV', 'ContactController@exportCSV');
-    Route::get('/bookings/exportCSV', 'BookingController@exportCSV');
-    Route::get('/invoices/exportCSV', 'InvoiceController@exportCSV');
-    Route::get('/payments/exportCSV', 'PaymentController@exportCSV');
-    Route::get('/reviews/exportCSV', 'ReviewController@exportCSV');
-    Route::get('/customers/exportCSV', 'CustomerController@exportCSV');
-    Route::get('/users/exportCSV', 'UserController@exportCSV');
-    Route::get('/vehicles/exportCSV', 'VehicleController@exportCSV');
-    Route::get('/cities/exportCSV', 'CityController@exportCSV');
-    Route::get('/jobs/exportCSV', 'JobController@exportCSV');
-    Route::get('/contact-form/exportCSV', 'ContactFormController@exportCSV');
-
-    // Export to PDF
-});
 
 Route::group(['prefix' => 'settings', 'as' => 'settings.'], function(){
     Route::resource('', 'SettingController');
@@ -88,7 +76,7 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function(){
 
 
 Route::group(['prefix' => 'mobile', 'as' => 'mobile.'], function(){
-    Route::get('/bookings', 'API\BookingController@index');
+    Route::get('/bookings', 'API\BookingController@test');
 });
 
 Route::get('/events', 'HomeController@Events');

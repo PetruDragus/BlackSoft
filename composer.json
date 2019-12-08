@@ -25,7 +25,8 @@
         "maatwebsite/excel": "^3.0",
         "nesbot/carbon": "^2.27",
         "spatie/laravel-backup": "^6.7",
-        "theiconic/php-ga-measurement-protocol": "^2.7"
+        "theiconic/php-ga-measurement-protocol": "^2.7",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
