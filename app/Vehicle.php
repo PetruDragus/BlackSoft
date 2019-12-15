@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Categorie;
 use App\Helper\DataViewer;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +17,7 @@ class Vehicle extends Model
      * @var array
      */
     protected $fillable = [
-        'driver_id', 'make', 'model', 'bussiness_type', 'plate', 'color', 'price', 'vin', 'current_meter', 'year'
+        'driver_id', 'make', 'model', 'bussiness_type', 'categorie_id', 'plate', 'color', 'price', 'vin', 'current_meter', 'year'
     ];
 
     public static $columns = [

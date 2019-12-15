@@ -81,7 +81,7 @@ class DriverController extends Controller
 
         $driver->save();
 
-        Session::flash('success', 'Driver successfully created!');
+        notify()->success('Driver successfully created!');
 
         return redirect()
             ->route('drivers.index');
@@ -151,9 +151,10 @@ class DriverController extends Controller
 
         $driver->save();
 
+        notify()->success('Driver successfully updated!');
+
         return redirect()
-            ->route('drivers.index')
-            ->with('success', 'Driver edited successfully.');
+            ->route('drivers.index');
     }
 
     /**

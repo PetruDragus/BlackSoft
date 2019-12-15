@@ -2301,3 +2301,12 @@ span.select2-dropdown.select2-dropdown--below {
   box-shadow: 0 0 5px #d6d6d6;
 }
 
+.side-menu__collapsed.show a.list-group-item {
+  background: #28282b;
+  padding-left: 47px !important;
+}
+
+.side-menu__collapsed.show a.list-group-item i {
+  margin-right: 10px;
+}
+

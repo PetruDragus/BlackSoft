@@ -101,6 +101,7 @@
                             <th>{{ row.number }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>
                             <td class="md-w245">{{ row.drop_address }}</td>
+                            <th>{{ row.driver.name }}</th>
                             <td>{{ row.date | formatDate }}</td>
                             <td>
                                 <span class="status status-blue">
@@ -134,12 +135,12 @@
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
                             </td>
-                            <td>
+<!--                            <td>-->
 
-                                <a target="_blank" v-bind:href="'https://maps.google.com/maps?saddr=' + row.pickup_address + '&amp;daddr=' + row.drop_address + '&amp;ie=UTF8&amp;z=11&amp;layer=t&amp;t=m&amp;iwloc=A&amp;output=embed?iframe=true&amp;width=640&amp;height=480'" data-gal="prettyPhoto[gallery]" class="btn btn-tbl-delete btn-xs btn-view-route">
-                                    <i class="fa fa-map-marker-alt"></i>
-                                </a>
-                            </td>
+<!--                                <a target="_blank" v-bind:href="'https://maps.google.com/maps?saddr=' + row.pickup_address + '&amp;daddr=' + row.drop_address + '&amp;ie=UTF8&amp;z=11&amp;layer=t&amp;t=m&amp;iwloc=A&amp;output=embed?iframe=true&amp;width=640&amp;height=480'" data-gal="prettyPhoto[gallery]" class="btn btn-tbl-delete btn-xs btn-view-route">-->
+<!--                                    <i class="fa fa-map-marker-alt"></i>-->
+<!--                                </a>-->
+<!--                            </td>-->
                             <td>{{ row.created_at | formatDate }}</td>
                             <td>
                                 <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">

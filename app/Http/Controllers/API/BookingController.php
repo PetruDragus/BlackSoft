@@ -52,10 +52,65 @@ class BookingController extends Controller
 
     public function changeDriver(Request $request, $id)
     {
-        $ccv = Booking::findOrFail($id);
-        $ccv->update($request->all());
+        $booking = Booking::findOrFail($id);
+        $booking->update($request->all());
 
-        return ['message', 'Driver changed successfully'];
+        return ['message' => 'Driver successfully changed'];
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->update($request->all());
+
+        return ['message', 'Status Successfully updated'];
+    }
+
+    public function getFinishedBookings($driver)
+    {
+        $statuses = ['Finished', 'Cancelled', 'Cancelled Paid'];
+
+        $model = Booking::with('vehicle', 'customer', 'driver')
+                        ->whereIn('status', $statuses)
+                        ->where('driver_id', $driver)
+                        ->orderBy('id', 'DESC')
+                        ->paginate(500);
+
+        return response()
+               ->json([
+                   'model' => $model
+               ]);
+    }
+
+    public function getPendingBookings()
+    {
+        $model = Booking::with('vehicle', 'customer', 'driver')
+                         ->where('driver_id', NULL)
+                         ->where('status', 'Pending')
+                         ->orderBy('id', 'DESC')
+                         ->paginate(500);
+
+        return response()
+            ->json([
+                'model' => $model
+            ]);
+    }
+
+    public function getOnWayBookings($driver)
+    {
+        $model = Booking::with('vehicle', 'customer', 'driver')
+                          ->whereNotNull('driver_id')
+                          ->where('status', '!=', 'Cancelled')
+                          ->where('status', '!=', 'Cancelled Paid')
+                          ->where('status', '!=', 'Finished')
+                          ->where('driver_id', $driver)
+                          ->orderBy('id', 'DESC')
+                          ->paginate(500);
+
+        return response()
+            ->json([
+                'model' => $model
+            ]);
     }
 
     public function cancelBooking(Request $request, $id)
@@ -149,6 +204,6 @@ class BookingController extends Controller
         // Delete the article
         $booking->delete();
 
-        return ['message' => 'Contact Deleted!'];
+        notify()->success('Trip successfully deleted!');
     }
 }

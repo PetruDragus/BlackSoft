@@ -164,7 +164,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Irazasyed\LaravelGAMP\LaravelGAMPServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-        Yoeunes\Toastr\ToastrServiceProvider::class,
+        Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
 
         /*
          * Package Service Providers...

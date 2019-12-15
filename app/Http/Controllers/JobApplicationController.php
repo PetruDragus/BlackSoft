@@ -38,7 +38,7 @@ class JobApplicationController extends Controller
         $application->status    = $request->get('status');
         $application->save();
 
-        Session::flash('success', 'Application successfully created!');
+        notify()->success('Application successfully created!');
 
         return redirect()
             ->route('applications.index');
@@ -71,9 +71,10 @@ class JobApplicationController extends Controller
         $application->status    = $request->get('status');
         $application->save();
 
+        notify()->success('Application successfully update!');
+
         return redirect()
-            ->route('applications.index')
-            ->with('success', 'Application edited successfully.');
+            ->route('applications.index');
     }
 
     /**
@@ -88,7 +89,7 @@ class JobApplicationController extends Controller
 
         $application->delete();
 
-        Session::flash('success', 'Application successfully deleted!');
+        notify()->success('Application successfully deleted!');
 
         return redirect()
             ->route('applications.index');

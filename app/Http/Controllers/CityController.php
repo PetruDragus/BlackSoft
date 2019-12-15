@@ -68,7 +68,7 @@ class CityController extends Controller
         $city->currency        = $request->get('currency');
         $city->save();
 
-        Session::flash('success', 'City successfully created!');
+        notify()->success('Cities successfully created!');
 
         return redirect()
             ->route('cities.index');
@@ -96,6 +96,8 @@ class CityController extends Controller
         $city->currency        = $request->get('currency');
         $city->save();
 
+        notify()->success('Cities successfully updated!');
+
         return redirect()
             ->route('cities.index')
             ->with('success', 'City edited successfully.');
@@ -112,6 +114,8 @@ class CityController extends Controller
         $cities = City::find($id);
 
         $cities->delete();
+
+        notify()->success('Cities successfully deleted!');
 
         return redirect()
             ->back()

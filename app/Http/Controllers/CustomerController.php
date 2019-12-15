@@ -71,7 +71,7 @@ class CustomerController extends Controller
         $customer->phone      = $request->get('phone');
         $customer->save();
 
-        Session::flash('success', 'Customer successfully created!');
+        notify()->success('Customer successfully created!');
 
         return redirect()
             ->route('customers.index');
@@ -104,7 +104,7 @@ class CustomerController extends Controller
         $customer->phone      = $request->get('phone');
         $customer->save();
 
-        Session::flash('success', 'Customer successfully edited!');
+        notify()->success('Customer successfully updated!');
 
         return redirect()
             ->route('customers.index');
@@ -122,8 +122,9 @@ class CustomerController extends Controller
 
         $customer->delete();
 
+        notify()->success('Customer successfully deleted!');
+
         return redirect()
-            ->back()
-            ->with('success', 'Customer has been deleted Successfully');
+               ->back();
     }
 }

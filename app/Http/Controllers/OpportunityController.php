@@ -59,9 +59,10 @@ class OpportunityController extends Controller
 
         $opportunity->save();
 
+        notify()->success('Opportunities successfully updated!');
+
         return redirect()
-            ->route('opportunities.index')
-            ->with('success', 'Opportunity edited successfully.');
+            ->route('opportunities.index');
     }
 
     public function store(Request $request)
@@ -87,7 +88,7 @@ class OpportunityController extends Controller
 
         $opportunity->save();
 
-        Session::flash('success', 'Opportunity successfully created!');
+        notify()->success('Opportunities successfully created!');
 
         return redirect()
             ->route('opportunities.index');
@@ -112,8 +113,9 @@ class OpportunityController extends Controller
 
         $opportunity->delete();
 
+        notify()->success('Opportunities successfully deleted!');
+
         return redirect()
-            ->back()
-            ->with('success', 'Opportunity has been deleted Successfully');
+            ->back();
     }
 }

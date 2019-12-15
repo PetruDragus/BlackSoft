@@ -60,7 +60,7 @@ class JobController extends Controller
         $jobs->status      = $request->get('status');
         $jobs->save();
 
-        Session::flash('success', 'Jon successfully created!');
+        notify()->success('Job successfully created!');
 
         return redirect()
             ->route('jobs.index');
@@ -108,11 +108,11 @@ class JobController extends Controller
         $jobs->last_date   = $request->get('last_date');
         $jobs->status      = $request->get('status');
         $jobs->save();
-        $jobs->save();
+
+        notify()->success('Job successfully updated!');
 
         return redirect()
-            ->route('jobs.index')
-            ->with('success', 'Contact edited successfully.');
+            ->route('jobs.index');
     }
 
     /**

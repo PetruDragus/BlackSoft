@@ -45,3 +45,12 @@ Route::apiResources(['v1/payments' => 'API\PaymentController']);
 Route::apiResources(['v1/users' => 'API\UserController']);
 Route::apiResources(['v1/contact-form' => 'API\ContactFormController']);
 Route::apiResources(['v1/coupons' => 'API\CouponController']);
+Route::apiResources(['v1/categories' => 'API\CategorieController']);
+
+// Mobile app route
+Route::get('v2/bookings/ended/{driver}', 'API\BookingController@getFinishedBookings');
+Route::get('v2/bookings/pending', 'API\BookingController@getPendingBookings');
+Route::get('v2/bookings/onway/{driver}', 'API\BookingController@getOnWayBookings');
+Route::get('v2/bookings/finished', 'API\BookingController@getFinishedBookings');
+Route::put('v2/booking/changeDriver/{id}', 'API\BookingController@changeDriver');
+Route::put('v2/booking/updateStatus/{id}', 'API\BookingController@updateStatus');

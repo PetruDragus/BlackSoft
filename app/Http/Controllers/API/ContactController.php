@@ -71,6 +71,6 @@ class ContactController extends Controller
 
         // Delete the article
         $contact->delete();
-        return ['message' => 'Contact Deleted!'];
+        notify()->success('Contact successfully deleted!');
     }
 }

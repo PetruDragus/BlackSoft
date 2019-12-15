@@ -120,7 +120,7 @@ class BookingController extends Controller
         // After booking submitted, send email to customer
         Mail::to($booking->customer->email)->send(new ClientConfirmed($booking));
 
-        Session::flash('success', 'Booking successfully created!');
+        notify()->success('Trip successfully created!');
 
         return redirect()
             ->route('bookings.index');
@@ -148,7 +148,7 @@ class BookingController extends Controller
     public function edit($id)
     {
         $booking = Booking::with('customer', 'driver')->findOrFail($id);
-        $driver = Driver::all();
+        $driver  = Driver::all();
         $vehicle = Vehicle::all();
 
         return view('pages.bookings.edit', compact('booking', 'driver', 'vehicle'));
@@ -161,7 +161,7 @@ class BookingController extends Controller
      * @param  \App\c  $c
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookingStoreRequest $request, BookingService $bookingService, $id)
     {
         $booking = Booking::find($id);
         $booking->pickup_address  = $request->get('pickup_address');
@@ -181,38 +181,14 @@ class BookingController extends Controller
         $booking->pickup_min      = $request->get('pickup_min');
         $booking->name            = $request->get('name');
         $booking->phone           = $request->get('phone');
-
-        if ($request->get('status') == 'Finished') {
-            Mail::to($booking->customer->email)->send(new ClientConfirmed($booking));
-        } else {
-            Mail::to($booking->customer->email)->send(new ClientBookingEdited($booking));
-        }
-
-        $origin = urlencode($booking->pickup_address);
-        $destination = urlencode($booking->drop_address);
-        $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$origin."&destinations=".$destination."&key=AIzaSyColJ2SXghtrn8OccREfBBwdDPePid5aus&units=metric");
-        $distance = json_decode($api);
-
-        $meters = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 0);
-
-        $price_meter = number_format(((int)$distance->rows[0]->elements[0]->distance->value / 1000), 2);
-
-        $elements_hours = $distance->rows[0]->elements;
-
-        $duration = $elements_hours[0]->duration->text;
-
-        if($meters < 10) {
-            $booking->price = $booking->vehicle->price;
-        } else {
-            $google = $meters - 10;
-            $booking->price = $google + $booking->vehicle->price;
-        }
-
+        // Using custom service for price calculator
+        $booking->price           = $bookingService->calculateBookingPrice($booking);
         $booking->save();
 
+        notify()->success('Trip successfully edited!');
+
         return redirect()
-            ->route('bookings.index')
-            ->with('success', 'Booking edited successfully.');
+            ->route('bookings.index');
     }
 
     /**
@@ -230,6 +206,6 @@ class BookingController extends Controller
 
         Mail::to($booking->customer->email)->send(new ClientBookingCancelled($booking));
 
-        return ['message' => 'Booking Deleted!'];
+        notify()->success('Trip successfully deleted!');
     }
 }

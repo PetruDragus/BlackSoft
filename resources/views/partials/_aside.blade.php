@@ -17,7 +17,7 @@
             <hr class="divider-type4">
 
             <li>
-                <a href="/vehicles" class="sidebar-nav-link">
+                <a href="{{ route('vehicles.index') }}" class="sidebar-nav-link">
                     <div class="sidebar-icon">
                         <i class="fas fa-car"></i>
                     </div>
@@ -197,7 +197,7 @@
             </li>
 
             <li>
-                <a href="{{ route('reviews.index') }}" class="{{ (request()->segment(2) == 'reviews') ? 'active' : '' }} sidebar-nav-link">
+                <a href="#reviews" class="sidebar-nav-link" data-toggle="collapse" data-parent="#reviews">
                     <div class="sidebar-icon">
                         <i class="far fa-star"></i>
                     </div>
@@ -206,6 +206,10 @@
                         <i class="fas fa-angle-right"></i>
                     </div>
                 </a>
+                <div class="collapse side-menu__collapsed" id="reviews">
+                    <a href="#reviews" class="list-group-item"><i class="fas fa-caret-right"></i> Vehicle Review </a>
+                    <a href="#reviews" class="list-group-item"><i class="fas fa-caret-right"></i> Chauffeur Review </a>
+                </div>
             </li>
 
             <li>

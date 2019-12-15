@@ -76,7 +76,7 @@ class UserController extends Controller
             'user_id'  =>      $user->id,
         ]);
 
-        Session::flash('success', 'User successfully created!');
+        notify()->success('User successfully created!');
 
         return redirect()
             ->route('users.index');

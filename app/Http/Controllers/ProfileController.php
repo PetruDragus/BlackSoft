@@ -107,9 +107,10 @@ class ProfileController extends Controller
 
         $profile->save();
 
+        notify()->success('Profile successfully updated!');
+
         return redirect()
-            ->back()
-            ->with('success', 'Profile edited successfully.');
+            ->back();
     }
 
     /**

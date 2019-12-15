@@ -134,7 +134,7 @@ const app = new Vue({
         contact_forms,
         pie_chart,
         bcancelled,
-        Coupons
+        Coupons,
     }
 }).$mount('#app');
 // Now the app has started!

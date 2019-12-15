@@ -78,7 +78,7 @@ class ReviewController extends Controller
         $review->customer_name  = $request->get('customer_name');
         $review->save();
 
-        Session::flash('success', 'Review successfully created!');
+        notify()->success('Review successfully created!');
 
         return redirect()
             ->route('reviews.index');
@@ -96,8 +96,9 @@ class ReviewController extends Controller
 
         $review->delete();
 
+        notify()->success('Review successfully deleted!');
+
         return redirect()
-            ->back()
-            ->with('success', 'Contact has been deleted Successfully');
+            ->back();
     }
 }

@@ -60,49 +60,51 @@
             </div>
         </div>
 
-        <div class="dv">
-            <div class="dv-header">
-                <div class="dv-header-title">
-                    {{ title }}
+        <div class="row" style="display: inline-flex;width:100%;">
+            <div class="col-md-8">
+                <div class="dv ">
+                <div class="dv-header">
+                    <div class="dv-header-title">
+                        {{ title }}
+                    </div>
+                    <div class="dv-header-columns">
+                        <span class="dv-header-pre">Search: </span>
+                        <select class="dv-header-select" v-model="query.search_column">
+                            <option v-for="column in columns" :value="column">{{column}}</option>
+                        </select>
+                    </div>
+                    <div class="dv-header-operators">
+                        <select class="dv-header-select" v-model="query.search_operator">
+                            <option v-for="(value, key) in operators" :value="key">{{value}}</option>
+                        </select>
+                    </div>
+                    <div class="dv-header-search">
+                        <input type="text" class="dv-header-input"
+                               placeholder="Search"
+                               v-model="query.search_input"
+                               @keyup.enter="fetchIndexData()">
+                    </div>
+                    <div class="dv-header-submit">
+                        <button class="dv-header-btn"@click="fetchIndexData()">Filter</button>
+                    </div>
                 </div>
-                <div class="dv-header-columns">
-                    <span class="dv-header-pre">Search: </span>
-                    <select class="dv-header-select" v-model="query.search_column">
-                        <option v-for="column in columns" :value="column">{{column}}</option>
-                    </select>
-                </div>
-                <div class="dv-header-operators">
-                    <select class="dv-header-select" v-model="query.search_operator">
-                        <option v-for="(value, key) in operators" :value="key">{{value}}</option>
-                    </select>
-                </div>
-                <div class="dv-header-search">
-                    <input type="text" class="dv-header-input"
-                           placeholder="Search"
-                           v-model="query.search_input"
-                           @keyup.enter="fetchIndexData()">
-                </div>
-                <div class="dv-header-submit">
-                    <button class="dv-header-btn"@click="fetchIndexData()">Filter</button>
-                </div>
-            </div>
-            <div class="dv-body table-responsive">
-                <table class="dv-table table">
-                    <thead>
-                    <tr>
-                        <th v-for="column in columns" @click="toggleOrder(column)">
-                            <span>{{ column }}</span>
-                            <span class="dv-table-column" v-if="column === query.column">
+                <div class="dv-body table-responsive">
+                    <table class="dv-table table">
+                        <thead>
+                        <tr>
+                            <th v-for="column in columns" @click="toggleOrder(column)">
+                                <span>{{ column }}</span>
+                                <span class="dv-table-column" v-if="column === query.column">
                             <span v-if="query.direction === 'desc'">&darr;</span>
                             <span v-else>&uarr;</span>
                         </span>
-                        </th>
-                        <th>
-                            Actions
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <tr v-if="model.data < 1">
                             <td class="" colspan="10" style="text-align: left;">
                                 <div class="table-no_results">No results found!</div>
@@ -122,7 +124,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ row.bussiness_type }}</td>
+                            <td>{{ row.categorie.name }}</td>
                             <td>€ {{ row.price }}</td>
                             <td>{{ row.driver.name }}</td>
                             <td>{{ row.current_meter }} km</td>
@@ -133,35 +135,39 @@
                                             <i class="fas fa-ellipsis-h"></i>
                                         </a>
 
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" v-bind:href="'/vehicles/'+row.id+'/edit'">
-                                              <i class="far fa-edit"></i>
-                                              <span class="nav__link-text">Edit</span>
-                                          </a>
-                                          <a class="dropdown-item" @click="deleteVehicle(row.id)">
-                                              <i class="far fa-trash-alt"></i>
-                                              <span class="nav__link-text">Delete</span>
-                                          </a>
-                                      </div>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" v-bind:href="'/vehicles/'+row.id+'/edit'">
+                                                <i class="far fa-edit"></i>
+                                                <span class="nav__link-text">Edit</span>
+                                            </a>
+                                            <a class="dropdown-item" @click="deleteVehicle(row.id)">
+                                                <i class="far fa-trash-alt"></i>
+                                                <span class="nav__link-text">Delete</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </td>
                         </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="dv-footer">
-                <div class="dv-footer-item">
-                    <span class="small">Displaying {{model.from}} - {{model.to}} of {{model.total}} rows</span>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="dv-footer-item">
-                    <div class="dv-footer-sub">
-                        <button class="dv-footer-btn btn btn-default btn-sm" @click="prev()">&laquo; Prev</button>
-                        <button class="dv-footer-btn btn btn-default btn-sm" @click="next()">Next &raquo;</button>
+
+                <div class="dv-footer">
+                    <div class="dv-footer-item">
+                        <span class="small">Displaying {{model.from}} - {{model.to}} of {{model.total}} rows</span>
+                    </div>
+                    <div class="dv-footer-item">
+                        <div class="dv-footer-sub">
+                            <button class="dv-footer-btn btn btn-default btn-sm" @click="prev()">&laquo; Prev</button>
+                            <button class="dv-footer-btn btn btn-default btn-sm" @click="next()">Next &raquo;</button>
+                        </div>
                     </div>
                 </div>
+                </div>
             </div>
+
+            <VCategories />
         </div>
     </div>
 </template>
@@ -169,8 +175,12 @@
 <script>
     import Vue from 'vue'
     import axios from 'axios'
+    import VCategories from '../../../components/views/vehicles/categories';
     //similar to vue-resource
     export default {
+        components: {
+            VCategories
+        },
         data() {
             return {
                 model: {},

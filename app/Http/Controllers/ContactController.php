@@ -63,16 +63,7 @@ class ContactController extends Controller
         $contact->address   = $request->get('address');
         $contact->save();
 
-//      Session::flash('success', 'Contact successfully created!');
-//        return redirect()->route('contacts.index')->with($notification);
-
-        if ($contact instanceof Contact) {
-            toastr()->success('Data has been saved successfully!');
-
-            return redirect()->route('contacts.index');
-        }
-
-        toastr()->error('An error has occurred please try again later.');
+        notify()->success('Contact successfully created!');
 
         return back();
 
@@ -101,6 +92,8 @@ class ContactController extends Controller
         $contact->address   = $request->get('address');
         $contact->save();
 
+        notify()->success('Contact successfully updated!');
+
         return redirect()
             ->route('contacts.index')
             ->with('success', 'Contact edited successfully.');
@@ -118,7 +111,7 @@ class ContactController extends Controller
 
         $contact->delete();
 
-        Session::flash('success', 'Contact successfully deleted!');
+        notify()->success('Contact successfully deleted!');
 
         return redirect()
             ->route('contacts.index');

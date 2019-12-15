@@ -27,7 +27,7 @@ class VehicleController extends Controller
 
     public function getData()
     {
-        $model = Vehicle::with('driver')->searchPaginateAndOrder();
+        $model = Vehicle::with('driver', 'categorie')->searchPaginateAndOrder();
         $columns = Vehicle::$columns;
 
         return response()
@@ -107,7 +107,7 @@ class VehicleController extends Controller
 
         $vehicle->save();
 
-        Session::flash('success', 'Vehicle successfully created!');
+        notify()->success('Vehicle successfully created!');
 
         return redirect()
             ->route('vehicles.index');
@@ -176,7 +176,7 @@ class VehicleController extends Controller
 
         $vehicles->save();
 
-        Session::flash('success', 'Vehicle successfully edited!');
+        notify()->success('Vehicle successfully updated!');
 
         return redirect()
             ->route('vehicles.index');
@@ -194,8 +194,9 @@ class VehicleController extends Controller
 
         $vehicle->delete();
 
+        notify()->success('Vehicle successfully deleted!');
+
         return redirect()
-            ->back()
-            ->with('success', 'Vehicle has been deleted Successfully');
+            ->back();
     }
 }

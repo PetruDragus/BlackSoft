@@ -90,7 +90,7 @@ class PaymentController extends Controller
         $payment->status        = $request->get('status');
         $payment->save();
 
-        Session::flash('success', 'Payment successfully created!');
+        notify()->success('Payment successfully created!');
 
         return redirect()
             ->route('payments.index');
@@ -141,9 +141,10 @@ class PaymentController extends Controller
         $payment->status        = $request->get('status');
         $payment->save();
 
+        notify()->success('Payment successfully updated!');
+
         return redirect()
-            ->route('payments.index')
-            ->with('success', 'PAyment edited successfully.');
+            ->route('payments.index');
     }
 
     /**
