@@ -207,8 +207,8 @@
                     </div>
                 </a>
                 <div class="collapse side-menu__collapsed" id="reviews">
-                    <a href="#reviews" class="list-group-item"><i class="fas fa-caret-right"></i> Vehicle Review </a>
-                    <a href="#reviews" class="list-group-item"><i class="fas fa-caret-right"></i> Chauffeur Review </a>
+                    <a href="{{ route('reviews.index') }}" class="list-group-item"><i class="fas fa-caret-right"></i> Vehicle Review </a>
+                    <a href="{{ route('reviews.index') }}" class="list-group-item"><i class="fas fa-caret-right"></i> Chauffeur Review </a>
                 </div>
             </li>
 

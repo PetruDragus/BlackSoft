@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/drivers', 'DriverController');
     Route::resource('/invoices', 'InvoiceController');
     Route::resource('/reviews', 'ReviewController');
+    Route::resource('/vehicle-reviews', 'VehicleReviewController');
     Route::resource('/vehicles', 'VehicleController');
     Route::resource('/users', 'UserController');
     Route::resource('/contacts', 'ContactController');

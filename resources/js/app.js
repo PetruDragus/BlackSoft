@@ -84,6 +84,7 @@ import bcancelled from './components/views/bookings/cancelled';
 import Invoices from './components/views/invoices/index';
 import Coupons from './components/views/coupons/index';
 import Reviews from './components/views/reviews/index';
+import vehiclereviews from './components/views/reviews/vehicle/index';
 import Jobs from './components/views/jobs/index';
 import Applications from './components/views/jobs/jobApplication/index';
 import Contacts from './components/views/contacts/index';
@@ -135,6 +136,7 @@ const app = new Vue({
         pie_chart,
         bcancelled,
         Coupons,
+        vehiclereviews
     }
 }).$mount('#app');
 // Now the app has started!

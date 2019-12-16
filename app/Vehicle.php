@@ -46,4 +46,12 @@ class Vehicle extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    /**
+     * Get the projects record associated with the user.
+     */
+    public function reviews()
+    {
+        return $this->hasMany(VehicleReview::class);
+    }
 }
