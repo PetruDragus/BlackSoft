@@ -18,6 +18,9 @@ use App\Mail\ClientChauffeurArrived;
 use App\Mail\ClientBookingConfirmed;
 use App\Mail\ClientBookingCancelled;
 
+use App\Mail\Guest\BookingPending;
+use App\Mail\Driver\BookingDriver60min;
+
 use Session;
 
 use Illuminate\Support\Facades\Mail;
@@ -118,7 +121,7 @@ class BookingController extends Controller
         $booking->save();
 
         // After booking submitted, send email to customer
-        Mail::to($booking->customer->email)->send(new ClientConfirmed($booking));
+        Mail::to($booking->customer->email)->send(new BookingDriver60min($booking));
 
         notify()->success('Trip successfully created!');
 
