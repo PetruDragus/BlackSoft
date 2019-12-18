@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\VehicleReview;
+use App\FlatRate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class VehicleReviewController extends Controller
+class FlatRateController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,30 +16,14 @@ class VehicleReviewController extends Controller
      */
     public function index()
     {
-        $model = VehicleReview::with('booking', 'vehicle')->searchPaginateAndOrder();
-        $columns = VehicleReview::$columns;
+        $model = FlatRate::searchPaginateAndOrder();
+        $columns = FlatRate::$columns;
 
         return response()
             ->json([
                 'model' => $model,
-                'columns' => $columns
-            ]);
-    }
-
-    public function getVehicleReviews($driver)
-    {
-        $model = VehicleReview::where('vehicle_id', $driver)
-            ->orderBy('id', 'DESC')
-            ->paginate(500);
-
-        $count = $model->count();
-        $average = $model->avg('rating');
-
-        return response()
-            ->json([
-                'model' => $model,
-                'count' => $count,
-                'average' => number_format($average, 1, '.', ',')
+                'columns' => $columns,
+                'items_count' => $model->count()
             ]);
     }
 

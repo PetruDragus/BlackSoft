@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/profile', 'ProfileController');
     Route::resource('/dispatch', 'DispatchController');
     Route::resource('/coupons', 'CouponController');
+    Route::resource('/flat-rates', 'FlatRateController');
 
     Route::group(['prefix' => 'export', 'as' => 'export.'], function(){
         // Export to excel

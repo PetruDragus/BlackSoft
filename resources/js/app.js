@@ -98,6 +98,7 @@ import Chart from './components/ChartComponent';
 import pie_chart from './components/PieChartComponent';
 import GmapMap from './components/GoogleMap';
 import contact_forms from './components/views/contactForm/index';
+import flatrate from './components/views/flatrate/index';
 
 import Test from './components/ExampleComponent';
 
@@ -136,7 +137,8 @@ const app = new Vue({
         pie_chart,
         bcancelled,
         Coupons,
-        vehiclereviews
+        vehiclereviews,
+        flatrate
     }
 }).$mount('#app');
 // Now the app has started!

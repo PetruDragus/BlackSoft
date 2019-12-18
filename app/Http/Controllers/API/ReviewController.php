@@ -25,6 +25,23 @@ class ReviewController extends Controller
             ]);
     }
 
+    public function getDriverReviews($driver)
+    {
+        $model = Review::where('driver_id', $driver)
+            ->orderBy('id', 'DESC')
+            ->paginate(500);
+
+        $count = $model->count();
+        $average = $model->avg('rating');
+
+        return response()
+            ->json([
+                'model' => $model,
+                'count' => $count,
+                'average' => number_format($average, 1, '.', ',')
+            ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

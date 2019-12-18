@@ -32,6 +32,7 @@ Route::match(['put', 'patch'], 'v1/bookings/changeDriver/{id}', 'API\BookingCont
 Route::match(['put', 'patch'], 'v1/bookings/cancel/{id}', 'API\BookingController@cancelBooking');
 
 Route::apiResources(['v1/bookings' => 'API\BookingController']);
+Route::apiResources(['v1/flat-rates' => 'API\FlatRateController']);
 Route::apiResources(['v1/drivers' => 'API\DriverController']);
 Route::apiResources(['v1/contacts' => 'API\ContactController']);
 Route::apiResources(['v1/customers' => 'API\CustomerController']);
@@ -47,6 +48,7 @@ Route::apiResources(['v1/users' => 'API\UserController']);
 Route::apiResources(['v1/contact-form' => 'API\ContactFormController']);
 Route::apiResources(['v1/coupons' => 'API\CouponController']);
 Route::apiResources(['v1/categories' => 'API\CategorieController']);
+Route::apiResources(['v1/flat-rates' => 'API\FlatRateController']);
 
 // Mobile app route
 Route::get('v2/bookings/ended/{driver}', 'API\BookingController@getFinishedBookings');
@@ -55,3 +57,5 @@ Route::get('v2/bookings/onway/{driver}', 'API\BookingController@getOnWayBookings
 Route::get('v2/bookings/finished', 'API\BookingController@getFinishedBookings');
 Route::put('v2/booking/changeDriver/{id}', 'API\BookingController@changeDriver');
 Route::put('v2/booking/updateStatus/{id}', 'API\BookingController@updateStatus');
+Route::get('v2/reviews/driverReviews/{id}', 'API\ReviewController@getDriverReviews');
+Route::get('v2/reviews/vehicleReviews/{id}', 'API\VehicleReviewController@getVehicleReviews');
