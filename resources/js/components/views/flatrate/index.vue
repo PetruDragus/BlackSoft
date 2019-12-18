@@ -109,7 +109,20 @@
                         </td>
                     </tr>
                     <tr v-for="row in model.data">
-                        <td v-for="(value, key) in row">{{value}}</td>
+                        <th>#{{ row.id }}</th>
+                        <td class="md-w245">{{ row.pickup_address }}</td>
+                        <td class="md-w245">{{ row.drop_address }}</td>
+                        <td>
+                            <span class="status status-pink" v-if="row.active == '0'">
+                                <span class="status-text">Inactive</span>
+                            </span>
+
+                            <span class="status status-green" v-if="row.active == '1'">
+                                <span class="status-text">Active</span>
+                            </span>
+                        </td>
+                        <td>{{ row.created_at | formatDate }}</td>
+                        <td>{{ row.updated_at | formatDate }}</td>
                         <td>
                             <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
                                 <div class="dropdown">
@@ -118,11 +131,11 @@
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/cities/'+row.id+'/edit'">
+                                        <a class="dropdown-item" v-bind:href="'/flat-rates/'+row.id+'/edit'">
                                             <i class="far fa-edit"></i>
                                             <span class="nav__link-text">Edit</span>
                                         </a>
-                                        <a class="dropdown-item" @click="deleteCities(row.id)">
+                                        <a class="dropdown-item" @click="deleteRates(row.id)">
                                             <i class="far fa-trash-alt"></i>
                                             <span class="nav__link-text">Delete</span>
                                         </a>
@@ -198,11 +211,11 @@
                     this.fetchIndexData()
                 }
             },
-            deleteCities(id) {
+            deleteRates(id) {
                 if(confirm('are you sure?'))
 
                 // Send request to the server
-                    axios.delete( '/api/v1/cities/'+id)
+                    axios.delete( '/api/v1/flat-rates/'+id)
                         .then(function (response) {
                             window.location.reload();
                         })

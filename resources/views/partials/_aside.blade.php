@@ -197,6 +197,18 @@
             </li>
 
             <li>
+                <a href="/flat-rates" class="sidebar-nav-link">
+                    <div class="sidebar-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="sidebar-text"> Flat Rates</div>
+                    <div class="sidebar-arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                </a>
+            </li>
+
+            <li>
                 <a href="#reviews" class="sidebar-nav-link" data-toggle="collapse" data-parent="#reviews">
                     <div class="sidebar-icon">
                         <i class="far fa-star"></i>

@@ -19219,6 +19219,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
  //similar to vue-resource
 
@@ -19266,9 +19279,9 @@ __webpack_require__.r(__webpack_exports__);
         this.fetchIndexData();
       }
     },
-    deleteCities: function deleteCities(id) {
+    deleteRates: function deleteRates(id) {
       if (confirm('are you sure?')) // Send request to the server
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/cities/' + id).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/flat-rates/' + id).then(function (response) {
           window.location.reload();
         })["catch"](function (error) {
           console.log(error);
@@ -78677,89 +78690,113 @@ var render = function() {
               _vm.model.data < 1 ? _c("tr", [_vm._m(3)]) : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.model.data, function(row) {
-                return _c(
-                  "tr",
-                  [
-                    _vm._l(row, function(value, key) {
-                      return _c("td", [_vm._v(_vm._s(value))])
-                    }),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "bk-span-actions",
-                          staticStyle: {
-                            overflow: "visible",
-                            position: "relative",
-                            width: "80px",
-                            color: "#595d6e",
-                            "font-size": "1rem"
-                          }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown" }, [
-                            _vm._m(4, true),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "dropdown-menu",
-                                attrs: {
-                                  "aria-labelledby": "dropdownMenuButton"
-                                }
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    attrs: {
-                                      href: "/cities/" + row.id + "/edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", { staticClass: "far fa-edit" }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "nav__link-text" },
-                                      [_vm._v("Edit")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.deleteCities(row.id)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "far fa-trash-alt"
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "nav__link-text" },
-                                      [_vm._v("Delete")]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
+                return _c("tr", [
+                  _c("th", [_vm._v("#" + _vm._s(row.id))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "md-w245" }, [
+                    _vm._v(_vm._s(row.pickup_address))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "md-w245" }, [
+                    _vm._v(_vm._s(row.drop_address))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    row.active == "0"
+                      ? _c("span", { staticClass: "status status-pink" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v("Inactive")
                           ])
-                        ]
-                      )
-                    ])
-                  ],
-                  2
-                )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    row.active == "1"
+                      ? _c("span", { staticClass: "status status-green" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v("Active")
+                          ])
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm._f("formatDate")(row.updated_at)))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "bk-span-actions",
+                        staticStyle: {
+                          overflow: "visible",
+                          position: "relative",
+                          width: "80px",
+                          color: "#595d6e",
+                          "font-size": "1rem"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "dropdown" }, [
+                          _vm._m(4, true),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "dropdown-menu",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: {
+                                    href: "/flat-rates/" + row.id + "/edit"
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-edit" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Edit")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteRates(row.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", { staticClass: "far fa-trash-alt" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    { staticClass: "nav__link-text" },
+                                    [_vm._v("Delete")]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ])
               })
             ],
             2

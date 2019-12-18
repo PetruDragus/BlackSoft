@@ -28,6 +28,16 @@ class FlatRateController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getFlatRates()
+    {
+        return FlatRate::orderBy('id', 'ASC')->paginate(60);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,6 +79,11 @@ class FlatRateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $flatRate = FlatRate::findOrFail($id);
+
+        // Delete the article
+        $flatRate->delete();
+
+        notify()->success('Flat Rate successfully deleted!');
     }
 }

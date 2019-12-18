@@ -30,6 +30,7 @@ Route::get('products', 'ProductController@search');
 Route::get('v1/bookings/cancelled', 'API\BookingController@cancelled');
 Route::match(['put', 'patch'], 'v1/bookings/changeDriver/{id}', 'API\BookingController@changeDriver');
 Route::match(['put', 'patch'], 'v1/bookings/cancel/{id}', 'API\BookingController@cancelBooking');
+Route::get('v1/flat-rates/all', 'API\FlatRateController@getFlatRates');
 
 Route::apiResources(['v1/bookings' => 'API\BookingController']);
 Route::apiResources(['v1/flat-rates' => 'API\FlatRateController']);
