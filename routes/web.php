@@ -88,3 +88,6 @@ Route::get('/booking/cancelled', 'BookingController@cancelled');
 Route::get('/emailuri', function() {
     return view('emails.driver.BookingDriver60min');
 });
+
+// Emails
+Route::post('/mail/booking/status60min/{id}', 'BookingController@updateStatus');

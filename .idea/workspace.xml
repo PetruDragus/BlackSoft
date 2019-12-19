@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db79e5c0-6007-4664-b776-e03e3d581d55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverAccepted.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverCancelled.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverPending.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverUpdated.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingCancelled.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingConfirmed.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingEdited.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingPending.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingRejected.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurArrived.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurOnWay.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-17.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-17.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,21 +35,45 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/client/completed.blade.php">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="112" lean-forward="true" selection-end-line="229" selection-end-column="7" />
+            <state relative-caret-position="384">
+              <caret line="93" selection-start-line="93" selection-end-line="100" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#form#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#form#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BookingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="1015">
+              <caret line="77" column="32" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="32" />
+              <folding>
+                <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1196">
+              <caret line="92" column="13" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -87,7 +100,6 @@
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/app/FlatRate.php" />
         <option value="$PROJECT_DIR$/app/MissingUser.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php" />
         <option value="$PROJECT_DIR$/app/Booking.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/flatrate/create.blade.php" />
@@ -115,15 +127,16 @@
         <option value="$PROJECT_DIR$/app/Mail/Driver/BookingDriverEdited.php" />
         <option value="$PROJECT_DIR$/app/Mail/Driver/BookingDriverPending.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverUpdated.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Mail/Driver/BookingDriver60min.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" />
         <option value="$PROJECT_DIR$/app/Mail/Guest/ChauffeurArrived.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurArrived.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurOnWay.blade.php" />
         <option value="$PROJECT_DIR$/app/Mail/Guest/ChauffeurOnWay.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" />
       </list>
     </option>
   </component>
@@ -266,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,14 +295,22 @@
               <item name="BlackSoft" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlackSoft" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Mail" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlackSoft" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlackSoft" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Mail" type="462c0819:PsiDirectoryNode" />
-              <item name="Guest" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlackSoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlackSoft" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlackSoft" type="b2602c69:ProjectViewProjectNode" />
@@ -316,7 +336,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="emails" type="462c0819:PsiDirectoryNode" />
-              <item name="guest" type="462c0819:PsiDirectoryNode" />
+              <item name="driver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlackSoft" type="b2602c69:ProjectViewProjectNode" />
@@ -327,6 +347,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,18 +453,19 @@
       <workItem from="1576350292668" duration="7778000" />
       <workItem from="1576494662430" duration="4048000" />
       <workItem from="1576659110499" duration="629000" />
-      <workItem from="1576660276564" duration="8338000" />
+      <workItem from="1576660276564" duration="9819000" />
+      <workItem from="1576755115866" duration="1184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282983000" />
+    <option name="totallyTimeSpent" value="285648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.117156476" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11795075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -578,16 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="197" selection-start-line="197" selection-end-line="207" selection-end-column="5" />
-          <folding>
-            <element signature="e#44#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/FlatRateController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1152">
@@ -682,16 +694,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/Driver/BookingPending.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="32" />
-          <folding>
-            <element signature="e#35#51#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Mail/Driver/BookingPending.php" />
     <entry file="file://$PROJECT_DIR$/app/Mail/Guest/BookingPending.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -777,13 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1175">
-          <caret line="88" column="17" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Mail/Driver/BookingDriverAccepted.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -822,23 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="118" column="138" selection-start-line="118" selection-start-column="138" selection-end-line="118" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BookingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="123" column="72" selection-start-line="123" selection-start-column="72" selection-end-line="123" selection-end-column="72" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="327" column="18" lean-forward="true" selection-start-line="327" selection-start-column="18" selection-end-line="327" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -907,17 +886,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/client/completed.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="112" lean-forward="true" selection-end-line="229" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
           <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/client/completed.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="60" selection-start-line="60" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="e#44#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BookingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1015">
+          <caret line="77" column="32" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1196">
+          <caret line="92" column="13" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="93" selection-start-line="93" selection-end-line="100" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

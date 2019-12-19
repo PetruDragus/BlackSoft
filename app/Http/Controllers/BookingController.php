@@ -21,6 +21,7 @@ use App\Mail\ClientBookingCancelled;
 use App\Mail\Guest\BookingPending;
 use App\Mail\Driver\BookingDriver60min;
 
+use Illuminate\Http\Request;
 use Session;
 
 use Illuminate\Support\Facades\Mail;
@@ -72,6 +73,14 @@ class BookingController extends Controller
             },
             'strtoupper'
         );
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->update($request->all());
+
+        return ['message', 'Status Successfully updated'];
     }
 
     /**

@@ -112,7 +112,7 @@
         <div>
             <div style="padding: 25px 25px;display: inline-flex;">
                 <div class="header-content-left" style="margin-top: auto;margin-left: 20px;margin-bottom: auto;">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-14.png" width="50px">
+                    <img src="https://app.blackhansa.de/mail-icons/icon/icons-17.png" width="50px">
                 </div>
 
                 <div class="header-content-right" style="margin-left: 35px;">
@@ -316,22 +316,39 @@
     </div>
 
     <div id="footer-content" style="background-color: #000;box-shadow: 0 0 20px #f5b656;display: inline-flex;width:100%;">
-        <div style="padding: 25px 25px;display: flex;justify-content: space-between;width: 100%;">
-            <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;width: 100%;text-align: center;border-right: 1px solid #424242">
-                <img src="https://app.blackhansa.de/mail-icons/icons-14.png" width="35px">
-                <p style="color: #D6D6D6;font-size: 13px;margin-bottom: 0">60 min</p>
+
+            <div style="padding: 25px 25px;display: flex;justify-content: space-between;width: 100%;">
+                <form action="" method="POST" style="width:100%;">
+                    <button type="submit" style="width:100%;background: transparent;border: none;">
+                        <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;width: 100%;text-align: center;border-right: 1px solid #424242">
+                            <img src="https://app.blackhansa.de/mail-icons/icon/icons-18.png" width="35px">
+                            <p style="color: #D6D6D6;font-size: 13px;margin-bottom: 0">60 min</p>
+                        </div>
+                    </button>
+                </form>
+
+                <form action="" method="POST" style="width:100%;">
+                    <button type="submit" style="width:100%;background: transparent;border: none;">
+                        <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;width: 100%;text-align: center;border-right: 1px solid #424242">
+                            <img src="https://app.blackhansa.de/mail-icons/icon/icons-18.png" width="35px">
+                            <p style="color: #D6D6D6;font-size: 13px;margin-bottom: 0">Arrived</p>
+                        </div>
+                    </button>
+                </form>
+
+                <form action="https://app.blackhansa.de/mail/booking/status60min/{{ $booking['id'] }}" method="POST" style="width:100%;">
+
+                    <input type="hidden" value="60 min" />
+
+                    <button type="submit" style="width:100%;background: transparent;border: none;">
+                        <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;width: 100%;text-align: center;">
+                            <img src="https://app.blackhansa.de/mail-icons/icon/icons-19.png" width="35px">
+                            <p style="color: #D6D6D6;font-size: 13px;margin-bottom: 0">Finish</p>
+                        </div>
+                    </button>
+                </form>
             </div>
 
-            <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;width: 100%;text-align: center;border-right: 1px solid #424242">
-                <img src="https://app.blackhansa.de/mail-icons/icons-14.png" width="35px">
-                <p style="color: #D6D6D6;font-size: 13px;margin-bottom: 0">Arrived</p>
-            </div>
-
-            <div class="header-content-left" style="margin-top: auto;margin-bottom: auto;width: 100%;text-align: center;">
-                <img src="https://app.blackhansa.de/mail-icons/icons/icons_V4-19.svg" width="35px">
-                <p style="color: #D6D6D6;font-size: 13px;margin-bottom: 0">Finish</p>
-            </div>
-        </div>
     </div>
 
     <div id="footer" style="background-color: #efaf57;padding: 15px 25px;">
