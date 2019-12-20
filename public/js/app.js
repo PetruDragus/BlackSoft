@@ -17411,6 +17411,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
  //similar to vue-resource
@@ -74282,9 +74313,21 @@ var render = function() {
                     _vm._v(_vm._s(row.drop_address))
                   ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v(_vm._s(row.driver.name))]),
+                  row.driver !== null
+                    ? _c("th", [_vm._v(_vm._s(row.driver.name))])
+                    : _c("th", { staticStyle: { color: "#E63A46" } }, [
+                        _vm._v("Unassigned")
+                      ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(_vm._f("formatDate")(row.date)))]),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(_vm._f("formatDate")(row.date)) +
+                        " / " +
+                        _vm._s(row.pickup_hour) +
+                        ":" +
+                        _vm._s(row.pickup_min)
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("td", [
                     _c("span", { staticClass: "status status-blue" }, [
@@ -74339,6 +74382,22 @@ var render = function() {
                   _c("td", [
                     row.status == "Pending"
                       ? _c("span", { staticClass: "status status-gray" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v(_vm._s(row.status))
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    row.status == "60 min"
+                      ? _c("span", { staticClass: "status status-60min" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v(_vm._s(row.status))
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    row.status == "Arrived"
+                      ? _c("span", { staticClass: "status status-arrived" }, [
                           _c("span", { staticClass: "status-text" }, [
                             _vm._v(_vm._s(row.status))
                           ])
@@ -74508,7 +74567,8 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    _vm._s(row.pickup_hour) +
+                                    "\n                                                " +
+                                      _vm._s(row.pickup_hour) +
                                       ":" +
                                       _vm._s(row.pickup_min) +
                                       " - " +
@@ -74516,8 +74576,80 @@ var render = function() {
                                       " - #" +
                                       _vm._s(row.id) +
                                       " - " +
-                                      _vm._s(row.vehicle.bussiness_type)
-                                  )
+                                      _vm._s(row.vehicle.bussiness_type) +
+                                      "\n\n                                                "
+                                  ),
+                                  row.status == "Pending"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "status status-gray" },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "status-text" },
+                                            [_vm._v(_vm._s(row.status))]
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  row.status == "60 min"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "status status-60min" },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "status-text" },
+                                            [_vm._v(_vm._s(row.status))]
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  row.status == "Arrived"
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass: "status status-arrived"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "status-text" },
+                                            [_vm._v(_vm._s(row.status))]
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  row.status == "Cancelled"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "status status-pink" },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "status-text" },
+                                            [_vm._v(_vm._s(row.status))]
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  row.status == "Finished"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "status status-green" },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "status-text" },
+                                            [_vm._v(_vm._s(row.status))]
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ]
                               ),
                               _vm._v(" "),

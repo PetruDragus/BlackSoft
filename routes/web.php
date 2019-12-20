@@ -89,6 +89,8 @@ Route::get('/emailuri', function() {
     return view('emails.driver.BookingDriver60min');
 });
 
+
+// Emails update status
 Route::get('/update/status/{id}', 'BookingController@min60form');
 Route::get('/update/status/arrived/{id}', 'BookingController@arrivedForm');
 Route::get('/update/status/finish/{id}', 'BookingController@finishForm');

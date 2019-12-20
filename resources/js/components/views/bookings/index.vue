@@ -101,8 +101,9 @@
                             <th>{{ row.number }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>
                             <td class="md-w245">{{ row.drop_address }}</td>
-                            <th>{{ row.driver.name }}</th>
-                            <td>{{ row.date | formatDate }}</td>
+                            <th v-if="row.driver !== null">{{ row.driver.name }}</th>
+                            <th v-else style="color: #E63A46;">Unassigned</th>
+                            <td>{{ row.date | formatDate }} / {{ row.pickup_hour }}:{{ row.pickup_min }}</td>
                             <td>
                                 <span class="status status-blue">
                                     <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.passagers }}</span>
@@ -124,6 +125,14 @@
                             </td>
                             <td>
                                 <span class="status status-gray" v-if="row.status == 'Pending'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
+
+                                <span class="status status-60min" v-if="row.status == '60 min'">
+                                    <span class="status-text">{{ row.status }}</span>
+                                </span>
+
+                                <span class="status status-arrived" v-if="row.status == 'Arrived'">
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
 
@@ -180,7 +189,29 @@
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">{{ row.pickup_hour }}:{{ row.pickup_min }} - {{ row.date | formatDate }} - #{{ row.id }} - {{ row.vehicle.bussiness_type }}</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                {{ row.pickup_hour }}:{{ row.pickup_min }} - {{ row.date | formatDate }} - #{{ row.id }} - {{ row.vehicle.bussiness_type }}
+
+                                                <span class="status status-gray" v-if="row.status == 'Pending'">
+                                                    <span class="status-text">{{ row.status }}</span>
+                                                </span>
+
+                                                <span class="status status-60min" v-if="row.status == '60 min'">
+                                                    <span class="status-text">{{ row.status }}</span>
+                                                </span>
+
+                                                <span class="status status-arrived" v-if="row.status == 'Arrived'">
+                                                    <span class="status-text">{{ row.status }}</span>
+                                                </span>
+
+                                                <span class="status status-pink" v-if="row.status == 'Cancelled'">
+                                                    <span class="status-text">{{ row.status }}</span>
+                                                </span>
+
+                                                <span class="status status-green" v-if="row.status == 'Finished'">
+                                                    <span class="status-text">{{ row.status }}</span>
+                                                </span>
+                                            </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>

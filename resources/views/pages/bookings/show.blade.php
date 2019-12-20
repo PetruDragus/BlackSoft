@@ -10,6 +10,28 @@
                 <div>
                     <a href="/contacts" class="router-link-active">Booking</a> / {{ $booking->customer->name }}
                     <small>(#{{ $booking->number  }})</small>
+
+                    @if ($booking->status == 'Pending')
+                        <span class="status status-gray" >
+                            <span class="status-text">{{ $booking->status }}</span>
+                        </span>
+                    @elseif($booking->status == '60 min')
+                        <span class="status status-60min">
+                            <span class="status-text">{{ $booking->status }}</span>
+                        </span>
+                    @elseif($booking->status == 'Arrived')
+                        <span class="status status-arrived">
+                            <span class="status-text">{{ $booking->status }}</span>
+                        </span>
+                    @elseif($booking->status == 'Cancelled')
+                        <span class="status status-pink">
+                            <span class="status-text">{{ $booking->status }}</span>
+                        </span>
+                    @elseif($booking->status == 'Finished')
+                        <span class="status status-green">
+                            <span class="status-text">{{ $booking->status }}</span>
+                        </span>
+                    @endif
                 </div>
             </div>
             <div class="panel-extra">
