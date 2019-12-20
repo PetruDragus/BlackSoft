@@ -57,6 +57,53 @@ class BookingController extends Controller
         return Excel::download(new BookingsExport, 'bookings.csv');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function min60form(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        return view('pages.bookings.updateStatus.form', compact('booking'));
+    }
+
+    public function arrivedForm(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        return view('pages.bookings.updateStatus.arrived', compact('booking'));
+    }
+
+    public function finishForm(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        return view('pages.bookings.updateStatus.finish', compact('booking'));
+    }
+
+    public function min60Status(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status  = '60 min';
+        $booking->save();
+    }
+
+    public function arrivedStatus(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status  = 'Arrived';
+        $booking->save();
+    }
+
+    public function finishStatus(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status  = 'Finish';
+        $booking->save();
+    }
+
     protected function generateCode()
     {
         return Keygen::bytes()->generate(
