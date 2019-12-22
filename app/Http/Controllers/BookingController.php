@@ -2,23 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
 use App\Driver;
 use App\Http\Requests\BookingStoreRequest;
-use App\Invoice;
 use App\Services\BookingService;
 use App\Vehicle;
 use App\Booking;
 
-use App\Mail\BookingAcceptedMail;
-use App\Mail\BookingEditedMail;
-use App\Mail\BookingDeleteMail;
-use App\Mail\ClientConfirmed;
-use App\Mail\ClientChauffeurArrived;
-use App\Mail\ClientBookingConfirmed;
 use App\Mail\ClientBookingCancelled;
 
-use App\Mail\Guest\BookingPending;
+use App\Mail\Guest\ChauffeurArrived;
+use App\Mail\Guest\ChauffeurOnWay;
 use App\Mail\Driver\BookingDriver60min;
 
 use Illuminate\Http\Request;
@@ -88,6 +81,8 @@ class BookingController extends Controller
         $booking = Booking::findOrFail($id);
         $booking->status  = '60 min';
         $booking->save();
+
+        Mail::to($booking->driver->email)->send(new ChauffeurOnWay($booking));
     }
 
     public function arrivedStatus(Request $request, $id)
@@ -95,6 +90,8 @@ class BookingController extends Controller
         $booking = Booking::findOrFail($id);
         $booking->status  = 'Arrived';
         $booking->save();
+
+        Mail::to($booking->driver->email)->send(new ChauffeurArrived($booking));
     }
 
     public function finishStatus(Request $request, $id)

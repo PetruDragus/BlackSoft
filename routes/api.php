@@ -60,3 +60,5 @@ Route::put('v2/booking/changeDriver/{id}', 'API\BookingController@changeDriver')
 Route::put('v2/booking/updateStatus/{id}', 'API\BookingController@updateStatus');
 Route::get('v2/reviews/driverReviews/{id}', 'API\ReviewController@getDriverReviews');
 Route::get('v2/reviews/vehicleReviews/{id}', 'API\VehicleReviewController@getVehicleReviews');
+
+Route::put('v2/booking/accept/{id}', 'API\BookingController@acceptTrip');

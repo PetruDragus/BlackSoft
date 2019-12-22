@@ -101,8 +101,9 @@
                             <td>{{ row.city }}</td>
                             <td>{{ row.name }}</td>
                             <td>{{ row.vehicle.make }} {{ row.vehicle.model }}</td>
+                            <td>{{ row.email }}</td>
                             <td>{{ row.phone }}</td>
-                            <td>{{ row.birthday }}</td>
+                            <td>{{ row.birthday | formatDate }}</td>
                             <td>{{ row.created_at | formatDate }}</td>
                             <td>
                                 <span class="status status-blue">

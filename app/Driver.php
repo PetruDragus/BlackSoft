@@ -17,11 +17,11 @@ class Driver extends Model
      * @var array
      */
     protected $fillable = [
-        'partener_id', 'name', 'phone', 'vehicle_id', 'city_id', 'birthday', 'genter'
+        'partener_id', 'name', 'Email', 'phone', 'vehicle_id', 'city_id', 'birthday', 'genter'
     ];
 
     public static $columns = [
-        ' ', 'ID', 'City', 'Name', 'Vehicle', 'Phone', 'Birthday', 'Joining Date', 'Trips',
+        ' ', 'ID', 'City', 'Name', 'Vehicle', 'Email' ,'Phone', 'Birthday', 'Joining Date', 'Trips',
     ];
 
     /**

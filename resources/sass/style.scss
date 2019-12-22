@@ -2400,45 +2400,78 @@ div#dispatch-content {
   width: 16% !important;
 }
 
-span.select2-selection.select2-selection--single {
+a.btn-tbl-accept {
+  background-color: #76Ba1B;
+  border-radius: 50% !important;
+  padding: 0px !important;
+  color: #fff !important;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  color: #484746;
-  line-height: 16px;
-  font-size: 13px;
-  height: 32px;
-  background: #fafafa;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.01);
-  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  padding: 8px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  border-radius: 0 !important;
-  outline: none !important;
+  text-align: center;
+
+  i {
+    font-size: 9px;
+  }
+}
+
+a.btn-tbl-reject {
+  background-color: #B00B0B;
+  border-radius: 50% !important;
+  padding: 0px !important;
+  color: #fff !important;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+
+  i {
+    font-size: 9px;
+  }
+}
+
+span.select2-selection.select2-selection--single {
+cursor: pointer;
+color: #484746;
+line-height: 16px;
+font-size: 13px;
+height: 32px;
+background: #fafafa;
+border: none;
+border-bottom: 1px solid rgba(0, 0, 0, 0.01);
+box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+border-radius: 2px;
+padding: 8px;
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+border-radius: 0 !important;
+outline: none !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #444;
-  line-height: 15px !important;
-  padding-left: 0 !important;
+color: #444;
+line-height: 15px !important;
+padding-left: 0 !important;
 }
 
 span.select2-dropdown.select2-dropdown--below {
-  font-size: 13px;
-  border: 1px solid #d6d6d6;
-  box-shadow: 0 0 5px #d6d6d6;
+font-size: 13px;
+border: 1px solid #d6d6d6;
+box-shadow: 0 0 5px #d6d6d6;
 }
 
 .side-menu__collapsed.show {
-  a.list-group-item {
-    background: #28282b;
-    padding-left: 47px !important;
+a.list-group-item {
+background: #28282b;
+padding-left: 47px !important;
 
-    i {
-      margin-right: 10px;
-    }
-  }
+i {
+  margin-right: 10px;
+}
+}
 }

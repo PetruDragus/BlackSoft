@@ -17442,6 +17442,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
  //similar to vue-resource
@@ -17500,8 +17506,8 @@ __webpack_require__.r(__webpack_exports__);
         this.fetchIndexData();
       }
     },
-    editBooking: function editBooking(id) {
-      this.form.patch('api/v1/bookings/changeDriver/' + this.form.id).then(function () {})["catch"](function () {});
+    AcceptTrip: function AcceptTrip(id) {
+      this.form.patch('api/v2/booking/accept/' + this.form.id).then(function () {})["catch"](function () {});
       $('.booking-modal').modal('hide');
     },
     cancelBooking: function cancelBooking(id) {
@@ -18850,6 +18856,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
 //
 //
 //
@@ -74381,10 +74388,21 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [
                     row.status == "Pending"
-                      ? _c("span", { staticClass: "status status-gray" }, [
-                          _c("span", { staticClass: "status-text" }, [
-                            _vm._v(_vm._s(row.status))
-                          ])
+                      ? _c("div", { staticStyle: { display: "flex" } }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn-tbl-accept",
+                              on: {
+                                click: function($event) {
+                                  return _vm.acceptTrip(row.id)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-check" })]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(4, true)
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -74440,7 +74458,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(4, true),
+                          _vm._m(5, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -74508,7 +74526,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(5, true),
+                              _vm._m(6, true),
                               _vm._v(" "),
                               _c(
                                 "a",
@@ -74653,7 +74671,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(6, true)
+                              _vm._m(7, true)
                             ]),
                             _vm._v(" "),
                             _c(
@@ -75040,7 +75058,7 @@ var render = function() {
                                                 "div",
                                                 { staticClass: "form-group" },
                                                 [
-                                                  _vm._m(7, true),
+                                                  _vm._m(8, true),
                                                   _vm._v(" "),
                                                   _c(
                                                     "select",
@@ -75136,7 +75154,7 @@ var render = function() {
                                   ])
                                 ]),
                                 _vm._v(" "),
-                                _vm._m(8, true)
+                                _vm._m(9, true)
                               ]
                             )
                           ])
@@ -75316,6 +75334,16 @@ var staticRenderFns = [
     return _c("span", { staticClass: "status status-blue" }, [
       _c("span", { staticClass: "status-text" }, [_vm._v("Generate Price")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "btn-tbl-reject", attrs: { target: "_blank" } },
+      [_c("i", { staticClass: "fas fa-minus" })]
+    )
   },
   function() {
     var _vm = this
@@ -78363,9 +78391,13 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.email))]),
+                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.phone))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.birthday))]),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm._f("formatDate")(row.birthday)))
+                  ]),
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))

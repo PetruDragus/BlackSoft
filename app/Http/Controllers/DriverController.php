@@ -72,6 +72,7 @@ class DriverController extends Controller
         $driver->city           = $request->city;
         $driver->birthday       = $request->birthday;
         $driver->genter         = $request->genter;
+        $driver->email          = $request->email;
 
         if(!empty($request->has('photo'))) {
             $driver->mime = $cover->getClientMimeType();
@@ -127,7 +128,7 @@ class DriverController extends Controller
             'phone'       => 'required',
         ]);
 
-        $driver = Driver::find($id);
+        $driver = Driver::findOrFail($id);
 
         if(!empty($request->has('photo'))) {
             $cover = $request->file('photo');
@@ -142,6 +143,7 @@ class DriverController extends Controller
         $driver->city           = $request->city;
         $driver->birthday       = $request->birthday;
         $driver->genter         = $request->genter;
+        $driver->email          = $request->email;
 
         if(!empty($request->has('photo'))) {
             $driver->mime = $cover->getClientMimeType();

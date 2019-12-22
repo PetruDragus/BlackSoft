@@ -124,9 +124,15 @@
                                 </a>
                             </td>
                             <td>
-                                <span class="status status-gray" v-if="row.status == 'Pending'">
-                                    <span class="status-text">{{ row.status }}</span>
-                                </span>
+                                <div v-if="row.status == 'Pending'" style="display: flex;">
+                                    <a @click="acceptTrip(row.id)" class="btn-tbl-accept">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+
+                                    <a target="_blank" class="btn-tbl-reject">
+                                        <i class="fas fa-minus"></i>
+                                    </a>
+                                </div>
 
                                 <span class="status status-60min" v-if="row.status == '60 min'">
                                     <span class="status-text">{{ row.status }}</span>
@@ -411,8 +417,8 @@
                     this.fetchIndexData()
                 }
             },
-            editBooking (id) {
-                this.form.patch('api/v1/bookings/changeDriver/'+this.form.id)
+            AcceptTrip (id) {
+                this.form.patch('api/v2/booking/accept/'+this.form.id)
                     .then(() => {
 
                     })

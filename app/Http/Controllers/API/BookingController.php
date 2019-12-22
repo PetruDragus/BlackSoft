@@ -50,6 +50,13 @@ class BookingController extends Controller
             ]);
     }
 
+    public function acceptTrip(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status  = 'Accept';
+        $booking->save();
+    }
+
     public function changeDriver(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);
