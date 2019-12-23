@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="header-content-right" style="margin-left: 35px;">
-                    <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Booking confirmed!</p>
+                    <p style="color: #ffffff;margin: 0;font-size: 22px;font-weight: 700;">Booking confirmed!</p>
                     <p style="color:#9e9e9e;font-size: 12px;margin-top: 10px;">Dear <span style="font-weight:500;color:#fff;">{{ $booking['customer']['name'] }},</span></p>
                     <p style="color:#90CA41;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Please proceed with the following ride: </p>
                 </div>

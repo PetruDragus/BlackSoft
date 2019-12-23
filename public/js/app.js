@@ -17448,23 +17448,104 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
- //similar to vue-resource
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_2__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_2__["HasError"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_2__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_2__["AlertError"]); //similar to vue-resource
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   bookings: {},
   props: ['title'],
   data: function data() {
     return {
-      form: new vform__WEBPACK_IMPORTED_MODULE_2___default.a({
+      form: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
         id: '',
         driver_id: '',
+        vehicle_id: '',
         status: '',
         pickup_address: '',
         drop_address: ''
       }),
       drivers: {},
+      vehicles: {},
       model: {},
       columns: {},
       source: '/api/v1/bookings',
@@ -17492,6 +17573,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.fetchIndexData();
     this.loadDrivers();
+    this.loadVehicles();
   },
   methods: {
     next: function next() {
@@ -17506,21 +17588,36 @@ __webpack_require__.r(__webpack_exports__);
         this.fetchIndexData();
       }
     },
-    AcceptTrip: function AcceptTrip(id) {
-      this.form.patch('api/v2/booking/accept/' + this.form.id).then(function () {})["catch"](function () {});
-      $('.booking-modal').modal('hide');
+    acceptModal: function acceptModal(row) {
+      this.editmode = true;
+      this.form.reset();
+      $('#assignModal').modal('show');
+      this.form.fill(row);
     },
-    cancelBooking: function cancelBooking(id) {
-      this.form.put('api/v1/bookings/cancel/' + this.form.id).then(function () {})["catch"](function () {});
-      $('.booking-modal').modal('hide');
+    acceptTrip: function acceptTrip(id) {
+      this.form.put('api/v3/booking/accept/' + this.form.id).then(function (response) {
+        window.location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+      this.fetchIndexData();
+      $('#assignModal').modal('hide');
+    },
+    cancelTrip: function cancelTrip(id) {
+      this.form.put('api/v3/booking/cancel/' + id).then(function (response) {
+        window.location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+      this.fetchIndexData();
     },
     deleteBooking: function deleteBooking(id) {
-      if (confirm('are you sure?')) // Send request to the server
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/v1/bookings/' + id).then(function (response) {
-          window.location.reload();
-        })["catch"](function (error) {
-          console.log(error);
-        });
+      // Send request to the server
+      this.form.put('api/v1/bookings/cancel/' + id).then(function (response) {
+        window.location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -17553,6 +17650,14 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.drivers = data;
       });
     },
+    loadVehicles: function loadVehicles() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/v1/vehicles').then(function (_ref3) {
+        var data = _ref3.data;
+        return _this3.vehicles = data;
+      });
+    },
     fetchIndexData: function fetchIndexData() {
       var vm = this;
       var url = '/api/v1/bookings?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
@@ -17563,7 +17668,11 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       });
     }
-  }
+  } // created() {
+  //     this.fetchIndexData();
+  //     setInterval(() => this.fetchIndexData(), 3000);
+  // }
+
 });
 
 /***/ }),
@@ -74320,11 +74429,35 @@ var render = function() {
                     _vm._v(_vm._s(row.drop_address))
                   ]),
                   _vm._v(" "),
-                  row.driver !== null
-                    ? _c("th", [_vm._v(_vm._s(row.driver.name))])
-                    : _c("th", { staticStyle: { color: "#E63A46" } }, [
-                        _vm._v("Unassigned")
+                  _c(
+                    "td",
+                    { staticStyle: { display: "grid", "font-weight": "600" } },
+                    [
+                      _c("div", { staticStyle: { display: "inline-flex" } }, [
+                        _vm._m(3, true),
+                        _vm._v(" "),
+                        _c("div", [
+                          row.driver !== null
+                            ? _c("div", [_vm._v(_vm._s(row.driver.name))])
+                            : _c("div", { staticStyle: { color: "#E63A46" } }, [
+                                _vm._v("Unassigned")
+                              ])
+                        ])
                       ]),
+                      _vm._v(" "),
+                      _c("div", { staticStyle: { display: "inline-flex" } }, [
+                        _vm._m(4, true),
+                        _vm._v(" "),
+                        _c("div", [
+                          row.vehicle !== null
+                            ? _c("div", [_vm._v(_vm._s(row.vehicle.plate))])
+                            : _c("div", { staticStyle: { color: "#E63A46" } }, [
+                                _vm._v("Unassigned")
+                              ])
+                        ])
+                      ])
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(
@@ -74382,7 +74515,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._m(3, true)]
+                          [_vm._m(5, true)]
                         )
                       ]),
                   _vm._v(" "),
@@ -74395,42 +74528,53 @@ var render = function() {
                               staticClass: "btn-tbl-accept",
                               on: {
                                 click: function($event) {
-                                  return _vm.acceptTrip(row.id)
+                                  return _vm.acceptModal(row)
                                 }
                               }
                             },
                             [_c("i", { staticClass: "fas fa-check" })]
                           ),
                           _vm._v(" "),
-                          _vm._m(4, true)
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn-tbl-reject",
+                              on: {
+                                click: function($event) {
+                                  return _vm.cancelTrip(row.id)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-minus" })]
+                          )
                         ])
                       : _vm._e(),
                     _vm._v(" "),
-                    row.status == "60 min"
+                    row.status === "60 min"
                       ? _c("span", { staticClass: "status status-60min" }, [
                           _c("span", { staticClass: "status-text" }, [
                             _vm._v(_vm._s(row.status))
                           ])
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    row.status == "Arrived"
+                      : row.status === "Arrived"
                       ? _c("span", { staticClass: "status status-arrived" }, [
                           _c("span", { staticClass: "status-text" }, [
                             _vm._v(_vm._s(row.status))
                           ])
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    row.status == "Cancelled"
+                      : row.status === "Accepted"
+                      ? _c("span", { staticClass: "status status-blue" }, [
+                          _c("span", { staticClass: "status-text" }, [
+                            _vm._v("Accepted")
+                          ])
+                        ])
+                      : row.status === "Cancelled"
                       ? _c("span", { staticClass: "status status-pink" }, [
                           _c("span", { staticClass: "status-text" }, [
                             _vm._v(_vm._s(row.status))
                           ])
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    row.status == "Finished"
+                      : row.status === "Finished"
                       ? _c("span", { staticClass: "status status-green" }, [
                           _c("span", { staticClass: "status-text" }, [
                             _vm._v(_vm._s(row.status))
@@ -74458,7 +74602,7 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "dropdown" }, [
-                          _vm._m(5, true),
+                          _vm._m(6, true),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -74526,7 +74670,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(6, true),
+                              _vm._m(7, true),
                               _vm._v(" "),
                               _c(
                                 "a",
@@ -74534,7 +74678,7 @@ var render = function() {
                                   staticClass: "dropdown-item",
                                   on: {
                                     click: function($event) {
-                                      return _vm.deleteBooking(row.id)
+                                      return _vm.cancelTrip(row)
                                     }
                                   }
                                 },
@@ -74554,6 +74698,252 @@ var render = function() {
                       ]
                     )
                   ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "assignModal",
+                        tabindex: "-1",
+                        role: "dialog",
+                        "aria-labelledby": "exampleModalLongTitle",
+                        "aria-hidden": "true"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-header" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass: "modal-title",
+                                  attrs: { id: "exampleModalLongTitle" }
+                                },
+                                [
+                                  _vm._v(
+                                    "Assign booking (no. " +
+                                      _vm._s(row.number) +
+                                      ") to driver and vehicle"
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(8, true)
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "form",
+                              {
+                                on: {
+                                  submit: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.acceptTrip($event)
+                                  }
+                                }
+                              },
+                              [
+                                _c("div", { staticClass: "modal-body" }, [
+                                  _c("div", { staticClass: "assign-form" }, [
+                                    _c("div", { staticClass: "row" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group col-md-6" },
+                                        [
+                                          _vm._m(9, true),
+                                          _vm._v(" "),
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.form.driver_id,
+                                                  expression: "form.driver_id"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control select-input",
+                                              attrs: { name: "driver_id" },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$selectedVal = Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function(o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function(o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "driver_id",
+                                                    $event.target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    disabled: "disabled"
+                                                  }
+                                                },
+                                                [_vm._v("Select ..")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(_vm.drivers.data, function(
+                                                item
+                                              ) {
+                                                return _c(
+                                                  "option",
+                                                  { attrs: { value: "1" } },
+                                                  [_vm._v(_vm._s(item.name))]
+                                                )
+                                              })
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group col-md-6" },
+                                        [
+                                          _vm._m(10, true),
+                                          _vm._v(" "),
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.form.vehicle_id,
+                                                  expression: "form.vehicle_id"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control select-input",
+                                              attrs: { name: "vehicle_id" },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$selectedVal = Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function(o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function(o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "vehicle_id",
+                                                    $event.target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    disabled: "disabled"
+                                                  }
+                                                },
+                                                [_vm._v("Select ..")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.vehicles.data,
+                                                function(item) {
+                                                  return _c(
+                                                    "option",
+                                                    { attrs: { value: "1" } },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(item.plate) +
+                                                          " - " +
+                                                          _vm._s(item.make) +
+                                                          " " +
+                                                          _vm._s(item.model) +
+                                                          " "
+                                                      )
+                                                    ]
+                                                  )
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "modal-footer" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-secondary",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "modal"
+                                      }
+                                    },
+                                    [_vm._v("Close")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      attrs: {
+                                        disabled: _vm.form.busy,
+                                        type: "submit"
+                                      }
+                                    },
+                                    [_vm._v("Save")]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -74592,12 +74982,10 @@ var render = function() {
                                       " - " +
                                       _vm._s(_vm._f("formatDate")(row.date)) +
                                       " - #" +
-                                      _vm._s(row.id) +
-                                      " - " +
-                                      _vm._s(row.vehicle.bussiness_type) +
+                                      _vm._s(row.number) +
                                       "\n\n                                                "
                                   ),
-                                  row.status == "Pending"
+                                  row.status === "Pending"
                                     ? _c(
                                         "span",
                                         { staticClass: "status status-gray" },
@@ -74609,9 +74997,7 @@ var render = function() {
                                           )
                                         ]
                                       )
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  row.status == "60 min"
+                                    : row.status === "60 min"
                                     ? _c(
                                         "span",
                                         { staticClass: "status status-60min" },
@@ -74623,9 +75009,7 @@ var render = function() {
                                           )
                                         ]
                                       )
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  row.status == "Arrived"
+                                    : row.status === "Arrived"
                                     ? _c(
                                         "span",
                                         {
@@ -74639,9 +75023,21 @@ var render = function() {
                                           )
                                         ]
                                       )
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  row.status == "Cancelled"
+                                    : row.status === "Accepted"
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass: "status status-arrived"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "status-text" },
+                                            [_vm._v("Accepted")]
+                                          )
+                                        ]
+                                      )
+                                    : row.status === "Cancelled"
                                     ? _c(
                                         "span",
                                         { staticClass: "status status-pink" },
@@ -74653,9 +75049,7 @@ var render = function() {
                                           )
                                         ]
                                       )
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  row.status == "Finished"
+                                    : row.status === "Finished"
                                     ? _c(
                                         "span",
                                         { staticClass: "status status-green" },
@@ -74671,7 +75065,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(7, true)
+                              _vm._m(11, true)
                             ]),
                             _vm._v(" "),
                             _c(
@@ -75043,118 +75437,18 @@ var render = function() {
                                             height: "400px"
                                           },
                                           attrs: {
-                                            center: { lat: 10, lng: 10 },
+                                            center: { lat: 52.52, lng: 13.405 },
                                             zoom: 10,
                                             "map-type-id": "terrain"
                                           }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "change-driver-form" },
-                                          [
-                                            _c("form", [
-                                              _c(
-                                                "div",
-                                                { staticClass: "form-group" },
-                                                [
-                                                  _vm._m(8, true),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "select",
-                                                    {
-                                                      directives: [
-                                                        {
-                                                          name: "model",
-                                                          rawName: "v-model",
-                                                          value:
-                                                            _vm.form.driver_id,
-                                                          expression:
-                                                            "form.driver_id"
-                                                        }
-                                                      ],
-                                                      staticClass:
-                                                        "form-control select-input",
-                                                      attrs: {
-                                                        name: "driver_id"
-                                                      },
-                                                      on: {
-                                                        change: function(
-                                                          $event
-                                                        ) {
-                                                          var $$selectedVal = Array.prototype.filter
-                                                            .call(
-                                                              $event.target
-                                                                .options,
-                                                              function(o) {
-                                                                return o.selected
-                                                              }
-                                                            )
-                                                            .map(function(o) {
-                                                              var val =
-                                                                "_value" in o
-                                                                  ? o._value
-                                                                  : o.value
-                                                              return val
-                                                            })
-                                                          _vm.$set(
-                                                            _vm.form,
-                                                            "driver_id",
-                                                            $event.target
-                                                              .multiple
-                                                              ? $$selectedVal
-                                                              : $$selectedVal[0]
-                                                          )
-                                                        }
-                                                      }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "option",
-                                                        {
-                                                          attrs: {
-                                                            value: "",
-                                                            disabled: "disabled"
-                                                          }
-                                                        },
-                                                        [_vm._v("Select ..")]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _vm._l(
-                                                        _vm.drivers.data,
-                                                        function(item) {
-                                                          return _c(
-                                                            "option",
-                                                            {
-                                                              attrs: {
-                                                                value: "1"
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                _vm._s(
-                                                                  item.name
-                                                                )
-                                                              )
-                                                            ]
-                                                          )
-                                                        }
-                                                      )
-                                                    ],
-                                                    2
-                                                  )
-                                                ]
-                                              )
-                                            ])
-                                          ]
-                                        )
+                                        })
                                       ],
                                       1
                                     )
                                   ])
                                 ]),
                                 _vm._v(" "),
-                                _vm._m(9, true)
+                                _vm._m(12, true)
                               ]
                             )
                           ])
@@ -75331,19 +75625,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "status status-blue" }, [
-      _c("span", { staticClass: "status-text" }, [_vm._v("Generate Price")])
-    ])
+    return _c(
+      "div",
+      { staticClass: "sidebar-icon", staticStyle: { "margin-right": "10px" } },
+      [_c("i", { staticClass: "fas fa-user-tie" })]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "a",
-      { staticClass: "btn-tbl-reject", attrs: { target: "_blank" } },
-      [_c("i", { staticClass: "fas fa-minus" })]
+      "div",
+      { staticClass: "sidebar-icon", staticStyle: { "margin-right": "10px" } },
+      [_c("i", { staticClass: "fas fa-car" })]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "status status-blue" }, [
+      _c("span", { staticClass: "status-text" }, [_vm._v("Generate Price")])
+    ])
   },
   function() {
     var _vm = this
@@ -75395,8 +75699,33 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "form-label" }, [
-      _c("span", [_vm._v("Change Driver:")])
+      _c("span", [_vm._v("Select Driver:")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-label" }, [
+      _c("span", [_vm._v("Select Vehicle:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   },
   function() {
     var _vm = this
@@ -75415,7 +75744,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save changes")]
+        [_vm._v("Save")]
       )
     ])
   }

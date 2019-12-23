@@ -33,20 +33,20 @@ class BookingObserver
             $booking->number = '440' . Keygen::numeric(3)->generate();
         }
 
-//        // Create new custom if not exist
-//        if (Customer::where('email', request()->get('email'))->exists()) {
-//            $customer_id = Customer::select('id')->where('email', request()->get('email'))->first();
-//            $booking->customer_id = $customer_id->id;
-//        } else {
-//            $customer = new Customer();
-//            $customer->name  = request()->get('name');
-//            $customer->email = request()->get('email');
-//            $customer->phone = request()->get('phone');
-//            $customer->save();
-//
-//            $customer_id = Customer::select('id')->where('email', request()->get('email'))->first();
-//            $booking->customer_id = $customer_id->id;
-//        }
+        // Create new custom if not exist
+        if (Customer::where('email', request()->get('email'))->exists()) {
+            $customer_id = Customer::select('id')->where('email', request()->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
+        } else {
+            $customer = new Customer();
+            $customer->name  = request()->get('name');
+            $customer->email = request()->get('email');
+            $customer->phone = request()->get('phone');
+            $customer->save();
+
+            $customer_id = Customer::select('id')->where('email', request()->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
+        }
 
         // Auto-generate pdf file with 'pickup-sign'
 //        if (request()->get('pickup_sign')) {

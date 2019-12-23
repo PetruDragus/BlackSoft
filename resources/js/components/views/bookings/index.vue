@@ -101,8 +101,29 @@
                             <th>{{ row.number }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>
                             <td class="md-w245">{{ row.drop_address }}</td>
-                            <th v-if="row.driver !== null">{{ row.driver.name }}</th>
-                            <th v-else style="color: #E63A46;">Unassigned</th>
+                            <td style="display:grid;font-weight: 600;">
+                                <div style="display: inline-flex;">
+                                    <div class="sidebar-icon" style="margin-right: 10px;">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+
+                                    <div>
+                                        <div v-if="row.driver !== null">{{ row.driver.name }}</div>
+                                        <div v-else style="color: #E63A46;">Unassigned</div>
+                                    </div>
+                                </div>
+
+                                <div style="display: inline-flex;">
+                                    <div class="sidebar-icon" style="margin-right: 10px;">
+                                        <i class="fas fa-car"></i>
+                                    </div>
+
+                                    <div>
+                                        <div v-if="row.vehicle !== null">{{ row.vehicle.plate }}</div>
+                                        <div v-else style="color: #E63A46;">Unassigned</div>
+                                    </div>
+                                </div>
+                            </td>
                             <td>{{ row.date | formatDate }} / {{ row.pickup_hour }}:{{ row.pickup_min }}</td>
                             <td>
                                 <span class="status status-blue">
@@ -125,28 +146,32 @@
                             </td>
                             <td>
                                 <div v-if="row.status == 'Pending'" style="display: flex;">
-                                    <a @click="acceptTrip(row.id)" class="btn-tbl-accept">
+                                    <a @click="acceptModal(row)" class="btn-tbl-accept" >
                                         <i class="fas fa-check"></i>
                                     </a>
 
-                                    <a target="_blank" class="btn-tbl-reject">
+                                    <a v-on:click="cancelTrip(row.id)" class="btn-tbl-reject">
                                         <i class="fas fa-minus"></i>
                                     </a>
                                 </div>
 
-                                <span class="status status-60min" v-if="row.status == '60 min'">
+                                <span class="status status-60min" v-if="row.status === '60 min'">
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
 
-                                <span class="status status-arrived" v-if="row.status == 'Arrived'">
+                                <span class="status status-arrived" v-else-if="row.status === 'Arrived'">
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
 
-                                <span class="status status-pink" v-if="row.status == 'Cancelled'">
+                                <span class="status status-blue" v-else-if="row.status === 'Accepted'">
+                                    <span class="status-text">Accepted</span>
+                                </span>
+
+                                <span class="status status-pink" v-else-if="row.status === 'Cancelled'">
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
 
-                                <span class="status status-green" v-if="row.status == 'Finished'">
+                                <span class="status status-green" v-else-if="row.status === 'Finished'">
                                     <span class="status-text">{{ row.status }}</span>
                                 </span>
                             </td>
@@ -181,7 +206,7 @@
                                                 <i class="fas fa-ban"></i>
                                                 <span class="nav__link-text">Cancel</span>
                                             </a>
-                                            <a class="dropdown-item" @click="deleteBooking(row.id)">
+                                            <a class="dropdown-item" @click="cancelTrip(row)">
                                                 <i class="far fa-trash-alt"></i>
                                                 <span class="nav__link-text">Delete</span>
                                             </a>
@@ -190,31 +215,83 @@
                                 </div>
                             </td>
 
+                            <!-- Assign modal -->
+                            <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Assign booking (no. {{ row.number}}) to driver and vehicle</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form @submit.prevent="acceptTrip">
+                                            <div class="modal-body">
+                                                <div class="assign-form">
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label">
+                                                                    <span>Select Driver:</span>
+                                                                </label>
+
+                                                                <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
+                                                                    <option value="" disabled="disabled">Select ..</option>
+                                                                    <option v-for="item in drivers.data" value="1">{{ item.name }}</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label">
+                                                                    <span>Select Vehicle:</span>
+                                                                </label>
+
+                                                                <select v-model="form.vehicle_id" class="form-control select-input" name="vehicle_id">
+                                                                    <option value="" disabled="disabled">Select ..</option>
+                                                                    <option v-for="item in vehicles.data" value="1">{{ item.plate }} - {{ item.make }} {{ item.model }} </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button :disabled="form.busy" type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End assign modal -->
+
                             <!-- Modal -->
                             <div class="modal fade booking-modal" v-bind:id="'previewBookingModal'+row.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">
-                                                {{ row.pickup_hour }}:{{ row.pickup_min }} - {{ row.date | formatDate }} - #{{ row.id }} - {{ row.vehicle.bussiness_type }}
+                                                {{ row.pickup_hour }}:{{ row.pickup_min }} - {{ row.date | formatDate }} - #{{ row.number }}
 
-                                                <span class="status status-gray" v-if="row.status == 'Pending'">
+                                                <span class="status status-gray" v-if="row.status === 'Pending'">
                                                     <span class="status-text">{{ row.status }}</span>
                                                 </span>
 
-                                                <span class="status status-60min" v-if="row.status == '60 min'">
+                                                <span class="status status-60min" v-else-if="row.status === '60 min'">
                                                     <span class="status-text">{{ row.status }}</span>
                                                 </span>
 
-                                                <span class="status status-arrived" v-if="row.status == 'Arrived'">
+                                                <span class="status status-arrived" v-else-if="row.status === 'Arrived'">
                                                     <span class="status-text">{{ row.status }}</span>
                                                 </span>
 
-                                                <span class="status status-pink" v-if="row.status == 'Cancelled'">
+                                                <span class="status status-arrived" v-else-if="row.status === 'Accepted'">
+                                                    <span class="status-text">Accepted</span>
+                                                </span>
+
+                                                <span class="status status-pink" v-else-if="row.status === 'Cancelled'">
                                                     <span class="status-text">{{ row.status }}</span>
                                                 </span>
 
-                                                <span class="status status-green" v-if="row.status == 'Finished'">
+                                                <span class="status status-green" v-else-if="row.status === 'Finished'">
                                                     <span class="status-text">{{ row.status }}</span>
                                                 </span>
                                             </h5>
@@ -307,32 +384,32 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <GmapMap
-                                                            :center="{ lat:10, lng:10 }"
+                                                            :center="{ lat:52.5200, lng:13.4050 }"
                                                             :zoom="10"
                                                             map-type-id="terrain"
                                                             style="width: auto; height: 400px"
                                                     >
                                                     </GmapMap>
-                                                    <div class="change-driver-form">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label class="form-label">
-                                                                    <span>Change Driver:</span>
-                                                                </label>
+<!--                                                    <div class="change-driver-form">-->
+<!--                                                        <form>-->
+<!--                                                            <div class="form-group">-->
+<!--                                                                <label class="form-label">-->
+<!--                                                                    <span>Change Driver:</span>-->
+<!--                                                                </label>-->
 
-                                                                <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
-                                                                    <option value="" disabled="disabled">Select ..</option>
-                                                                    <option v-for="item in drivers.data" value="1">{{ item.name }}</option>
-                                                                </select>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+<!--                                                                <select v-model="form.driver_id" class="form-control select-input" name="driver_id">-->
+<!--                                                                    <option value="" disabled="disabled">Select ..</option>-->
+<!--                                                                    <option v-for="item in drivers.data" value="1">{{ item.name }}</option>-->
+<!--                                                                </select>-->
+<!--                                                            </div>-->
+<!--                                                        </form>-->
+<!--                                                    </div>-->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
                                         </div>
                                         </form>
                                     </div>
@@ -360,7 +437,10 @@
 <script>
     import Vue from 'vue'
     import axios from 'axios'
-    import Form from 'vform'
+    import { Form, HasError, AlertError } from 'vform'
+
+    Vue.component(HasError.name, HasError);
+    Vue.component(AlertError.name, AlertError);
 
     //similar to vue-resource
     export default {
@@ -371,11 +451,13 @@
                 form: new Form({
                     id: '',
                     driver_id: '',
+                    vehicle_id: '',
                     status: '',
                     pickup_address: '',
                     drop_address: ''
                 }),
                 drivers: {},
+                vehicles: {},
                 model: {},
                 columns: {},
                 source: '/api/v1/bookings',
@@ -403,6 +485,7 @@
         created() {
             this.fetchIndexData();
             this.loadDrivers();
+            this.loadVehicles();
         },
         methods: {
             next() {
@@ -417,37 +500,43 @@
                     this.fetchIndexData()
                 }
             },
-            AcceptTrip (id) {
-                this.form.patch('api/v2/booking/accept/'+this.form.id)
-                    .then(() => {
-
-                    })
-                    .catch(() => {
-
-                    });
-                $('.booking-modal').modal('hide')
+            acceptModal(row) {
+                this.editmode = true;
+                this.form.reset();
+                $('#assignModal').modal('show');
+                this.form.fill(row);
             },
-            cancelBooking (id) {
-                this.form.put('api/v1/bookings/cancel/'+this.form.id)
-                    .then(() => {
-
+            acceptTrip (id) {
+                this.form.put('api/v3/booking/accept/'+this.form.id)
+                    .then(function (response) {
+                        window.location.reload();
                     })
-                    .catch(() => {
-
+                    .catch(function (error) {
+                        console.log(error);
                     });
-                $('.booking-modal').modal('hide')
+                this.fetchIndexData();
+                $('#assignModal').modal('hide');
+            },
+            cancelTrip (id) {
+                this.form.put('api/v3/booking/cancel/'+id)
+                    .then(function (response) {
+                        window.location.reload();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                this.fetchIndexData();
             },
             deleteBooking(id) {
-                if(confirm('are you sure?'))
 
                 // Send request to the server
-                    axios.delete( '/api/v1/bookings/'+id)
-                        .then(function (response) {
-                            window.location.reload();
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
+                this.form.put('api/v1/bookings/cancel/'+id)
+                    .then(function (response) {
+                        window.location.reload();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             toggleOrder(column) {
                 if(column === this.query.column) {
@@ -469,6 +558,9 @@
             loadDrivers() {
                 axios.get('/api/v1/drivers').then(({ data }) => (this.drivers = data));
             },
+            loadVehicles() {
+                axios.get('/api/v1/vehicles').then(({ data }) => (this.vehicles = data));
+            },
             fetchIndexData() {
                 var vm = this
 
@@ -483,6 +575,10 @@
                         console.log(response)
                     })
             }
-        }
+        },
+        // created() {
+        //     this.fetchIndexData();
+        //     setInterval(() => this.fetchIndexData(), 3000);
+        // }
     }
 </script>

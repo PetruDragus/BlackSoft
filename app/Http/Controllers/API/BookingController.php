@@ -6,6 +6,12 @@ use App\Booking;
 
 use App\Mail\BookingDeleteMail;
 use App\Mail\ClientBookingCancelled;
+
+use App\Mail\Guest\BookingRejected;
+use App\Mail\Guest\BookingConfirmed;
+
+use App\Mail\Driver\BookingDriverAccepted;
+
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
@@ -52,9 +58,29 @@ class BookingController extends Controller
 
     public function acceptTrip(Request $request, $id)
     {
-        $booking = Booking::findOrFail($id);
-        $booking->status  = 'Accept';
-        $booking->save();
+        $booking = Booking::find($id);
+        $booking->status  = "Accepted";
+        $booking->driver_id  = $request['driver_id'];
+        $booking->vehicle_id = $request['vehicle_id'];;
+        $booking->update();
+
+        Mail::to($booking->driver->email)->send(new BookingConfirmed($booking));
+        Mail::to($booking->customer->email)->send(new BookingDriverAccepted($booking));
+
+        notify()->success('Trip successfully accepted!');
+
+        return ['message', 'Success'];
+    }
+
+    public function cancelTrip(Request $request, $id)
+    {
+        $booking = Booking::find($id);
+        $booking->status  = "Cancelled";
+        $booking->update();
+
+//        Mail::to('dragus.patrick@icloud.com')->send(new BookingRejected($booking));
+
+        return ['message', 'Success'];
     }
 
     public function changeDriver(Request $request, $id)
