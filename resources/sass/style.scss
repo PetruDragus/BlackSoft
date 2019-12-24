@@ -2520,3 +2520,27 @@ div#assignModal {
     }
   }
 }
+
+.sunset-msg {
+  display: inline-flex;
+  margin-bottom: 15px;
+
+  .text-box {
+    margin-left: 25px;
+    padding-top: 10px;
+
+    p.tit {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: 0px;
+      margin-bottom: 0px;
+      color: #3c3c3c;
+    }
+
+    p.subtit {
+      font-size: 13px;
+      color: #5e5e5e;
+      margin-bottom: 0;
+    }
+  }
+}

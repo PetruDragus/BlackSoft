@@ -202,14 +202,14 @@
                                                 <i class="far fa-edit"></i>
                                                 <span class="nav__link-text">Edit</span>
                                             </a>
-                                            <a class="dropdown-item">
+                                            <a class="dropdown-item" v-on:click="deleteBooking(row.id)">
                                                 <i class="fas fa-ban"></i>
                                                 <span class="nav__link-text">Cancel</span>
                                             </a>
-                                            <a class="dropdown-item" @click="cancelTrip(row)">
-                                                <i class="far fa-trash-alt"></i>
-                                                <span class="nav__link-text">Delete</span>
-                                            </a>
+<!--                                            <a class="dropdown-item" >-->
+<!--                                                <i class="far fa-trash-alt"></i>-->
+<!--                                                <span class="nav__link-text">Delete</span>-->
+<!--                                            </a>-->
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +220,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Assign booking (no. {{ row.number}}) to driver and vehicle</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Assign booking (no. {{ row.number }}) to driver and vehicle</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -509,7 +509,7 @@
             acceptTrip (id) {
                 this.form.put('api/v3/booking/accept/'+this.form.id)
                     .then(function (response) {
-                        window.location.reload();
+
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -517,10 +517,10 @@
                 this.fetchIndexData();
                 $('#assignModal').modal('hide');
             },
-            cancelTrip (id) {
-                this.form.put('api/v3/booking/cancel/'+id)
+            cancelTrip(id) {
+                this.form.put('api/v3/booking/reject/'+id)
                     .then(function (response) {
-                        window.location.reload();
+
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -528,15 +528,14 @@
                 this.fetchIndexData();
             },
             deleteBooking(id) {
-
-                // Send request to the server
-                this.form.put('api/v1/bookings/cancel/'+id)
+                this.form.put('api/v3/booking/cancel/'+id)
                     .then(function (response) {
-                        window.location.reload();
+
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
+                this.fetchIndexData();
             },
             toggleOrder(column) {
                 if(column === this.query.column) {

@@ -3,20 +3,33 @@
 @section('content')
     <div id="dash">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="page-title-box">
-                    <div class="float-right">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="javascript:void(0);">Blackhansa</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="javascript:void(0);">CRM</a>
-                            </li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    </div>
-                    <h4 class="page-title">Dashboard</h4>
+            <div class="col-sm-12 sunset-msg">
+{{--                <div class="page-title-box">--}}
+{{--                    <div class="float-right">--}}
+{{--                        <ol class="breadcrumb">--}}
+{{--                            <li class="breadcrumb-item">--}}
+{{--                                <a href="javascript:void(0);">Blackhansa</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="breadcrumb-item">--}}
+{{--                                <a href="javascript:void(0);">CRM</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="breadcrumb-item active">Dashboard</li>--}}
+{{--                        </ol>--}}
+{{--                    </div>--}}
+{{--                    <h4 class="page-title">Dashboard</h4>--}}
+{{--                </div>--}}
+
+                <div>
+                    <img src="https://image.flaticon.com/icons/png/512/205/205630.png" width="75" />
+                </div>
+
+                <div class="text-box">
+                    @if(!Auth::user()->profile)
+                        <p class="tit">Good Morning, {{ Auth::user()->name }}</p>
+                    @else
+                        <p class="tit">Good Morning, {{ Auth::user()->profile->name }}</p>
+                    @endif
+                    <p class="subtit">It's time to take on the day.</p>
                 </div>
                 <!--end page-title-box-->
             </div>

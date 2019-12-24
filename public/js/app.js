@@ -17595,29 +17595,23 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       this.form.fill(row);
     },
     acceptTrip: function acceptTrip(id) {
-      this.form.put('api/v3/booking/accept/' + this.form.id).then(function (response) {
-        window.location.reload();
-      })["catch"](function (error) {
+      this.form.put('api/v3/booking/accept/' + this.form.id).then(function (response) {})["catch"](function (error) {
         console.log(error);
       });
       this.fetchIndexData();
       $('#assignModal').modal('hide');
     },
     cancelTrip: function cancelTrip(id) {
-      this.form.put('api/v3/booking/cancel/' + id).then(function (response) {
-        window.location.reload();
-      })["catch"](function (error) {
+      this.form.put('api/v3/booking/reject/' + id).then(function (response) {})["catch"](function (error) {
         console.log(error);
       });
       this.fetchIndexData();
     },
     deleteBooking: function deleteBooking(id) {
-      // Send request to the server
-      this.form.put('api/v1/bookings/cancel/' + id).then(function (response) {
-        window.location.reload();
-      })["catch"](function (error) {
+      this.form.put('api/v3/booking/cancel/' + id).then(function (response) {})["catch"](function (error) {
         console.log(error);
       });
+      this.fetchIndexData();
     },
     toggleOrder: function toggleOrder(column) {
       if (column === this.query.column) {
@@ -74670,25 +74664,23 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(7, true),
-                              _vm._v(" "),
                               _c(
                                 "a",
                                 {
                                   staticClass: "dropdown-item",
                                   on: {
                                     click: function($event) {
-                                      return _vm.cancelTrip(row)
+                                      return _vm.deleteBooking(row.id)
                                     }
                                   }
                                 },
                                 [
-                                  _c("i", { staticClass: "far fa-trash-alt" }),
+                                  _c("i", { staticClass: "fas fa-ban" }),
                                   _vm._v(" "),
                                   _c(
                                     "span",
                                     { staticClass: "nav__link-text" },
-                                    [_vm._v("Delete")]
+                                    [_vm._v("Cancel")]
                                   )
                                 ]
                               )
@@ -74736,7 +74728,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(8, true)
+                              _vm._m(7, true)
                             ]),
                             _vm._v(" "),
                             _c(
@@ -74757,7 +74749,7 @@ var render = function() {
                                         "div",
                                         { staticClass: "form-group col-md-6" },
                                         [
-                                          _vm._m(9, true),
+                                          _vm._m(8, true),
                                           _vm._v(" "),
                                           _c(
                                             "select",
@@ -74830,7 +74822,7 @@ var render = function() {
                                         "div",
                                         { staticClass: "form-group col-md-6" },
                                         [
-                                          _vm._m(10, true),
+                                          _vm._m(9, true),
                                           _vm._v(" "),
                                           _c(
                                             "select",
@@ -75065,7 +75057,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(11, true)
+                              _vm._m(10, true)
                             ]),
                             _vm._v(" "),
                             _c(
@@ -75448,7 +75440,7 @@ var render = function() {
                                   ])
                                 ]),
                                 _vm._v(" "),
-                                _vm._m(12, true)
+                                _vm._m(11, true)
                               ]
                             )
                           ])
@@ -75666,16 +75658,6 @@ var staticRenderFns = [
       },
       [_c("i", { staticClass: "fas fa-ellipsis-h" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "dropdown-item" }, [
-      _c("i", { staticClass: "fas fa-ban" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "nav__link-text" }, [_vm._v("Cancel")])
-    ])
   },
   function() {
     var _vm = this

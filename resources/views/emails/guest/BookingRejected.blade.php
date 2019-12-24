@@ -118,7 +118,7 @@
                 <div class="header-content-right" style="margin-left: 35px;">
                     <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">Ride Rejected!</p>
                     <p style="color:#9e9e9e;font-size: 12px;margin-top: 10px;">Dear <span style="font-weight:500;color:#fff;">{{ $booking['customer']['name'] }},</span></p>
-                    <p style="color:#FF0000;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Rejected text</p>
+                    <p style="color:#FF0000;font-size: 12px;margin-top: 10px;margin-bottom: 0;">We are sorry but at this moment we are fully booked.</p>
                 </div>
             </div>
 

@@ -4,18 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Driver;
 use App\Http\Requests\BookingStoreRequest;
+use App\Mail\Driver\BookingDriverEdited;
+use App\Mail\Guest\BookingEdited;
 use App\Services\BookingService;
 use App\Vehicle;
 use App\Booking;
+use App\Customer;
 
 use App\Mail\ClientBookingCancelled;
 
 use App\Mail\Guest\ChauffeurArrived;
 use App\Mail\Guest\ChauffeurOnWay;
+
 use App\Mail\Driver\BookingDriver60min;
+use App\Mail\Driver\BookingDriverArrived;
 
 use Illuminate\Http\Request;
 use Session;
+use Keygen\Keygen;
 
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
@@ -82,7 +88,7 @@ class BookingController extends Controller
         $booking->status  = '60 min';
         $booking->save();
 
-        Mail::to($booking->driver->email)->send(new ChauffeurOnWay($booking));
+        Mail::to($booking->customer->email)->send(new ChauffeurOnWay($booking));
     }
 
     public function arrivedStatus(Request $request, $id)
@@ -171,6 +177,34 @@ class BookingController extends Controller
         // Using custom service for price calculator
         $booking->price           = $bookingService->calculateBookingPrice($booking);
 
+                // Generate booking number with vehicle prefix
+        if (request()->get('vehicle_id') == 1 ) {
+            $booking->number = '550' . Keygen::numeric(3)->generate();
+        } elseif (request()->get('vehicle_id') == 2) {
+            $booking->number = '330' . Keygen::numeric(3)->generate();
+        } elseif (request()->get('vehicle_id') == 3) {
+            $booking->number = '220' . Keygen::numeric(3)->generate();
+        } elseif (request()->get('vehicle_id') == 4) {
+            $booking->number = '110' . Keygen::numeric(3)->generate();
+        } elseif (request()->get('vehicle_id') == 5) {
+            $booking->number = '440' . Keygen::numeric(3)->generate();
+        }
+
+        // Create new custom if not exist
+        if (Customer::where('email', request()->get('email'))->exists()) {
+            $customer_id = Customer::select('id')->where('email', request()->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
+        } else {
+            $customer = new Customer();
+            $customer->name  = request()->get('name');
+            $customer->email = request()->get('email');
+            $customer->phone = request()->get('phone');
+            $customer->save();
+
+            $customer_id = Customer::select('id')->where('email', request()->get('email'))->first();
+            $booking->customer_id = $customer_id->id;
+        }
+
         $booking->save();
 
         // After booking submitted, send email to customer
@@ -240,6 +274,9 @@ class BookingController extends Controller
         // Using custom service for price calculator
         $booking->price           = $bookingService->calculateBookingPrice($booking);
         $booking->save();
+
+        Mail::to($booking->driver->email)->send(new BookingDriverEdited($booking));
+        Mail::to($booking->customer->email)->send(new BookingEdited($booking));
 
         notify()->success('Trip successfully edited!');
 

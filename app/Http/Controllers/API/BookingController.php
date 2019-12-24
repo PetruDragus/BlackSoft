@@ -9,8 +9,10 @@ use App\Mail\ClientBookingCancelled;
 
 use App\Mail\Guest\BookingRejected;
 use App\Mail\Guest\BookingConfirmed;
+use App\Mail\Guest\BookingCancelled;
 
 use App\Mail\Driver\BookingDriverAccepted;
+use App\Mail\Driver\BookingDriverCancelled;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -59,7 +61,7 @@ class BookingController extends Controller
     public function acceptTrip(Request $request, $id)
     {
         $booking = Booking::find($id);
-        $booking->status  = "Accepted";
+        $booking->status     = "Accepted";
         $booking->driver_id  = $request['driver_id'];
         $booking->vehicle_id = $request['vehicle_id'];;
         $booking->update();
@@ -72,13 +74,30 @@ class BookingController extends Controller
         return ['message', 'Success'];
     }
 
-    public function cancelTrip(Request $request, $id)
+    public function rejectTrip(Request $request, $id)
     {
-        $booking = Booking::find($id);
+        $booking = Booking::findOrFail($id);
         $booking->status  = "Cancelled";
         $booking->update();
 
-//        Mail::to('dragus.patrick@icloud.com')->send(new BookingRejected($booking));
+        Mail::to($booking->customer->email)->send(new BookingRejected($booking));
+
+        return ['message', 'Success'];
+    }
+
+    public function cancelTrip(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status  = "Cancelled";
+        $booking->update();
+
+        Mail::to($booking->customer->email)->send(new BookingCancelled($booking));
+        if (!$booking->driver) {
+            return ['messages', 'Driver dont found'];
+        } else {
+            Mail::to($booking->driver->email)->send(new BookingDriverCancelled($booking));
+        }
+
 
         return ['message', 'Success'];
     }
