@@ -64,3 +64,5 @@ Route::get('v2/reviews/vehicleReviews/{id}', 'API\VehicleReviewController@getVeh
 Route::put('v3/booking/accept/{id}', 'API\BookingController@acceptTrip');
 Route::put('v3/booking/reject/{id}', 'API\BookingController@rejectTrip');
 Route::put('v3/booking/cancel/{id}', 'API\BookingController@cancelTrip');
+
+Route::get('v1/api/test', 'API\BookingController@testAPI');

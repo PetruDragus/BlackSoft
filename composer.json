@@ -24,7 +24,7 @@
         "laravel/ui": "^1.0",
         "maatwebsite/excel": "^3.0",
         "mckenziearts/laravel-notify": "^1.1",
-        "nesbot/carbon": "^2.27",
+        "nesbot/carbon": "^2.28",
         "spatie/laravel-backup": "^6.7",
         "theiconic/php-ga-measurement-protocol": "^2.7",
         "yoeunes/toastr": "^1.2"

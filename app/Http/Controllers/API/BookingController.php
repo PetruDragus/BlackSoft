@@ -14,6 +14,7 @@ use App\Mail\Guest\BookingCancelled;
 use App\Mail\Driver\BookingDriverAccepted;
 use App\Mail\Driver\BookingDriverCancelled;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
@@ -257,5 +258,25 @@ class BookingController extends Controller
         $booking->delete();
 
         notify()->success('Trip successfully deleted!');
+    }
+
+    public function testAPI()
+    {
+        $now = new Carbon();
+        $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
+        $min60  = $now->copy()->addMinutes(120);
+
+        $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
+            ->where('pickup_hour', $berlin->hour)
+            ->get();
+
+
+        return response()
+            ->json([
+                'booking' => $booking,
+                'now' => $now,
+                'berlin' => $berlin,
+                'min60' => $min60
+            ]);
     }
 }
