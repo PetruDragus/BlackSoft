@@ -59,7 +59,7 @@
                 <div class="dv-header-columns">
                     <span class="dv-header-pre">Search: </span>
                     <select class="dv-header-select" v-model="query.search_column">
-                        <option v-for="column in columns" :value="column">{{column}}</option>
+                        <option v-for="item in search" :value="item">{{item}}</option>
                     </select>
                 </div>
                 <div class="dv-header-operators">
@@ -84,8 +84,8 @@
                         <th v-for="column in columns" @click="toggleOrder(column)">
                             <span>{{column}}</span>
                             <span class="dv-table-column" v-if="column === query.column">
-                    <span v-if="query.direction === 'desc'">&darr;</span>
-                    <span v-else>&uarr;</span>
+                            <span v-if="query.direction === 'desc'">&darr;</span>
+                            <span v-else>&uarr;</span>
                   </span>
                         </th>
                     </tr>
@@ -101,7 +101,7 @@
                             <th>{{ row.number }}</th>
                             <td class="md-w245">{{ row.pickup_address }}</td>
                             <td class="md-w245">{{ row.drop_address }}</td>
-                            <td style="display:grid;font-weight: 600;">
+                            <td style="display:grid;font-weight: 600;border-bottom: 0;border-top: 1px solid #E9E9E9;">
                                 <div style="display: inline-flex;">
                                     <div class="sidebar-icon" style="margin-right: 10px;">
                                         <i class="fas fa-user-tie"></i>
@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ row.date | formatDate }} / {{ row.pickup_hour }}:{{ row.pickup_min }}</td>
+                            <td style="width: 150px;">{{ row.date | formatMiniDate }} / {{ row.pickup_hour }}:{{ row.pickup_min }}</td>
                             <td>
                                 <span class="status status-blue">
                                     <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.passagers }}</span>
@@ -136,7 +136,7 @@
                                 </span>
                             </td>
 
-                            <td class="td-price" v-if="row.price > '0'">€ {{ row.price | formatMoney}}</td>
+                            <td class="td-price" v-if="row.price > '0'" style="width: 75px;">€ {{ row.price | formatMoney}}</td>
                             <td class="td-price" v-else="row.price == '0'">
                                 <a @click="generatePrice(row.id)">
                                     <span class="status status-blue">
@@ -181,7 +181,7 @@
 <!--                                    <i class="fa fa-map-marker-alt"></i>-->
 <!--                                </a>-->
 <!--                            </td>-->
-                            <td>{{ row.created_at | formatDate }}</td>
+                            <td>{{ row.created_at | formatMiniDate }}</td>
                             <td>
                                 <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
                                     <div class="dropdown">
@@ -190,10 +190,10 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" data-toggle="modal" v-bind:data-target="'#previewBookingModal'+row.id">
-                                                <i class="far fa-window-restore"></i>
-                                                <span class="nav__link-text">Preview</span>
-                                            </a>
+<!--                                            <a class="dropdown-item" data-toggle="modal" v-bind:data-target="'#previewBookingModal'+row.id">-->
+<!--                                                <i class="far fa-window-restore"></i>-->
+<!--                                                <span class="nav__link-text">Preview</span>-->
+<!--                                            </a>-->
                                             <a class="dropdown-item" v-bind:href="'/bookings/'+row.id">
                                                 <i class="far fa-eye"></i>
                                                 <span class="nav__link-text">View</span>
@@ -236,7 +236,7 @@
 
                                                                 <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
                                                                     <option value="" disabled="disabled">Select ..</option>
-                                                                    <option v-for="item in drivers.data" value="1">{{ item.name }}</option>
+                                                                    <option v-for="item in drivers.data" v-bind:value="item.id">{{ item.name }}</option>
                                                                 </select>
                                                             </div>
 
@@ -247,7 +247,7 @@
 
                                                                 <select v-model="form.vehicle_id" class="form-control select-input" name="vehicle_id">
                                                                     <option value="" disabled="disabled">Select ..</option>
-                                                                    <option v-for="item in vehicles.data" value="1">{{ item.plate }} - {{ item.make }} {{ item.model }} </option>
+                                                                    <option v-for="item in vehicles.data" v-bind:value="item.id">{{ item.plate }} - {{ item.make }} {{ item.model }} </option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -460,6 +460,7 @@
                 vehicles: {},
                 model: {},
                 columns: {},
+                search: {},
                 source: '/api/v1/bookings',
                 query: {
                     page: 1,
@@ -569,6 +570,7 @@
                     .then(function(response) {
                         Vue.set(vm.$data, 'model', response.data.model)
                         Vue.set(vm.$data, 'columns', response.data.columns)
+                        Vue.set(vm.$data, 'search', response.data.search)
                     })
                     .catch(function(response) {
                         console.log(response)

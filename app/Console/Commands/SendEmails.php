@@ -45,10 +45,11 @@ class SendEmails extends Command
     {
         // Data de acum
         $now = new Carbon();
-        $min60 = $now->copy()->addMinutes(120); // Berlin timestamp
+        $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
+        $min60  = $berlin->copy()->subMinutes(60);
 
         $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
-            ->where('pickup_hour', $min60->hour)
+            ->where('pickup_hour', $berlin->hour)
             ->where('pickup_min', $min60->minute)
             ->get();
 

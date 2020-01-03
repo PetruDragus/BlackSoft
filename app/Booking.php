@@ -24,6 +24,10 @@ class Booking extends Model
         'name', 'number'
     ];
 
+    public static $search = [
+        'id', 'number', 'pickup_address', 'drop_address'
+    ];
+
     public static $columns = [
         'id', 'Trip No.', 'Pickup Address', 'Drop Address', 'Driver | Car', 'Date', 'Passagers', 'Bags', 'Price', 'Status', 'Created', 'Actions'
     ];

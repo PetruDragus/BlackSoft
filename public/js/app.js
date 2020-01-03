@@ -17548,6 +17548,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       vehicles: {},
       model: {},
       columns: {},
+      search: {},
       source: '/api/v1/bookings',
       query: {
         page: 1,
@@ -17658,6 +17659,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'model', response.data.model);
         vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'columns', response.data.columns);
+        vue__WEBPACK_IMPORTED_MODULE_0___default.a.set(vm.$data, 'search', response.data.search);
       })["catch"](function (response) {
         console.log(response);
       });
@@ -74274,9 +74276,9 @@ var render = function() {
                 }
               }
             },
-            _vm._l(_vm.columns, function(column) {
-              return _c("option", { domProps: { value: column } }, [
-                _vm._v(_vm._s(column))
+            _vm._l(_vm.search, function(item) {
+              return _c("option", { domProps: { value: item } }, [
+                _vm._v(_vm._s(item))
               ])
             }),
             0
@@ -74425,7 +74427,14 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "td",
-                    { staticStyle: { display: "grid", "font-weight": "600" } },
+                    {
+                      staticStyle: {
+                        display: "grid",
+                        "font-weight": "600",
+                        "border-bottom": "0",
+                        "border-top": "1px solid #E9E9E9"
+                      }
+                    },
                     [
                       _c("div", { staticStyle: { display: "inline-flex" } }, [
                         _vm._m(3, true),
@@ -74453,9 +74462,9 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticStyle: { width: "150px" } }, [
                     _vm._v(
-                      _vm._s(_vm._f("formatDate")(row.date)) +
+                      _vm._s(_vm._f("formatMiniDate")(row.date)) +
                         " / " +
                         _vm._s(row.pickup_hour) +
                         ":" +
@@ -74496,9 +74505,18 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   row.price > "0"
-                    ? _c("td", { staticClass: "td-price" }, [
-                        _vm._v("€ " + _vm._s(_vm._f("formatMoney")(row.price)))
-                      ])
+                    ? _c(
+                        "td",
+                        {
+                          staticClass: "td-price",
+                          staticStyle: { width: "75px" }
+                        },
+                        [
+                          _vm._v(
+                            "€ " + _vm._s(_vm._f("formatMoney")(row.price))
+                          )
+                        ]
+                      )
                     : _c("td", { staticClass: "td-price" }, [
                         _c(
                           "a",
@@ -74578,7 +74596,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("td", [
-                    _vm._v(_vm._s(_vm._f("formatDate")(row.created_at)))
+                    _vm._v(_vm._s(_vm._f("formatMiniDate")(row.created_at)))
                   ]),
                   _vm._v(" "),
                   _c("td", [
@@ -74605,29 +74623,6 @@ var render = function() {
                               attrs: { "aria-labelledby": "dropdownMenuButton" }
                             },
                             [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "dropdown-item",
-                                  attrs: {
-                                    "data-toggle": "modal",
-                                    "data-target":
-                                      "#previewBookingModal" + row.id
-                                  }
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "far fa-window-restore"
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "nav__link-text" },
-                                    [_vm._v("Preview")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
                               _c(
                                 "a",
                                 {
@@ -74808,7 +74803,9 @@ var render = function() {
                                               ) {
                                                 return _c(
                                                   "option",
-                                                  { attrs: { value: "1" } },
+                                                  {
+                                                    domProps: { value: item.id }
+                                                  },
                                                   [_vm._v(_vm._s(item.name))]
                                                 )
                                               })
@@ -74881,7 +74878,11 @@ var render = function() {
                                                 function(item) {
                                                   return _c(
                                                     "option",
-                                                    { attrs: { value: "1" } },
+                                                    {
+                                                      domProps: {
+                                                        value: item.id
+                                                      }
+                                                    },
                                                     [
                                                       _vm._v(
                                                         _vm._s(item.plate) +

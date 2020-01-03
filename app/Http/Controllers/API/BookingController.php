@@ -32,11 +32,13 @@ class BookingController extends Controller
     {
         $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->searchPaginateAndOrder();
         $columns = Booking::$columns;
+        $search = Booking::$search;
 
         return response()
             ->json([
                 'model' => $model,
                 'columns' => $columns,
+                'search' => $search,
                 'items_count' => $model->count()
             ]);
     }
@@ -50,11 +52,13 @@ class BookingController extends Controller
     {
         $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->where('status', '=', 'Cancelled')->searchPaginateAndOrder();
         $columns = Booking::$columns;
+        $search = Booking::$search;
 
         return response()
             ->json([
                 'model' => $model,
                 'columns' => $columns,
+                'search' => $search,
                 'items_count' => $model->count()
             ]);
     }
@@ -264,10 +268,11 @@ class BookingController extends Controller
     {
         $now = new Carbon();
         $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
-        $min60  = $now->copy()->addMinutes(120);
+        $min60  = $berlin->copy()->subMinutes(60);
 
         $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
             ->where('pickup_hour', $berlin->hour)
+            ->where('pickup_min', $min60->minute)
             ->get();
 
 
