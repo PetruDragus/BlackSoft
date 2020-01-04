@@ -342,9 +342,12 @@
 
                                     <select name="status" class="form-control select-input">
                                         <option value="" disabled="disabled">Select ..</option>
-                                        <option value="Pending" >Pending</option>
-                                        <option value="Cancelled" >Cancelled</option>
-                                        <option value="Finished" >Finished</option>
+                                        <option value="Pending" @if($booking->status == 'Pending') selected @endif>Pending</option>
+                                        <option value="Cancelled" @if($booking->status == 'Cancelled') selected @endif>Cancelled</option>
+                                        <option value="60 min" @if($booking->status == '60 min') selected @endif>60 min</option>
+                                        <option value="Arrived" @if($booking->status == 'Arrived') selected @endif>Arrived</option>
+                                        <option value="Accepted" @if($booking->status == 'Accepted') selected @endif>Accepted</option>
+                                        <option value="Finished" @if($booking->status == 'Finished') selected @endif>Finished</option>
                                     </select>
                                 </div>
                             </div>

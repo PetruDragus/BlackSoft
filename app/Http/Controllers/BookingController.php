@@ -89,6 +89,9 @@ class BookingController extends Controller
         $booking->save();
 
         Mail::to($booking->customer->email)->send(new ChauffeurOnWay($booking));
+
+        return redirect()
+                        ->route('status.confirm');
     }
 
     public function arrivedStatus(Request $request, $id)
@@ -97,14 +100,19 @@ class BookingController extends Controller
         $booking->status  = 'Arrived';
         $booking->save();
 
-        Mail::to($booking->driver->email)->send(new ChauffeurArrived($booking));
+        Mail::to($booking->customer->email)->send(new ChauffeurArrived($booking));
     }
 
     public function finishStatus(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);
-        $booking->status  = 'Finish';
+        $booking->status  = 'Finished';
         $booking->save();
+    }
+
+    public function statusConfirm()
+    {
+        return view('emails.buttonConfirm');
     }
 
     protected function generateCode()

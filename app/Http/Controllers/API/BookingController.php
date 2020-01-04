@@ -267,20 +267,40 @@ class BookingController extends Controller
     public function testAPI()
     {
         $now = new Carbon();
+        $today = Carbon::today();
+        $cevax = $today->addDays(1);
+
+
         $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
-        $min60  = $berlin->copy()->subMinutes(60);
+        $romania = $now->copy()->addMinutes(120); // Berlin timestamp
+        $min60  = $romania->copy()->addMinutes(60); // Booking 2 goyrs
 
-        $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
-            ->where('pickup_hour', $berlin->hour)
-            ->where('pickup_min', $min60->minute)
-            ->get();
+        $booking = Booking::whereMonth('date', '=', $cevax->month)->whereDay('date', '=', $cevax->day)
+                            ->where('pickup_hour', $min60->hour)
+                            ->where('pickup_min', $min60->minute)
+                            ->get();
 
+//        foreach($booking as $booking)
+//        {
+//            $time = $booking->pickup_hour . ":" . $booking->pickup_min . ':' .'00';
+//            $date = $booking->date .  ' ' . $time;
+//            $test = Carbon::parse($date)->format('Y-m-d H:i:s');
+//            $book_date = new Carbon($test);
+//
+//            $diff = $book_date->diffInMinutes($now);
+//
+//            if($diff = 59 && $diff = 60){
+//                $da  = $booking->pickup_address;
+//            } else {
+//                $da = 'something went wrong';
+//            }
+//        }
 
         return response()
             ->json([
                 'booking' => $booking,
-                'now' => $now,
-                'berlin' => $berlin,
+                'now' => $min60,
+                'berlin' => $romania,
                 'min60' => $min60
             ]);
     }

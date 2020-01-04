@@ -117,7 +117,7 @@
 
                 <div class="header-content-right" style="margin-left: 35px;">
                     <p style="color: #ffffff;margin: 0;font-size: 24px;font-weight: 700;">60 min reminder</p>
-                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">This is an automatic reminder that announces for pressing that 60 min button.</p>
+                    <p style="color:#e0e0e0;font-size: 12px;margin-top: 10px;">This is an automatic reminder that announces for pressing that 60 min button, <br> Please respect the order of the buttons.</p>
                     <p style="color:#f5b656;font-size: 12px;margin-top: 10px;margin-bottom: 0;">Pressing button automatically sends notification to the guest. After pressing, no changes can be made</p>
                 </div>
             </div>

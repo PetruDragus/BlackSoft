@@ -85,9 +85,7 @@ Route::get('/events', 'HomeController@Events');
 Route::get('/test', 'API\BookingController@test');
 Route::get('/booking/cancelled', 'BookingController@cancelled');
 
-Route::get('/emailuri', function() {
-    return view('emails.driver.BookingDriver60min');
-});
+Route::get('/booking/updt', 'BookingController@statusConfirm')->name('status.confirm');
 
 
 // Emails update status
