@@ -32,8 +32,13 @@ class BookingDriverAccepted extends Mailable
      */
     public function build()
     {
+        $myPublicFolder = storage_path("app/public/PDF/");
+
         return $this->subject('Ride #' . $this->booking['number'] . ' ' . 'accepted' . ' ' . $this->booking['date'] . ' - ' . $this->booking['pickup_hour'] . ':' . $this->booking['pickup_min'])
             ->from('booking@blackhansa.de')
-            ->view('emails.driver.BookingDriverAccepted')->with(['booking', $this->booking]);
+            ->view('emails.driver.BookingDriverAccepted')->with(['booking', $this->booking])
+            ->attach($myPublicFolder.'/'.$this->booking['pickup_sign'].'.pdf', [
+                'mime' => 'application/pdf',
+            ]);
     }
 }

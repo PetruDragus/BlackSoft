@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use App\Helper\DataViewer;
 
@@ -29,9 +30,24 @@ class Booking extends Model
     ];
 
     public static $columns = [
-        'id', 'Trip No.', 'Pickup Address', 'Drop Address', 'Driver | Car', 'Date', 'Passagers', 'Bags', 'Price', 'Status', 'Created', 'Actions'
+        'id', 'Trip No.', 'Pickup Address', 'Drop Address', 'Driver | Car', 'Pickup Date / Time', 'Distance', 'Price', 'Status', 'Created', 'Actions'
     ];
 
+//    public function setDateAttribute( $value ) {
+//        $this->attributes['date'] = (new Carbon($value))->format('d/m/y');
+//    }
+
+    protected $allowedFilters = [
+        'id' ,'pickup_address', 'drop_address', 'date', 'passengers', 'bags', 'payment_method', 'flight_number',
+        'created_at', 'number',
+        // nested
+        'invoices.count', 'invoices.id', 'invoices.issue_date','invoices.due_date',
+        'invoices.total', 'invoices.created_at'
+    ];
+    protected $orderable = [
+        'id' ,'pickup_address', 'drop_address', 'date', 'passengers', 'bags', 'payment_method', 'flight_number',
+        'created_at', 'number',
+    ];
 
     public static function boot()
     {

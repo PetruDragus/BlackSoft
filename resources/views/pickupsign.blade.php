@@ -80,7 +80,7 @@
 
         <!-- Wrap the content of your PDF inside a main tag -->
         <main style="text-align: center; width: 100%;vertical-align: middle;">
-            <h1>Hello World</h1>
+            <h1>{{ $title }}</h1>
         </main>
     </body>
 </html>

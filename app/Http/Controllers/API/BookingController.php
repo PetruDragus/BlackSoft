@@ -30,13 +30,13 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->searchPaginateAndOrder();
+        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->advancedFilter();
         $columns = Booking::$columns;
         $search = Booking::$search;
 
         return response()
             ->json([
-                'model' => $model,
+                'collection' => $model,
                 'columns' => $columns,
                 'search' => $search,
                 'items_count' => $model->count()
@@ -267,15 +267,13 @@ class BookingController extends Controller
     public function testAPI()
     {
         $now = new Carbon();
-        $today = Carbon::today();
-        $cevax = $today->addDays(1);
-
+        $today = $now->isoFormat('YYYY-mm-D');
 
         $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
         $romania = $now->copy()->addMinutes(120); // Berlin timestamp
         $min60  = $romania->copy()->addMinutes(60); // Booking 2 goyrs
 
-        $booking = Booking::whereMonth('date', '=', $cevax->month)->whereDay('date', '=', $cevax->day)
+        $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
                             ->where('pickup_hour', $min60->hour)
                             ->where('pickup_min', $min60->minute)
                             ->get();

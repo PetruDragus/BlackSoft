@@ -1,5 +1,5 @@
 <template>
-    <div class="m-t-35">
+    <div class="m-t-65" id="bookings-page">
         <div class="col-md-12 toggled">
             <div class="row">
                 <div id="subheader_pg" class="subHeader__block">
@@ -11,7 +11,7 @@
                         <span class="subheader__separator kt-subheader__separator--v"></span>
 
                         <div class="subheader__desc__count">
-                            <span> {{ this.model.total }} Total</span>
+                            <span> 17 Total</span>
                         </div>
                     </div>
                     <div class="float-right">
@@ -51,384 +51,169 @@
             </div>
         </div>
 
-        <div class="dv">
-            <div class="dv-header">
-                <div class="dv-header-title">
-                    Bookings
-                </div>
-                <div class="dv-header-columns">
-                    <span class="dv-header-pre">Search: </span>
-                    <select class="dv-header-select" v-model="query.search_column">
-                        <option v-for="item in search" :value="item">{{item}}</option>
-                    </select>
-                </div>
-                <div class="dv-header-operators">
-                    <select class="dv-header-select" v-model="query.search_operator">
-                        <option v-for="(value, key) in operators" :value="key">{{value}}</option>
-                    </select>
-                </div>
-                <div class="dv-header-search">
-                    <input type="text" class="dv-header-input"
-                           placeholder="Search"
-                           v-model="query.search_input"
-                           @keyup.enter="fetchIndexData()">
-                </div>
-                <div class="dv-header-submit">
-                    <button class="dv-header-btn"@click="fetchIndexData()">Filter</button>
-                </div>
-            </div>
+        <div class="">
             <div class="dv-body table-responsive">
-                <table class="dv-table table">
-                    <thead>
-                    <tr>
-                        <th v-for="column in columns" @click="toggleOrder(column)">
-                            <span>{{column}}</span>
-                            <span class="dv-table-column" v-if="column === query.column">
-                            <span v-if="query.direction === 'desc'">&darr;</span>
-                            <span v-else>&uarr;</span>
-                  </span>
-                        </th>
-                    </tr>
+
+                <filterable v-bind="filterable">
+
+                    <thead slot="thead">
+                        <tr>
+                            <th>ID</th>
+                            <th>Trip No.</th>
+                            <th>Pickup Address</th>
+                            <th>Drop Address</th>
+                            <th>Customer</th>
+                            <th>Driver</th>
+                            <th>Vehicle</th>
+                            <th>Pickup Date / Time</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                        <tr v-if="model.data < 1">
-                            <td class="" colspan="10" style="text-align: left;">
-                                <div class="table-no_results">No results found!</div>
-                            </td>
-                        </tr>
-                        <tr v-for="row in model.data">
-                            <th>#{{ row.id }}</th>
-                            <th>{{ row.number }}</th>
-                            <td class="md-w245">{{ row.pickup_address }}</td>
-                            <td class="md-w245">{{ row.drop_address }}</td>
-                            <td style="display:grid;font-weight: 600;border-bottom: 0;border-top: 1px solid #E9E9E9;">
-                                <div style="display: inline-flex;">
-                                    <div class="sidebar-icon" style="margin-right: 10px;">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
 
-                                    <div>
-                                        <div v-if="row.driver !== null">{{ row.driver.name }}</div>
-                                        <div v-else style="color: #E63A46;">Unassigned</div>
-                                    </div>
+                    <tr slot-scope="{ item }">
+                        <th>#{{ item.id }}</th>
+                        <th>{{ item.number }}</th>
+                        <td class="md-w245">{{ item.pickup_address }}</td>
+                        <td class="md-w245">{{ item.drop_address }}</td>
+                        <td>{{ item.customer.name }}</td>
+                        <td>
+                            <div style="display: inline-flex;">
+                                <div class="sidebar-icon">
+                                    <i class="fas fa-user-tie"></i>
                                 </div>
 
-                                <div style="display: inline-flex;">
-                                    <div class="sidebar-icon" style="margin-right: 10px;">
-                                        <i class="fas fa-car"></i>
-                                    </div>
-
-                                    <div>
-                                        <div v-if="row.vehicle !== null">{{ row.vehicle.plate }}</div>
-                                        <div v-else style="color: #E63A46;">Unassigned</div>
-                                    </div>
+                                <div>
+                                    <div v-if="item.driver !== null">{{ item.driver.name }}</div>
+                                    <div v-else style="color: #E63A46;">Unassigned</div>
                                 </div>
-                            </td>
-                            <td style="width: 150px;">{{ row.date | formatMiniDate }} / {{ row.pickup_hour }}:{{ row.pickup_min }}</td>
-                            <td>
-                                <span class="status status-blue">
-                                    <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.passagers }}</span>
-                                </span>
-                            </td>
-                            <td>
-                                <span class="status status-blue">
-                                    <span class="status-text" style="font-weight: 600 !important;font-size: 10px;">{{ row.bags }}</span>
-                                </span>
-                            </td>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: inline-flex;">
+                                <div class="sidebar-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
 
-                            <td class="td-price" v-if="row.price > '0'" style="width: 75px;">€ {{ row.price | formatMoney}}</td>
-                            <td class="td-price" v-else="row.price == '0'">
-                                <a @click="generatePrice(row.id)">
-                                    <span class="status status-blue">
-                                        <span class="status-text">Generate Price</span>
-                                    </span>
+                                <div>
+                                    <div v-if="item.vehicle !== null">{{ item.vehicle.plate }}</div>
+                                    <div v-else style="color: #E63A46;">Unassigned</div>
+                                </div>
+                            </div>
+                        </td>
+
+
+                        <td style="width: 150px;">{{ item.date | formatMiniDate }} / {{ item.pickup_hour }}:{{ item.pickup_min }}</td>
+                        <td class="td-price" v-if="item.price > '0'" style="width: 75px;">€ {{ item.price | formatMoney}}</td>
+                        <td>
+                            <div v-if="item.status == 'Pending'" style="display: flex;">
+                                <a @click="acceptModal(row)" class="btn-tbl-accept" >
+                                    <i class="fas fa-check"></i>
                                 </a>
-                            </td>
-                            <td>
-                                <div v-if="row.status == 'Pending'" style="display: flex;">
-                                    <a @click="acceptModal(row)" class="btn-tbl-accept" >
-                                        <i class="fas fa-check"></i>
+
+                                <a v-on:click="cancelTrip(row.id)" class="btn-tbl-reject">
+                                    <i class="fas fa-minus"></i>
+                                </a>
+                            </div>
+
+                            <span class="status status-60min" v-if="item.status === '60 min'">
+                                <span class="status-text">{{ item.status }}</span>
+                            </span>
+
+                            <span class="status status-arrived" v-else-if="item.status === 'Arrived'">
+                                <span class="status-text">{{ item.status }}</span>
+                            </span>
+
+                            <span class="status status-blue" v-else-if="item.status === 'Accepted'">
+                                <span class="status-text">Accepted</span>
+                            </span>
+
+                            <span class="status status-pink" v-else-if="item.status === 'Cancelled'">
+                                <span class="status-text">{{ item.status }}</span>
+                            </span>
+
+                            <span class="status status-green" v-else-if="item.status === 'Finished'">
+                                <span class="status-text">{{ item.status }}</span>
+                            </span>
+                        </td>
+                        <td>{{ item.created_at | formatMiniDate }}</td>
+                        <td>
+                            <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
                                     </a>
 
-                                    <a v-on:click="cancelTrip(row.id)" class="btn-tbl-reject">
-                                        <i class="fas fa-minus"></i>
-                                    </a>
-                                </div>
-
-                                <span class="status status-60min" v-if="row.status === '60 min'">
-                                    <span class="status-text">{{ row.status }}</span>
-                                </span>
-
-                                <span class="status status-arrived" v-else-if="row.status === 'Arrived'">
-                                    <span class="status-text">{{ row.status }}</span>
-                                </span>
-
-                                <span class="status status-blue" v-else-if="row.status === 'Accepted'">
-                                    <span class="status-text">Accepted</span>
-                                </span>
-
-                                <span class="status status-pink" v-else-if="row.status === 'Cancelled'">
-                                    <span class="status-text">{{ row.status }}</span>
-                                </span>
-
-                                <span class="status status-green" v-else-if="row.status === 'Finished'">
-                                    <span class="status-text">{{ row.status }}</span>
-                                </span>
-                            </td>
-<!--                            <td>-->
-
-<!--                                <a target="_blank" v-bind:href="'https://maps.google.com/maps?saddr=' + row.pickup_address + '&amp;daddr=' + row.drop_address + '&amp;ie=UTF8&amp;z=11&amp;layer=t&amp;t=m&amp;iwloc=A&amp;output=embed?iframe=true&amp;width=640&amp;height=480'" data-gal="prettyPhoto[gallery]" class="btn btn-tbl-delete btn-xs btn-view-route">-->
-<!--                                    <i class="fa fa-map-marker-alt"></i>-->
-<!--                                </a>-->
-<!--                            </td>-->
-                            <td>{{ row.created_at | formatMiniDate }}</td>
-                            <td>
-                                <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-clean btn-icon btn-icon-md" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-h"></i>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" v-bind:href="'/bookings/'+item.id">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav__link-text">View</span>
                                         </a>
-
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<!--                                            <a class="dropdown-item" data-toggle="modal" v-bind:data-target="'#previewBookingModal'+row.id">-->
-<!--                                                <i class="far fa-window-restore"></i>-->
-<!--                                                <span class="nav__link-text">Preview</span>-->
-<!--                                            </a>-->
-                                            <a class="dropdown-item" v-bind:href="'/bookings/'+row.id">
-                                                <i class="far fa-eye"></i>
-                                                <span class="nav__link-text">View</span>
-                                            </a>
-                                            <a class="dropdown-item" v-bind:href="'/bookings/'+row.id+'/edit'">
-                                                <i class="far fa-edit"></i>
-                                                <span class="nav__link-text">Edit</span>
-                                            </a>
-                                            <a class="dropdown-item" v-on:click="deleteBooking(row.id)">
-                                                <i class="fas fa-ban"></i>
-                                                <span class="nav__link-text">Cancel</span>
-                                            </a>
-<!--                                            <a class="dropdown-item" >-->
-<!--                                                <i class="far fa-trash-alt"></i>-->
-<!--                                                <span class="nav__link-text">Delete</span>-->
-<!--                                            </a>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <!-- Assign modal -->
-                            <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Assign booking (no. {{ row.number }}) to driver and vehicle</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <form @submit.prevent="acceptTrip">
-                                            <div class="modal-body">
-                                                <div class="assign-form">
-                                                        <div class="row">
-                                                            <div class="form-group col-md-6">
-                                                                <label class="form-label">
-                                                                    <span>Select Driver:</span>
-                                                                </label>
-
-                                                                <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
-                                                                    <option value="" disabled="disabled">Select ..</option>
-                                                                    <option v-for="item in drivers.data" v-bind:value="item.id">{{ item.name }}</option>
-                                                                </select>
-                                                            </div>
-
-                                                            <div class="form-group col-md-6">
-                                                                <label class="form-label">
-                                                                    <span>Select Vehicle:</span>
-                                                                </label>
-
-                                                                <select v-model="form.vehicle_id" class="form-control select-input" name="vehicle_id">
-                                                                    <option value="" disabled="disabled">Select ..</option>
-                                                                    <option v-for="item in vehicles.data" v-bind:value="item.id">{{ item.plate }} - {{ item.make }} {{ item.model }} </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button :disabled="form.busy" type="submit" class="btn btn-primary">Save</button>
-                                            </div>
-                                        </form>
+                                        <a class="dropdown-item" v-bind:href="'/bookings/'+item.id+'/edit'">
+                                            <i class="far fa-edit"></i>
+                                            <span class="nav__link-text">Edit</span>
+                                        </a>
+                                        <a class="dropdown-item" >
+                                            <i class="fas fa-ban"></i>
+                                            <span class="nav__link-text">Cancel</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End assign modal -->
+                        </td>
 
-                            <!-- Modal -->
-                            <div class="modal fade booking-modal" v-bind:id="'previewBookingModal'+row.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                {{ row.pickup_hour }}:{{ row.pickup_min }} - {{ row.date | formatDate }} - #{{ row.number }}
+                        <!-- Assign modal -->
+                        <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Assign booking (no. {{ item.number }}) to driver and vehicle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+<!--                                    <form @submit.prevent="acceptTrip">-->
+<!--                                        <div class="modal-body">-->
+<!--                                            <div class="assign-form">-->
+<!--                                                <div class="row">-->
+<!--                                                    <div class="form-group col-md-6">-->
+<!--                                                        <label class="form-label">-->
+<!--                                                            <span>Select Driver:</span>-->
+<!--                                                        </label>-->
 
-                                                <span class="status status-gray" v-if="row.status === 'Pending'">
-                                                    <span class="status-text">{{ row.status }}</span>
-                                                </span>
-
-                                                <span class="status status-60min" v-else-if="row.status === '60 min'">
-                                                    <span class="status-text">{{ row.status }}</span>
-                                                </span>
-
-                                                <span class="status status-arrived" v-else-if="row.status === 'Arrived'">
-                                                    <span class="status-text">{{ row.status }}</span>
-                                                </span>
-
-                                                <span class="status status-arrived" v-else-if="row.status === 'Accepted'">
-                                                    <span class="status-text">Accepted</span>
-                                                </span>
-
-                                                <span class="status status-pink" v-else-if="row.status === 'Cancelled'">
-                                                    <span class="status-text">{{ row.status }}</span>
-                                                </span>
-
-                                                <span class="status status-green" v-else-if="row.status === 'Finished'">
-                                                    <span class="status-text">{{ row.status }}</span>
-                                                </span>
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <form @submit.prevent="editBooking()">
-
-                                            <input type="hidden" name="_method" value="PUT">
-                                            <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-md-6 booking-modal-list">
-                                                    <div class="list-b-item">
-                                                        <h5>Booking Information:</h5>
-                                                        <div class="row">
-                                                            <label class="col-md-4 col-form-label justify-content-end">Pickup Address: </label>
-                                                            <div class="col-md-8 col-form-label">
-                                                                {{ row.pickup_address }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-4 col-form-label justify-content-end">Drop Address: </label>
-                                                            <div class="col-md-8 col-form-label">
-                                                                {{ row.drop_address }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-4 col-form-label justify-content-end">Time / Date: </label>
-                                                            <div class="col-md-8 col-form-label">
-                                                                {{ row.pickup_hour }}:{{ row.pickup_min }} / {{ row.date | formatDate }}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="list-b-item">
-                                                        <h5>Customer Information:</h5>
-                                                        <div class="row">
-                                                            <label class="col-md-4 col-form-label justify-content-end">Name: </label>
-                                                            <div v-if="row.name !== null" class="col-md-8">
-                                                                {{ row.name }}
-                                                            </div>
-
-                                                            <div v-if="row.name == null" class="col-md-8">
-                                                                N/A
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-4 col-form-label justify-content-end">Email: </label>
-                                                            <div v-if="row.customer !== null" class="col-md-8">
-                                                                {{ row.customer.email }}
-                                                            </div>
-
-                                                            <div v-if="row.customer == null" class="col-md-8">
-                                                                N/A
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-4 col-form-label justify-content-end">Phone: </label>
-                                                            <div v-if="row.phone !== null" class="col-md-8">
-                                                                {{ row.phone }}
-                                                            </div>
-
-                                                            <div v-if="row.phone == null" class="col-md-8">
-                                                                N/A
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-b-item">
-                                                        <h5>Financial Information:</h5>
-                                                        <div class="row" style="display: flex;">
-                                                            <div class="col-md-6">
-                                                                <div class="row" style="display: block;">
-                                                                    <label class="col-md-4 col-form-label justify-content-end">Price: </label>
-                                                                    <div class="col-md-8">
-                                                                        € {{ row.price | formatMoney }}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="row" style="display: block;">
-                                                                    <label class="col-md-4 col-form-label justify-content-end">Invoice: </label>
-                                                                    <div class="col-md-8">
-                                                                        {{ row.invoice.number }}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <GmapMap
-                                                            :center="{ lat:52.5200, lng:13.4050 }"
-                                                            :zoom="10"
-                                                            map-type-id="terrain"
-                                                            style="width: auto; height: 400px"
-                                                    >
-                                                    </GmapMap>
-<!--                                                    <div class="change-driver-form">-->
-<!--                                                        <form>-->
-<!--                                                            <div class="form-group">-->
-<!--                                                                <label class="form-label">-->
-<!--                                                                    <span>Change Driver:</span>-->
-<!--                                                                </label>-->
-
-<!--                                                                <select v-model="form.driver_id" class="form-control select-input" name="driver_id">-->
-<!--                                                                    <option value="" disabled="disabled">Select ..</option>-->
-<!--                                                                    <option v-for="item in drivers.data" value="1">{{ item.name }}</option>-->
-<!--                                                                </select>-->
-<!--                                                            </div>-->
-<!--                                                        </form>-->
+<!--                                                        <select v-model="form.driver_id" class="form-control select-input" name="driver_id">-->
+<!--                                                            <option value="" disabled="disabled">Select ..</option>-->
+<!--                                                            <option v-for="driver in drivers.data" v-bind:value="driver.id">{{ driver.name }}</option>-->
+<!--                                                        </select>-->
 <!--                                                    </div>-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </div>
-                                        </form>
-                                    </div>
+
+<!--                                                    <div class="form-group col-md-6">-->
+<!--                                                        <label class="form-label">-->
+<!--                                                            <span>Select Vehicle:</span>-->
+<!--                                                        </label>-->
+
+<!--                                                        <select v-model="form.vehicle_id" class="form-control select-input" name="vehicle_id">-->
+<!--                                                            <option value="" disabled="disabled">Select ..</option>-->
+<!--                                                            <option v-for="vehicle in vehicles.data" v-bind:value="vehicle.id">{{ item.plate }} - {{ vehicle.make }} {{ vehicle.model }} </option>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                                            <button :disabled="form.busy" type="submit" class="btn btn-primary">Save</button>-->
+<!--                                        </div>-->
+<!--                                    </form>-->
                                 </div>
                             </div>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="dv-footer">
-                <div class="dv-footer-item">
-                    <span class="small">Displaying {{model.from}} - {{model.to}} of {{model.total}} rows</span>
-                </div>
-                <div class="dv-footer-item">
-                    <div class="dv-footer-sub">
-                        <button class="dv-footer-btn btn btn-default btn-sm" @click="prev()">&laquo; Prev</button>
-                        <button class="dv-footer-btn btn btn-default btn-sm" @click="next()">Next &raquo;</button>
-                    </div>
-                </div>
+                        </div>
+                        <!-- End assign modal -->
+
+                    </tr>
+                </filterable>
             </div>
         </div>
     </div>
@@ -438,68 +223,62 @@
     import Vue from 'vue'
     import axios from 'axios'
     import { Form, HasError, AlertError } from 'vform'
-
     Vue.component(HasError.name, HasError);
     Vue.component(AlertError.name, AlertError);
+    import Filterable from '../../../components/Filterable'
 
-    //similar to vue-resource
     export default {
-        bookings: {},
-        props: ['title'],
+        components: { Filterable },
         data() {
             return {
-                form: new Form({
-                    id: '',
-                    driver_id: '',
-                    vehicle_id: '',
-                    status: '',
-                    pickup_address: '',
-                    drop_address: ''
-                }),
                 drivers: {},
                 vehicles: {},
-                model: {},
-                columns: {},
-                search: {},
-                source: '/api/v1/bookings',
-                query: {
-                    page: 1,
-                    column: 'id',
-                    direction: 'desc',
-                    per_page: 20,
-                    search_column: 'id',
-                    search_operator: 'not_equal',
-                    search_input: ''
-                },
-                operators: {
-                    equal: '=',
-                    not_equal: '<>',
-                    less_than: '<',
-                    greater_than: '>',
-                    less_than_or_equal_to: '<=',
-                    greater_than_or_equal_to: '>=',
-                    in: 'IN',
-                    like: 'LIKE'
+
+                filterable: {
+                    url: '/api/v1/bookings/',
+                    orderables: [
+                        {title: 'Id', name: 'id',  type: 'string'},
+                        {title: 'Number', name: 'number'},
+                        {title: 'Pickup Address', name: 'pickup_address'},
+                        {title: 'Drop Address', name: 'drop_address'},
+                        {title: 'Flight Number', name: 'flight_number'},
+                        {title: 'Payment Method', name: 'payment_method'},
+                        {title: 'Date', name: 'date'},
+                        {title: 'Passengers', name: 'passengers'},
+                        {title: 'Bags', name: 'bags'},
+                        {title: 'Created At', name: 'created_at'},
+                    ],
+                    filterGroups: [
+                        {
+                            name: 'Bookings',
+                            filters: [
+                                {title: 'Id', name: 'id', type: 'numeric'},
+                                {title: 'Number', name: 'number', type: 'string'},
+                                {title: 'Pickup Address', name: 'pickup_address', type: 'string'},
+                                {title: 'Drop Address', name: 'drop_address', type: 'string'},
+                                {title: 'Flight Number', name: 'flight_number', type: 'string'},
+                                {title: 'Payment Method', name: 'payment_method'},
+                                {title: 'Date', name: 'date', type: 'datetime'},
+                                {title: 'Passengers', name: 'passengers', type: 'numeric'},
+                                {title: 'Bags', name: 'bags', type: 'numeric'},
+                                {title: 'Created At', name: 'created_at', type: 'datetime'},
+                            ]
+                        }
+                    ]
                 }
             }
         },
-        created() {
-            this.fetchIndexData();
-            this.loadDrivers();
-            this.loadVehicles();
-        },
         methods: {
-            next() {
-                if(this.model.next_page_url) {
-                    this.query.page++
-                    this.fetchIndexData()
-                }
-            },
-            prev() {
-                if(this.model.prev_page_url) {
-                    this.query.page--
-                    this.fetchIndexData()
-                }
+            deleteBooking(id) {
+                if(confirm('are you sure?'))
+                // Send request to the server
+                    axios.delete( '/api/v1/bookings/'+id)
+                        .then(function (response) {
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
             },
             acceptModal(row) {
                 this.editmode = true;
@@ -510,7 +289,6 @@
             acceptTrip (id) {
                 this.form.put('api/v3/booking/accept/'+this.form.id)
                     .then(function (response) {
-
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -521,65 +299,22 @@
             cancelTrip(id) {
                 this.form.put('api/v3/booking/reject/'+id)
                     .then(function (response) {
-
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
                 this.fetchIndexData();
-            },
-            deleteBooking(id) {
-                this.form.put('api/v3/booking/cancel/'+id)
-                    .then(function (response) {
-
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                this.fetchIndexData();
-            },
-            toggleOrder(column) {
-                if(column === this.query.column) {
-                    // only change direction
-                    if(this.query.direction === 'desc') {
-                        this.query.direction = 'asc'
-                    } else {
-                        this.query.direction = 'desc'
-                    }
-                } else {
-                    this.query.column = column
-                    this.query.direction = 'asc'
-                }
-                this.fetchIndexData()
-            },
-            loadContacts() {
-                axios.get('/api/bookings/all').then(({ data }) => (this.bookings = data));
             },
             loadDrivers() {
                 axios.get('/api/v1/drivers').then(({ data }) => (this.drivers = data));
             },
             loadVehicles() {
                 axios.get('/api/v1/vehicles').then(({ data }) => (this.vehicles = data));
-            },
-            fetchIndexData() {
-                var vm = this
-
-                const url = '/api/v1/bookings?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input;
-
-                axios.get(url)
-                    .then(function(response) {
-                        Vue.set(vm.$data, 'model', response.data.model)
-                        Vue.set(vm.$data, 'columns', response.data.columns)
-                        Vue.set(vm.$data, 'search', response.data.search)
-                    })
-                    .catch(function(response) {
-                        console.log(response)
-                    })
             }
         },
-        // created() {
-        //     this.fetchIndexData();
-        //     setInterval(() => this.fetchIndexData(), 3000);
-        // }
+        created() {
+            this.loadDrivers();
+            this.loadVehicles();
+        },
     }
 </script>

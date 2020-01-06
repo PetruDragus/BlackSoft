@@ -15,12 +15,15 @@ use App\Mail\ClientBookingCancelled;
 
 use App\Mail\Guest\ChauffeurArrived;
 use App\Mail\Guest\ChauffeurOnWay;
+use App\Mail\Guest\BookingPending;
 
 use App\Mail\Driver\BookingDriver60min;
 use App\Mail\Driver\BookingDriverArrived;
+use App\Mail\Driver\BookingDriverPending;
 
 use Illuminate\Http\Request;
 use Session;
+use Carbon\Carbon;
 use Keygen\Keygen;
 
 use Illuminate\Support\Facades\Mail;
@@ -216,7 +219,8 @@ class BookingController extends Controller
         $booking->save();
 
         // After booking submitted, send email to customer
-        Mail::to($booking->customer->email)->send(new BookingDriver60min($booking));
+        Mail::to($booking->customer->email)->send(new BookingPending($booking));
+        Mail::to($booking->driver->email)->send(new BookingDriverPending($booking));
 
         notify()->success('Trip successfully created!');
 

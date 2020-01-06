@@ -6,46 +6,67 @@ use Illuminate\Support\Facades\Validator;
 
 trait  DataViewer {
 
-    protected $operators = [
-        'equal' => '=',
-        'not_equal' => '<>',
-        'less_than' => '<',
-        'greater_than' => '>',
-        'less_than_or_equal_to' => '<=',
-        'greater_than_or_equal_to' => '>=',
-        'in' => 'IN',
-        'like' => 'LIKE'
-    ];
-    public function scopeSearchPaginateAndOrder($query)
+    public function scopeAdvancedFilter($query)
     {
-        $request = app()->make('request');
+        return $this->process($query, request()->all())
+            ->orderBy(
+                request('order_column', 'created_at'),
+                request('order_direction', 'desc')
+            )
+            ->paginate(request('limit', 10));
+    }
 
-        $v = Validator::make($request->only([
-            'column', 'direction', 'per_page',
-            'search_column', 'search_operator', 'search_input'
-        ]), [
-            'column' => 'required|alpha_dash|in:'.implode(',', self::$columns),
-            'direction' => 'required|in:asc,desc',
-            'per_page' => 'integer|min:1',
-            'search_column' => 'required|alpha_dash|in:'.implode(',', self::$columns),
-            'search_operator' => 'required|alpha_dash|in:'.implode(',', array_keys($this->operators)),
-            'search_input' => 'max:255'
+    public function process($query, $data)
+    {
+        $v = validator()->make($data, [
+            'order_column' => 'sometimes|required|in:'.$this->orderableColumns(),
+            'order_direction' => 'sometimes|required|in:asc,desc',
+            'limit' => 'sometimes|required|integer|min:1',
+            // advanced filter
+            'filter_match' => 'sometimes|required|in:and,or',
+            'f' => 'sometimes|required|array',
+            'f.*.column' => 'required|in:'.$this->whiteListColumns(),
+            'f.*.operator' => 'required_with:f.*.column|in:'.$this->allowedOperators(),
+            'f.*.query_1' => 'required',
+            'f.*.query_2' => 'required_if:f.*.operator,between,not_between'
         ]);
+        if($v->fails()) {
+            // debug
+            return dd($v->messages()->all());
+            throw new ValidationException;
+        }
+        return (new CustomQueryBuilder)->apply($query, $data);
+    }
 
-        return $query
-            ->orderBy($request->column, $request->direction)
-            ->where(function($query) use ($request) {
-                if($request->has('search_input')) {
-                    if($request->search_operator == 'in') {
-                        $query->whereIn($request->search_column, explode(',', $request->search_input));
-                    } else if($request->search_operator == 'like') {
-                        $query->where($request->search_column, 'LIKE', '%'.$request->search_input.'%');
-                    }
-                    else {
-                        $query->where($request->search_column, $this->operators[$request->search_operator], $request->search_input);
-                    }
-                }
-            })
-            ->paginate($request->per_page);
+    protected function whiteListColumns()
+    {
+        return implode(',', $this->allowedFilters);
+    }
+
+    protected function orderableColumns()
+    {
+        return implode(',', $this->orderable);
+    }
+
+    protected function allowedOperators()
+    {
+        return implode(',', [
+            'equal_to',
+            'not_equal_to',
+            'less_than',
+            'greater_than',
+            'between',
+            'not_between',
+            'contains',
+            'starts_with',
+            'ends_with',
+            'in_the_past',
+            'in_the_next',
+            'in_the_peroid',
+            'less_than_count',
+            'greater_than_count',
+            'equal_to_count',
+            'not_equal_to_count'
+        ]);
     }
 }
