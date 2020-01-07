@@ -109,11 +109,11 @@
                         <td class="td-price" v-if="item.price > '0'" style="width: 75px;">€ {{ item.price | formatMoney}}</td>
                         <td>
                             <div v-if="item.status == 'Pending'" style="display: flex;">
-                                <a @click="acceptModal(row)" class="btn-tbl-accept" >
+                                <a @click="acceptModal(item)" class="btn-tbl-accept" >
                                     <i class="fas fa-check"></i>
                                 </a>
 
-                                <a v-on:click="cancelTrip(row.id)" class="btn-tbl-reject">
+                                <a v-on:click="cancelTrip(item.id)" class="btn-tbl-reject">
                                     <i class="fas fa-minus"></i>
                                 </a>
                             </div>
@@ -211,7 +211,6 @@
                             </div>
                         </div>
                         <!-- End assign modal -->
-
                     </tr>
                 </filterable>
             </div>
@@ -291,11 +290,11 @@
                             console.log(error);
                         });
             },
-            acceptModal(row) {
+            acceptModal(item) {
                 this.editmode = true;
                 this.form.reset();
                 $('#assignModal').modal('show');
-                this.form.fill(row);
+                this.form.fill(item);
             },
             acceptTrip (id) {
                 this.form.put('api/v3/booking/accept/'+this.form.id)
@@ -304,7 +303,6 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-                this.fetchIndexData();
                 $('#assignModal').modal('hide');
             },
             cancelTrip(id) {
@@ -314,13 +312,12 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-                this.fetchIndexData();
             },
             loadDrivers() {
                 axios.get('/api/drivers/').then(({ data }) => (this.drivers = data));
             },
             loadVehicles() {
-                axios.get('/api/v1/vehicles/').then(({ data }) => (this.vehicles = data));
+                axios.get('/api/vehicles/').then(({ data }) => (this.vehicles = data));
             }
         },
     }

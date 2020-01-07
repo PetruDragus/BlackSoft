@@ -3,7 +3,7 @@
         <div class="panel">
             <div class="panel-heading">
                 <div class="panel-title">
-                    <span>{{ this.meta.title }} match</span>
+                    <span>Match</span>
                     <select v-model="query.filter_match">
                         <option value="and">All</option>
                         <option value="or">Any</option>

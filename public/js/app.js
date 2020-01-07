@@ -17758,7 +17758,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -17874,24 +17873,22 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
           console.log(error);
         });
     },
-    acceptModal: function acceptModal(row) {
+    acceptModal: function acceptModal(item) {
       this.editmode = true;
       this.form.reset();
       $('#assignModal').modal('show');
-      this.form.fill(row);
+      this.form.fill(item);
     },
     acceptTrip: function acceptTrip(id) {
       this.form.put('api/v3/booking/accept/' + this.form.id).then(function (response) {})["catch"](function (error) {
         console.log(error);
       });
-      this.fetchIndexData();
       $('#assignModal').modal('hide');
     },
     cancelTrip: function cancelTrip(id) {
       this.form.put('api/v3/booking/reject/' + id).then(function (response) {})["catch"](function (error) {
         console.log(error);
       });
-      this.fetchIndexData();
     },
     loadDrivers: function loadDrivers() {
       var _this = this;
@@ -17904,7 +17901,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
     loadVehicles: function loadVehicles() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/v1/vehicles/').then(function (_ref2) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/vehicles/').then(function (_ref2) {
         var data = _ref2.data;
         return _this2.vehicles = data;
       });
@@ -72950,7 +72947,7 @@ var render = function() {
     _c("div", { staticClass: "panel" }, [
       _c("div", { staticClass: "panel-heading" }, [
         _c("div", { staticClass: "panel-title" }, [
-          _c("span", [_vm._v(_vm._s(this.meta.title) + " match")]),
+          _c("span", [_vm._v("Match")]),
           _vm._v(" "),
           _c(
             "select",
@@ -74373,7 +74370,7 @@ var render = function() {
                                     staticClass: "btn-tbl-accept",
                                     on: {
                                       click: function($event) {
-                                        return _vm.acceptModal(_vm.row)
+                                        return _vm.acceptModal(item)
                                       }
                                     }
                                   },
@@ -74386,7 +74383,7 @@ var render = function() {
                                     staticClass: "btn-tbl-reject",
                                     on: {
                                       click: function($event) {
-                                        return _vm.cancelTrip(_vm.row.id)
+                                        return _vm.cancelTrip(item.id)
                                       }
                                     }
                                   },

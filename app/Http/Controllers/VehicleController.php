@@ -27,14 +27,8 @@ class VehicleController extends Controller
 
     public function getData()
     {
-        $model = Vehicle::with('driver', 'categorie')->searchPaginateAndOrder();
-        $columns = Vehicle::$columns;
 
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
+        return Vehicle::with('driver', 'categorie')->orderBy('id', 'ASC')->paginate(60);
     }
 
     /**
