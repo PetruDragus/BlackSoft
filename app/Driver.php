@@ -24,6 +24,15 @@ class Driver extends Model
         ' ', 'ID', 'City', 'Name', 'Vehicle', 'Email' ,'Phone', 'Birthday', 'Joining Date', 'Trips',
     ];
 
+    protected $allowedFilters = [
+        'id' , 'name', 'email', 'phone',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' , 'name', 'email', 'phone',
+        'created_at'
+    ];
+
     /**
      * Get the projects record associated with the user.
      */

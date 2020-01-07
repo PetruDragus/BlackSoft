@@ -22,7 +22,9 @@ use App\Mail\Driver\BookingDriverArrived;
 use App\Mail\Driver\BookingDriverPending;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Session;
+use PDF;
 use Carbon\Carbon;
 use Keygen\Keygen;
 
@@ -41,6 +43,16 @@ class BookingController extends Controller
     public function index()
     {
         return view('pages.bookings.index');
+    }
+
+    /**
+     * Display a listing of the cancelled resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelled()
+    {
+        return view('pages.bookings.cancelled');
     }
 
     /**
@@ -188,7 +200,20 @@ class BookingController extends Controller
         // Using custom service for price calculator
         $booking->price           = $bookingService->calculateBookingPrice($booking);
 
-                // Generate booking number with vehicle prefix
+        // Auto-generate pdf file with 'pickup-sign'
+        if ($request->get('pickup_sign')) {
+            $pickup_s = $request->get('pickup_sign');
+            $data = ['title' => $pickup_s];
+            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+            $pdf = PDF::loadView('pickupsign', $data)->setPaper('a4', 'landscape');
+
+            $content = $pdf->download()->getOriginalContent();
+
+            // Generate pdf file named from input text
+            Storage::put('public/PDF/'.$pickup_s.'.pdf', $content) ;
+        }
+
+        // Generate booking number with vehicle prefix
         if (request()->get('vehicle_id') == 1 ) {
             $booking->number = '550' . Keygen::numeric(3)->generate();
         } elseif (request()->get('vehicle_id') == 2) {

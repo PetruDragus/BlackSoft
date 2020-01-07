@@ -19,6 +19,18 @@ class Review extends Model
         'Review', 'Rating', 'Customer', 'Created'
     ];
 
+    protected $allowedFilters = [
+        'id' ,'booking_id', 'rating', 'review',
+        'created_at',
+        // nested
+        'invoices.count', 'invoices.id', 'invoices.issue_date','invoices.due_date',
+        'invoices.total', 'invoices.created_at'
+    ];
+    protected $orderable = [
+        'id' ,'booking_id', 'rating',
+        'created_at'
+    ];
+
     /**
      * Get the bookings record associated with the user.
      */

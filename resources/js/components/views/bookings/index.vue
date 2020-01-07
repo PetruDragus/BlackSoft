@@ -174,39 +174,39 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-<!--                                    <form @submit.prevent="acceptTrip">-->
-<!--                                        <div class="modal-body">-->
-<!--                                            <div class="assign-form">-->
-<!--                                                <div class="row">-->
-<!--                                                    <div class="form-group col-md-6">-->
-<!--                                                        <label class="form-label">-->
-<!--                                                            <span>Select Driver:</span>-->
-<!--                                                        </label>-->
+                                    <form @submit.prevent="acceptTrip">
+                                        <div class="modal-body">
+                                            <div class="assign-form">
+                                                <div class="row">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">
+                                                            <span>Select Driver:</span>
+                                                        </label>
 
-<!--                                                        <select v-model="form.driver_id" class="form-control select-input" name="driver_id">-->
-<!--                                                            <option value="" disabled="disabled">Select ..</option>-->
-<!--                                                            <option v-for="driver in drivers.data" v-bind:value="driver.id">{{ driver.name }}</option>-->
-<!--                                                        </select>-->
-<!--                                                    </div>-->
+                                                        <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
+                                                            <option value="" disabled="disabled">Select ..</option>
+                                                            <option v-for="item in drivers.data" v-bind:value="item.id">{{ item.name }}</option>
+                                                        </select>
+                                                    </div>
 
-<!--                                                    <div class="form-group col-md-6">-->
-<!--                                                        <label class="form-label">-->
-<!--                                                            <span>Select Vehicle:</span>-->
-<!--                                                        </label>-->
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">
+                                                            <span>Select Vehicle:</span>
+                                                        </label>
 
-<!--                                                        <select v-model="form.vehicle_id" class="form-control select-input" name="vehicle_id">-->
-<!--                                                            <option value="" disabled="disabled">Select ..</option>-->
-<!--                                                            <option v-for="vehicle in vehicles.data" v-bind:value="vehicle.id">{{ item.plate }} - {{ vehicle.make }} {{ vehicle.model }} </option>-->
-<!--                                                        </select>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="modal-footer">-->
-<!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                                            <button :disabled="form.busy" type="submit" class="btn btn-primary">Save</button>-->
-<!--                                        </div>-->
-<!--                                    </form>-->
+                                                        <select v-model="form.vehicle_id" class="form-control select-input" name="vehicle_id">
+                                                            <option value="" disabled="disabled">Select ..</option>
+                                                            <option v-for="vehicle in vehicles.data" v-bind:value="vehicle.id">{{ vehicle.plate }} - {{ vehicle.make }} {{ vehicle.model }} </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button :disabled="form.busy" type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +233,14 @@
             return {
                 drivers: {},
                 vehicles: {},
-
+                props: ['Bookings'],
+                form: new Form({
+                    id: '',
+                    driver_id: '',
+                    status: '',
+                    pickup_address: '',
+                    drop_address: ''
+                }),
                 filterable: {
                     url: '/api/v1/bookings/',
                     orderables: [
@@ -267,6 +274,10 @@
                     ]
                 }
             }
+        },
+        created() {
+            this.loadDrivers();
+            this.loadVehicles();
         },
         methods: {
             deleteBooking(id) {
@@ -306,15 +317,11 @@
                 this.fetchIndexData();
             },
             loadDrivers() {
-                axios.get('/api/v1/drivers').then(({ data }) => (this.drivers = data));
+                axios.get('/api/drivers/').then(({ data }) => (this.drivers = data));
             },
             loadVehicles() {
-                axios.get('/api/v1/vehicles').then(({ data }) => (this.vehicles = data));
+                axios.get('/api/v1/vehicles/').then(({ data }) => (this.vehicles = data));
             }
-        },
-        created() {
-            this.loadDrivers();
-            this.loadVehicles();
         },
     }
 </script>

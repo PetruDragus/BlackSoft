@@ -48,18 +48,15 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cancelled()
+    public function rejected()
     {
-        $model = Booking::with('vehicle', 'customer', 'driver', 'invoice')->where('status', '=', 'Cancelled')->searchPaginateAndOrder();
+        $rejected = Booking::with('vehicle', 'customer', 'driver', 'invoice')->where('status', '=', 'Cancelled')->advancedFilter();
         $columns = Booking::$columns;
         $search = Booking::$search;
 
         return response()
             ->json([
-                'model' => $model,
-                'columns' => $columns,
-                'search' => $search,
-                'items_count' => $model->count()
+                'collection' => $rejected,
             ]);
     }
 

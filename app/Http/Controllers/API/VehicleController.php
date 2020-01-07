@@ -15,7 +15,13 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        return Vehicle::orderBy('id', 'ASC')->paginate(60);
+        $model = Vehicle::with('categorie', 'driver')->advancedFilter();
+
+        return response()
+            ->json([
+                'collection' => $model,
+                'items_count' => $model->count()
+            ]);
     }
 
     /**

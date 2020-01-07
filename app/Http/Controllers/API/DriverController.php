@@ -15,7 +15,13 @@ class DriverController extends Controller
      */
     public function index()
     {
-        return Driver::orderBy('id', 'ASC')->paginate(60);
+        $model = Driver::advancedFilter();
+
+        return response()
+            ->json([
+                'collection' => $model,
+                'items_count' => $model->count()
+            ]);
     }
 
     /**

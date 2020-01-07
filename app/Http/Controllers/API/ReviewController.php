@@ -15,12 +15,12 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $model = Review::with('booking', 'driver')->searchPaginateAndOrder();
+        $model = Review::with('booking', 'driver')->advancedFilter();
         $columns = Review::$columns;
 
         return response()
             ->json([
-                'model' => $model,
+                'collection' => $model,
                 'columns' => $columns
             ]);
     }

@@ -23,14 +23,8 @@ class DriverController extends Controller
 
     public function getData()
     {
-        $model = Driver::with('vehicle')->searchPaginateAndOrder();
-        $columns = Driver::$columns;
 
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
+        return Driver::with('vehicle')->orderBy('id', 'ASC')->paginate(60);
     }
 
     /**

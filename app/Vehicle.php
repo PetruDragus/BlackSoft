@@ -24,6 +24,15 @@ class Vehicle extends Model
         'Name', 'Business Type', 'Vehicle Price', 'Driver/Operator', 'Current Meter'
     ];
 
+    protected $allowedFilters = [
+        'id' , 'make', 'model',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' , 'make', 'model',
+        'created_at'
+    ];
+
     public function categorie()
     {
         return $this->belongsTo(Categorie::class);

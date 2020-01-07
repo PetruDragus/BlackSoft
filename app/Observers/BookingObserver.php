@@ -52,18 +52,7 @@ class BookingObserver
 //            $booking->customer_id = $customer_id->id;
 //        }
 
-        // Auto-generate pdf file with 'pickup-sign'
-        if (request()->get('pickup_sign')) {
-            $pickup_s = request()->get('pickup_sign');
-            $data = ['title' => $pickup_s];
-            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-            $pdf = PDF::loadView('pickupsign', $data)->setPaper('a4', 'landscape');
 
-            $content = $pdf->download()->getOriginalContent();
-
-            // Generate pdf file named from input text
-            Storage::put('public/PDF/'.$pickup_s.'.pdf', $content) ;
-        }
     }
 
     /**
