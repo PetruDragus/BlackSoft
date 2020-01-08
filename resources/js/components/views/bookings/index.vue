@@ -252,6 +252,7 @@
                         {title: 'Date', name: 'date'},
                         {title: 'Passengers', name: 'passengers'},
                         {title: 'Bags', name: 'bags'},
+                        {title: 'Status', name: 'status'},
                         {title: 'Created At', name: 'created_at'},
                     ],
                     filterGroups: [
@@ -267,6 +268,7 @@
                                 {title: 'Date', name: 'date', type: 'datetime'},
                                 {title: 'Passengers', name: 'passengers', type: 'numeric'},
                                 {title: 'Bags', name: 'bags', type: 'numeric'},
+                                {title: 'Status', name: 'status', type: 'string'},
                                 {title: 'Created At', name: 'created_at', type: 'datetime'},
                             ]
                         }
@@ -304,6 +306,7 @@
                         console.log(error);
                     });
                 $('#assignModal').modal('hide');
+                location.reload();
             },
             cancelTrip(id) {
                 this.form.put('api/v3/booking/reject/'+id)
@@ -312,6 +315,7 @@
                     .catch(function (error) {
                         console.log(error);
                     });
+                location.reload();
             },
             loadDrivers() {
                 axios.get('/api/drivers/').then(({ data }) => (this.drivers = data));

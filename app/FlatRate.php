@@ -16,4 +16,13 @@ class FlatRate extends Model
     public static $columns = [
         'ID', 'Pickup Address', 'Drop Address', 'Active', 'Created', 'Updated'
     ];
+
+    protected $allowedFilters = [
+        'id' ,'pickup_address', 'drop_address', 'status',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' ,'pickup_address', 'drop_address', 'status',
+        'created_at',
+    ];
 }

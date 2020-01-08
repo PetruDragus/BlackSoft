@@ -45,21 +45,32 @@ class SendEmails extends Command
     {
         // Data de acum
         $now = new Carbon();
-        $today = Carbon::today();
-        // cevax = $today->addDays(1);
 
         $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
-        $min60  = $now->copy()->addMinutes(120); // Booking 2 hours
+        $romania = $now->copy()->addMinutes(120); // Berlin timestamp
+        $min60  = $berlin->copy()->addMinutes(60); // Booking 2 goyrs
 
         $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
-            ->where('pickup_hour', $min60->hour)
-            ->where('pickup_min', $min60->minute)
-            ->get();
+                            ->where('pickup_hour', $min60->hour)
+                            ->where('pickup_min', $min60->minute)
+                            ->get();
+        
+//        $now = new Carbon();
+//
+//        $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
+//        $romania = $now->copy()->addMinutes(120); // Berlin timestamp
+//        $min60  = $romania->copy()->addMinutes(60); // Booking 2 goyrs
+//
+//        $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
+//                            ->where('pickup_hour', $min60->hour)
+//                            ->where('pickup_min', $min60->minute)
+//                            ->get();
 
         foreach($booking as $booking)
         {
             $email = $booking->driver->email;
             Mail::to($email)->send(new BookingDriver60min($booking));
+            Mail::to("codixital@gmail.com")->send(new BookingDriver60min($booking));
         }
     }
 }

@@ -15,13 +15,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $model = Contact::searchPaginateAndOrder();
-        $columns = Contact::$columns;
+        $model = Contact::advancedFilter();
 
         return response()
             ->json([
-                'model' => $model,
-                'columns' => $columns
+                'collection' => $model,
             ]);
     }
 

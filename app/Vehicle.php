@@ -23,15 +23,19 @@ class Vehicle extends Model
     public static $columns = [
         'Name', 'Business Type', 'Vehicle Price', 'Driver/Operator', 'Current Meter'
     ];
-
+    
     protected $allowedFilters = [
-        'id' , 'make', 'model',
-        'created_at',
+        'id' ,'pickup_address', 'drop_address', 'date', 'passengers', 'bags', 'payment_method', 'flight_number',
+        'created_at', 'number',
+        // nested
+        'invoices.count', 'invoices.id', 'invoices.issue_date','invoices.due_date',
+        'invoices.total', 'invoices.created_at'
     ];
     protected $orderable = [
-        'id' , 'make', 'model',
-        'created_at'
+        'id' ,'pickup_address', 'drop_address', 'date', 'passengers', 'bags', 'payment_method', 'flight_number',
+        'created_at', 'number',
     ];
+    
 
     public function categorie()
     {

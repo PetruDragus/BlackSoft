@@ -23,6 +23,15 @@ class Customer extends Model
         'Email', 'Created', 'Updated'
     ];
 
+    protected $allowedFilters = [
+        'id' ,'name', 'email', 'phone',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' ,'name', 'email', 'phone',
+        'created_at',
+    ];
+
 
     /**
      * Get the projects record associated with the user.

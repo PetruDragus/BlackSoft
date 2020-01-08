@@ -67,10 +67,10 @@ class BookingController extends Controller
         $booking->driver_id  = $request['driver_id'];
         $booking->vehicle_id = $request['vehicle_id'];;
         $booking->update();
-
-        Mail::to($booking->driver->email)->send(new BookingConfirmed($booking));
-        Mail::to($booking->customer->email)->send(new BookingDriverAccepted($booking));
-
+        
+        Mail::to($booking->customer->email)->send(new BookingConfirmed($booking));
+        Mail::to($booking->driver->email)->send(new BookingDriverAccepted($booking));
+        
         notify()->success('Trip successfully accepted!');
 
         return ['message', 'Success'];
@@ -264,11 +264,10 @@ class BookingController extends Controller
     public function testAPI()
     {
         $now = new Carbon();
-        $today = $now->isoFormat('YYYY-mm-D');
 
         $berlin = $now->copy()->addMinutes(60); // Berlin timestamp
         $romania = $now->copy()->addMinutes(120); // Berlin timestamp
-        $min60  = $romania->copy()->addMinutes(60); // Booking 2 goyrs
+        $min60  = $berlin->copy()->addMinutes(60); // Booking 2 goyrs
 
         $booking = Booking::whereMonth('date', '=', date('m'))->whereDay('date', '=', date('d'))
                             ->where('pickup_hour', $min60->hour)
@@ -294,8 +293,8 @@ class BookingController extends Controller
         return response()
             ->json([
                 'booking' => $booking,
-                'now' => $min60,
-                'berlin' => $romania,
+                'now' => $now,
+                'berlin' => $berlin,
                 'min60' => $min60
             ]);
     }

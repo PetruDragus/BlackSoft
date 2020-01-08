@@ -15,6 +15,19 @@ class VehicleController extends Controller
      */
     public function index()
     {
+//        $model = Vehicle::with('categorie', 'driver')->advancedFilter();
+//
+//        return response()
+//            ->json([
+//                'collection' => $model,
+//                'items_count' => $model->count()
+//            ]);
+        
+        return Vehicle::with('driver', 'categorie')->paginate(20);
+    }
+
+    public function getData()
+    {
         $model = Vehicle::with('categorie', 'driver')->advancedFilter();
 
         return response()

@@ -100,7 +100,7 @@
         <div>
             <div style="padding: 25px 25px;display: inline-flex;">
                 <div class="header-content-left" style="margin-top: auto;margin-left: 20px;margin-bottom: auto;">
-                    <img src="https://app.blackhansa.de/mail-icons/icons-14.png" width="50px">
+                    <img src="https://app.blackhansa.de/mail-icons/client-3.png" width="50px">
                 </div>
 
                 <div class="header-content-right" style="margin-left: 35px;">

@@ -39,14 +39,14 @@ class Booking extends Model
 
     protected $allowedFilters = [
         'id' ,'pickup_address', 'drop_address', 'date', 'passengers', 'bags', 'payment_method', 'flight_number',
-        'created_at', 'number',
+        'created_at', 'number', 'status',
         // nested
         'invoices.count', 'invoices.id', 'invoices.issue_date','invoices.due_date',
         'invoices.total', 'invoices.created_at'
     ];
     protected $orderable = [
         'id' ,'pickup_address', 'drop_address', 'date', 'passengers', 'bags', 'payment_method', 'flight_number',
-        'created_at', 'number',
+        'created_at', 'number', 'status',
     ];
 
     public static function boot()

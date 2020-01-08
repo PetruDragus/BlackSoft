@@ -23,4 +23,13 @@ class Contact extends Model
         'ID', 'Name', 'Address',
         'Email', 'Phone', 'Notes', 'Created', 'Updated'
     ];
+
+    protected $allowedFilters = [
+        'id' ,'name', 'address', 'email', 'phone', 'notes',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' ,'name', 'address', 'email', 'phone', 'notes',
+        'created_at',
+    ];
 }

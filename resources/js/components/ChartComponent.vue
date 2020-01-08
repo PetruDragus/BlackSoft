@@ -7,15 +7,21 @@
 
 <script>
     import { Chart } from 'Chart.js';
+    import Vue from 'vue'
+    import axios from 'axios'
 
     export default {
-        props: {
-            labels: String,
-            dataProp: String
+        data() {
+            return {
+                trips: {},
+                props: {
+                    labels: String,
+                    dataProp: Object
+                },
+            }
         },
         methods: {
             renderChart() {
-
                 new Chart(document.getElementById('canvas').getContext('2d'), {
                     type: 'line',
                     data: {
@@ -35,7 +41,7 @@
                                 borderWidth: 1,
                                 pointBorderColor: '#249EBF',
                                 //Data to be represented on y-axis
-                                data: [40, 30, 40, 50, 90, 40, 20, 40, 50, 70, 90, 100]
+                                data: []
                             }
                         ]
                     },
@@ -47,10 +53,14 @@
                         }
                     }
                 });
-            }
+            },
+            loadTrips() {
+                axios.get('/api/drivers/').then(({ data }) => (this.trips = data));
+            },
         },
         mounted() {
-            this.renderChart();
+            this.renderChart(this.trips);
+            this.loadTrips();
         }
     }
 </script>

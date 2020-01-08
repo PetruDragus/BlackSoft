@@ -27,8 +27,7 @@ class VehicleController extends Controller
 
     public function getData()
     {
-
-        return Vehicle::with('driver', 'categorie')->orderBy('id', 'ASC')->paginate(60);
+        return Vehicle::with('driver', 'categorie')->paginate(20);
     }
 
     /**

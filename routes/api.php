@@ -27,12 +27,9 @@ Route::get('vehicles', 'VehicleController@getData');
 Route::get('payments', 'PaymentController@getData');
 Route::get('opportunities', 'OpportunityController@getData');
 Route::get('products', 'ProductController@search');
-Route::match(['put', 'patch'], 'v1/bookings/changeDriver/{id}', 'API\BookingController@changeDriver');
-Route::match(['put', 'patch'], 'v1/bookings/cancel/{id}', 'API\BookingController@cancelBooking');
 Route::get('v1/flat-rates/all', 'API\FlatRateController@getFlatRates');
 
 Route::apiResources(['v1/bookings' => 'API\BookingController']);
-Route::apiResources(['v1/flat-rates' => 'API\FlatRateController']);
 Route::apiResources(['v1/drivers' => 'API\DriverController']);
 Route::apiResources(['v1/contacts' => 'API\ContactController']);
 Route::apiResources(['v1/customers' => 'API\CustomerController']);
@@ -50,19 +47,37 @@ Route::apiResources(['v1/coupons' => 'API\CouponController']);
 Route::apiResources(['v1/categories' => 'API\CategorieController']);
 Route::apiResources(['v1/flat-rates' => 'API\FlatRateController']);
 
-// Mobile app route
-Route::get('v2/bookings/ended/{driver}', 'API\BookingController@getFinishedBookings');
-Route::get('v2/bookings/pending', 'API\BookingController@getPendingBookings');
-Route::get('v2/bookings/onway/{driver}', 'API\BookingController@getOnWayBookings');
-Route::get('v2/bookings/finished', 'API\BookingController@getFinishedBookings');
+// Mobile app routes
+Route::get('v2/vehicles/all', 'API\VehicleController@getData');
+Route::get('v2/bookings/ended', 'API\BookingController@getFinishedBooking');
+Route::get('v2/bookings/pending', 'API\BookingController@getPendingBooking');
+Route::get('v2/bookings/onway', 'API\BookingController@getOnWayBooking');
+Route::get('v2/bookings/finished', 'API\BookingController@getFinishedBooking');
 Route::put('v2/booking/changeDriver/{id}', 'API\BookingController@changeDriver');
 Route::put('v2/booking/updateStatus/{id}', 'API\BookingController@updateStatus');
-Route::get('v2/reviews/driverReviews/{id}', 'API\ReviewController@getDriverReviews');
-Route::get('v2/reviews/vehicleReviews/{id}', 'API\VehicleReviewController@getVehicleReviews');
+Route::get('v2/reviews/driverReviews/{driver}', 'API\ReviewController@getDriverReviews');
+//Route::post('login', 'API\APILoginController@login');
+
+// Mobile JWT Authentication
+Route::group(['middleware' => ['jwt.auth','api-header']], function () {
+    // all routes to protected resources are registered here
+    Route::get('users/list', function(){
+        $users = App\User::all();
+
+        $response = ['success'=>true, 'data'=>$users];
+        return response()->json($response, 201);
+    });
+});
+
+Route::group(['middleware' => 'api-header'], function () {
+    // The registration and login requests doesn't come with tokens
+    // as users at that point have not been authenticated yet
+    // Therefore the jwtMiddleware will be exclusive of them
+    Route::post('user/login', 'UserController@login');
+});
 
 Route::put('v3/booking/accept/{id}', 'API\BookingController@acceptTrip');
 Route::put('v3/booking/reject/{id}', 'API\BookingController@rejectTrip');
 Route::put('v3/booking/cancel/{id}', 'API\BookingController@cancelTrip');
 
 Route::get('v1/api/test', 'API\BookingController@testAPI');
-Route::get('v1/bookings/rejected', 'API\BookingController@rejected');

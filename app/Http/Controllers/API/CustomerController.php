@@ -16,13 +16,11 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $model = Customer::searchPaginateAndOrder();
-        $columns = Customer::$columns;
+        $model = Customer::advancedFilter();
 
         return response()
             ->json([
-                'model' => $model,
-                'columns' => $columns
+                'collection' => $model,
             ]);
     }
 

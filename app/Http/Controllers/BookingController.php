@@ -16,6 +16,7 @@ use App\Mail\ClientBookingCancelled;
 use App\Mail\Guest\ChauffeurArrived;
 use App\Mail\Guest\ChauffeurOnWay;
 use App\Mail\Guest\BookingPending;
+use App\Mail\Guest\BookingCompleted;
 
 use App\Mail\Driver\BookingDriver60min;
 use App\Mail\Driver\BookingDriverArrived;
@@ -101,19 +102,17 @@ class BookingController extends Controller
     {
         $booking = Booking::findOrFail($id);
         $booking->status  = '60 min';
-        $booking->save();
+        $booking->update();
 
         Mail::to($booking->customer->email)->send(new ChauffeurOnWay($booking));
 
-        return redirect()
-                        ->route('status.confirm');
     }
 
     public function arrivedStatus(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);
         $booking->status  = 'Arrived';
-        $booking->save();
+        $booking->update();
 
         Mail::to($booking->customer->email)->send(new ChauffeurArrived($booking));
     }
@@ -122,7 +121,9 @@ class BookingController extends Controller
     {
         $booking = Booking::findOrFail($id);
         $booking->status  = 'Finished';
-        $booking->save();
+        $booking->update();
+
+        Mail::to($booking->customer->email)->send(new BookingCompleted($booking));
     }
 
     public function statusConfirm()

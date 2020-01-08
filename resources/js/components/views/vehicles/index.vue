@@ -125,7 +125,7 @@
                 drivers: {},
                 vehicles: {},
                 filterable: {
-                    url: '/api/v1/vehicles/',
+                    url: '/api/v2/vehicles/all',
                     orderables: [
                         {title: 'Id', name: 'id', type: 'numeric'},
                         {title: 'Name', name: 'name', type: 'string'},

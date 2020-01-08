@@ -16,14 +16,11 @@ class FlatRateController extends Controller
      */
     public function index()
     {
-        $model = FlatRate::searchPaginateAndOrder();
-        $columns = FlatRate::$columns;
+        $model = FlatRate::advancedFilter();
 
         return response()
             ->json([
-                'model' => $model,
-                'columns' => $columns,
-                'items_count' => $model->count()
+                'collection' => $model,
             ]);
     }
 

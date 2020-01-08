@@ -2974,3 +2974,8 @@ a.btn.btn-label-brand.btn-bold {
   border-radius: 5px !important;
 }
 
+a#dropdownMenuButton1 {
+  padding: 8px !important;
+  margin-left: 5px;
+}
+

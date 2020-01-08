@@ -20,15 +20,12 @@ class Review extends Model
     ];
 
     protected $allowedFilters = [
-        'id' ,'booking_id', 'rating', 'review',
+        'id' ,'booking_id', 'driver_id', 'review', 'rating', 'customer_id',
         'created_at',
-        // nested
-        'invoices.count', 'invoices.id', 'invoices.issue_date','invoices.due_date',
-        'invoices.total', 'invoices.created_at'
     ];
     protected $orderable = [
-        'id' ,'booking_id', 'rating',
-        'created_at'
+        'id' ,'booking_id', 'driver_id', 'review', 'rating', 'customer_id',
+        'created_at',
     ];
 
     /**
