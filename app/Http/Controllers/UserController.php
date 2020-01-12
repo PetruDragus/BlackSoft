@@ -7,6 +7,8 @@ use App\Profile;
 use App\User;
 use Auth;
 use Session;
+use Spatie\Permission\Models\Role;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -21,13 +23,12 @@ class UserController extends Controller
 
     public function getData()
     {
-        $model = User::with('profile')->searchPaginateAndOrder();
-        $columns = User::$columns;
+        $model = User::advancedFilter();
 
         return response()
             ->json([
-                'model' => $model,
-                'columns' => $columns
+                'collection' => $model,
+                'items_count' => $model->count()
             ]);
     }
 
@@ -54,7 +55,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('pages.users.create');
+        $roles = Role::pluck('name','name')->all();
+        return view('pages.users.create', compact('roles'));
     }
 
     /**
@@ -65,12 +67,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $user = User::create([
             'name'     => $request->get('name'),
             'email'    => $request->get('email'),
             'password' => Hash::make($request->get('password')),
         ]);
+
+        $user->assignRole($request->input('roles'));
 
         Profile::create([
             'user_id'  =>      $user->id,

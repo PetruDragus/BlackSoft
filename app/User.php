@@ -4,12 +4,15 @@ namespace App;
 
 use App\Helper\DataViewer;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, DataViewer;
+    use Notifiable;
+    use DataViewer;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -40,6 +43,15 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $allowedFilters = [
+        'id' , 'name', 'email',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' , 'name', 'email',
+        'created_at',
     ];
 
     /**

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Booking;
 use App\User;
-
+use Spatie\Permission\Models\Role;
+use DB;
+use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +19,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $model = User::advancedFilter();
+
+        return response()
+            ->json([
+                'collection' => $model,
+                'items_count' => $model->count()
+            ]);
     }
 
     /**

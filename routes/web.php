@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/dispatch', 'DispatchController');
     Route::resource('/coupons', 'CouponController');
     Route::resource('/flat-rates', 'FlatRateController');
+    Route::resource('/roles', 'RoleController');
 });
 
 Route::get('/api/book', 'BookingController@ApiBooking');

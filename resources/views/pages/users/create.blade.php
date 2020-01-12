@@ -31,8 +31,8 @@
 
                     <div class="row-line">
                         <div class="form-group row mx-auto">
-                            <label class="col-md-4 label-control" for="projectinput5">Name</label>
-                            <div class="col-md-8">
+                            <label class="col-md-4 label-control">Name</label>
+                            <div class="col-md-6">
                                 <input type="text" class="form-control" placeholder="User name" name="name">
                             </div>
                             @error('name')
@@ -54,6 +54,15 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                        </div>
+                    </div>
+
+                    <div class="row-line">
+                        <div class="form-group row mx-auto">
+                            <label class="col-md-4 label-control">Role</label>
+                            <div class="col-md-6">
+                                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                            </div>
                         </div>
                     </div>
 
