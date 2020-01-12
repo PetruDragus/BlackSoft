@@ -133,6 +133,9 @@
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/spatie/calendar-links" />
+      <path value="$PROJECT_DIR$/vendor/calendar/icsfile" />
+      <path value="$PROJECT_DIR$/vendor/ronasit/laravel-ics-generator" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

@@ -24,15 +24,15 @@ class BookingStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'pickup_address'   => 'required',
-            'drop_address'     => 'required',
-            'vehicle_id'       => 'required',
-            'driver_id'        => 'required',
-            'pickup_sign'      => 'required',
-            'pickup_hour'      => 'required',
-            'pickup_min'       => 'required',
-            'flight_number'    => 'required',
-            'date'             => 'required',
+            'pickup_address'   => '',
+            'drop_address'     => '',
+            'vehicle_id'       => '',
+            'driver_id'        => '',
+            'pickup_sign'      => '',
+            'pickup_hour'      => '',
+            'pickup_min'       => '',
+            'flight_number'    => '',
+            'date'             => '',
         ];
     }
 }

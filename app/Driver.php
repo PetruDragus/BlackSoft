@@ -17,7 +17,9 @@ class Driver extends Model
      * @var array
      */
     protected $fillable = [
-        'partener_id', 'name', 'Email', 'phone', 'vehicle_id', 'city_id', 'birthday', 'genter'
+        'partener_id', 'name', 'Email', 'phone',
+        'vehicle_id', 'city_id', 'birthday', 'genter',
+        'status', 'address', 'gps_card', 'fuel_card'
     ];
 
     public static $columns = [
@@ -25,12 +27,12 @@ class Driver extends Model
     ];
 
     protected $allowedFilters = [
-        'id' , 'name', 'email', 'phone',
+        'id' , 'name', 'email', 'phone','status',
         'created_at',
     ];
     protected $orderable = [
-        'id' , 'name', 'email', 'phone',
-        'created_at'
+        'id' , 'name', 'email', 'phone', 'status',
+        'created_at',
     ];
 
     /**

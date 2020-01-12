@@ -17,7 +17,7 @@ class Vehicle extends Model
      * @var array
      */
     protected $fillable = [
-        'driver_id', 'make', 'model', 'bussiness_type', 'categorie_id', 'plate', 'color', 'price', 'vin', 'current_meter', 'year'
+        'driver_id', 'make', 'model', 'bussiness_type', 'categorie_id', 'plate', 'color', 'price', 'vin', 'current_meter', 'year', 'status'
     ];
 
     public static $columns = [

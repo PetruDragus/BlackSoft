@@ -15,12 +15,12 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $model = City::searchPaginateAndOrder();
+        $model = City::advancedFilter();
         $columns = City::$columns;
 
         return response()
             ->json([
-                'model' => $model,
+                'collection' => $model,
                 'columns' => $columns
             ]);
     }

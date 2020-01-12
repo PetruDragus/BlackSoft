@@ -27,6 +27,8 @@
         "babel-runtime": "^6.26.0",
         "chart.js": "^2.8.0",
         "google-maps-api-loader": "^1.1.1",
+        "jspdf": "^1.5.3",
+        "jspdf-autotable": "^3.2.11",
         "sweetalert2": "^8.18.0",
         "toastr": "^2.1.4",
         "vform": "^1.0.1",

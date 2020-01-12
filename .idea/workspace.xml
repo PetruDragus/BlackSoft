@@ -2,453 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db79e5c0-6007-4664-b776-e03e3d581d55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Mail/Guest/BookingCompleted.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blacksoft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blacksoft.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Booking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Categorie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Charts/BookingChart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Charts/BookingChart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/SendEmails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/SendEmails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ContactForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ContactForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Counter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Counter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Coupon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Coupon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Customer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Driver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Driver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Exports/BookingsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/BookingsExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/CitiesExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/CitiesExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ContactFormsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ContactFormsExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ContactsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ContactsExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/CustomersExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/CustomersExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/InvoicesExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/InvoicesExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/JobsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/JobsExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/PaymentsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/PaymentsExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ReviewExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ReviewExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/UsersExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/UsersExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/VehiclesExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/VehiclesExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/FlatRate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/FlatRate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/CustomQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/CustomQueryBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/DataViewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/DataViewer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/GetAttribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/GetAttribute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/HasManyRelation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/HasManyRelation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/StringHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/StringHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CategorieController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CitiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ContactController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CouponController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CouponController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/DriverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/DriverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/FlatRateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/FlatRateController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/InvoiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/JobApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/JobApplicationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/JobsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/JobsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/VehicleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/VehicleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/VehicleReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/VehicleReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategorieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactFormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DispatchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DispatchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DriverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DriverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FlatRateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FlatRateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobApplicationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LeadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LeadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OpportunityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OpportunityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsGroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsGroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehicleReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Cors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/BookingStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/BookingStoreRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Invoice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/InvoiceItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/InvoiceItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JobApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JobApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Lead.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Lead.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/BookingAcceptedMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/BookingAcceptedMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/BookingDeleteMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/BookingDeleteMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/BookingEditedMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/BookingEditedMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ClientBookingCancelled.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ClientBookingCancelled.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ClientBookingConfirmed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ClientBookingConfirmed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ClientChauffeurArrived.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ClientChauffeurArrived.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ClientConfirmed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ClientConfirmed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Driver/BookingDriver60min.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Driver/BookingDriver60min.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverAccepted.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverAccepted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverCancelled.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverCancelled.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverEdited.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverEdited.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverPending.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Driver/BookingDriverPending.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/BookingCancelled.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/BookingCancelled.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/BookingConfirmed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/BookingConfirmed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/BookingEdited.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/BookingEdited.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/BookingPending.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/BookingPending.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/BookingRejected.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/BookingRejected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/ChauffeurArrived.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/ChauffeurArrived.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Guest/ChauffeurOnWay.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Guest/ChauffeurOnWay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/TestMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/TestMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/newBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/newBooking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/BookingObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/BookingObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Opportunity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Opportunity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Review.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/BookingService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/BookingService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Setting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/SettingsGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SettingsGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Vehicle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vehicle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/VehicleReview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/VehicleReview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/backup.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/backup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/charts.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/charts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/flare.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/flare.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/gamp.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/gamp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/hashing.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/hashing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/ignition.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/ignition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/notify.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/notify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/toastr.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/toastr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_123651_create_bookings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_123651_create_bookings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_123740_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_123740_create_cities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_123756_create_contacts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_123756_create_contacts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_123802_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_123802_create_customers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_123809_create_invoices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_123809_create_invoices_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_123816_create_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_123816_create_reviews_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_124206_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_124206_create_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_132600_create_drivers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_132600_create_drivers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_133101_create_vehicles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_133101_create_vehicles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_201707_create_opportunities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_201707_create_opportunities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_201716_create_leads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_12_201716_create_leads_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_15_202726_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_15_202726_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_16_213441_create_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_16_213441_create_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_16_213453_create_job_applications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_16_213453_create_job_applications_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_01_113639_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_01_113639_create_payments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_07_141732_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_07_141732_create_settings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_07_141858_create_settings_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_07_141858_create_settings_groups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_15_133221_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_15_133221_create_profiles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_21_094357_create_contact_forms_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_21_094357_create_contact_forms_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_30_214739_create_coupons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_30_214739_create_coupons_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_14_193127_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_193127_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_16_111435_create_vehicle_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_111435_create_vehicle_reviews_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_18_085104_create_flat_rates_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_18_085104_create_flat_rates_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BookingTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BookingTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CityTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CityTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ContactTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ContactTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CustomerTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CustomerTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DriverTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DriverTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/InvoiceTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/InvoiceTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ReviewTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ReviewTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/VehicleTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/VehicleTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/avatar-default.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/avatar-default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/contacts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/contacts.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/pdf.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pdf.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/toastr.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/toastr.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/client-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/client-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/client-11.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/client-11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/client-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/client-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/client-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/client-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/client-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/client-4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/email-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/email-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/facebook.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/facebook.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons-17.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons-17.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons-18.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons-18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons-19.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons-19.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons-20.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons-20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-17.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-17.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-18.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-18.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-19.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/icons_V4-19.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icon/mail_V3-55.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icon/mail_V3-55.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-01.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-01.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-01.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-02.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-02.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-02.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-03.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-03.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-03.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-04.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-04.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-04.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-05.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-05.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-05.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-06.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-06.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-06.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-07.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-07.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-07.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-08.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-08.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-08.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-08.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-09.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-09.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-09.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-09.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-10.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-11.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-11.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-11.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-12.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-12.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-12.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-13.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-13.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-13.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-14.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-14.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-14.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-15.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-15.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-15.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/icons-16.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/icons-16.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/mail_V3-29.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/mail_V3-29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/star" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/star" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mail-icons/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/mail-icons/star.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sys-update2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/sys-update2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/css/notify.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/css/notify.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/fonts/Flaticon2.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/drake-error.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/drake-error.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/drake-success.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/drake-success.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/error.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/error.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/success.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/success.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/notify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/public/web.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ChartComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Filterable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Filterable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/GoogleMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GoogleMap.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PieChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PieChartComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/bookings/cancelled.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/bookings/cancelled.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/cities/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/cities/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/contactForm/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/contactForm/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/coupons/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/coupons/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/flatrate/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/flatrate/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/jobs/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/jobs/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/jobs/jobApplication/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/payments/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/payments/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/reviews/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/reviews/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/reviews/vehicle/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/reviews/vehicle/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/users/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/users/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/vehicles/categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/vehicles/categories.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/lib/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/lib/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/ar/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ar/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/cs/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/cs/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/da/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/da/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/de/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/de/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/en/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/en/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/es/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/es/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/fa/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/fa/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/fr/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/fr/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/hi/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/hi/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/id/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/id/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/it/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/it/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/nl/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/nl/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/pl/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/pl/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/pt-BR/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/pt-BR/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/ro/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ro/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/ru/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ru/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/tr/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/tr/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/uk/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/uk/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/zh-CN/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/zh-CN/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/backup/zh-TW/notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/zh-TW/notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/animation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/animation.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/normalize.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/normalize.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/settings.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/base/width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/width.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/button.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/document.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/document.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/panel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/progress.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/progress.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/table.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/table.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/typeahead.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/typeahead.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/toastr.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/toastr.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/bak_login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/bak_login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/accepted.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/accepted.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/cancelled.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/cancelled.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/client/arrived.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/client/arrived.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/client/cancelled.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/client/cancelled.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/client/completed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/client/completed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/client/confirmed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/client/confirmed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverAccepted.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverAccepted.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverCancelled.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverCancelled.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverPending.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverPending.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverUpdated.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverUpdated.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/edited.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/edited.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/BookingCancelled.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingCancelled.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/BookingConfirmed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingConfirmed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/BookingEdited.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingEdited.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/BookingPending.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingPending.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/BookingRejected.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/BookingRejected.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurArrived.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurArrived.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurOnWay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurOnWay.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/test.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/test.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exports/bookings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exports/bookings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dispatch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dispatch.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/status.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/cancelled.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/cancelled.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/updateStatus/arrived.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/updateStatus/arrived.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/updateStatus/finish.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/updateStatus/finish.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/bookings/updateStatus/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/bookings/updateStatus/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/calendar/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cities/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cities/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cities/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cities/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/contactForm/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/contactForm/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/contactForm/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/contactForm/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/contacts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/contacts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/contacts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/contacts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/contacts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/contacts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/coupon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/coupon/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/customers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/customers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/customers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/customers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/customers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/dispatch/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/dispatch/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/drivers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/drivers/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/drivers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/drivers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/drivers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/drivers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/flatrate/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/flatrate/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/flatrate/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/flatrate/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/flatrate/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/flatrate/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/invoices/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/invoices/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/invoices/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/invoices/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobApplication/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobApplication/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobApplication/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobApplication/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobApplication/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobApplication/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobs/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobs/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobs/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobs/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobs/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/jobs/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/opportunities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/opportunities/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/opportunities/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/opportunities/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/opportunities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/opportunities/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/payments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/payments/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/payments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/payments/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/payments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/payments/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reviews/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reviews/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reviews/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reviews/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reviews/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reviews/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reviews/vehicleReview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reviews/vehicleReview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/settings/components/company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/settings/components/company.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/settings/components/general.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/settings/components/general.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/settings/components/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/settings/components/payment.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/settings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/settings/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/users/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/users/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/vehicles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/vehicles/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/vehicles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/vehicles/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/vehicles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/vehicles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_alert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_alert.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_notifications.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_slider.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/dispatch/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dispatch/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pickupsign.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pickupsign.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -478,21 +73,28 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/views/contacts/index.vue">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/Filterable.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="98" selection-end-column="11" />
+            <state relative-caret-position="4116">
+              <caret line="197" column="29" selection-start-line="197" selection-start-column="29" selection-end-line="197" selection-end-column="29" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#10005#10026#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/views/customers/index.vue">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/views/bookings/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1028">
-              <caret line="129" column="92" selection-start-line="129" selection-start-column="92" selection-end-line="129" selection-end-column="92" />
+            <state relative-caret-position="488">
+              <caret line="302" column="44" selection-start-line="302" selection-start-column="44" selection-end-line="302" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -505,57 +107,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/emails/guest/BookingRejected.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/driver/BookingDriver60min.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/bookings/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/buttonConfirm.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/bookings/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/SendEmails.php" />
-        <option value="$PROJECT_DIR$/app/Mail/Driver/BookingDriverAccepted.php" />
-        <option value="$PROJECT_DIR$/resources/views/pickupsign.blade.php" />
-        <option value="$PROJECT_DIR$/app/Helper/DataViewer.php" />
-        <option value="$PROJECT_DIR$/app/Helper/CustomQueryBuilder.php" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/ReviewController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/DriverController.php" />
-        <option value="$PROJECT_DIR$/app/Driver.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/bookings/cancelled.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DriverController.php" />
-        <option value="$PROJECT_DIR$/app/Vehicle.php" />
-        <option value="$PROJECT_DIR$/app/Observers/BookingObserver.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Mail/Guest/BookingCompleted.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurArrived.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/guest/ChauffeurOnWay.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php" />
-        <option value="$PROJECT_DIR$/resources/sass/style.scss" />
         <option value="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/views/reviews/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/ChartComponent.vue" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/VehicleController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/FlatRateController.php" />
         <option value="$PROJECT_DIR$/app/FlatRate.php" />
         <option value="$PROJECT_DIR$/resources/js/components/views/flatrate/index.vue" />
         <option value="$PROJECT_DIR$/app/Review.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" />
-        <option value="$PROJECT_DIR$/app/Booking.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/_aside.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/ContactController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" />
         <option value="$PROJECT_DIR$/app/Contact.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/Filterable.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" />
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/resources/js/components/views/customers/index.vue" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/emails/driver/BookingDriverAccepted.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Mail/Driver/BookingDriverAccepted.php" />
+        <option value="$PROJECT_DIR$/vendor/calendar/icsfile/src/Ical.php" />
+        <option value="$PROJECT_DIR$/app/Services/BookingService.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/bookings/show.blade.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_09_12_133101_create_vehicles_table.php" />
+        <option value="$PROJECT_DIR$/app/Vehicle.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_09_12_132600_create_drivers_table.php" />
+        <option value="$PROJECT_DIR$/app/Driver.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/drivers/index.vue" />
+        <option value="$PROJECT_DIR$/resources/views/pages/drivers/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/drivers/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/bookings/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/bookings/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/City.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CitiesController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/contacts/index.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php" />
+        <option value="$PROJECT_DIR$/app/ContactForm.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/cities/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/contactForm/index.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/InvoiceController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/invoices/index.vue" />
+        <option value="$PROJECT_DIR$/app/Invoice.php" />
+        <option value="$PROJECT_DIR$/resources/sass/style.scss" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DriverController.php" />
+        <option value="$PROJECT_DIR$/app/Booking.php" />
+        <option value="$PROJECT_DIR$/app/Exports/BookingsExport.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/Filterable.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/views/bookings/index.vue" />
       </list>
     </option>
   </component>
@@ -692,6 +294,9 @@
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/spatie/calendar-links" />
+      <path value="$PROJECT_DIR$/vendor/calendar/icsfile" />
+      <path value="$PROJECT_DIR$/vendor/ronasit/laravel-ics-generator" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -745,16 +350,7 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="contacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlackSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlackSoft" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="customers" type="462c0819:PsiDirectoryNode" />
+              <item name="bookings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -873,18 +469,21 @@
       <workItem from="1578392110721" duration="783000" />
       <workItem from="1578393872847" duration="237000" />
       <workItem from="1578405965758" duration="4990000" />
-      <workItem from="1578440585304" duration="3256000" />
+      <workItem from="1578440585304" duration="10176000" />
+      <workItem from="1578564602714" duration="18419000" />
+      <workItem from="1578741950243" duration="6566000" />
+      <workItem from="1578784754280" duration="3000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="353935000" />
+    <option name="totallyTimeSpent" value="385843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11517077" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12152502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -934,396 +533,358 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ReviewController.php">
+    <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="66" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        <state relative-caret-position="358">
+          <caret line="166" column="64" selection-start-line="166" selection-start-column="64" selection-end-line="166" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/JobApplicationController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/driver/BookingDriverAccepted.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="803">
+          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CouponController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/public/phpN5oA7I.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Driver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" selection-start-line="26" selection-end-line="33" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Vehicle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Observers/BookingObserver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#33#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/coupons/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="171" column="25" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/Driver/BookingDriver60min.php">
+    <entry file="file://$PROJECT_DIR$/storage/app/public/ics/412" />
+    <entry file="file://$PROJECT_DIR$/storage/app/public/ics/412.ics" />
+    <entry file="file://$PROJECT_DIR$/app/Mail/Driver/BookingDriverPending.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VehicleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/storage/app/public/ics/iphone-413.ics">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DriverController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="75" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/vendor/calendar/icsfile/composer.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/DriverController.php">
+    <entry file="file://$PROJECT_DIR$/app/Mail/BookingAcceptedMail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
-          <folding>
-            <element signature="e#44#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendEmails.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="96" column="105" selection-start-line="96" selection-start-column="92" selection-end-line="96" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/guest/BookingCompleted.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="103" column="30" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/Guest/BookingConfirmed.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="22" lean-forward="true" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/Guest/BookingCompleted.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="27" lean-forward="true" selection-end-line="38" />
-          <folding>
-            <element signature="e#34#50#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/guest/ChauffeurArrived.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-734">
-          <caret line="107" column="147" selection-start-line="107" selection-start-column="147" selection-end-line="107" selection-end-column="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/guest/ChauffeurOnWay.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1091">
-          <caret line="107" column="147" selection-start-line="107" selection-start-column="147" selection-end-line="107" selection-end-column="147" />
+        <state relative-caret-position="714">
+          <caret line="40" column="38" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Mail/Driver/BookingDriverAccepted.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="462">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/calendar/icsfile/src/Ical.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="278" column="31" selection-start-line="278" selection-start-column="31" selection-end-line="278" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/accepted.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="94" selection-start-line="94" selection-end-line="99" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/BookingService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/bookings/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="847">
+          <caret line="96" column="8" lean-forward="true" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/BookingStoreRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Helper/CustomQueryBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2941">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Helper/DataViewer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_12_133101_create_vehicles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Vehicle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_12_132600_create_drivers_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/drivers/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="913">
+          <caret line="92" column="194" selection-start-line="92" selection-start-column="194" selection-end-line="92" selection-end-column="194" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#5;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#6;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/drivers/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1107">
+          <caret line="161" column="84" lean-forward="true" selection-start-line="161" selection-start-column="84" selection-end-line="161" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/drivers/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="856">
+          <caret line="160" column="98" selection-start-line="160" selection-start-column="98" selection-end-line="160" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exports/VehiclesExport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BookingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="204" column="45" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
+        <state relative-caret-position="2807">
+          <caret line="181" column="56" selection-start-line="181" selection-start-column="56" selection-end-line="181" selection-end-column="86" />
           <folding>
             <element signature="e#40#55#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/style.scss">
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/bookings/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="938">
-          <caret line="3104" column="9" lean-forward="true" selection-start-line="3104" selection-start-column="9" selection-end-line="3104" selection-end-column="9" />
+        <state relative-caret-position="432">
+          <caret line="324" column="48" selection-start-line="324" selection-start-column="48" selection-end-line="324" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+    <entry file="file://$PROJECT_DIR$/app/Driver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="546">
+          <caret line="28" selection-start-line="28" selection-end-line="35" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/contacts/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="81" column="7" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
-          <folding>
-            <element signature="e#1971#2028#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="798">
+          <caret line="81" column="88" selection-start-line="81" selection-start-column="88" selection-end-line="81" selection-end-column="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2185">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        <state relative-caret-position="420">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/PieChartComponent.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/users/index.vue">
+    <entry file="file://$PROJECT_DIR$/app/ContactForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4033" />
+        <state relative-caret-position="525">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/reviews/index.vue">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ContactFormController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+        <state relative-caret-position="315">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/contactForm/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/City.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="27" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/views/cities/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="153" column="4" lean-forward="true" selection-start-line="153" selection-start-column="4" selection-end-line="154" selection-end-column="29" />
-          <folding>
-            <element signature="e#7714#7735#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ChartComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
-          <folding>
-            <element signature="e#140#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/VehicleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/vehicles/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/flatrate/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="133" column="45" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/FlatRate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/FlatRateController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Review.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/_aside.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="184" column="17" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="39" selection-start-line="39" selection-end-line="49" selection-end-column="6" />
-          <folding>
-            <element signature="e#23#41#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Coupon.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/drivers/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#span#0;n#td#7;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/bookings/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1077">
-          <caret line="60" column="31" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#td#3;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#7;n#tr#0;n#filterable#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/Filterable.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="151" column="35" selection-start-line="151" selection-start-column="35" selection-end-line="151" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="33" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        <state relative-caret-position="-1177">
+          <caret line="24" column="35" selection-end-line="139" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/BookingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="42" selection-end-column="15" />
+        <state relative-caret-position="1302">
+          <caret line="347" column="40" selection-start-line="347" selection-start-column="40" selection-end-line="347" selection-end-column="40" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/contacts/index.vue">
+    <entry file="file://$PROJECT_DIR$/app/Invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="98" selection-end-column="11" />
+        <state relative-caret-position="461">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/views/customers/index.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/invoices/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1028">
-          <caret line="129" column="92" selection-start-line="129" selection-start-column="92" selection-end-line="129" selection-end-column="92" />
+        <state relative-caret-position="545">
+          <caret line="131" column="24" selection-start-line="131" selection-start-column="24" selection-end-line="139" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/InvoiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="48" column="23" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1503">
+          <caret line="82" column="14" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DriverController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/bookings/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="296" column="24" selection-start-line="296" selection-start-column="24" selection-end-line="309" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/exports/bookings.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Booking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="e#23#41#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exports/BookingsExport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <folding>
+            <element signature="e#31#47#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/Filterable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4116">
+          <caret line="197" column="29" selection-start-line="197" selection-start-column="29" selection-end-line="197" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#10005#10026#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/views/bookings/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="302" column="44" selection-start-line="302" selection-start-column="44" selection-end-line="302" selection-end-column="44" />
+          <folding>
+            <element signature="e#13401#13456#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

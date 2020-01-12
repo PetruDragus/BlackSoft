@@ -60,9 +60,12 @@
                         <th>ID.</th>
                         <th>City</th>
                         <th>Name</th>
-                        <th>Vehicle</th>
+                        <th>Address</th>
                         <th>Email</th>
                         <th>Phone No.</th>
+                        <th>GPS Card</th>
+                        <th>Fuel Card</th>
+                        <th>Status</th>
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th>Total Trips</th>
@@ -76,9 +79,34 @@
                         <th>#{{ item.id }}</th>
                         <td>{{ item.city }}</td>
                         <td>{{ item.name }}</td>
-                        <td>{fasdf</td>
+                        <td>{{ item.address }}</td>
                         <td>{{ item.email }}</td>
                         <td>{{ item.phone }}</td>
+                        <td>
+                            <div class="flex">
+                                <img src="https://icons-for-free.com/iconfiles/png/512/credit+card+debit+card+master+card+icon-1320184902602310693.png" width="25">
+                                <span style="padding: 5px; font-weight:700;">{{ item.gps_card }}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Credit_or_Debit_Card_Flat_Icon_Vector.svg/1024px-Credit_or_Debit_Card_Flat_Icon_Vector.svg.png" width="25">
+                                <span style="padding: 5px; font-weight:700;">{{ item.fuel_card }}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status status-pink" v-if="item.status === 'Inactive'">
+                                <span class="status-text">{{ item.status }}</span>
+                            </span>
+
+                            <span class="status status-green" v-else-if="item.status === 'Active'">
+                                <span class="status-text">{{ item.status }}</span>
+                            </span>
+
+                            <span class="status status-pink" v-else-if="!item.status">
+                                <span class="status-text">N/A</span>
+                            </span>
+                        </td>
                         <td>{{ item.birthday | formatDate }}</td>
                         <td>{{ item.created_at | formatDate }}</td>
                         <td>

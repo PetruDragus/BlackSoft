@@ -311,18 +311,6 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">
-                                        <span>Special Requests</span>
-                                    </label>
-
-                                    <textarea type="text" name="special_request" rows="4" cols="50" class="form-input" style="height:100px;">
-                                        {{ $booking->special_request }}
-                                    </textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">
                                         <span>Additional Info</span>
                                     </label>
 
@@ -334,7 +322,7 @@
                         </div>
 
                         <div class="row row-line">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Status <i class="fas fa-info-circle"></i></span>

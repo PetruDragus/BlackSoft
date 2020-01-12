@@ -79,7 +79,7 @@
                                         <i class="fas fa-ellipsis-h"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" v-bind:href="'/drivers/'+item.id+'/edit'">
+                                        <a class="dropdown-item" v-bind:href="'/contacts/'+item.id+'/edit'">
                                             <i class="far fa-edit"></i>
                                             <span class="nav__link-text">Edit</span>
                                         </a>

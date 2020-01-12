@@ -34,6 +34,9 @@ use App\Http\Controllers\Controller;
 use App\Exports\BookingsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+use Ical\Ical;
+use Ical\IcalendarException;
+
 class BookingController extends Controller
 {
     /**
@@ -200,6 +203,7 @@ class BookingController extends Controller
         $booking->phone           = $request->get('phone');
         // Using custom service for price calculator
         $booking->price           = $bookingService->calculateBookingPrice($booking);
+        $booking->distance        = $bookingService->calculateBookingDistance($booking);
 
         // Auto-generate pdf file with 'pickup-sign'
         if ($request->get('pickup_sign')) {
@@ -243,6 +247,36 @@ class BookingController extends Controller
         }
 
         $booking->save();
+
+        try {
+            // Get booking date and time
+            $pickup_time = $booking->pickup_hour . ':' . $booking->pickup_min . ':' .'00';
+            $aDateString = $booking->date . $pickup_time;
+
+            $dateTimeString = $aDateString;
+            $dueDateTime = Carbon::createFromFormat('Y-m-d H:i:s', $dateTimeString);
+
+            $due = $dueDateTime->copy()->addMinutes($bookingService->calculateBookingDistanceMinutes($booking));
+
+            $trip_distance = $bookingService->calculateBookingDistance($booking);
+
+            $ical = (new Ical())->setAddress($booking->pickup_address)
+                ->setDateStart(new \DateTime($booking->date . " " .$pickup_time))
+                ->setDateEnd(new \DateTime( $due))
+                ->setDescription(
+                    "Dear " . $booking->driver->name . '\n' . '\n' . 'Please find the summary of the ride below.' . '\n' . '\n' . 'Booking number: ' . $booking->number . '\n' . 'From: ' . $booking->pickup_address . '\n' . 'To: ' . $booking->drop_address . '\n' . 'Category: ' . $booking->type . '' . '\n' . 'Distance: ca. ' . $trip_distance . ' km' . '\n' . 'Flight or Train number: ' . $booking->flight_number . '\n' .'Pickup sign: ' . $booking->pickup_sign . '\n' . 'Additional comments: ' . '\n' . '\n' . 'Be sure to double check the ride information, witch can also be found in the BL Chauffeur app. A pickup sign is attached to the confirmation email as a pdf. It is a pleasure working together.' . '\n' . '\n' . 'Best regards,' . '\n' . 'You Blackhansa Team'
+                )
+                ->setSummary("BH " . $booking->number)
+                ->setFilename("BH-" . $booking->number);
+            $ical->addHeader();
+
+            $event = $ical->getICAL();
+
+            Storage::put('public/ics/BH-'.$booking->number . '.ics', $event);
+
+        } catch (IcalendarException $exc) {
+            echo $exc->getMessage();
+        }
 
         // After booking submitted, send email to customer
         Mail::to($booking->customer->email)->send(new BookingPending($booking));

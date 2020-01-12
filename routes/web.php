@@ -95,3 +95,6 @@ Route::get('/update/status/finish/{id}', 'BookingController@finishForm');
 Route::post('/update/status/{id}', 'BookingController@min60status')->name('update.status60min');
 Route::post('/update/status/arrived/{id}', 'BookingController@arrivedStatus')->name('update.statusArrived');
 Route::post('/update/status/finish/{id}', 'BookingController@finishStatus')->name('update.finishStatus');
+
+
+Route::get("ical-events/{id}", "BookingController@getEventsICalObject");

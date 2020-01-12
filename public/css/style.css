@@ -20,6 +20,10 @@
   font-weight: 600;
 }
 
+.width-100 {
+  width: 100% !important;
+}
+
 a.btn {
   display: inline-block;
   color: #484746;

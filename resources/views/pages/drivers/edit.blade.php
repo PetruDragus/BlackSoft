@@ -33,7 +33,7 @@
                 <div class="panel-form">
                     <div>
                         <div class="row row-line">
-                            <div class="col-md-4">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Full Name</span>
@@ -42,18 +42,31 @@
                                     <input type="text" source="input" label="name" name="name" col="4" class="form-input" placeholder="Full Name" value="{{ $driver->name }}">
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
-                                        <span>City</span>
+                                        <span>Address</span>
                                     </label>
 
-                                    <input type="text" name="city" class="form-input" placeholder="City" value="{{ $driver->city }}">
+                                    <input type="text" name="address" class="form-input" placeholder="Address" value="{{ $driver->address }}">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>Email</span>
+                                    </label>
 
-                            <div class="col-md-4">
+                                    <input type="email" name="email" class="form-input" placeholder="Email" value="{{ $driver->email }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Vehicle</span>
@@ -68,9 +81,19 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row row-line">
-                            <div class="col-md-4">
+                            <div class="col-md-6 mx-auto">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>City</span>
+                                    </label>
+
+                                    <input type="text" name="city" class="form-input" placeholder="City" value="{{ $driver->city }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Phone</span>
@@ -79,8 +102,9 @@
                                     <input type="text" source="input" name="phone" class="form-input" placeholder="Phone Number" value="{{ $driver->phone }}">
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Birthday</span>
@@ -89,8 +113,9 @@
                                     <input type="date" source="input" name="birthday" class="form-input" placeholder="Phone Number" value="{{ $driver->birthday }}">
                                 </div>
                             </div>
-
-                            <div class="col-md-2">
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Genter</span>
@@ -103,8 +128,9 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="col-md-2">
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span>Driver Photo</span>
@@ -112,17 +138,52 @@
 
                                     <input type="file" name="photo" accept=".png, .jpg, .jpeg">
                                 </div>
-
                             </div>
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>GPS Card</span>
+                                    </label>
 
+                                    <input type="text" source="input" label="name" name="gps_card" col="4" class="form-input" value="{{ $driver->gps_card }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>Fuel Card</span>
+                                    </label>
+
+                                    <input type="text" source="input" label="name" name="fuel_card" col="4" class="form-input"  value="{{ $driver->fuel_card }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-line">
+                            <div class="col-md-6 mx-auto">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span>Status</span>
+                                    </label>
+
+                                    <select name="status" class="form-control select-input">
+                                        <option value="" disabled="disabled">Select ..</option>
+                                        <option value="Active" @if ($driver->status === 'Active') selected @endif>Active</option>
+                                        <option value="Inactive" @if ($driver->status === 'Inactive') selected @endif>Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="panel-footer panel-alt">
-                    <div class="flex flex-end">
+                    <div class="flex mx-auto">
                         <div>
-                            <a href="{{ route('contacts.index') }}" class="btn btn-default">
+                            <a href="{{ route('drivers.index') }}" class="btn btn-default">
                                 <span class="btn-text">Cancel</span>
                             </a>
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c013fc400156fc5d5325d8150b9f8e08",
+    "content-hash": "50464e8a003cd9a86fd0c27e0d6bac7e",
     "packages": [
         {
             "name": "balping/json-raw-encoder",
@@ -104,6 +104,49 @@
                 "pdf"
             ],
             "time": "2019-08-23T14:30:33+00:00"
+        },
+        {
+            "name": "calendar/icsfile",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/colonelMoutarde/icalendar-generator.git",
+                "reference": "2e12412bb8b5ee61bdc53291f4cebcc10d3f4405"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/colonelMoutarde/icalendar-generator/get/2e12412bb8b5ee61bdc53291f4cebcc10d3f4405.zip",
+                "reference": "2e12412bb8b5ee61bdc53291f4cebcc10d3f4405",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ical\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "luc sanchez",
+                    "email": "sanchezluc+composer@gmail.com"
+                }
+            ],
+            "description": "This simple class generate a .ics file.",
+            "homepage": "https://www.luc-sanchez.fr/",
+            "keywords": [
+                ".ics",
+                "calendar",
+                "gmail",
+                "outlook"
+            ],
+            "time": "2017-09-19T09:49:17+00:00"
         },
         {
             "name": "consoletvs/charts",
@@ -2917,6 +2960,50 @@
             "time": "2019-12-17T08:18:51+00:00"
         },
         {
+            "name": "ronasit/laravel-ics-generator",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RonasIT/laravel-ics-generator.git",
+                "reference": "bcb790331bcf0db648b954f7a6fbabf21e2aa93e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RonasIT/laravel-ics-generator/zipball/bcb790331bcf0db648b954f7a6fbabf21e2aa93e",
+                "reference": "bcb790331bcf0db648b954f7a6fbabf21e2aa93e",
+                "shasum": ""
+            },
+            "require": {
+                "calendar/icsfile": "^4.0",
+                "laravel/framework": ">=5.2.0",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RonasIT\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Dubrovin",
+                    "email": "rdubrovin@ronasit.com"
+                }
+            ],
+            "description": "This package developed for easy integration of ics-file generating.",
+            "keywords": [
+                "ical",
+                "ics",
+                "laravel",
+                "outlook"
+            ],
+            "time": "2018-02-08T09:34:04+00:00"
+        },
+        {
             "name": "sabberworm/php-css-parser",
             "version": "8.3.0",
             "source": {
@@ -2960,6 +3047,53 @@
                 "stylesheet"
             ],
             "time": "2019-02-22T07:42:52+00:00"
+        },
+        {
+            "name": "spatie/calendar-links",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/calendar-links.git",
+                "reference": "3a07e388bc41475a8e8e4da6f42616c3a19b74bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/calendar-links/zipball/3a07e388bc41475a8e8e4da6f42616c3a19b74bc",
+                "reference": "3a07e388bc41475a8e8e4da6f42616c3a19b74bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0",
+                "spatie/phpunit-snapshot-assertions": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CalendarLinks\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate add to calendar links for Google, iCal and other calendar systems",
+            "homepage": "https://github.com/spatie/calendar-links",
+            "keywords": [
+                "calendar-links",
+                "spatie"
+            ],
+            "time": "2019-07-17T09:49:53+00:00"
         },
         {
             "name": "spatie/db-dumper",

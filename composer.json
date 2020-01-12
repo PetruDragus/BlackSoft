@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-dompdf": "^0.8.5",
+        "calendar/icsfile": "4.0",
         "consoletvs/charts": "6.*",
         "dompdf/dompdf": "^0.8.3",
         "fideloper/proxy": "^4.0",
@@ -25,6 +26,8 @@
         "maatwebsite/excel": "^3.0",
         "mckenziearts/laravel-notify": "^1.1",
         "nesbot/carbon": "^2.28",
+        "ronasit/laravel-ics-generator": "^0.0.2",
+        "spatie/calendar-links": "^1.2",
         "spatie/laravel-backup": "^6.7",
         "theiconic/php-ga-measurement-protocol": "^2.7",
         "yoeunes/toastr": "^1.2"

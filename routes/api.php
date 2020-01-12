@@ -80,4 +80,7 @@ Route::put('v3/booking/accept/{id}', 'API\BookingController@acceptTrip');
 Route::put('v3/booking/reject/{id}', 'API\BookingController@rejectTrip');
 Route::put('v3/booking/cancel/{id}', 'API\BookingController@cancelTrip');
 
+Route::put('v4/tripDetails/{id}', 'API\BookingController@updateTripDetails');
+Route::put('v4/form/booking/lastUpdate/{id}', 'API\BookingController@lastUpdate');
+
 Route::get('v1/api/test', 'API\BookingController@testAPI');

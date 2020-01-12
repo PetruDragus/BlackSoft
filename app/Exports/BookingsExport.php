@@ -8,22 +8,30 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromQuery;
 
-class BookingsExport implements FromQuery, WithMapping
+class BookingsExport implements FromCollection, WithMapping, WithHeadings
 {
 
-    public function query()
+    public function collection()
     {
-        $booking = Booking::query()->with('driver');
+        return Booking::with('customer', 'driver')->orderBy('id', 'DESC')->get();
     }
 
-    /**
-     * @var Invoice $invoice
-     */
     public function map($booking): array
     {
         return [
-            $booking->invoice_number,
+            $booking->id,
+            $booking->number,
+            $booking->type,
+            $booking->date,
+            $booking->pickup_hour . $booking->pickup_min,
+            $booking->customer->name,
+            $booking->vehicle->make . ' ' .$booking->vehicle->model,
             $booking->driver->name,
+            $booking->pickup_address,
+            $booking->drop_address,
+            $booking->flight_number,
+            'km' . ' ' . $booking->distance,
+            $booking->price . ' ' . '€',
         ];
     }
 
@@ -31,9 +39,18 @@ class BookingsExport implements FromQuery, WithMapping
     {
         return [
             'ID',
+            'Number',
+            'Type',
+            'Pickup Date',
+            'Pickup Time',
+            'Customer',
+            'Vehicle',
             'Driver',
-            'Email',
-            'Twitter',
+            'From',
+            'To',
+            'Flight Number',
+            'Distance',
+            'Price',
         ];
     }
 }

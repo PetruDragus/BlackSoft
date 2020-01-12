@@ -15,12 +15,12 @@ class ContactFormController extends Controller
      */
     public function index()
     {
-        $model = ContactForm::searchPaginateAndOrder();
+        $model = ContactForm::advancedFilter();
         $columns = ContactForm::$columns;
 
         return response()
             ->json([
-                'model' => $model,
+                'collection' => $model,
                 'columns' => $columns,
                 'items_count' => $model->count()
             ]);

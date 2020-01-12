@@ -165,6 +165,7 @@
                         <select class="form-input form-input-sm" v-model="query.limit" :disabled="loading" @change="updateLimit">
                             <option>10</option>
                             <option>15</option>
+                            <option>20</option>
                             <option>25</option>
                             <option>50</option>
                         </select>
@@ -195,6 +196,7 @@
 
     import Vue from 'vue'
     import axios from 'axios'
+
     export default {
         props: {
             url: String,
@@ -210,7 +212,7 @@
                     order_column: 'created_at',
                     order_direction: 'desc',
                     filter_match: 'and',
-                    limit: 15,
+                    limit: 20,
                     page: 1
                 },
                 collection: {

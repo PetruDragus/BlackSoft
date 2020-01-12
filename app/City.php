@@ -17,4 +17,13 @@ class City extends Model
         'ID', 'Name', 'Country',
         'Currency', 'Distance Metric', 'Created', 'Updated'
     ];
+
+    protected $allowedFilters = [
+        'id' , 'name', 'country', 'currency', 'distance_metric',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' , 'name', 'country', 'currency', 'distance_metric',
+        'created_at',
+    ];
 }

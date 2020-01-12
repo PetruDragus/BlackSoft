@@ -22,6 +22,8 @@ class CreateDriversTable extends Migration
             $table->string('city');
             $table->string('birthday');
             $table->string('genter');
+            $table->string('gps_card')->nullable();
+            $table->string('fuel_card')->nullable();
             $table->string('photo')->default('avatar-default.png');
             $table->string('mime')->nullable();
             $table->string('original_filename')->nullable();

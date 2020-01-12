@@ -9,7 +9,6 @@
         $date = $booking->date;
         $d    = new \Carbon\Carbon($date);
         $month =  $d->format('F');
-        $full = $d->format('MMMM Do YYYY');
     @endphp
 
     <div style="  display: flex;">
@@ -22,7 +21,7 @@
             <div class="row">
                 <div class="col-md-3 inline-cardex">
                     <h5 class="day-title">{{ $d->format('l') }}</h5>
-                    <p class="complet-date">{{ $d->isoFormat('MMM Do YYYY')  }} {{ $booking->pickup_hour }}:{{ $booking->pickup_min }}</p>
+                    <p class="complet-date">{{ $booking->date  }} {{ $booking->pickup_hour }}:{{ $booking->pickup_min }}</p>
                     <p class="complet-date">{{ $booking->pickup_address }}</p>
                 </div>
                 <div class="col-md-3 inline-cardex">
@@ -106,7 +105,7 @@
 
                     <li>
                         <span class="left-col">Distance</span>
-                        <span class="right-col">244km (3 hours 6 mins)</span>
+                        <span class="right-col">{{ $booking->distance }}km (3 hours 6 mins)</span>
                     </li>
                 </ul>
             </div>

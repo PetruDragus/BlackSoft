@@ -42,6 +42,10 @@
                                         <i class="fas fa-file-csv"></i>
                                         <span class="nav__link-text">CSV</span>
                                     </a>
+                                    <a class="dropdown-item"  @click="createPDF()">
+                                        <i class="fas fa-file-csv"></i>
+                                        <span class="nav__link-text">PDF</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -52,60 +56,63 @@
         </div>
 
         <div class="">
-            <div class="dv-body table-responsive">
+            <div id="dv-table" class="dv-body table-responsive">
 
                 <filterable v-bind="filterable">
 
                     <thead slot="thead">
                         <tr>
-                            <th>ID</th>
                             <th>Trip No.</th>
+                            <th>Pickup Date / Time</th>
                             <th>Pickup Address</th>
                             <th>Drop Address</th>
-                            <th>Customer</th>
+                            <th>Type</th>
                             <th>Driver</th>
                             <th>Vehicle</th>
-                            <th>Pickup Date / Time</th>
                             <th>Price</th>
                             <th>Status</th>
-                            <th>Created</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
 
-                    <tr slot-scope="{ item }">
-                        <th>#{{ item.id }}</th>
+                    <tr slot-scope="{ item }" ref="content" >
                         <th>{{ item.number }}</th>
+                        <td style="width: 150px;">{{ item.date | formatMiniDate }} / {{ item.pickup_hour }}:{{ item.pickup_min }}</td>
                         <td class="md-w245">{{ item.pickup_address }}</td>
                         <td class="md-w245">{{ item.drop_address }}</td>
-                        <td>{{ item.customer.name }}</td>
-                        <td>
-                            <div style="display: inline-flex;">
-                                <div class="sidebar-icon">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
+                        <td>{{ item.type }}</td>
+<!--                        <td style="width: 300px !important;">-->
+<!--                            <div style="display: inline-flex;">-->
+<!--                                <div class="sidebar-icon" style="padding: 8px;">-->
+<!--                                    <i class="fas fa-user-tie"></i>-->
+<!--                                </div>-->
 
-                                <div>
-                                    <div v-if="item.driver !== null">{{ item.driver.name }}</div>
-                                    <div v-else style="color: #E63A46;">Unassigned</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div style="display: inline-flex;">
-                                <div class="sidebar-icon">
-                                    <i class="fas fa-car"></i>
-                                </div>
+<!--                                <div>-->
+<!--                                    <div class="form-group">-->
+<!--                                        <select name="status" class="form-control select-input" >-->
+<!--                                            <option value="" disabled="disabled">Select ..</option>-->
+<!--                                            <option v-for="item in drivers.data" v-bind:value="item.id">{{ item.name }}</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                        <td style="width: 200px !important;">-->
+<!--                            <div class="width-100" style="display: inline-flex;">-->
+<!--                                <div class="sidebar-icon" style="padding: 8px;">-->
+<!--                                    <i class="fas fa-car"></i>-->
+<!--                                </div>-->
 
-                                <div>
-                                    <div v-if="item.vehicle !== null">{{ item.vehicle.plate }}</div>
-                                    <div v-else style="color: #E63A46;">Unassigned</div>
-                                </div>
-                            </div>
-                        </td>
-
-
-                        <td style="width: 150px;">{{ item.date | formatMiniDate }} / {{ item.pickup_hour }}:{{ item.pickup_min }}</td>
+<!--                                <div class="width-100">-->
+<!--                                    <div class="form-group width-100">-->
+<!--                                        <select name="status" class="form-control select-input">-->
+<!--                                            <option value="" disabled="disabled">Select ..</option>-->
+<!--                                            <option v-for="item in vehicles.data" v-bind:value="item.id">{{ item.plate }}</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
                         <td class="td-price" v-if="item.price > '0'" style="width: 75px;">€ {{ item.price | formatMoney}}</td>
                         <td>
                             <div v-if="item.status == 'Pending'" style="display: flex;">
@@ -138,7 +145,6 @@
                                 <span class="status-text">{{ item.status }}</span>
                             </span>
                         </td>
-                        <td>{{ item.created_at | formatMiniDate }}</td>
                         <td>
                             <div class="bk-span-actions" style="overflow: visible; position: relative; width: 80px;color: #595d6e;font-size: 1rem;">
                                 <div class="dropdown">
@@ -185,7 +191,7 @@
 
                                                         <select v-model="form.driver_id" class="form-control select-input" name="driver_id">
                                                             <option value="" disabled="disabled">Select ..</option>
-                                                            <option v-for="item in drivers.data" v-bind:value="item.id">{{ item.name }}</option>
+                                                            <option v-for="driver in drivers.data" v-bind:value="driver.id" :value="driver.id">{{ item.name }}</option>
                                                         </select>
                                                     </div>
 
@@ -225,6 +231,8 @@
     Vue.component(HasError.name, HasError);
     Vue.component(AlertError.name, AlertError);
     import Filterable from '../../../components/Filterable'
+    import jsPDF from 'jspdf'
+    import autoTable from 'jspdf-autotable'
 
     export default {
         components: { Filterable },
@@ -245,6 +253,7 @@
                     orderables: [
                         {title: 'Id', name: 'id',  type: 'string'},
                         {title: 'Number', name: 'number'},
+                        {title: 'Driver', name: 'driver_id'},
                         {title: 'Pickup Address', name: 'pickup_address'},
                         {title: 'Drop Address', name: 'drop_address'},
                         {title: 'Flight Number', name: 'flight_number'},
@@ -261,6 +270,7 @@
                             filters: [
                                 {title: 'Id', name: 'id', type: 'numeric'},
                                 {title: 'Number', name: 'number', type: 'string'},
+                                {title: 'Driver', name: 'driver_id', type: 'string'},
                                 {title: 'Pickup Address', name: 'pickup_address', type: 'string'},
                                 {title: 'Drop Address', name: 'drop_address', type: 'string'},
                                 {title: 'Flight Number', name: 'flight_number', type: 'string'},
@@ -270,6 +280,12 @@
                                 {title: 'Bags', name: 'bags', type: 'numeric'},
                                 {title: 'Status', name: 'status', type: 'string'},
                                 {title: 'Created At', name: 'created_at', type: 'datetime'},
+                            ]
+                        },
+                        {
+                            name: 'Drivers',
+                            filters: [
+                                {title: 'Name', name: 'driver.name', type: 'string'},
                             ]
                         }
                     ]
@@ -281,6 +297,23 @@
             this.loadVehicles();
         },
         methods: {
+            createPDF () {
+                var doc = new jsPDF('l');
+                // It can parse html:
+                doc.autoTable({html: '.table'});
+
+                // Or use javascript directly:
+                doc.autoTable({
+                    head: [['Name', 'Email', 'Country']],
+                    body: [
+                        ['David', 'david@example.com', 'Sweden'],
+                        ['Castille', 'castille@example.com', 'Norway'],
+                        // ...
+                    ]
+                });
+
+                doc.save('table.pdf');
+            },
             deleteBooking(id) {
                 if(confirm('are you sure?'))
                 // Send request to the server

@@ -23,6 +23,15 @@ class Invoice extends Model
         'id', 'Issue Date', 'Due Date', 'Customer', 'Grand Total', 'Status'
     ];
 
+    protected $allowedFilters = [
+        'id' , 'number', 'date', 'due_date', 'customer_id', 'booking_id', 'discount', 'total', 'status',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' , 'number', 'date', 'due_date', 'customer_id', 'booking_id', 'discount', 'total', 'status',
+        'created_at',
+    ];
+
     protected $dates = ['date', 'due_date'];
 
     public function customer()

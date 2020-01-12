@@ -24,7 +24,7 @@ class DriverController extends Controller
     public function getData()
     {
 
-        return Driver::with('vehicle')->orderBy('id', 'ASC')->paginate(60);
+        return Driver::with('vehicle')->where('status', '=' ,'Active')->orderBy('id', 'ASC')->paginate(60);
     }
 
     /**
@@ -67,6 +67,10 @@ class DriverController extends Controller
         $driver->birthday       = $request->birthday;
         $driver->genter         = $request->genter;
         $driver->email          = $request->email;
+        $driver->status         = $request->status;
+        $driver->address        = $request->address;
+        $driver->gps_card       = $request->gps_card;
+        $driver->fuel_card      = $request->fuel_card;
 
         if(!empty($request->has('photo'))) {
             $driver->mime = $cover->getClientMimeType();
@@ -138,6 +142,10 @@ class DriverController extends Controller
         $driver->birthday       = $request->birthday;
         $driver->genter         = $request->genter;
         $driver->email          = $request->email;
+        $driver->status         = $request->status;
+        $driver->address        = $request->address;
+        $driver->gps_card       = $request->gps_card;
+        $driver->fuel_card      = $request->fuel_card;
 
         if(!empty($request->has('photo'))) {
             $driver->mime = $cover->getClientMimeType();

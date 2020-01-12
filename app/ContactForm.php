@@ -17,4 +17,13 @@ class ContactForm extends Model
         'ID', 'Name', 'Email',
         'Subject', 'Message', 'Created', 'Updated'
     ];
+
+    protected $allowedFilters = [
+        'id' , 'name', 'email', 'subject', 'message',
+        'created_at',
+    ];
+    protected $orderable = [
+        'id' , 'name', 'email', 'subject', 'message',
+        'created_at',
+    ];
 }

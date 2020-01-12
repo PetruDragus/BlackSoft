@@ -15,12 +15,12 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $model = Invoice::with('customer')->searchPaginateAndOrder();
+        $model = Invoice::with('customer', 'booking')->advancedFilter();
         $columns = Invoice::$columns;
 
         return response()
             ->json([
-                'model' => $model,
+                'collection' => $model,
                 'columns' => $columns
             ]);
     }
